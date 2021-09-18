@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class RequestCommunityController: UIViewController {
 
     @IBOutlet var Name: UITextField!
     @IBOutlet var Info: UITextField!
