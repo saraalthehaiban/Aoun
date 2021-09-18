@@ -352,10 +352,35 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hcp-CC-yaL">
-                                <rect key="frame" x="20" y="220" width="300" height="50"/>
+                                <rect key="frame" x="135" y="220" width="146" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="22" translatesAutoresizingMaskIntoConstraints="NO" id="59y-0d-Fdn">
+                                <rect key="frame" x="22" y="258" width="372" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resourc Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vT-uU-ISS">
+                                <rect key="frame" x="53" y="320" width="147" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auther Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkb-o3-1Nt">
+                                <rect key="frame" x="53" y="351" width="133" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Publisher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnA-Cr-MSw">
+                                <rect key="frame" x="53" y="382" width="178" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -363,10 +388,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="authL" destination="gkb-o3-1Nt" id="fNL-UK-fgc"/>
                         <outlet property="background" destination="ceY-vS-SWL" id="yfJ-Mi-2Az"/>
                         <outlet property="icon" destination="kDw-8t-WC1" id="C1V-9r-Lr3"/>
                         <outlet property="logo" destination="rTs-s4-qTV" id="U8P-2U-a9h"/>
+                        <outlet property="pubL" destination="59y-0d-Fdn" id="aih-vf-nog"/>
+                        <outlet property="resL" destination="0vT-uU-ISS" id="Doa-cf-mLD"/>
                         <outlet property="resourceL" destination="Hcp-CC-yaL" id="NhC-1W-Y6E"/>
+                        <outlet property="smallBackground" destination="59y-0d-Fdn" id="ioH-nU-HKx"/>
                         <outlet property="topPic" destination="ypL-3I-hNb" id="z2N-Ap-xcB"/>
                         <outlet property="welcome" destination="tvH-0s-GBf" id="Fuq-5k-7r9"/>
                         <outlet property="welcome2" destination="ibN-V7-PHb" id="2gV-Rs-Evd"/>
@@ -374,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTI-68-nxD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="76"/>
+            <point key="canvasLocation" x="1760.8695652173915" y="75.669642857142847"/>
         </scene>
     </scenes>
     <resources>

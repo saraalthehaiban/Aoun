@@ -12,6 +12,17 @@ class resViewViewController: UIViewController {
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     
+    
+    
+    
+    @IBOutlet weak var smallBackground: UIImageView!
+    @IBOutlet weak var resL: UILabel!
+    @IBOutlet weak var authL: UILabel!
+    @IBOutlet weak var pubL: UIImageView!
+    
+    
+    
+    
     @IBOutlet weak var welcome: UILabel!
     @IBOutlet weak var welcome2: UILabel!
     
