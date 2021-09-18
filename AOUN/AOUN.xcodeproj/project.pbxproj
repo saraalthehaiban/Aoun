@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,8 +16,10 @@
 		0F40BDFC26F54F4900FB83AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F40BDFA26F54F4900FB83AC /* LaunchScreen.storyboard */; };
 		0F40BE0726F54F4A00FB83AC /* AOUNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BE0626F54F4A00FB83AC /* AOUNTests.swift */; };
 		0F40BE1226F54F4A00FB83AC /* AOUNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BE1126F54F4A00FB83AC /* AOUNUITests.swift */; };
-		0F40BE2026F5500B00FB83AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F40BE1F26F5500B00FB83AC /* GoogleService-Info.plist */; };
 		0F4D5A331EE4BADC3D0DB9AC /* Pods_AOUN_AOUNUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */; };
+		2710757726F62FC9001B873C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2710757626F62FC9001B873C /* GoogleService-Info.plist */; };
+		27609D3526F6693800254EA7 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27609D3426F6693800254EA7 /* resPostViewController.swift */; };
+		2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792FB2B26F66EAA00366961 /* resViewViewController.swift */; };
 		BDAE1FA4C72AA66F800CB7F4 /* Pods_AOUNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CBF0F61F194219BBC93029 /* Pods_AOUNTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,8 +56,10 @@
 		0F40BE0D26F54F4A00FB83AC /* AOUNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOUNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F40BE1126F54F4A00FB83AC /* AOUNUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOUNUITests.swift; sourceTree = "<group>"; };
 		0F40BE1326F54F4A00FB83AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F40BE1F26F5500B00FB83AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
+		2710757626F62FC9001B873C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		27609D3426F6693800254EA7 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
+		2792FB2B26F66EAA00366961 /* resViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resViewViewController.swift; sourceTree = "<group>"; };
 		39A7D70903C5ABE413790ADA /* Pods-AOUNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.debug.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDA64D179885230CF863960 /* Pods-AOUN-AOUNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.release.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,10 +136,12 @@
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF326F54F4900FB83AC /* ViewController.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
+				2792FB2B26F66EAA00366961 /* resViewViewController.swift */,
 				0F40BDF826F54F4900FB83AC /* Assets.xcassets */,
 				0F40BDFA26F54F4900FB83AC /* LaunchScreen.storyboard */,
 				0F40BDFD26F54F4900FB83AC /* Info.plist */,
-				0F40BE1F26F5500B00FB83AC /* GoogleService-Info.plist */,
+				2710757626F62FC9001B873C /* GoogleService-Info.plist */,
+				27609D3426F6693800254EA7 /* resPostViewController.swift */,
 			);
 			path = AOUN;
 			sourceTree = "<group>";
@@ -168,7 +174,6 @@
 				39A7D70903C5ABE413790ADA /* Pods-AOUNTests.debug.xcconfig */,
 				99FD85E0BC2565867CC16ADB /* Pods-AOUNTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -282,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F40BDFC26F54F4900FB83AC /* LaunchScreen.storyboard in Resources */,
-				0F40BE2026F5500B00FB83AC /* GoogleService-Info.plist in Resources */,
+				2710757726F62FC9001B873C /* GoogleService-Info.plist in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
 				0F40BDF726F54F4900FB83AC /* Main.storyboard in Resources */,
 			);
@@ -430,7 +435,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F40BDF426F54F4900FB83AC /* ViewController.swift in Sources */,
+				27609D3526F6693800254EA7 /* resPostViewController.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
+				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
 				0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
