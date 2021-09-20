@@ -8,19 +8,17 @@
 import UIKit
 
 class resViewViewController: UIViewController {
-    @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     
     
     
-    
+    // dataBase
     @IBOutlet weak var smallBackground: UIImageView!
     @IBOutlet weak var resL: UILabel!
     @IBOutlet weak var authL: UILabel!
     @IBOutlet weak var pubL: UIImageView!
-    
-    
+    // dataBase
     
     
     @IBOutlet weak var welcome: UILabel!

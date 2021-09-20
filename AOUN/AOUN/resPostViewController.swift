@@ -8,7 +8,6 @@
 import UIKit
 
 class resPostViewController: UIViewController {
-    @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var smallBackground: UIImageView!
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var icon: UIImageView!
