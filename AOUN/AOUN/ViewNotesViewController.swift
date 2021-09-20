@@ -17,7 +17,6 @@ class ViewNotesViewController: UIViewController {
     @IBOutlet weak var formBG: UIImageView!
     @IBOutlet weak var noteNameLable: UILabel!
     @IBOutlet weak var aoutherLable: UILabel!
-    @IBOutlet weak var publisherLable: UILabel!
     @IBOutlet weak var priceLable: UILabel!
     
     @IBOutlet weak var ViewNotsPageTitle: UILabel!
