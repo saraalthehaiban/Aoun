@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Firebase
+import UniformTypeIdentifiers
 
-class resPostViewController: UIViewController {
+class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     @IBOutlet weak var smallBackground: UIImageView!
+
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var rIcon: UIImageView!
@@ -25,14 +28,49 @@ class resPostViewController: UIViewController {
     @IBOutlet weak var autherV: UITextField!
     @IBOutlet weak var publisherV: UITextField!
     
-    @IBOutlet weak var picker: UIPickerView!
-    let data = ["PDF","Link"]
+    
+    @IBOutlet weak var linkL: UILabel!
+    @IBOutlet weak var linkV: UITextField!
+
+    
+    @IBAction func attach(_ sender: Any) {
+        let attachSheet = UIAlertController(title: nil, message: "File attaching", preferredStyle: .actionSheet)
+                      
+                      
+                      attachSheet.addAction(UIAlertAction(title: "File", style: .default,handler: { (action) in
+                          let supportedTypes: [UTType] = [UTType.pdf,UTType.zip, UTType.word]
+                          let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
+                          documentPicker.delegate = self
+                          documentPicker.allowsMultipleSelection = false
+                          documentPicker.shouldShowFileExtensions = true
+                          self.present(documentPicker, animated: true, completion: nil)
+                      }))
+                      
+                      
+                      attachSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                      
+                      self.present(attachSheet, animated: true, completion: nil)
+    } //end func attach
+    
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+             var selectedFileData = [String:String]()
+             let file = urls[0]
+             do{
+                 let fileData = try Data.init(contentsOf: file.absoluteURL)
+                
+                 selectedFileData["filename"] = file.lastPathComponent
+                 selectedFileData["data"] = fileData.base64EncodedString(options: .lineLength64Characters)
+                 
+             }catch{
+                 print("contents could not be loaded")
+             }
+         } //end func documentPicker
+    
     
     @IBAction func submit(_ sender: UIButton) {
-        
-        
-        
-    }
+            
+    } //end func submit
     
     
     
@@ -42,10 +80,8 @@ class resPostViewController: UIViewController {
 
         welcome2.text = "Sara!"
        
-        picker.dataSource = self
-        picker.delegate = self
         // Do any additional setup after loading the view.
-    }
+    } //end func viewDidLoad
     /*
     // MARK: - Navigation
 
@@ -55,24 +91,13 @@ class resPostViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
+} //end func resPostViewController
 
 
-
-extension resPostViewController: UIPickerViewDataSource{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+extension UTType {
+    //Word documents are not an existing property on UTType
+    static var word: UTType {
+        UTType.types(tag: "docx", tagClass: .filenameExtension, conformingTo: nil).first!
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 2
-    }
 }
-
-
-extension resPostViewController: UIPickerViewDelegate{
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return data[row]
-    }
-}
-
