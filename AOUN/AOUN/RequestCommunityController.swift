@@ -14,7 +14,7 @@ class RequestCommunityController: UIViewController {
     @IBOutlet var Info: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
     @IBAction func submit(_ sender: Any) {
