@@ -1,0 +1,6 @@
+framework module Pods_AOUN_AOUNUITests {
+  umbrella header "Pods-AOUN-AOUNUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
