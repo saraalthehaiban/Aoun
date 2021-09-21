@@ -7,6 +7,8 @@
 
 import Foundation
 struct Request {
+    
     let title : String
     let description : String
+    
 }

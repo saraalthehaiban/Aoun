@@ -34,7 +34,7 @@
                                             <fragment content="Label">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="17" name="Arial-BoldMT"/>
+                                                    <font key="NSFont" size="25" name="Arial-BoldMT"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
