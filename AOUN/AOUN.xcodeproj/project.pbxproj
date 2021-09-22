@@ -18,6 +18,7 @@
 		0F40BE1226F54F4A00FB83AC /* AOUNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BE1126F54F4A00FB83AC /* AOUNUITests.swift */; };
 		0F4D5A331EE4BADC3D0DB9AC /* Pods_AOUN_AOUNUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */; };
 		2710757726F62FC9001B873C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2710757626F62FC9001B873C /* GoogleService-Info.plist */; };
+		2727E58426FB342E00B553E2 /* reema.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2727E58326FB342E00B553E2 /* reema.storyboard */; };
 		27609D3526F6693800254EA7 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27609D3426F6693800254EA7 /* resPostViewController.swift */; };
 		2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792FB2B26F66EAA00366961 /* resViewViewController.swift */; };
 		BDAE1FA4C72AA66F800CB7F4 /* Pods_AOUNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CBF0F61F194219BBC93029 /* Pods_AOUNTests.framework */; };
@@ -58,6 +59,7 @@
 		0F40BE1326F54F4A00FB83AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
 		2710757626F62FC9001B873C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2727E58326FB342E00B553E2 /* reema.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = reema.storyboard; sourceTree = "<group>"; };
 		27609D3426F6693800254EA7 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
 		2792FB2B26F66EAA00366961 /* resViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resViewViewController.swift; sourceTree = "<group>"; };
 		39A7D70903C5ABE413790ADA /* Pods-AOUNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.debug.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				0F40BDFD26F54F4900FB83AC /* Info.plist */,
 				2710757626F62FC9001B873C /* GoogleService-Info.plist */,
 				27609D3426F6693800254EA7 /* resPostViewController.swift */,
+				2727E58326FB342E00B553E2 /* reema.storyboard */,
 			);
 			path = AOUN;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				2710757726F62FC9001B873C /* GoogleService-Info.plist in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
 				0F40BDF726F54F4900FB83AC /* Main.storyboard in Resources */,
+				2727E58426FB342E00B553E2 /* reema.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
