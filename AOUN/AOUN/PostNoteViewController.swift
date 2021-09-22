@@ -70,6 +70,14 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate {
     
     @IBAction func submitButton(_ sender: Any) {
         
+        let db = Firestore.firestore()
+            let noteTitle = noteTitleTextbox.text
+            let autherName = autherTextbox.text
+            let description = descriptionTextbox.text
+            let price = priceTextbox.text
+                        
+
+        db.collection("Notes").document().setData(["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price])
         
     }
     

@@ -142,8 +142,8 @@
                     <navigationItem key="navigationItem" id="JBU-C6-KrC"/>
                     <connections>
                         <outlet property="BG" destination="nn3-tG-3bS" id="6ra-Md-5bF"/>
-                        <outlet property="aoutherLable" destination="E4l-zJ-F8d" id="hHa-DF-Jim"/>
-                        <outlet property="aoutherTextbox" destination="Dly-Ad-6Ks" id="Wna-Je-d67"/>
+                        <outlet property="autherLable" destination="E4l-zJ-F8d" id="VA8-Vq-A7T"/>
+                        <outlet property="autherTextbox" destination="Dly-Ad-6Ks" id="lhq-G9-f5J"/>
                         <outlet property="descriptionLable" destination="2xq-s4-Eu9" id="DnI-rA-mHo"/>
                         <outlet property="descriptionTextbox" destination="tdv-Gf-PUv" id="GSD-Jj-VD7"/>
                         <outlet property="formBG" destination="4dV-T9-5i8" id="Gbs-IB-h55"/>
@@ -449,7 +449,7 @@
         <image name="card" width="113" height="116.5"/>
         <image name="card-1" width="44.5" height="16.5"/>
         <image name="notes (1)" width="512" height="512"/>
-        <image name="surface1" width="113.5" height="120.5"/>
+        <image name="surface1" width="76" height="80.5"/>
         <image name="top" width="94" height="46"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
