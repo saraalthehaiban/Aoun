@@ -10,6 +10,9 @@ import UIKit
 class RequestCell: UITableViewCell {
     @IBOutlet var RequestBubble: UIView!
     @IBOutlet var name: UILabel!
+
+    @IBAction func reqDetails(_ sender: UIButton) {
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

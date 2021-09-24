@@ -8,17 +8,13 @@ class AdminDashboard: UIViewController {
     //UI Filed
     let db = Firestore.firestore()
     //dummy data
-    var requests : [Request] = [
-        Request(title: "SWE Level 4", description: "A group for SWE Level 4"),
-        Request(title: "SWE Level 5", description: "A group for SWE Level 5"),
-        Request(title: "SWE Level 6", description: "A group for SWE Level 6")
-    ]
+    var requests : [Request] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         //tableView.delegate = self <-step 1
         tableView.dataSource = self
         tableView.register(UINib(nibName:"RequestCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-
+        loadCommunities ()
         // Do any additional setup after loading the view.
     }
     
@@ -35,9 +31,27 @@ extension AdminDashboard: UITableViewDataSource{
         return cell
         
     }
+    func loadCommunities (){
+        requests = []
+        db.collection("Request").getDocuments { querySnapshot, error in
+            if let e = error {
+                print("There was an issue retreving data from fireStore. \(e)")
+            }else { if let snapshotDocuments = querySnapshot?.documents{
+                for doc in snapshotDocuments{
+                    let data = doc.data()
+                    if let name = data["Title"] as? String , let des = data["Description"] as? String {
+                    let newReq = Request(title: name, description: des)
+                    self.requests.append(newReq)
+
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                        
+                }}        }
+    }
     
     
-}
+        }}}
 
 //extension AdminDashboard: UITableViewDelegate {<-step 2
  //   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
