@@ -421,6 +421,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Communities" width="174" height="160"/>
         <image name="Rectangle 6" width="216" height="58"/>
         <image name="Res" width="174" height="160"/>
         <image name="Untitled design (11)" width="33.5" height="33.5"/>
@@ -430,7 +431,7 @@
         <image name="card" width="113" height="116.5"/>
         <image name="card-1" width="44.5" height="16.5"/>
         <image name="notes" width="174" height="160"/>
-        <image name="surface1" width="76" height="80.5"/>
+        <image name="surface1" width="113.5" height="120.5"/>
         <image name="top" width="125" height="61"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
