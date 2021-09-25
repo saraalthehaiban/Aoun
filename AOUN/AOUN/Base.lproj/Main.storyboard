@@ -920,6 +920,244 @@
             </objects>
             <point key="canvasLocation" x="1552" y="76"/>
         </scene>
+        <!--Res Post View Controller-->
+        <scene sceneID="DTl-QZ-i0f">
+            <objects>
+                <viewController storyboardIdentifier="resPost_VC" id="L9m-pe-oaC" customClass="resPostViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UqG-Ex-pCM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="fuz-XV-Dq7">
+                                <rect key="frame" x="0.0" y="-10" width="415" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Untitled design (8)" translatesAutoresizingMaskIntoConstraints="NO" id="Wf3-s8-jOi">
+                                <rect key="frame" x="-20" y="10" width="220" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="GdD-Vw-eSi">
+                                <rect key="frame" x="16" y="330" width="382" height="386"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R8s-yk-ahN">
+                                <rect key="frame" x="57" y="386" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pLh-W0-sGd">
+                                <rect key="frame" x="57" y="462" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="surface1" translatesAutoresizingMaskIntoConstraints="NO" id="jjW-Nc-gSM">
+                                <rect key="frame" x="-95" y="700" width="270" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resource name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-yv-uCw">
+                                <rect key="frame" x="29" y="355" width="156" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auther name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEc-xB-1H0">
+                                <rect key="frame" x="29" y="431" width="129" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Publisher name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4Z-2g-GsX">
+                                <rect key="frame" x="29" y="512" width="156" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post a resource" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0L-8a-alN">
+                                <rect key="frame" x="109" y="293" width="196" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome back, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vZ-tp-gIY">
+                                <rect key="frame" x="140" y="80" width="225" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[]!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0q-Un-rCz">
+                                <rect key="frame" x="140" y="110" width="225" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KFq-gg-bFz">
+                                <rect key="frame" x="57" y="537" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sL7-Zm-Z29">
+                                <rect key="frame" x="215" y="659" width="102" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <state key="normal" title="Submit" backgroundImage="22">
+                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="L9m-pe-oaC" eventType="touchUpInside" id="RZf-am-L6j"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="book-open" translatesAutoresizingMaskIntoConstraints="NO" id="6jA-DQ-wm0">
+                                <rect key="frame" x="169" y="208" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEV-YA-DvY">
+                                <rect key="frame" x="83" y="659" width="102" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <state key="normal" title="Attach" backgroundImage="22">
+                                    <color key="titleColor" systemColor="systemGray6Color"/>
+                                </state>
+                                <connections>
+                                    <action selector="attach:" destination="L9m-pe-oaC" eventType="touchUpInside" id="1bS-yi-sZe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3M5-bV-1Jm">
+                                <rect key="frame" x="29" y="579" width="48" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jyN-kM-T4F">
+                                <rect key="frame" x="57" y="604" width="300" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mpE-Lj-U9A"/>
+                        <color key="backgroundColor" red="0.78039217000000005" green="0.88627451660000001" blue="0.94509804249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <connections>
+                        <outlet property="autherL" destination="sEc-xB-1H0" id="eQl-cx-Rjm"/>
+                        <outlet property="autherV" destination="pLh-W0-sGd" id="fNn-Jx-YAj"/>
+                        <outlet property="icon" destination="Wf3-s8-jOi" id="Atp-4T-ss8"/>
+                        <outlet property="linkL" destination="3M5-bV-1Jm" id="ga8-8S-RyI"/>
+                        <outlet property="linkV" destination="jyN-kM-T4F" id="2Jv-GY-1Mh"/>
+                        <outlet property="logo" destination="jjW-Nc-gSM" id="Nwh-DX-YJh"/>
+                        <outlet property="postL" destination="l0L-8a-alN" id="ZX0-kn-bTv"/>
+                        <outlet property="publisherL" destination="V4Z-2g-GsX" id="uxs-2t-J4q"/>
+                        <outlet property="publisherV" destination="KFq-gg-bFz" id="E3r-Zs-b6S"/>
+                        <outlet property="rIcon" destination="6jA-DQ-wm0" id="U7A-fa-4Gb"/>
+                        <outlet property="resourceL" destination="Hfh-yv-uCw" id="pm6-hv-kXd"/>
+                        <outlet property="resourceV" destination="R8s-yk-ahN" id="jRP-V1-Lxv"/>
+                        <outlet property="smallBackground" destination="GdD-Vw-eSi" id="GXQ-eI-U6N"/>
+                        <outlet property="topPic" destination="fuz-XV-Dq7" id="lbN-o4-kg0"/>
+                        <outlet property="welcome" destination="6vZ-tp-gIY" id="YTg-sT-ocb"/>
+                        <outlet property="welcome2" destination="Q0q-Un-rCz" id="X5z-gw-vPu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gss-MI-m8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2284" y="-421"/>
+        </scene>
+        <!--Res View View Controller-->
+        <scene sceneID="Hfp-ww-4gH">
+            <objects>
+                <viewController storyboardIdentifier="resView_VC" id="Y5S-2Q-KcQ" customClass="resViewViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a31-LU-rSQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="I4N-r6-Ksc">
+                                <rect key="frame" x="0.0" y="-10" width="415" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Untitled design (8)" translatesAutoresizingMaskIntoConstraints="NO" id="YXe-g1-PLL">
+                                <rect key="frame" x="-20" y="10" width="220" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yzj-xN-b8z">
+                                <rect key="frame" x="140" y="80" width="225" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[]!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nX-uY-QnT">
+                                <rect key="frame" x="140" y="110" width="225" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="surface1" translatesAutoresizingMaskIntoConstraints="NO" id="G2F-iD-GbS">
+                                <rect key="frame" x="-95" y="700" width="270" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b38-Pe-msQ">
+                                <rect key="frame" x="135" y="220" width="146" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="22" translatesAutoresizingMaskIntoConstraints="NO" id="S09-pb-jmc">
+                                <rect key="frame" x="22" y="258" width="372" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resourc Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAy-6l-GtC">
+                                <rect key="frame" x="53" y="320" width="147" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auther Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxf-rc-NGb">
+                                <rect key="frame" x="53" y="351" width="133" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Publisher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyo-dY-m5E">
+                                <rect key="frame" x="53" y="382" width="178" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4jY-Gt-bhV"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.88235294819999999" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <connections>
+                        <outlet property="authL" destination="Hxf-rc-NGb" id="HHf-jw-mdn"/>
+                        <outlet property="icon" destination="YXe-g1-PLL" id="Ngg-J7-mQD"/>
+                        <outlet property="logo" destination="G2F-iD-GbS" id="baZ-xd-63D"/>
+                        <outlet property="pubL" destination="S09-pb-jmc" id="75C-L0-gIS"/>
+                        <outlet property="resL" destination="dAy-6l-GtC" id="hvb-FS-UP5"/>
+                        <outlet property="resourceL" destination="b38-Pe-msQ" id="Rp7-Xc-Na5"/>
+                        <outlet property="smallBackground" destination="S09-pb-jmc" id="Drx-C6-zYO"/>
+                        <outlet property="topPic" destination="I4N-r6-Ksc" id="eOP-rW-TLi"/>
+                        <outlet property="welcome" destination="yzj-xN-b8z" id="Myr-Fw-1xm"/>
+                        <outlet property="welcome2" destination="2nX-uY-QnT" id="TdS-M1-yej"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7sv-S0-kbL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928" y="255"/>
+
+        </scene>
     </scenes>
     <resources>
         <image name="11" width="169" height="174.5"/>
@@ -928,6 +1166,24 @@
         <image name="Log-in" width="187.5" height="406"/>
         <image name="Rectangle 6" width="216" height="58"/>
         <image name="Res" width="174" height="160"/>
+        <image name="Untitled design (11)" width="33.5" height="33.5"/>
+        <image name="Untitled design (8)" width="51" height="51"/>
+        <image name="Workshops" width="190" height="195"/>
+        <image name="bg" width="187.5" height="91.5"/>
+        <image name="book-open" width="33.5" height="31"/>
+        <image name="card" width="113" height="116.5"/>
+        <image name="card-1" width="112" height="42.5"/>
+        <image name="notes" width="174" height="160"/>
+        <image name="notes (1)" width="512" height="512"/>
+        <image name="surface1" width="76" height="80.5"/>
+        <image name="top" width="125" height="61"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+
         <image name="Untitled design (11)" width="50" height="50"/>
         <image name="Untitled design (8)" width="76.5" height="76.5"/>
         <image name="Workshops" width="190" height="195"/>
