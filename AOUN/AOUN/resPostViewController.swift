@@ -69,7 +69,15 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     
     
     @IBAction func submit(_ sender: UIButton) {
-            
+        let db = Firestore.firestore()
+                        let  res = resourceV.text
+                        let auther = autherV.text
+                        let pub = publisherV.text
+                        let link = linkV.text
+              
+
+              db.collection("Resources").document().setData(["ResName": res, "autherName":auther, "pubName":pub, "link":link, ])
+              
     } //end func submit
     
     
