@@ -163,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXd-yk-Uvn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="-5"/>
+            <point key="canvasLocation" x="423" y="100"/>
         </scene>
         <!--View Notes View Controller-->
         <scene sceneID="T46-Fk-J0L">
@@ -264,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7f-mK-eEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2168" y="361"/>
+            <point key="canvasLocation" x="1151" y="100"/>
         </scene>
         <!--Request Community Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -481,22 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59c-ap-esG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209" y="731"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="gAk-3G-LcX">
-            <objects>
-                <viewController id="07c-Qr-huO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HYx-kc-Acf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ffu-Oa-xdt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9HL-vk-j5B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="900" y="818"/>
+            <point key="canvasLocation" x="-1003" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NyG-Zz-nDA">
@@ -722,13 +707,13 @@
         <image name="22" width="66.5" height="24.5"/>
         <image name="Log-in" width="187.5" height="406"/>
         <image name="Rectangle 6" width="216" height="58"/>
-        <image name="Untitled design (11)" width="50" height="50"/>
-        <image name="Untitled design (8)" width="51" height="51"/>
+        <image name="Untitled design (11)" width="33.5" height="33.5"/>
+        <image name="Untitled design (8)" width="76.5" height="76.5"/>
         <image name="bg" width="187.5" height="91.5"/>
         <image name="card" width="113" height="116.5"/>
-        <image name="card-1" width="44.5" height="16.5"/>
+        <image name="card-1" width="112" height="42.5"/>
         <image name="notes (1)" width="512" height="512"/>
-        <image name="surface1" width="113.5" height="120.5"/>
+        <image name="surface1" width="76" height="80.5"/>
         <image name="top" width="94" height="46"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
