@@ -9,12 +9,24 @@ import UIKit
 
 class LandingViewController: UIViewController {
 
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUpElements()
     }
     
+    func setUpElement()
+    {
+        Utilities.styleFilledButton(signUpButton)
+        Utilities.styleHollowButton(loginButton)
+
+    }
 
     /*
     // MARK: - Navigation

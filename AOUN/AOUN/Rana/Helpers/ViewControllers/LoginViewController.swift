@@ -9,6 +9,16 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    
+    @IBOutlet weak var loginTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var loginbutton: UIButton!
+    
+    
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,4 +36,8 @@ class LoginViewController: UIViewController {
     }
     */
 
+    @IBAction func logintapped(_ sender: Any) {
+    
+    }
+    
 }
