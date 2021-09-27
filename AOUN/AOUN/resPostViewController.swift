@@ -33,12 +33,15 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     @IBOutlet weak var linkV: UITextField!
 
     
+    @IBOutlet weak var error: UILabel!
+    
+    
     @IBAction func attach(_ sender: Any) {
         let attachSheet = UIAlertController(title: nil, message: "File attaching", preferredStyle: .actionSheet)
                       
                       
                       attachSheet.addAction(UIAlertAction(title: "File", style: .default,handler: { (action) in
-                          let supportedTypes: [UTType] = [UTType.pdf,UTType.zip, UTType.word]
+                          let supportedTypes: [UTType] = [UTType.pdf,UTType.zip/*, UTType.word*/]
                           let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
                           documentPicker.delegate = self
                           documentPicker.allowsMultipleSelection = false
@@ -69,14 +72,22 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     
     
     @IBAction func submit(_ sender: UIButton) {
-        let db = Firestore.firestore()
-                        let  res = resourceV.text
-                        let auther = autherV.text
-                        let pub = publisherV.text
-                        let link = linkV.text
-              
+        if resourceV.text != "" && autherV.text != "" && publisherV.text != "" && (linkV.text != "") /* || file != "" */  {
+            let db = Firestore.firestore()
+                            let  res = resourceV.text
+                            let auther = autherV.text
+                            let pub = publisherV.text
+                            let link = linkV.text
+                  
 
-              db.collection("Resources").document().setData(["ResName": res, "autherName":auther, "pubName":pub, "link":link, ])
+                  db.collection("Resources").document().setData(["ResName": res, "autherName":auther, "pubName":pub, "link":link, ])
+            
+        }
+         else {
+            error.text = "Missing field!!"
+         }
+            
+      
               
     } //end func submit
     
@@ -101,11 +112,12 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     */
 } //end func resPostViewController
 
-
+/*
 extension UTType {
-    //Word documents are not an existing property on UTType
+   // Word documents are not an existing property on UTType
     static var word: UTType {
         UTType.types(tag: "docx", tagClass: .filenameExtension, conformingTo: nil).first!
     }
     
 }
+*/
