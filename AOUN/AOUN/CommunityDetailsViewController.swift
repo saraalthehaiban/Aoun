@@ -1,21 +1,24 @@
 //
-//  AdminHomeViewController.swift
+//  CommunityDetailsViewController.swift
 //  AOUN
 //
-//  Created by shatha on 11/02/1443 AH.
+//  Created by Sara AlThehaiban on 27/09/2021.
 //
 
 import UIKit
 
-class AdminHomeViewController: UIViewController {
+class CommunityDetailsViewController: UIViewController {
   
-    @IBOutlet weak var blueBG: UIImageView!
-    
-    @IBOutlet weak var logo: UIImageView!
-    @IBOutlet weak var welcome: UILabel!
-    @IBOutlet weak var adminName: UILabel!
-    @IBOutlet weak var adminPfp: UIImageView!
+
+
+    var TitleName = ""
+    @IBOutlet var name: UILabel!
+    @IBOutlet var info: UILabel!
+    var desc = ""
     override func viewDidLoad() {
+        name.text = TitleName
+        info.text = desc
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

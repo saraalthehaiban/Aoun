@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		07FD4A8F6D89C11B03457F10 /* Pods_AOUN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087B2D4474784FC49F1E48AC /* Pods_AOUN.framework */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
-		0BD1DAAB26F666610088C25A /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAA26F666610088C25A /* AdminHomeViewController.swift */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
 		0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */; };
 		0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */; };
@@ -23,6 +22,7 @@
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
 		0FC646332700664A00BA6BF2 /* RequestCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC646322700664A00BA6BF2 /* RequestCommunityController.swift */; };
+		0FC64635270222AB00BA6BF2 /* CommunityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC64634270222AB00BA6BF2 /* CommunityDetailsViewController.swift */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3326F69173009E3394 /* LandingViewController.swift */; };
@@ -52,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		087B2D4474784FC49F1E48AC /* Pods_AOUN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0BD1DAAA26F666610088C25A /* AdminHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		0F40BDEC26F54F4900FB83AC /* AOUN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AOUN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/RequestCell.xib; sourceTree = SOURCE_ROOT; };
 		0FC646322700664A00BA6BF2 /* RequestCommunityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCommunityController.swift; sourceTree = "<group>"; };
+		0FC64634270222AB00BA6BF2 /* CommunityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailsViewController.swift; sourceTree = "<group>"; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
 		39A7D70903C5ABE413790ADA /* Pods-AOUNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.debug.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,7 +156,6 @@
 				0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */,
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
-				0BD1DAAA26F666610088C25A /* AdminHomeViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				DA3D9B1B26F69E1900C844BB /* PostNoteViewController.swift */,
 				DA3D9B1D26F6A19E00C844BB /* ViewNotesViewController.swift */,
@@ -169,6 +168,7 @@
 				0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */,
 				0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */,
 				0FC646322700664A00BA6BF2 /* RequestCommunityController.swift */,
+				0FC64634270222AB00BA6BF2 /* CommunityDetailsViewController.swift */,
 			);
 			path = AOUN;
 			sourceTree = "<group>";
@@ -473,10 +473,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BD1DAAB26F666610088C25A /* AdminHomeViewController.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
 				DA3D9B1E26F6A19E00C844BB /* ViewNotesViewController.swift in Sources */,
+				0FC64635270222AB00BA6BF2 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,

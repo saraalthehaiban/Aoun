@@ -1,17 +1,17 @@
 import UIKit
 import Firebase
 
+
 class AdminDashboard: UIViewController {
 
 
     @IBOutlet var tableView: UITableView!
-    //UI Filed
     let db = Firestore.firestore()
-    //dummy data
     var requests : [Request] = []
+    fileprivate var selectedRow: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.delegate = self <-step 1
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName:"RequestCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         loadCommunities ()
@@ -53,8 +53,15 @@ extension AdminDashboard: UITableViewDataSource{
     
         }}}
 
-//extension AdminDashboard: UITableViewDelegate {<-step 2
- //   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //WHEN CLICKED AT
-//    }
-//}
+extension AdminDashboard: UITableViewDelegate {
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    selectedRow = indexPath.row
+    print(selectedRow)     //just for testing
+    if let vc = storyboard?.instantiateViewController(identifier: "CommunityDetailsViewController") as? CommunityDetailsViewController{
+        vc.TitleName = requests[indexPath.row].title
+        vc.desc = requests[indexPath.row].description
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+   }
+
+}
