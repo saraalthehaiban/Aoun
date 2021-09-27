@@ -726,79 +726,6 @@
             </objects>
             <point key="canvasLocation" x="-117" y="1608"/>
         </scene>
-        <!--Admin Home View Controller-->
-        <scene sceneID="ry1-hD-Du8">
-            <objects>
-                <viewController storyboardIdentifier="AdminHome" id="0Ri-7F-har" customClass="AdminHomeViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KPe-LM-dx1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="nq7-1C-oMI">
-                                <rect key="frame" x="0.0" y="-26" width="415" height="220"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="surface1" translatesAutoresizingMaskIntoConstraints="NO" id="B3z-a7-bPQ">
-                                <rect key="frame" x="-95" y="700" width="270" height="255"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2o4-Wt-vxG">
-                                <rect key="frame" x="140" y="80" width="225" height="50"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Community Requestes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbO-fg-R6s">
-                                <rect key="frame" x="20" y="220" width="300" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Crj-6F-JAg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiQ-WH-SJ4">
-                                <rect key="frame" x="140" y="110" width="225" height="50"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Untitled design (8)" translatesAutoresizingMaskIntoConstraints="NO" id="ayd-68-4hV">
-                                <rect key="frame" x="-20" y="10" width="220" height="190"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="lba-B9-BVV"/>
-                        <color key="backgroundColor" red="0.80000001190000003" green="0.88235294819999999" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="lba-B9-BVV" firstAttribute="trailing" secondItem="lbO-fg-R6s" secondAttribute="trailing" constant="94" id="0ZT-nL-Hla"/>
-                            <constraint firstItem="ayd-68-4hV" firstAttribute="centerY" secondItem="2o4-Wt-vxG" secondAttribute="centerY" id="Bdq-vp-R2U"/>
-                            <constraint firstItem="KiQ-WH-SJ4" firstAttribute="trailing" secondItem="2o4-Wt-vxG" secondAttribute="trailing" id="ChX-NK-89z"/>
-                            <constraint firstItem="KiQ-WH-SJ4" firstAttribute="leading" secondItem="2o4-Wt-vxG" secondAttribute="leading" id="Ein-Rr-CkF"/>
-                            <constraint firstItem="lba-B9-BVV" firstAttribute="trailing" secondItem="ayd-68-4hV" secondAttribute="trailing" constant="214" id="G7Y-A3-dwB"/>
-                            <constraint firstItem="lbO-fg-R6s" firstAttribute="leading" secondItem="KPe-LM-dx1" secondAttribute="leadingMargin" id="IMN-Ln-4WF"/>
-                            <constraint firstItem="KiQ-WH-SJ4" firstAttribute="top" secondItem="lba-B9-BVV" secondAttribute="top" constant="66" id="RO7-su-Uqo"/>
-                            <constraint firstItem="lbO-fg-R6s" firstAttribute="top" secondItem="ayd-68-4hV" secondAttribute="bottom" constant="20" id="dS3-8g-pUH"/>
-                            <constraint firstItem="lbO-fg-R6s" firstAttribute="top" secondItem="KPe-LM-dx1" secondAttribute="top" constant="220" id="g93-zg-b0k"/>
-                            <constraint firstItem="2o4-Wt-vxG" firstAttribute="leading" secondItem="lba-B9-BVV" secondAttribute="leading" constant="140" id="jbX-pl-xrB"/>
-                            <constraint firstItem="lbO-fg-R6s" firstAttribute="top" secondItem="KiQ-WH-SJ4" secondAttribute="bottom" constant="60" id="kfV-OO-PkR"/>
-                            <constraint firstItem="lba-B9-BVV" firstAttribute="trailing" secondItem="2o4-Wt-vxG" secondAttribute="trailing" constant="49" id="oEC-NZ-qY6"/>
-                            <constraint firstItem="2o4-Wt-vxG" firstAttribute="top" secondItem="lba-B9-BVV" secondAttribute="top" constant="36" id="vDJ-gd-F5q"/>
-                            <constraint firstItem="ayd-68-4hV" firstAttribute="leading" secondItem="KPe-LM-dx1" secondAttribute="leadingMargin" constant="-40" id="xBx-7n-uph"/>
-                            <constraint firstItem="lbO-fg-R6s" firstAttribute="top" secondItem="2o4-Wt-vxG" secondAttribute="bottom" constant="90" id="zcH-bK-IGn"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="adminName" destination="KiQ-WH-SJ4" id="wA2-dz-APN"/>
-                        <outlet property="adminPfp" destination="ayd-68-4hV" id="rCn-oX-tvX"/>
-                        <outlet property="blueBG" destination="nq7-1C-oMI" id="Mcx-JS-U9B"/>
-                        <outlet property="logo" destination="B3z-a7-bPQ" id="lCR-mZ-utL"/>
-                        <outlet property="welcome" destination="2o4-Wt-vxG" id="OBi-aS-JyR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SYD-LR-c7l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1233" y="-421"/>
-        </scene>
         <!--User Home View Controller-->
         <scene sceneID="bBR-vp-bCs">
             <objects>
@@ -928,7 +855,7 @@
         <image name="Log-in" width="187.5" height="406"/>
         <image name="Rectangle 6" width="216" height="58"/>
         <image name="Res" width="174" height="160"/>
-        <image name="Untitled design (11)" width="50" height="50"/>
+        <image name="Untitled design (11)" width="33.5" height="33.5"/>
         <image name="Untitled design (8)" width="76.5" height="76.5"/>
         <image name="Workshops" width="190" height="195"/>
         <image name="bg" width="187.5" height="91.5"/>
@@ -936,7 +863,7 @@
         <image name="card-1" width="44.5" height="16.5"/>
         <image name="notes" width="174" height="160"/>
         <image name="notes (1)" width="512" height="512"/>
-        <image name="surface1" width="113.5" height="120.5"/>
+        <image name="surface1" width="76" height="80.5"/>
         <image name="top" width="94" height="46"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
