@@ -22,14 +22,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-HK-uLr">
                                 <rect key="frame" x="0.0" y="0.0" width="470" height="94"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="NEW Community:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48g-pv-5xh">
-                                        <rect key="frame" x="10" y="10" width="159" height="74"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text=" Community:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48g-pv-5xh">
+                                        <rect key="frame" x="10" y="10" width="112.5" height="74"/>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kt9-jF-WsK">
-                                        <rect key="frame" x="179" y="10" width="42" height="74"/>
+                                        <rect key="frame" x="132.5" y="10" width="42" height="74"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
@@ -40,25 +40,11 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJD-pX-9gF">
-                                        <rect key="frame" x="372" y="10" width="98" height="74"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="98" id="8qj-QQ-zOz"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="arrow.right" catalog="system"/>
-                                        <connections>
-                                            <action selector="reqDetails:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ado-Hf-3d3"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.51764705882352935" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="FJD-pX-9gF" secondAttribute="bottom" constant="10" id="BA1-32-HHi"/>
                                     <constraint firstItem="kt9-jF-WsK" firstAttribute="top" secondItem="2MQ-HK-uLr" secondAttribute="top" constant="10" id="GW3-2G-Dz2"/>
                                     <constraint firstItem="kt9-jF-WsK" firstAttribute="leading" secondItem="48g-pv-5xh" secondAttribute="trailing" constant="10" id="S48-TF-3HN"/>
-                                    <constraint firstAttribute="trailing" secondItem="FJD-pX-9gF" secondAttribute="trailing" constant="10" id="bOW-Lq-Tm3"/>
-                                    <constraint firstItem="FJD-pX-9gF" firstAttribute="top" secondItem="2MQ-HK-uLr" secondAttribute="top" constant="10" id="bXH-Ka-gKg"/>
                                     <constraint firstItem="48g-pv-5xh" firstAttribute="top" secondItem="2MQ-HK-uLr" secondAttribute="top" constant="10" id="nsW-PJ-7WH"/>
                                     <constraint firstAttribute="bottom" secondItem="kt9-jF-WsK" secondAttribute="bottom" constant="10" id="o6i-Uo-Ct1"/>
                                     <constraint firstItem="kt9-jF-WsK" firstAttribute="leading" secondItem="48g-pv-5xh" secondAttribute="trailing" constant="10" id="rGu-T4-b69"/>
@@ -85,7 +71,4 @@
             <point key="canvasLocation" x="150.72463768115944" y="99.107142857142847"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
-    </resources>
 </document>
