@@ -19,7 +19,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SqB-aW-t6P">
                         <rect key="frame" x="10" y="10" width="470" height="94"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-HK-uLr">
+                            <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-HK-uLr">
                                 <rect key="frame" x="0.0" y="0.0" width="470" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text=" Community:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48g-pv-5xh">
@@ -41,7 +41,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.51764705882352935" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.71372549019999998" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="kt9-jF-WsK" firstAttribute="top" secondItem="2MQ-HK-uLr" secondAttribute="top" constant="10" id="GW3-2G-Dz2"/>
                                     <constraint firstItem="kt9-jF-WsK" firstAttribute="leading" secondItem="48g-pv-5xh" secondAttribute="trailing" constant="10" id="S48-TF-3HN"/>
@@ -55,7 +55,8 @@
                         </subviews>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" red="0.75294117647058822" green="0.8901960784313725" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="SqB-aW-t6P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="TTs-S0-zSa"/>
                     <constraint firstAttribute="trailing" secondItem="SqB-aW-t6P" secondAttribute="trailing" constant="10" id="iIA-m9-sM6"/>
@@ -64,6 +65,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="RequestBubble" destination="2MQ-HK-uLr" id="nR9-hG-9LO"/>
                 <outlet property="name" destination="kt9-jF-WsK" id="e84-20-xTg"/>
