@@ -290,6 +290,9 @@
                                 <state key="normal" title="Accept" backgroundImage="card-2">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="accept:" destination="yjC-jF-9k4" eventType="touchUpInside" id="0K6-z3-hXl"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="````````````````" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4l-k3-CCI">
                                 <rect key="frame" x="78" y="473" width="241" height="110"/>
@@ -329,6 +332,9 @@
                                 <state key="normal" title="Reject" backgroundImage="card-3">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="reject:" destination="yjC-jF-9k4" eventType="touchUpInside" id="IfC-xZ-smT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ggZ-GK-5DZ"/>
@@ -341,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UnP-K8-cL3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2400" y="716.51785714285711"/>
+            <point key="canvasLocation" x="-2229" y="670"/>
         </scene>
         <!--Request Community Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1164,7 +1170,7 @@
         <image name="card-3" width="44.5" height="16.5"/>
         <image name="notes" width="174" height="160"/>
         <image name="notes (1)" width="512" height="512"/>
-        <image name="surface1" width="76" height="80.5"/>
+        <image name="surface1" width="113.5" height="120.5"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

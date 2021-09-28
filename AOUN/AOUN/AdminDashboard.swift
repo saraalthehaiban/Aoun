@@ -39,8 +39,9 @@ extension AdminDashboard: UITableViewDataSource{
             }else { if let snapshotDocuments = querySnapshot?.documents{
                 for doc in snapshotDocuments{
                     let data = doc.data()
+                    let id = doc.documentID
                     if let name = data["Title"] as? String , let des = data["Description"] as? String {
-                    let newReq = Request(title: name, description: des)
+                        let newReq = Request(title: name, description: des, doc : id )
                     self.requests.append(newReq)
 
                         DispatchQueue.main.async {
@@ -60,6 +61,7 @@ extension AdminDashboard: UITableViewDelegate {
     if let vc = storyboard?.instantiateViewController(identifier: "CommunityDetailsViewController") as? CommunityDetailsViewController{
         vc.TitleName = requests[indexPath.row].title
         vc.desc = requests[indexPath.row].description
+        vc.doc = requests[indexPath.row].doc
         self.navigationController?.pushViewController(vc, animated: true)
     }
    }
