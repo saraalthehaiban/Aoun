@@ -24,21 +24,18 @@ class resViewViewController: UIViewController, UICollectionViewDelegateFlowLayou
         cell.name.text = resources[indexPath.row].name
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        
-        
-        
         let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController
         
         vc!.resV = resources[indexPath.row].name
         vc!.authV = resources[indexPath.row].auther
         vc!.pubV = resources[indexPath.row].publisher
         vc!.linkV = resources[indexPath.row].link
+        
         //**********FILES***********
         
         self.navigationController?.pushViewController(vc!, animated: true)
-    
     
     }
     
@@ -85,8 +82,8 @@ class resViewViewController: UIViewController, UICollectionViewDelegateFlowLayou
                 for doc in snapshotDocuments{
                    
                     let data = doc.data()
-                    if let rName = data["resName"] as? String, let aName  = data["autherName"] as? String, let pName = data["pubName"] as? String, let linkName = data["link"] as? String  {
-                        let newRes = resFile(name: rName, auther: aName, publisher: pName, link: linkName)
+                    if let rName = data["resName"] as? String, let aName  = data["autherName"] as? String, let pName = data["pubName"] as? String, let linkName = data["link"] as? String/*, let urlName = data["url"] as? String */ {
+                        let newRes = resFile(name: rName, auther: aName, publisher: pName, link: linkName/*, url: urlName*/)
                         self.resources.append(newRes)
 
                         DispatchQueue.main.async {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 import Firebase
 import UniformTypeIdentifiers
 
@@ -35,6 +36,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     
     @IBOutlet weak var error: UILabel!
     
+    var files : [URL]?
     
     @IBAction func attach(_ sender: Any) {
         let attachSheet = UIAlertController(title: nil, message: "File attaching", preferredStyle: .actionSheet)
@@ -57,41 +59,84 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-             var selectedFileData = [String:String]()
-             let file = urls[0]
-             do{
-                 let fileData = try Data.init(contentsOf: file.absoluteURL)
-                
-                 selectedFileData["filename"] = file.lastPathComponent
-                 selectedFileData["data"] = fileData.base64EncodedString(options: .lineLength64Characters)
-                 
-             }catch{
-                 print("contents could not be loaded")
-             }
+             files = urls
          } //end func documentPicker
     
     
     @IBAction func submit(_ sender: UIButton) {
-        if resourceV.text != "" && autherV.text != "" && publisherV.text != "" && (linkV.text != "") /* || file != "" */  {
-            let db = Firestore.firestore()
-                            let  res = resourceV.text
-                            let auther = autherV.text
-                            let pub = publisherV.text
-                            let link = linkV.text
-                  
+        
+        guard let fs = files, fs.count > 0, let localFile = fs.last, resourceV.text != "" && autherV.text != "" && publisherV.text != ""
+                else {
+                    error.text = "Missing field!!"
+                    return
+                }
+        
+        print("Selected File paths", files, localFile)
+                let filename = localFile.lastPathComponent
+                
+                let uid = Auth.auth().currentUser?.uid ?? ""
+                print("uid = ", uid, filename)
+        let storageRef = Storage.storage().reference()
+                // File located on disk
+                // Create a reference to the file you want to upload
+                let resRef = storageRef.child("Resources/\(uid)/\(filename)")
+        // Upload the file to the path "images/rivers.jpg"
+                let uploadTask = resRef.putFile(from: localFile, metadata: nil) { metadata, error in
+                    if let e =  error {
+                        print (e)
+                        self.error.text = "File couldn't be uploaded!!"
+                        return
+                    }
+                    guard let metadata = metadata else {
+                        // Uh-oh, an error occurred!
+                        self.error.text = "File couldn't be uploaded!!"
+                        return
+                    }
+                    // Metadata contains file metadata such as size, content-type.
+                                //let size = metadata.size
+                                // You can also access to download URL after upload.
+                                resRef.downloadURL { (url, error) in
+                                    guard let downloadURL = url else {
+                                        // Uh-oh, an error occurred!
+                                        return
+                                    }
+                                    self.createDocument(with : downloadURL)
+                                }
+                            }
+                            uploadTask.resume()
+        
+        
+//
+//        if resourceV.text != "" && autherV.text != "" && publisherV.text != "" && (linkV.text != "") /* || file != "" */  {
+//            let db = Firestore.firestore()
+//                            let  res = resourceV.text
+//                            let auther = autherV.text
+//                            let pub = publisherV.text
+//                            let link = linkV.text
+//
 
-                  db.collection("Resources").document().setData(["ResName": res, "autherName":auther, "pubName":pub, "link":link, ])
+//                  db.collection("Resources").document().setData(["ResName": res, "autherName":auther, "pubName":pub, "link":link, ])
             
-        }
-         else {
-            error.text = "Missing field!!"
-         }
+//        }
+//         else {
+//            error.text = "Missing field!!"
+//         }
             
       
               
     } //end func submit
     
-    
+    func createDocument(with resURL : URL) {
+            let url = resURL.absoluteString
+            let db = Firestore.firestore()
+            let  res = resourceV.text
+            let auther = autherV.text
+            let pub = publisherV.text
+            let link = linkV.text
+            
+        db.collection("Resources").document().setData(["ResName": res, "autherName":auther, "pubName":pub, "link":link, "url":url])
+
+        }
     
     
     override func viewDidLoad() {
