@@ -38,12 +38,11 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
                       
                       
                       attachSheet.addAction(UIAlertAction(title: "File", style: .default,handler: { (action) in
-                          let supportedTypes: [UTType] = [UTType.pdf,UTType.zip, UTType.word]
-                          let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
-                          documentPicker.delegate = self
-                          documentPicker.allowsMultipleSelection = false
-                          documentPicker.shouldShowFileExtensions = true
-                          self.present(documentPicker, animated: true, completion: nil)
+                        //  let supportedTypes: [UTType] = [UTType.pdf,UTType.zip, UTType.word]
+                         // let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
+                    //      documentPicker.delegate = self
+                     //     documentPicker.shouldShowFileExtensions = true
+                      //    self.present(documentPicker, animated: true, completion: nil)
                       }))
                       
                       
@@ -94,10 +93,10 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
 } //end func resPostViewController
 
 
-extension UTType {
+//extension UTType {
     //Word documents are not an existing property on UTType
-    static var word: UTType {
-        UTType.types(tag: "docx", tagClass: .filenameExtension, conformingTo: nil).first!
-    }
+  //  static var word: UTType {
+  //      UTType.types(tag: "docx", tagClass: .filenameExtension, conformingTo: nil).first!
+//    }
     
-}
+//}
