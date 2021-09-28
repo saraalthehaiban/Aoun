@@ -23,7 +23,6 @@
 		0FC21B8026F8D72A00B83B0E /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0FC21B8226FA420E00B83B0E /* StoryboardShatha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B8126FA420E00B83B0E /* StoryboardShatha.storyboard */; };
 		5213CF6826FFD95B009AFBAA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213CF6726FFD95B009AFBAA /* Utilities.swift */; };
-		52C7560726F6787A00863F54 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52C7560626F6787A00863F54 /* GoogleService-Info.plist */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3326F69173009E3394 /* LandingViewController.swift */; };
@@ -77,7 +76,6 @@
 		4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDA64D179885230CF863960 /* Pods-AOUN-AOUNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.release.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5213CF6726FFD95B009AFBAA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		52C7560626F6787A00863F54 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Library/Containers/com.apple.mail/Data/Library/Mail Downloads/C22723AF-217E-42E3-848E-2AF41DB88CB3/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52D00D2F26F69149009E3394 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		52D00D3126F6915C009E3394 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52D00D3326F69173009E3394 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				0F40BDFA26F54F4900FB83AC /* LaunchScreen.storyboard */,
 				DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */,
 				0F40BDFD26F54F4900FB83AC /* Info.plist */,
-				52C7560626F6787A00863F54 /* GoogleService-Info.plist */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
 				0FC21B7B26F66ED100B83B0E /* Request.swift */,
 				0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */,
@@ -345,7 +342,6 @@
 			files = (
 				0FC21B8226FA420E00B83B0E /* StoryboardShatha.storyboard in Resources */,
 				0F40BDFC26F54F4900FB83AC /* LaunchScreen.storyboard in Resources */,
-				52C7560726F6787A00863F54 /* GoogleService-Info.plist in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
 				0F40BDF726F54F4900FB83AC /* Main.storyboard in Resources */,

@@ -534,6 +534,10 @@
                                     <constraint firstItem="14J-tu-NKl" firstAttribute="height" secondItem="eaH-q7-GRy" secondAttribute="height" multiplier="0.775" id="L7D-nF-45D"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="surface1" translatesAutoresizingMaskIntoConstraints="NO" id="kEZ-xh-XeM">
+                                <rect key="frame" x="0.0" y="230" width="334" height="342"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dt2-y5-EzB"/>
                         <color key="backgroundColor" red="0.80083870889999997" green="0.88241535429999995" blue="0.93137937780000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -551,7 +555,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Li3-RZ-Fbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-513" y="876"/>
+            <point key="canvasLocation" x="-362.31884057971018" y="845.75892857142856"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="1Vk-5S-0q4">
@@ -609,6 +613,10 @@
                                     <constraint firstItem="cUs-zX-Q3N" firstAttribute="height" secondItem="ovS-X7-lNK" secondAttribute="height" id="tS8-DT-aWl"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="surface1" translatesAutoresizingMaskIntoConstraints="NO" id="GDa-NW-6fv">
+                                <rect key="frame" x="-94" y="636" width="270" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aB6-WZ-hwB"/>
                         <color key="backgroundColor" red="0.81847300913480547" green="0.90195032238077111" blue="0.9495940459952722" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -630,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtU-Ql-bxf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="243" y="876"/>
+            <point key="canvasLocation" x="422" y="860"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="ViN-pJ-Yso">
@@ -646,6 +654,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="surface1" translatesAutoresizingMaskIntoConstraints="NO" id="ixl-71-eGw">
+                                <rect key="frame" x="-95" y="679" width="270" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5jh-ik-th9"/>
                         <color key="backgroundColor" red="0.81847300909999998" green="0.90195032239999995" blue="0.94959404599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -704,6 +716,10 @@
                                     <constraint firstItem="P6G-Ix-es8" firstAttribute="height" secondItem="yfN-ML-nzc" secondAttribute="height" id="khO-U8-tOd"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="surface1" translatesAutoresizingMaskIntoConstraints="NO" id="FTj-gF-O9C">
+                                <rect key="frame" x="-96" y="626" width="270" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TEf-Yw-UHC"/>
                         <color key="backgroundColor" red="0.81847300909999998" green="0.90195032239999995" blue="0.94959404599999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -731,11 +747,11 @@
         <image name="22" width="66.5" height="24.5"/>
         <image name="Log-in" width="187.5" height="406"/>
         <image name="Rectangle 6" width="216" height="58"/>
-        <image name="Untitled design (11)" width="33.5" height="33.5"/>
+        <image name="Untitled design (11)" width="50" height="50"/>
         <image name="Untitled design (8)" width="76.5" height="76.5"/>
         <image name="bg" width="187.5" height="91.5"/>
         <image name="card" width="113" height="116.5"/>
-        <image name="card-1" width="112" height="42.5"/>
+        <image name="card-1" width="44.5" height="16.5"/>
         <image name="notes (1)" width="512" height="512"/>
         <image name="surface1" width="76" height="80.5"/>
         <image name="top" width="94" height="46"/>

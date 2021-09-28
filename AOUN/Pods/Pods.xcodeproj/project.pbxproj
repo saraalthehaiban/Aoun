@@ -22521,6 +22521,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C337ECADF1209B0A1DD13717374F03A /* gRPC-C++.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/gRPC-C++";
 				DEVELOPMENT_TEAM = 4C46NBU765;
 				IBSC_MODULE = grpcpp;
@@ -22780,6 +22781,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4EB673204CE1CC2ECEF6334287606744 /* gRPC-C++.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/gRPC-C++";
 				DEVELOPMENT_TEAM = 4C46NBU765;
 				IBSC_MODULE = grpcpp;

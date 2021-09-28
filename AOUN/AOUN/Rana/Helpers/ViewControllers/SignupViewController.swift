@@ -41,7 +41,7 @@ class SignupViewController: UIViewController {
         Utilities.styleTextField(lastNameTextField)
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
-        Utilities.styleTextField(signUpButton)
+       
         
     }
 
