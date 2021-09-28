@@ -10,9 +10,8 @@ import UIKit
 class resourceCellCollectionViewCell: UICollectionViewCell {
    
     
-    @IBAction func imgB(_ sender: UIButton) {
-        
-    }
+   
+    @IBOutlet weak var img: UIImageView!
     
     @IBOutlet weak var name: UILabel!
     
@@ -23,15 +22,6 @@ class resourceCellCollectionViewCell: UICollectionViewCell {
 
     
     
-  /*  override var isSelected: Bool {
-        didSet {
-            if self.isSelected {
-                // animate selection
-            } else {
-                // animate deselection
-            }
-        }
-    } */
 
 
 }

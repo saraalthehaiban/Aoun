@@ -15,16 +15,32 @@ class resViewViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return resourcesName.count
+        return resources.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
-        cell.name.text = resourcesName[indexPath.row]
+        cell.name.text = resources[indexPath.row].name
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController
+        
+        vc!.resV = resources[indexPath.row].name
+        vc!.authV = resources[indexPath.row].auther
+        vc!.pubV = resources[indexPath.row].publisher
+        vc!.linkV = resources[indexPath.row].link
+        //**********FILES***********
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
     
+    
+    }
     
     
 
@@ -35,21 +51,19 @@ class resViewViewController: UIViewController, UICollectionViewDelegateFlowLayou
     
     @IBOutlet weak var icon: UIImageView!
   
-    @IBOutlet weak var resIcon: UIImageView!
+   // @IBOutlet weak var resIcon: UIImageView!
     @IBOutlet weak var resL: UILabel!
     @IBOutlet weak var collection: UICollectionView!
     
-    var resourcesName:[String] = ["swe","math","phy","swe111"]
-    
+    var resources:[resFile] = []
+ 
+
     
     // dataBase
   
     //UI Filed
     let db = Firestore.firestore()
     //dummy data
-   // var resources : [resFile] = []
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,50 +71,30 @@ class resViewViewController: UIViewController, UICollectionViewDelegateFlowLayou
         let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
 
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")
-        //tableView.delegate = self <-step 1
  
-      //  loadResources()
+        loadResources()
+        
         // Do any additional setup after loading the view.
     }
     
-
-}
-/*extension resViewViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resources.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! RequestCell
-        cell.name.text = resources[indexPath.row].name
-        return cell
-        
-    }
     func loadResources(){
-        resources = []
-        db.collection("Request").getDocuments { querySnapshot, error in
+        db.collection("Resources").getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
             }else { if let snapshotDocuments = querySnapshot?.documents{
                 for doc in snapshotDocuments{
+                   
                     let data = doc.data()
-                    if let rName = data["resName"] as? String {
-                    let newRes = resFile(name : rName)
-                    self.resources.append(newRes)
+                    if let rName = data["resName"] as? String, let aName  = data["autherName"] as? String, let pName = data["pubName"] as? String, let linkName = data["link"] as? String  {
+                        let newRes = resFile(name: rName, auther: aName, publisher: pName, link: linkName)
+                        self.resources.append(newRes)
 
                         DispatchQueue.main.async {
-                            self.tableView.reloadData()
+                            self.collection.reloadData()
                         }
                         
                 }}        }
     }
-    
-    
-        }}}
-
-//extension AdminDashboard: UITableViewDelegate {<-step 2
- //   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //WHEN CLICKED AT
-//    }
-//}
-*/
+        }}//end loadResources
+   
+}//end of class

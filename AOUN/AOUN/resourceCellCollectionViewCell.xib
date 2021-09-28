@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,31 +16,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-Aw-wky">
+                    <view contentMode="scaleToFill" ambiguous="YES" id="LgX-Aw-wky">
                         <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-gs-dxG">
-                                <rect key="frame" x="8" y="22" width="125" height="110"/>
-                                <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" backgroundImage="book-open"/>
-                                <connections>
-                                    <action selector="imgB:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LHp-Au-GeB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUg-cl-OxT">
-                                <rect key="frame" x="4" y="152" width="132" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="oUg-cl-OxT">
+                                <rect key="frame" x="0.0" y="133" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="book-open" translatesAutoresizingMaskIntoConstraints="NO" id="KZ0-q3-oHk">
+                                <rect key="frame" x="22" y="26" width="93" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0039215688589999999" green="0.5176470876" blue="0.74117654560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="dhF-gs-dxG" firstAttribute="centerX" secondItem="LgX-Aw-wky" secondAttribute="centerX" id="JHl-2i-MpK"/>
                             <constraint firstItem="oUg-cl-OxT" firstAttribute="centerY" secondItem="LgX-Aw-wky" secondAttribute="centerY" id="Jzg-94-CN2"/>
                             <constraint firstItem="oUg-cl-OxT" firstAttribute="centerX" secondItem="LgX-Aw-wky" secondAttribute="centerX" id="cPV-eV-2TA"/>
-                            <constraint firstItem="dhF-gs-dxG" firstAttribute="centerY" secondItem="LgX-Aw-wky" secondAttribute="centerY" id="zHp-gf-LhT"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -49,6 +43,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="184" height="131"/>
             <connections>
+                <outlet property="img" destination="KZ0-q3-oHk" id="BYU-RC-Fho"/>
                 <outlet property="name" destination="oUg-cl-OxT" id="1WB-7V-gNE"/>
             </connections>
             <point key="canvasLocation" x="221.73913043478262" y="112.5"/>
@@ -56,8 +51,5 @@
     </objects>
     <resources>
         <image name="book-open" width="33.5" height="31"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

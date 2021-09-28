@@ -26,6 +26,8 @@
 		27609D3526F6693800254EA7 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27609D3426F6693800254EA7 /* resPostViewController.swift */; };
 		27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */; };
 		27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */; };
+		27712C6F270346AD00450466 /* resFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C6E270346AD00450466 /* resFile.swift */; };
+		27712C7127034CB200450466 /* detailedResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C7027034CB200450466 /* detailedResViewController.swift */; };
 		2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792FB2B26F66EAA00366961 /* resViewViewController.swift */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
@@ -80,6 +82,8 @@
 		27609D3426F6693800254EA7 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
 		27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resourceCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = resourceCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		27712C6E270346AD00450466 /* resFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resFile.swift; sourceTree = "<group>"; };
+		27712C7027034CB200450466 /* detailedResViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailedResViewController.swift; sourceTree = "<group>"; };
 		2792FB2B26F66EAA00366961 /* resViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resViewViewController.swift; sourceTree = "<group>"; };
 		39A7D70903C5ABE413790ADA /* Pods-AOUNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.debug.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,9 +168,11 @@
 				0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */,
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
+				27712C7027034CB200450466 /* detailedResViewController.swift */,
 				27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */,
 				27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */,
 				2792FB2B26F66EAA00366961 /* resViewViewController.swift */,
+				27712C6E270346AD00450466 /* resFile.swift */,
 				0BD1DAAA26F666610088C25A /* AdminHomeViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				DA3D9B1B26F69E1900C844BB /* PostNoteViewController.swift */,
@@ -493,9 +499,11 @@
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
 				DA3D9B1E26F6A19E00C844BB /* ViewNotesViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
+				27712C6F270346AD00450466 /* resFile.swift in Sources */,
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
+				27712C7127034CB200450466 /* detailedResViewController.swift in Sources */,
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
