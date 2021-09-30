@@ -2,6 +2,7 @@ import UIKit
 import Firebase
 
 
+
 class AdminDashboard: UIViewController {
 
 
@@ -15,9 +16,9 @@ class AdminDashboard: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName:"RequestCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         loadCommunities ()
-        // Do any additional setup after loading the view.
+
     }
-    
+
 
 }
 extension AdminDashboard: UITableViewDataSource{
@@ -31,6 +32,7 @@ extension AdminDashboard: UITableViewDataSource{
         return cell
         
     }
+    
     func loadCommunities (){
         requests = []
         db.collection("Request").getDocuments { querySnapshot, error in
@@ -39,8 +41,9 @@ extension AdminDashboard: UITableViewDataSource{
             }else { if let snapshotDocuments = querySnapshot?.documents{
                 for doc in snapshotDocuments{
                     let data = doc.data()
+                    let id = doc.documentID
                     if let name = data["Title"] as? String , let des = data["Description"] as? String {
-                    let newReq = Request(title: name, description: des)
+                        let newReq = Request(title: name, description: des, doc : id )
                     self.requests.append(newReq)
 
                         DispatchQueue.main.async {
@@ -50,18 +53,30 @@ extension AdminDashboard: UITableViewDataSource{
                 }}        }
     }
     
+        }}
     
-        }}}
+}
 
 extension AdminDashboard: UITableViewDelegate {
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     selectedRow = indexPath.row
-    print(selectedRow)     //just for testing
     if let vc = storyboard?.instantiateViewController(identifier: "CommunityDetailsViewController") as? CommunityDetailsViewController{
         vc.TitleName = requests[indexPath.row].title
         vc.desc = requests[indexPath.row].description
+        vc.doc = requests[indexPath.row].doc
+        vc.delegate = self
+        vc.index = indexPath
         self.navigationController?.pushViewController(vc, animated: true)
     }
    }
 
+}
+
+extension AdminDashboard: CommunityDetailsViewControllerDelegate{
+    func delAt(index : IndexPath) {
+        requests.remove(at: index.row)
+        tableView.reloadData()
+    }
+    
+    
 }
