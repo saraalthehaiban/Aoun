@@ -13,6 +13,6 @@ struct resFile {
     let auther : String
     let publisher : String
     let link : String
-   // let url : String
+  //  let url : String
 
 }

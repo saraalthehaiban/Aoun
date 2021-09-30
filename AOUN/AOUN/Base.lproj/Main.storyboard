@@ -1117,7 +1117,35 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvv-Bb-QFI">
-                                <rect key="frame" x="127" y="724" width="222" height="51"/>
+                                <rect key="frame" x="83" y="725" width="282" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87L-vF-oQx">
+                                <rect key="frame" x="130" y="745" width="220" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSn-v1-Amv">
+                                <rect key="frame" x="179" y="349" width="174" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1n0-KZ-QKt">
+                                <rect key="frame" x="169" y="421" width="174" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3M-gA-IbF">
+                                <rect key="frame" x="179" y="493" width="174" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -1127,9 +1155,13 @@
                         <viewLayoutGuide key="safeArea" id="mpE-Lj-U9A"/>
                         <color key="backgroundColor" red="0.78039217000000005" green="0.88627451660000001" blue="0.94509804249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LEY-J2-h0v"/>
                     <connections>
                         <outlet property="autherL" destination="sEc-xB-1H0" id="eQl-cx-Rjm"/>
                         <outlet property="autherV" destination="pLh-W0-sGd" id="fNn-Jx-YAj"/>
+                        <outlet property="errAuth" destination="1n0-KZ-QKt" id="D8e-dF-jmf"/>
+                        <outlet property="errPub" destination="M3M-gA-IbF" id="TOK-f2-3Op"/>
+                        <outlet property="errRes" destination="WSn-v1-Amv" id="MqO-JZ-2tY"/>
                         <outlet property="error" destination="Pvv-Bb-QFI" id="Nwb-XF-zkj"/>
                         <outlet property="icon" destination="Wf3-s8-jOi" id="Atp-4T-ss8"/>
                         <outlet property="linkL" destination="3M5-bV-1Jm" id="ga8-8S-RyI"/>
@@ -1142,6 +1174,7 @@
                         <outlet property="resourceL" destination="Hfh-yv-uCw" id="pm6-hv-kXd"/>
                         <outlet property="resourceV" destination="R8s-yk-ahN" id="jRP-V1-Lxv"/>
                         <outlet property="smallBackground" destination="GdD-Vw-eSi" id="GXQ-eI-U6N"/>
+                        <outlet property="submited" destination="87L-vF-oQx" id="SNU-qs-5JW"/>
                         <outlet property="topPic" destination="fuz-XV-Dq7" id="lbN-o4-kg0"/>
                         <outlet property="welcome" destination="6vZ-tp-gIY" id="YTg-sT-ocb"/>
                         <outlet property="welcome2" destination="Q0q-Un-rCz" id="X5z-gw-vPu"/>
@@ -1149,13 +1182,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gss-MI-m8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-984.05797101449286" y="-239.0625"/>
+            <point key="canvasLocation" x="-936.23188405797111" y="162.72321428571428"/>
         </scene>
         <!--Res View View Controller-->
         <scene sceneID="Hfp-ww-4gH">
             <objects>
                 <viewController storyboardIdentifier="resView_VC" id="Y5S-2Q-KcQ" customClass="resViewViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="a31-LU-rSQ">
+                    <view key="view" contentMode="scaleToFill" id="a31-LU-rSQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1184,9 +1217,9 @@
                                 <rect key="frame" x="-19" y="47" width="220" height="188"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eE1-7b-fK7">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eE1-7b-fK7">
                                 <rect key="frame" x="50" y="290" width="330" height="460"/>
-                                <color key="backgroundColor" red="0.78039217000000005" green="0.88627451660000001" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.78039217000000005" green="0.88627451660000001" blue="0.94509804249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="326" id="beR-bw-780"/>
                                     <constraint firstAttribute="height" constant="457" id="ueP-hH-ZjF"/>
@@ -1220,6 +1253,15 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvz-t8-zPB">
+                                <rect key="frame" x="327" y="201" width="87" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <segue destination="L9m-pe-oaC" kind="show" id="we7-GR-lcm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4jY-Gt-bhV"/>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.88235294819999999" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1279,22 +1321,25 @@
         <image name="Log-in" width="187.5" height="406"/>
         <image name="Rectangle 6" width="216" height="58"/>
         <image name="Res" width="174" height="160"/>
-        <image name="Untitled design (11)" width="33.5" height="33.5"/>
+        <image name="Untitled design (11)" width="50" height="50"/>
         <image name="Untitled design (8)" width="76.5" height="76.5"/>
         <image name="Workshops" width="190" height="195"/>
         <image name="bg" width="187.5" height="91.5"/>
         <image name="book-open" width="33.5" height="31"/>
         <image name="card" width="113" height="116.5"/>
-        <image name="card-1" width="112" height="42.5"/>
+        <image name="card-1" width="44.5" height="16.5"/>
         <image name="notes" width="174" height="160"/>
         <image name="notes (1)" width="512" height="512"/>
-        <image name="surface1" width="113.5" height="120.5"/>
+        <image name="surface1" width="76" height="80.5"/>
         <image name="top" width="94" height="46"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
