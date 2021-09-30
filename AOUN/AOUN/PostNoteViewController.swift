@@ -32,39 +32,39 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate {
     
     @IBAction func importButton(_ sender: Any) {
         
-      //  let attachSheet = UIAlertController(title: nil, message: "File attaching", preferredStyle: .actionSheet)
+        let attachSheet = UIAlertController(title: nil, message: "File attaching", preferredStyle: .actionSheet)
                 
                 
-              ///  attachSheet.addAction(UIAlertAction(title: "File", style: .default,handler: { (action) in
-                  //  let supportedTypes: [UTType] = [UTType.pdf,UTType.zip, UTType.word]
-                  //  let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
-               //     documentPicker.delegate = self
-               //     documentPicker.allowsMultipleSelection = false
-                //    documentPicker.shouldShowFileExtensions = true
-                //    self.present(documentPicker, animated: true, completion: nil)
-               // }))
+                attachSheet.addAction(UIAlertAction(title: "File", style: .default,handler: { (action) in
+                    let supportedTypes: [UTType] = [UTType.pdf,UTType.zip/*, UTType.word*/]
+                    let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
+                    documentPicker.delegate = self
+                    documentPicker.allowsMultipleSelection = false
+                    documentPicker.shouldShowFileExtensions = true
+                    self.present(documentPicker, animated: true, completion: nil)
+                }))
                 
                 
-               // attachSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                attachSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
                 
-              //  self.present(attachSheet, animated: true, completion: nil)
+                self.present(attachSheet, animated: true, completion: nil)
         
     }
     
     
-   // func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-     //       var selectedFileData = [String:String]()
-     //       let file = urls[0]
-     //       do{
-      //          let fileData = try Data.init(contentsOf: file.absoluteURL)
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            var selectedFileData = [String:String]()
+            let file = urls[0]
+            do{
+                let fileData = try Data.init(contentsOf: file.absoluteURL)
                
-      ///          selectedFileData["filename"] = file.lastPathComponent
-      //          selectedFileData["data"] = fileData.base64EncodedString(options: //.lineLength64Characters)
+                selectedFileData["filename"] = file.lastPathComponent
+                selectedFileData["data"] = fileData.base64EncodedString(options: .lineLength64Characters)
                 
-       //     }catch{
-       //         print("contents could not be loaded")
-        //    }
-       // }
+            }catch{
+                print("contents could not be loaded")
+            }
+        }
     
        
     
@@ -89,11 +89,12 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate {
     
 
 }
-
-//extension UTType {
+/*
+extension UTType {
     //Word documents are not an existing property on UTType
-//    static var word: UTType {
- //       UTType.types(tag: "docx", tagClass: .filenameExtension, conformingTo: nil).first!
-  ///  }
+    static var word: UTType {
+        UTType.types(tag: "docx", tagClass: .filenameExtension, conformingTo: nil).first!
+    }
     
-//}
+}
+*/
