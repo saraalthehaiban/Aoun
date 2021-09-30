@@ -69,6 +69,11 @@ class SignupViewController: UIViewController {
             return "Please make sure your is at least 8 characters, contains special character and a number."
         }
         
+        let cleanedEmail = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+        if Utilities.isValidEmail(cleanedEmail) == false {
+            return "Wrong email format"
+        }
+        
         //email validation
         
         return nil
@@ -102,7 +107,7 @@ class SignupViewController: UIViewController {
                 else
                 {
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["FirstName": firstName, "LastName": lastName, "uid": result!.user.uid]){(error)
+                    db.collection("users").addDocument(data: ["FirstName": firstName, "LastName": lastName, "Email": email, "password": password, "uid": result!.user.uid]){(error)
                         in
                         if error != nil{
                             
@@ -136,7 +141,14 @@ class SignupViewController: UIViewController {
   func transitionToHome()
     
     {
+        let  homeViewController = storyboard?.instantiateViewController(identifier:Constants.Storyboard.homeViewController) as?HomeViewController
         
+        
+        
+                                                                        
+        view.window?.rootViewController = homeViewController
+        
+        view.window?.makeKeyAndVisible()
     }
     
 }

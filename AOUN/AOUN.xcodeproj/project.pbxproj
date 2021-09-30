@@ -23,6 +23,8 @@
 		0FC21B8026F8D72A00B83B0E /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0FC21B8226FA420E00B83B0E /* StoryboardShatha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B8126FA420E00B83B0E /* StoryboardShatha.storyboard */; };
 		5213CF6826FFD95B009AFBAA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5213CF6726FFD95B009AFBAA /* Utilities.swift */; };
+		524AB6F22705F741005EFDF6 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524AB6F12705F741005EFDF6 /* ForgotPassViewController.swift */; };
+		526B875D2704302C004C18D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B875C2704302C004C18D5 /* Constants.swift */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3326F69173009E3394 /* LandingViewController.swift */; };
@@ -76,6 +78,8 @@
 		4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDA64D179885230CF863960 /* Pods-AOUN-AOUNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.release.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5213CF6726FFD95B009AFBAA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		524AB6F12705F741005EFDF6 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
+		526B875C2704302C004C18D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		52D00D2F26F69149009E3394 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		52D00D3126F6915C009E3394 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52D00D3326F69173009E3394 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				5213CF6726FFD95B009AFBAA /* Utilities.swift */,
+				526B875C2704302C004C18D5 /* Constants.swift */,
 				5213CF6A26FFD9B0009AFBAA /* ViewControllers */,
 			);
 			path = Helpers;
@@ -219,6 +224,7 @@
 				52D00D3326F69173009E3394 /* LandingViewController.swift */,
 				52D00D3126F6915C009E3394 /* LoginViewController.swift */,
 				52D00D2F26F69149009E3394 /* SignupViewController.swift */,
+				524AB6F12705F741005EFDF6 /* ForgotPassViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -490,11 +496,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524AB6F22705F741005EFDF6 /* ForgotPassViewController.swift in Sources */,
 				0F40BDF426F54F4900FB83AC /* RequestCommunityController.swift in Sources */,
 				DA3D9B1E26F6A19E00C844BB /* ViewNotesViewController.swift in Sources */,
 				5213CF6826FFD95B009AFBAA /* Utilities.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
+				526B875D2704302C004C18D5 /* Constants.swift in Sources */,
 				0F40BDF426F54F4900FB83AC /* RequestCommunityController.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
