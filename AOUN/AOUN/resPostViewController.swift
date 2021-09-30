@@ -67,7 +67,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     
     
     @IBAction func submit(_ sender: UIButton) {
-        //***************
+
         if resourceV.text == "" ||  autherV.text == "" || publisherV.text == ""{
             if resourceV.text == ""{
                 errRes.text = "*"
