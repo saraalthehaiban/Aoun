@@ -1,7 +1,15 @@
 {
   "images" : [
     {
+<<<<<<< HEAD
       "filename" : "Workshops.png",
+=======
+<<<<<<< HEAD:AOUN/AOUN/Assets.xcassets/book-cover.imageset/Contents.json
+      "filename" : "book-cover-hardcover-clip-art-propaganda-clipart-5adcc904eec143.472354881524418820978.jpg",
+=======
+      "filename" : "Workshops.png",
+>>>>>>> parent of 957ab1c (UI changes):AOUN/AOUN/Assets.xcassets/Workshops.imageset/Contents.json
+>>>>>>> parent of 957ab1c (UI changes)
       "idiom" : "universal",
       "scale" : "1x"
     },

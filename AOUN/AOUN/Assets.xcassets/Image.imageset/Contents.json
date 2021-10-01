@@ -1,17 +1,41 @@
 {
   "images" : [
     {
+<<<<<<< HEAD
       "filename" : "Rectangle 10.png",
+=======
+<<<<<<< HEAD:AOUN/AOUN/Assets.xcassets/Workshops.imageset/Contents.json
+      "filename" : "Workshops.png",
+=======
+      "filename" : "Rectangle 10.png",
+>>>>>>> parent of 957ab1c (UI changes):AOUN/AOUN/Assets.xcassets/Image.imageset/Contents.json
+>>>>>>> parent of 957ab1c (UI changes)
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+<<<<<<< HEAD
       "filename" : "Rectangle 10@2x.png",
+=======
+<<<<<<< HEAD:AOUN/AOUN/Assets.xcassets/Workshops.imageset/Contents.json
+      "filename" : "Workshops@2x.png",
+=======
+      "filename" : "Rectangle 10@2x.png",
+>>>>>>> parent of 957ab1c (UI changes):AOUN/AOUN/Assets.xcassets/Image.imageset/Contents.json
+>>>>>>> parent of 957ab1c (UI changes)
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+<<<<<<< HEAD
       "filename" : "Rectangle 10@3x.png",
+=======
+<<<<<<< HEAD:AOUN/AOUN/Assets.xcassets/Workshops.imageset/Contents.json
+      "filename" : "Workshops@3x.png",
+=======
+      "filename" : "Rectangle 10@3x.png",
+>>>>>>> parent of 957ab1c (UI changes):AOUN/AOUN/Assets.xcassets/Image.imageset/Contents.json
+>>>>>>> parent of 957ab1c (UI changes)
       "idiom" : "universal",
       "scale" : "3x"
     }

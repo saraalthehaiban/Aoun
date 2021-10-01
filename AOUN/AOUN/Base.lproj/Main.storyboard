@@ -349,6 +349,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UnP-K8-cL3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <point key="canvasLocation" x="-2482.608695652174" y="716.51785714285711"/>
         </scene>
         <!--View Controller-->
@@ -437,6 +438,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AxH-VZ-GTw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1536.2318840579712" y="727.90178571428567"/>
+=======
+            <point key="canvasLocation" x="-2480" y="717"/>
+>>>>>>> parent of 957ab1c (UI changes)
 =======
             <point key="canvasLocation" x="-2480" y="717"/>
 >>>>>>> parent of 957ab1c (UI changes)
@@ -538,6 +542,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="WXR-6i-pei">
                                 <rect key="frame" x="-165" y="-89" width="696" height="429"/>
                                 <constraints>
@@ -545,12 +550,17 @@
                                 </constraints>
                             </imageView>
 =======
+=======
+>>>>>>> parent of 957ab1c (UI changes)
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome back, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyS-ZN-j4K">
                                 <rect key="frame" x="20" y="161" width="375" height="30"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="35"/>
                                 <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
+>>>>>>> parent of 957ab1c (UI changes)
+=======
 >>>>>>> parent of 957ab1c (UI changes)
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" delaysContentTouches="NO" maximumZoomScale="2" keyboardDismissMode="interactive" dataMode="prototypes" style="insetGrouped" sectionIndexMinimumDisplayRowCount="19" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Nwd-5A-2NC">
                                 <rect key="frame" x="19" y="370" width="376" height="410"/>
@@ -559,6 +569,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.59999999999999998" green="0.71372549019607845" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="Admin" translatesAutoresizingMaskIntoConstraints="NO" id="jim-tC-tHn">
                                 <rect key="frame" x="20" y="105" width="143" height="118"/>
@@ -569,6 +580,11 @@
                                     <constraint firstAttribute="height" constant="69" id="hCS-3M-IVn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+=======
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Community requests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHa-of-YNk">
+                                <rect key="frame" x="20" y="308" width="276" height="34"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="30"/>
+>>>>>>> parent of 957ab1c (UI changes)
 =======
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Community requests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHa-of-YNk">
                                 <rect key="frame" x="20" y="308" width="276" height="34"/>
@@ -585,12 +601,15 @@
                                 <rect key="frame" x="19" y="200" width="105.5" height="36"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+<<<<<<< HEAD
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello, admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPl-eH-d6m">
                                 <rect key="frame" x="36" y="236" width="204" height="69"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+=======
+>>>>>>> parent of 957ab1c (UI changes)
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -706,8 +725,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="elH-cY-F0y">
                                 <rect key="frame" x="40" y="410" width="334" height="320.5"/>
+=======
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="elH-cY-F0y">
+                                <rect key="frame" x="40" y="40" width="334" height="320.5"/>
+>>>>>>> parent of 957ab1c (UI changes)
 =======
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="elH-cY-F0y">
                                 <rect key="frame" x="40" y="40" width="334" height="320.5"/>
@@ -755,6 +779,7 @@
                                 </constraints>
                             </stackView>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="Mum-jU-LMR">
                                 <rect key="frame" x="-165" y="-89" width="842" height="507"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -766,6 +791,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+=======
+>>>>>>> parent of 957ab1c (UI changes)
 =======
 >>>>>>> parent of 957ab1c (UI changes)
                         </subviews>
@@ -867,6 +894,7 @@
                                 </constraints>
                             </stackView>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhk-iw-LnC">
                                 <rect key="frame" x="40" y="208" width="221" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -878,6 +906,8 @@
                                 <rect key="frame" x="-165" y="-89" width="842" height="507"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+=======
+>>>>>>> parent of 957ab1c (UI changes)
 =======
 >>>>>>> parent of 957ab1c (UI changes)
                         </subviews>
@@ -1230,6 +1260,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pvv-Bb-QFI">
                                 <rect key="frame" x="83" y="725" width="282" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1265,10 +1296,13 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+=======
+>>>>>>> parent of 957ab1c (UI changes)
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mpE-Lj-U9A"/>
                         <color key="backgroundColor" red="0.78039217000000005" green="0.88627451660000001" blue="0.94509804249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" id="LEY-J2-h0v"/>
                     <connections>
                         <outlet property="autherL" destination="sEc-xB-1H0" id="eQl-cx-Rjm"/>
@@ -1277,6 +1311,11 @@
                         <outlet property="errPub" destination="M3M-gA-IbF" id="TOK-f2-3Op"/>
                         <outlet property="errRes" destination="WSn-v1-Amv" id="MqO-JZ-2tY"/>
                         <outlet property="error" destination="Pvv-Bb-QFI" id="Nwb-XF-zkj"/>
+=======
+                    <connections>
+                        <outlet property="autherL" destination="sEc-xB-1H0" id="eQl-cx-Rjm"/>
+                        <outlet property="autherV" destination="pLh-W0-sGd" id="fNn-Jx-YAj"/>
+>>>>>>> parent of 957ab1c (UI changes)
                         <outlet property="icon" destination="Wf3-s8-jOi" id="Atp-4T-ss8"/>
                         <outlet property="linkL" destination="3M5-bV-1Jm" id="ga8-8S-RyI"/>
                         <outlet property="linkV" destination="jyN-kM-T4F" id="2Jv-GY-1Mh"/>
@@ -1288,7 +1327,10 @@
                         <outlet property="resourceL" destination="Hfh-yv-uCw" id="pm6-hv-kXd"/>
                         <outlet property="resourceV" destination="R8s-yk-ahN" id="jRP-V1-Lxv"/>
                         <outlet property="smallBackground" destination="GdD-Vw-eSi" id="GXQ-eI-U6N"/>
+<<<<<<< HEAD
                         <outlet property="submited" destination="87L-vF-oQx" id="SNU-qs-5JW"/>
+=======
+>>>>>>> parent of 957ab1c (UI changes)
                         <outlet property="topPic" destination="fuz-XV-Dq7" id="lbN-o4-kg0"/>
                         <outlet property="welcome" destination="6vZ-tp-gIY" id="YTg-sT-ocb"/>
                         <outlet property="welcome2" destination="Q0q-Un-rCz" id="X5z-gw-vPu"/>
@@ -1296,7 +1338,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gss-MI-m8j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-936.23188405797111" y="162.72321428571428"/>
+=======
+            <point key="canvasLocation" x="3192.753623188406" y="-421.20535714285711"/>
+>>>>>>> parent of 957ab1c (UI changes)
         </scene>
         <!--Res View View Controller-->
         <scene sceneID="Hfp-ww-4gH">
@@ -1306,6 +1352,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="top" id="It8-yT-o7c">
                                 <rect key="frame" x="0.0" y="-9" width="415" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1403,6 +1450,81 @@
                         <outlet property="topPic" destination="It8-yT-o7c" id="onJ-FO-e2R"/>
                         <outlet property="welcome1" destination="Ses-sx-bZz" id="n7T-83-F7d"/>
                         <outlet property="welcome2" destination="tyb-uw-DsQ" id="a2D-Tm-0eJ"/>
+=======
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="I4N-r6-Ksc">
+                                <rect key="frame" x="0.0" y="-10" width="415" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Untitled design (8)" translatesAutoresizingMaskIntoConstraints="NO" id="YXe-g1-PLL">
+                                <rect key="frame" x="-20" y="10" width="220" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back, " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yzj-xN-b8z">
+                                <rect key="frame" x="140" y="80" width="225" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="[]!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nX-uY-QnT">
+                                <rect key="frame" x="140" y="110" width="225" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="surface1" translatesAutoresizingMaskIntoConstraints="NO" id="G2F-iD-GbS">
+                                <rect key="frame" x="-95" y="700" width="270" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b38-Pe-msQ">
+                                <rect key="frame" x="135" y="220" width="146" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="26"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="22" translatesAutoresizingMaskIntoConstraints="NO" id="S09-pb-jmc">
+                                <rect key="frame" x="22" y="258" width="372" height="211"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Resourc Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAy-6l-GtC">
+                                <rect key="frame" x="53" y="320" width="147" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auther Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxf-rc-NGb">
+                                <rect key="frame" x="53" y="351" width="133" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Publisher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyo-dY-m5E">
+                                <rect key="frame" x="53" y="382" width="178" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4jY-Gt-bhV"/>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.88235294819999999" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <connections>
+                        <outlet property="authL" destination="Hxf-rc-NGb" id="HHf-jw-mdn"/>
+                        <outlet property="icon" destination="YXe-g1-PLL" id="Ngg-J7-mQD"/>
+                        <outlet property="logo" destination="G2F-iD-GbS" id="baZ-xd-63D"/>
+                        <outlet property="pubL" destination="S09-pb-jmc" id="75C-L0-gIS"/>
+                        <outlet property="resL" destination="dAy-6l-GtC" id="hvb-FS-UP5"/>
+                        <outlet property="resourceL" destination="b38-Pe-msQ" id="Rp7-Xc-Na5"/>
+                        <outlet property="smallBackground" destination="S09-pb-jmc" id="Drx-C6-zYO"/>
+                        <outlet property="topPic" destination="I4N-r6-Ksc" id="eOP-rW-TLi"/>
+                        <outlet property="welcome" destination="yzj-xN-b8z" id="Myr-Fw-1xm"/>
+                        <outlet property="welcome2" destination="2nX-uY-QnT" id="TdS-M1-yej"/>
+>>>>>>> parent of 957ab1c (UI changes)
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sv-S0-kbL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1415,6 +1537,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9CY-Ll-gEy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aWQ-7A-G23">
+<<<<<<< HEAD
             <point key="canvasLocation" x="-2510.144927536232" y="162.72321428571428"/>
         </scene>
         <!--Navigation Controller-->
@@ -1423,6 +1546,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l9K-aS-5mW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5gO-yj-FxV">
+=======
+>>>>>>> parent of 957ab1c (UI changes)
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1450,6 +1575,7 @@
             </objects>
             <point key="canvasLocation" x="-447" y="380"/>
         </scene>
+<<<<<<< HEAD
         <!--Login View Controller-->
         <scene sceneID="2pO-tw-TPl">
             <objects>
@@ -1525,6 +1651,8 @@
             </objects>
             <point key="canvasLocation" x="-3420.289855072464" y="162.72321428571428"/>
         </scene>
+=======
+>>>>>>> parent of 957ab1c (UI changes)
     </scenes>
     <resources>
         <image name="11" width="169" height="174.5"/>
@@ -1541,6 +1669,7 @@
         <image name="book-open" width="33.5" height="31"/>
         <image name="card-2" width="44.5" height="16.5"/>
         <image name="card-3" width="44.5" height="16.5"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <image name="imageView:51h-q3-fow:image" width="187.5" height="91.5">
             <mutableData key="keyedArchiveRepresentation">
@@ -26559,6 +26688,8 @@ eNoABXjfAAV45wAAAAAAAAQBAAAAAAAAAGgAAAAAAAAAAAAAAAAABXjqA
         <image name="card-1" width="44.5" height="16.5"/>
 =======
 >>>>>>> parent of 957ab1c (UI changes)
+=======
+>>>>>>> parent of 957ab1c (UI changes)
         <image name="notes" width="174" height="160"/>
         <image name="notes (1)" width="512" height="512"/>
         <image name="surface1" width="76" height="80.5"/>
@@ -26569,7 +26700,13 @@ eNoABXjfAAV45wAAAAAAAAQBAAAAAAAAAGgAAAAAAAAAAAAAAAAABXjqA
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <image name="top" width="94" height="46"/>
+=======
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+>>>>>>> parent of 957ab1c (UI changes)
 =======
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
