@@ -319,10 +319,10 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HERE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QP1-jg-hFT">
-                                <rect key="frame" x="20" y="818" width="348" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QP1-jg-hFT">
+                                <rect key="frame" x="36" y="499" width="348" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" red="0.23137254901960785" green="0.73333334920000004" blue="0.31764706970000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -803,7 +803,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Zfq-NE-32y"/>
                     <connections>
-                        <outlet property="EmptyTable" destination="o0n-mb-BBa" id="Asg-z6-Ecl"/>
+                        <outlet property="EmptyTable" destination="o0n-mb-BBa" id="5bT-74-bR4"/>
                         <outlet property="tableView" destination="d3y-8F-9cF" id="NuY-2W-MVX"/>
                     </connections>
                 </viewController>
