@@ -57,7 +57,7 @@ class SignupViewController: UIViewController {
                 ||  passwordTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)==""
         {
             
-            return "please fill in all fields"
+            return "Please fill in all fields"
         }
         
         //check if the password is secure
@@ -66,7 +66,7 @@ class SignupViewController: UIViewController {
         if Utilities
             .isPasswordValid(cleanedPassword) == false
         {
-            return "Please make sure your is at least 8 characters, contains special character and a number."
+            return "Please make sure your passsword is at least 8 characters, contains special character and a number."
         }
         
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
