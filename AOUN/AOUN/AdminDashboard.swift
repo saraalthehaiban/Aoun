@@ -6,9 +6,11 @@ import Firebase
 class AdminDashboard: UIViewController {
 
 
+    @IBOutlet var EmptyTable: UILabel!
     @IBOutlet var tableView: UITableView!
     let db = Firestore.firestore()
     var requests : [Request] = []
+    var empty =  "No new community requests"
     fileprivate var selectedRow: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,13 +18,16 @@ class AdminDashboard: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName:"RequestCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         loadCommunities ()
+        if requests.count == 0{
+            EmptyTable.text = empty
+        }
 
+        
     }
-
-
 }
 extension AdminDashboard: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return requests.count
     }
     
@@ -53,7 +58,10 @@ extension AdminDashboard: UITableViewDataSource{
                 }}        }
     }
     
-        }}
+        }
+
+        
+    }
     
 }
 
