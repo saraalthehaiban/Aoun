@@ -32,7 +32,7 @@ class CommunityDetailsViewController: UIViewController {
     }
     @IBAction func reject(_ sender: UIButton) {
        db.collection("Request").document(doc).delete()
-        print("here2")
+       
         delegate?.delAt(index: index)
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)

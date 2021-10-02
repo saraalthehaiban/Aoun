@@ -46,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
                                     <constraint firstItem="kt9-jF-WsK" firstAttribute="top" secondItem="2MQ-HK-uLr" secondAttribute="top" constant="10" id="GW3-2G-Dz2"/>
                                     <constraint firstItem="kt9-jF-WsK" firstAttribute="leading" secondItem="48g-pv-5xh" secondAttribute="trailing" constant="26" id="S48-TF-3HN"/>
@@ -61,7 +61,7 @@
                         <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="SqB-aW-t6P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="TTs-S0-zSa"/>
@@ -76,11 +76,14 @@
                 <outlet property="RequestBubble" destination="2MQ-HK-uLr" id="nR9-hG-9LO"/>
                 <outlet property="name" destination="kt9-jF-WsK" id="e84-20-xTg"/>
             </connections>
-            <point key="canvasLocation" x="84.782608695652186" y="99.107142857142847"/>
+            <point key="canvasLocation" x="8" y="-19"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="21" width="2777" height="2158"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
