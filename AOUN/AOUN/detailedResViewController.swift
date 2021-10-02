@@ -9,45 +9,44 @@ import UIKit
 
 class detailedResViewController: UIViewController {
 
-    @IBOutlet weak var topPic: UIImageView!
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var smallBackground: UIImageView!
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var logo: UIImageView!
-    @IBOutlet weak var book: UIImageView!
-    
+    @IBOutlet weak var resTitle: UILabel!
+    @IBOutlet weak var authTitle: UILabel!
+    @IBOutlet weak var pubTitle: UILabel!
+    @IBOutlet weak var descTitle: UILabel!
     
     @IBOutlet weak var resL: UILabel!
     @IBOutlet weak var authL: UILabel!
     @IBOutlet weak var pubL: UILabel!
-    @IBOutlet weak var linkL: UILabel!
-
+    @IBOutlet weak var descL: UILabel!
     
-    
-    var resV = ""
-    var authV = ""
-    var pubV = ""
-    var linkV = ""
-
+    var resource: resFile!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        resL.text = resV
-        authL.text = authV
-        pubL.text = pubV
-        linkL.text = linkV
+        resL.text = resource.name
+        authL.text = resource.author
+        pubL.text = resource.publisher
+        descL.text = resource.desc
         //**********FILES***********
-
-        // Do any additional setup after loading the view.
     }
     
 
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+        @IBAction func downloadButtonTouched(_ sender: Any) {
+            guard let url = resource.url else {
+                //TODO: Show download url error message
+                return
+            }
+            activityIndicator.startAnimating()
+            DownloadManager.download(url: url) { success, data in
+                //guard let documentData = data.dataRe
+                self.activityIndicator.stopAnimating()
+                let vcActivity = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+                self.present(vcActivity, animated: true, completion: nil)
+            }
+        }
 
 }

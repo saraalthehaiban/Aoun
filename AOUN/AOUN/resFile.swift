@@ -10,9 +10,15 @@ import Foundation
 struct resFile {
     
     let name : String
-    let auther : String
+    let author : String
     let publisher : String
-    let link : String
-  //  let url : String
-
+    let desc : String
+    let urlString : String
+    
+    
+    var url : URL? {
+        get {
+            return URL (string: urlString)
+        }
+    }
 }

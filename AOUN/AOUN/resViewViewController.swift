@@ -7,12 +7,64 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
-class resViewViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource
+class resViewViewController: UIViewController
 {
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 140, height: 180)
+    
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var icon: UIImageView!
+    
+    @IBOutlet weak var resL: UILabel!
+    @IBOutlet weak var collection: UICollectionView!
+    
+    var resources:[resFile] = []
+    let db = Firestore.firestore()
+    //dummy data
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
+        
+        collection.register(nipCell, forCellWithReuseIdentifier: "cell")
+        
+        loadResources()
+    }
+    
+    func loadResources(){
+        db.collection("Resources").getDocuments { querySnapshot, error in
+            if let e = error {
+                print("There was an issue retreving data from fireStore. \(e)")
+            }else {
+                if let snapshotDocuments = querySnapshot?.documents{
+                    for doc in snapshotDocuments{
+                        
+                        let data = doc.data()
+                        if let rName = data["ResName"] as? String, let aName  = data["authorName"] as? String, let pName = data["pubName"] as? String, let desc = data["desc"] as? String, let urlName = data["url"] as? String {
+                            let newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName)
+                            self.resources.append(newRes)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        self.collection.reloadData()
+                    }
+                }
+            }
         }
+    }//end loadResources
+    
+}//end of class
+
+
+
+
+extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 154, height: 160)
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -27,72 +79,11 @@ class resViewViewController: UIViewController, UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController
         
-        vc!.resV = resources[indexPath.row].name
-        vc!.authV = resources[indexPath.row].auther
-        vc!.pubV = resources[indexPath.row].publisher
-        vc!.linkV = resources[indexPath.row].link
-        
-        //**********FILES***********
-        
-        self.navigationController?.pushViewController(vc!, animated: true)
-    
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController{
+            vc.resource = resources[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
     }
-    
-    
-
-    @IBOutlet weak var topPic: UIImageView!
-    @IBOutlet weak var welcome1: UILabel!
-    @IBOutlet weak var welcome2: UILabel!
-    @IBOutlet weak var logo: UIImageView!
-    
-    @IBOutlet weak var icon: UIImageView!
-  
-   // @IBOutlet weak var resIcon: UIImageView!
-    @IBOutlet weak var resL: UILabel!
-    @IBOutlet weak var collection: UICollectionView!
-    
-    var resources:[resFile] = []
- 
-
-    
-    // dataBase
-  
-    //UI Filed
-    let db = Firestore.firestore()
-    //dummy data
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
-
-        collection.register(nipCell, forCellWithReuseIdentifier: "cell")
- 
-        loadResources()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    func loadResources(){
-        db.collection("Resources").getDocuments { querySnapshot, error in
-            if let e = error {
-                print("There was an issue retreving data from fireStore. \(e)")
-            }else { if let snapshotDocuments = querySnapshot?.documents{
-                for doc in snapshotDocuments{
-                   
-                    let data = doc.data()
-                    if let rName = data["resName"] as? String, let aName  = data["autherName"] as? String, let pName = data["pubName"] as? String, let linkName = data["link"] as? String/*, let urlName = data["url"] as? String */ {
-                        let newRes = resFile(name: rName, auther: aName, publisher: pName, link: linkName/*, url: urlName*/)
-                        self.resources.append(newRes)
-
-                        DispatchQueue.main.async {
-                            self.collection.reloadData()
-                        }
-                        
-                }}        }
-    }
-        }}//end loadResources
-   
-}//end of class
+}//extention

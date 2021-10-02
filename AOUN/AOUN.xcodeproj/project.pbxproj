@@ -26,6 +26,7 @@
 		0FEE900D2704F0040061875E /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE900C2704F0040061875E /* LaunchScreenViewController.swift */; };
 		0FEE904B27058A6C0061875E /* testingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE904A27058A6C0061875E /* testingViewController.swift */; };
 		27609D3526F6693800254EA7 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27609D3426F6693800254EA7 /* resPostViewController.swift */; };
+		276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D9C4E27063E0F0019B8AD /* DownloadManager.swift */; };
 		27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */; };
 		27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */; };
 		27712C6F270346AD00450466 /* resFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C6E270346AD00450466 /* resFile.swift */; };
@@ -78,13 +79,13 @@
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/RequestCell.xib; sourceTree = SOURCE_ROOT; };
-
 		0FC646322700664A00BA6BF2 /* RequestCommunityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCommunityController.swift; sourceTree = "<group>"; };
 		0FC64634270222AB00BA6BF2 /* CommunityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailsViewController.swift; sourceTree = "<group>"; };
 		0FEE900C2704F0040061875E /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		0FEE904A27058A6C0061875E /* testingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testingViewController.swift; sourceTree = "<group>"; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
 		27609D3426F6693800254EA7 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
+		276D9C4E27063E0F0019B8AD /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resourceCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = resourceCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		27712C6E270346AD00450466 /* resFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resFile.swift; sourceTree = "<group>"; };
@@ -175,12 +176,11 @@
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
 				27712C7027034CB200450466 /* detailedResViewController.swift */,
+				276D9C4E27063E0F0019B8AD /* DownloadManager.swift */,
 				27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */,
 				27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */,
 				2792FB2B26F66EAA00366961 /* resViewViewController.swift */,
 				27712C6E270346AD00450466 /* resFile.swift */,
-				0BD1DAAA26F666610088C25A /* AdminHomeViewController.swift */,
-
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				DA3D9B1B26F69E1900C844BB /* PostNoteViewController.swift */,
 				DA3D9B1D26F6A19E00C844BB /* ViewNotesViewController.swift */,
@@ -520,6 +520,7 @@
 				52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */,
 				52D00D3626F69195009E3394 /* HomeViewController.swift in Sources */,
 				DA3D9B1C26F69E1900C844BB /* PostNoteViewController.swift in Sources */,
+				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
 				27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */,
 				0FEE900D2704F0040061875E /* LaunchScreenViewController.swift in Sources */,
 				0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */,
