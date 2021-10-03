@@ -12,6 +12,8 @@ class RequestCell: UITableViewCell {
     @IBOutlet var name: UILabel!
 
     @IBAction func reqDetails(_ sender: UIButton) {
+        
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()

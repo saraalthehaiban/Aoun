@@ -9,19 +9,22 @@ import UIKit
 
 class UserHomeViewController: UIViewController {
 
-    @IBOutlet weak var blueBG: UIImageView!
-    @IBOutlet weak var logo: UIImageView!
-    @IBOutlet weak var userPfp: UIImageView!
-    @IBOutlet weak var welcome: UILabel!
-    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var user: UIImageView!
+    
+    @IBOutlet weak var HelloUser: UILabel!
+    @IBOutlet weak var DashboardTitle: UILabel!
     @IBAction func notesButton(_ sender: UIButton) {
     }
-    @IBAction func communityButton(_ sender: UIButton) {
+    @IBOutlet weak var notesLabel: UILabel!
+    @IBAction func workshopsButton(_ sender: UIButton) {
     }
-    @IBAction func workshopButton(_ sender: UIButton) {
+    @IBOutlet weak var workshopsLabel: UILabel!
+    @IBAction func resourcesButton(_ sender: UIButton) {
     }
-    @IBAction func resButton(_ sender: UIButton) {
+    @IBOutlet weak var resourcesLabel: UILabel!
+    @IBAction func communitiesButton(_ sender: UIButton) {
     }
+    @IBOutlet weak var CommunitiesLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 

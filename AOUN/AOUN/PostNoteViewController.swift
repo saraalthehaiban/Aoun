@@ -36,7 +36,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate {
                 
                 
                 attachSheet.addAction(UIAlertAction(title: "File", style: .default,handler: { (action) in
-                    let supportedTypes: [UTType] = [UTType.pdf,UTType.zip, UTType.word]
+                    let supportedTypes: [UTType] = [UTType.pdf,UTType.zip/*, UTType.word*/]
                     let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes)
                     documentPicker.delegate = self
                     documentPicker.allowsMultipleSelection = false
@@ -89,7 +89,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate {
     
 
 }
-
+/*
 extension UTType {
     //Word documents are not an existing property on UTType
     static var word: UTType {
@@ -97,3 +97,4 @@ extension UTType {
     }
     
 }
+*/
