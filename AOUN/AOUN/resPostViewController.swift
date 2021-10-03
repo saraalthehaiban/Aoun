@@ -11,31 +11,25 @@ import Firebase
 import UniformTypeIdentifiers
 
 class resPostViewController: UIViewController, UIDocumentPickerDelegate {
-    @IBOutlet weak var smallBackground: UIImageView!
     
-    @IBOutlet weak var topPic: UIImageView!
+    @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var rIcon: UIImageView!
-    @IBOutlet weak var logo: UIImageView!
-    @IBOutlet weak var welcome: UILabel!
-    @IBOutlet weak var welcome2: UILabel!
+    @IBOutlet weak var resTitle: UILabel!
+    @IBOutlet weak var stack: UIStackView!
     
-    @IBOutlet weak var postL: UILabel!
     
-    @IBOutlet weak var resourceL: UILabel!
-    @IBOutlet weak var autherL: UILabel!
-    @IBOutlet weak var publisherL: UILabel!
+    
+    //@IBOutlet weak var resourceL: UILabel!
+    //@IBOutlet weak var autherL: UILabel!
+    //@IBOutlet weak var publisherL: UILabel!
+    //@IBOutlet weak var descL: UILabel!
     @IBOutlet weak var resourceV: UITextField!
-    @IBOutlet weak var autherV: UITextField!
+    @IBOutlet weak var authorV: UITextField!
     @IBOutlet weak var publisherV: UITextField!
-    
-    
-    @IBOutlet weak var linkL: UILabel!
-    @IBOutlet weak var linkV: UITextField!
+    @IBOutlet weak var descV: UITextField!
     
     
     @IBOutlet weak var error: UILabel!
-    
     @IBOutlet weak var errRes: UILabel!
     @IBOutlet weak var errAuth: UILabel!
     @IBOutlet weak var errPub: UILabel!
@@ -69,38 +63,46 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     
     @IBAction func submit(_ sender: UIButton) {
         //*****************************************
-        if resourceV.text == "" ||  autherV.text == "" || publisherV.text == ""{
-            if resourceV.text == ""{
-                errRes.text = "*"
-            }
-            if autherV.text == ""{
-                errAuth.text = "*"
-            }
-            if publisherV.text == ""{
-                errPub.text = "*"
-            }
-            error.text = "Missing field"
-        }
+        if resourceV.text == "" ||  authorV.text == "" || publisherV.text == ""{
+                    if resourceV.text == ""{
+                    //errRes.text = "*"
+                        resourceV.attributedPlaceholder = NSAttributedString(string: "*Resource Name",
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                    }
+                     if authorV.text == ""{
+                    //errAuth.text = "*"
+                        authorV.attributedPlaceholder = NSAttributedString(string: "*Author Name",
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                        
+                    }
+                     if publisherV.text == ""{
+                    //errPub.text = "*"
+                        publisherV.attributedPlaceholder = NSAttributedString(string: "*Publisher Name",
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                    }
+            error.text = "Missing field."
+                }
+                
+//                if resourceV.text != "" ||  authorV.text != "" || publisherV.text != ""{
+//                    if resourceV.text != ""{
+//                    errRes.text = ""
+//                    }
+//                     if authorV.text != ""{
+//                    errAuth.text = ""
+//                    }
+//                     if publisherV.text != ""{
+//                    errPub.text = ""
+//                    }
+//                    error.text = ""
+//
+//                }
+                if resourceV.text == "" ||  authorV.text == "" || publisherV.text == ""{
+                    return}
         
-        if resourceV.text != "" ||  autherV.text != "" || publisherV.text != ""{
-            if resourceV.text != ""{
-                errRes.text = ""
-            }
-            if autherV.text != ""{
-                errAuth.text = ""
-            }
-            if publisherV.text != ""{
-                errPub.text = ""
-            }
-            
-        }
-        if resourceV.text == "" ||  autherV.text == "" || publisherV.text == ""{
-            return}
         
-        
-        guard let fs = files, fs.count > 0, let localFile = fs.last
+        guard let fs = files, fs.count > 0, let localFile = fs.last, resourceV.text != "",  authorV.text != "", publisherV.text != ""
                 else {
-                    error.text = "Missing field!!"
+                    error.text = "Missing PDF/ZIP File."
                     return
                 }
                 error.text = ""
@@ -121,12 +123,12 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
                 let uploadTask = resRef.putFile(from: localFile, metadata: nil) { metadata, error in
                     if let e =  error {
                         print (e)
-                        self.error.text = "File couldn't be uploaded!!"
+                        self.error.text = "File couldn't be uploaded."
                         return
                     }
                     guard let metadata = metadata else {
                         // Uh-oh, an error occurred!
-                        self.error.text = "File couldn't be uploaded!!"
+                        self.error.text = "File couldn't be uploaded."
                         return
                     }
                     // Metadata contains file metadata such as size, content-type.
@@ -142,93 +144,27 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
                 }
                 uploadTask.resume()
         
-        
-//        let linkString = linkV.text
-//        var localFile : URL? = nil
-//        if let fs = files, fs.count > 0, let lf = fs.last {
-//            localFile = lf
-//        }
-//        if linkString?.count == 0 && localFile == nil {
-//            error.text = "You have to at least to choose one link or file(PDF-zip)"
-//            return
-//        }
-//        print("linkString = ", linkString, "localFile = ", localFile)
-//        error.text = ""
-//
-//
-//        print("Selected File paths", files, localFile)
+ 
     } //end func submit
     
-//    func uploadAttachment (localFile:URL) {
-//        let filename = localFile.lastPathComponent
-//        let uid = Auth.auth().currentUser?.uid ?? ""
-//        let storageRef = Storage.storage().reference()
-//        let resRef = storageRef.child("Resources/\(uid)/\(filename)")
-//
-//        let uploadTask = resRef.putFile(from: localFile, metadata: nil) { metadata, error in
-//            if let e =  error {
-//                print (e)
-//                self.error.text = "File couldn't be uploaded!!"
-//                return
-//            }
-//            guard let metadata = metadata else {
-//                // Uh-oh, an error occurred!
-//                self.error.text = "File couldn't be uploaded!!"
-//                return
-//            }
-//            // Metadata contains file metadata such as size, content-type.
-//            //let size = metadata.size
-//            // You can also access to download URL after upload.
-//            resRef.downloadURL { (url, error) in
-//                guard let downloadURL = url else {
-//                    // Uh-oh, an error occurred!
-//                    return
-//                }
-//                self.createDocument(with : downloadURL)
-//            }
-//        }
-//        uploadTask.resume()
-//    }
     
     func createDocument(with resURL : URL) {
         let url = resURL.absoluteString
         let db = Firestore.firestore()
         let  res = resourceV.text
-        let auther = autherV.text
+        let author = authorV.text
         let pub = publisherV.text
-        let link = linkV.text
+        //var desc = " "
+        let desc = descV.text ?? " "
         
-        db.collection("Resources").document().setData(["ResName": res, "autherName":auther, "pubName":pub, "link":link, "url":url])
-        submited.text = "Resource submitted!!"
+        db.collection("Resources").document().setData(["ResName": res, "authorName":author, "pubName":pub, "desc":desc, "url":url])
+        error.attributedText = NSAttributedString(string: "Resource submitted.",
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.green])
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        welcome2.text = "Sara!"
-        
-        // Do any additional setup after loading the view.
     } //end func viewDidLoad
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
 } //end func resPostViewController
-
-/*
- extension UTType {
- // Word documents are not an existing property on UTType
- static var word: UTType {
- UTType.types(tag: "docx", tagClass: .filenameExtension, conformingTo: nil).first!
- }
- 
- }
- */
