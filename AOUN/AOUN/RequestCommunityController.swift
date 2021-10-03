@@ -23,25 +23,32 @@ class RequestCommunityController: UIViewController {
     }
 
     @IBAction func submit(_ sender: Any) {
-        
+        inputError.text = "";
         n = Name.text ?? ""
         d = Info.text ?? ""
-        if (n.isEmpty) , (d.isEmpty) {
+        if (n.isEmpty) && (d.isEmpty) {
+            inputError.textColor = UIColor.systemRed;
             inputError.text = "Please provide the required fields";
-            Name.attributedPlaceholder = NSAttributedString(string: "placeholder text",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            Info.attributedPlaceholder = NSAttributedString(string: "placeholder text",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            Name.attributedPlaceholder = NSAttributedString(string: "Title",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            Info.attributedPlaceholder = NSAttributedString(string: "Description",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
 
         }
         else{
         if (n.isEmpty) {
             inputError.text = "Please provide the title";
-            Name.attributedPlaceholder = NSAttributedString(string: "placeholder text",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            inputError.textColor = UIColor.systemRed;
+            Name.attributedPlaceholder = NSAttributedString(string: "Title",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else {
             if (d.isEmpty) {
+                inputError.textColor = UIColor.systemRed;
                 inputError.text = "Please provide the description";
+                Info.attributedPlaceholder = NSAttributedString(string: "Description",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             } else {
                 db.collection("Request").document().setData(["Title": n, "Description":d]);
-                Info.attributedPlaceholder = NSAttributedString(string: "placeholder text",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                inputError.textColor = UIColor.systemGreen;
+                inputError.text =  "Request sent successfuly";
+               // dismiss(animated: true, completion: nil)
+                
             }
     }
     
