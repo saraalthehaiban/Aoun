@@ -68,7 +68,7 @@ extension AdminDashboard: UITableViewDataSource{
 extension AdminDashboard: UITableViewDelegate {
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     selectedRow = indexPath.row
-    if let vc = storyboard?.instantiateViewController(identifier: "CommunityDetailsViewController") as? CommunityDetailsViewController{
+    if let vc = storyboard?.instantiateViewController(identifier: "CommunityDetailsViewController") as? CommunityDetailsViewController {
         vc.TitleName = requests[indexPath.row].title
         vc.desc = requests[indexPath.row].description
         vc.doc = requests[indexPath.row].doc
