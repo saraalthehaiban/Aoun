@@ -30,6 +30,10 @@ class detailedResViewController: UIViewController {
         authL.text = resource.author
         pubL.text = resource.publisher
         descL.text = resource.desc
+     
+        if descL.text == "" {
+            descL.text = "No Description"
+        }
         //**********FILES***********
     }
     
