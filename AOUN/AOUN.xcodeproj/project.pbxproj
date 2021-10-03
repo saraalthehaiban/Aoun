@@ -21,17 +21,15 @@
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
-		0FC646332700664A00BA6BF2 /* RequestCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC646322700664A00BA6BF2 /* RequestCommunityController.swift */; };
-		0FC64635270222AB00BA6BF2 /* CommunityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC64634270222AB00BA6BF2 /* CommunityDetailsViewController.swift */; };
-		0FEE900D2704F0040061875E /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE900C2704F0040061875E /* LaunchScreenViewController.swift */; };
-		0FEE904B27058A6C0061875E /* testingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE904A27058A6C0061875E /* testingViewController.swift */; };
-		27609D3526F6693800254EA7 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27609D3426F6693800254EA7 /* resPostViewController.swift */; };
+		0FC646332700664A00BA6BF2 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		0FEE900D2704F0040061875E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D9C4E27063E0F0019B8AD /* DownloadManager.swift */; };
 		27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */; };
 		27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */; };
 		27712C6F270346AD00450466 /* resFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C6E270346AD00450466 /* resFile.swift */; };
 		27712C7127034CB200450466 /* detailedResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C7027034CB200450466 /* detailedResViewController.swift */; };
 		2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792FB2B26F66EAA00366961 /* resViewViewController.swift */; };
+		27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3326F69173009E3394 /* LandingViewController.swift */; };
@@ -80,13 +78,13 @@
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/RequestCell.xib; sourceTree = SOURCE_ROOT; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
-		27609D3426F6693800254EA7 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
 		276D9C4E27063E0F0019B8AD /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resourceCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = resourceCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		27712C6E270346AD00450466 /* resFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resFile.swift; sourceTree = "<group>"; };
 		27712C7027034CB200450466 /* detailedResViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailedResViewController.swift; sourceTree = "<group>"; };
 		2792FB2B26F66EAA00366961 /* resViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resViewViewController.swift; sourceTree = "<group>"; };
+		27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityDetailsViewController.swift; sourceTree = "<group>"; };
 		39A7D70903C5ABE413790ADA /* Pods-AOUNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.debug.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDA64D179885230CF863960 /* Pods-AOUN-AOUNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.release.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +170,7 @@
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
 				27712C7027034CB200450466 /* detailedResViewController.swift */,
 				276D9C4E27063E0F0019B8AD /* DownloadManager.swift */,
+				27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */,
 				27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */,
 				27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */,
 				2792FB2B26F66EAA00366961 /* resViewViewController.swift */,
@@ -495,13 +494,14 @@
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
 				DA3D9B1E26F6A19E00C844BB /* ViewNotesViewController.swift in Sources */,
+				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				27712C6F270346AD00450466 /* resFile.swift in Sources */,
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				27712C7127034CB200450466 /* detailedResViewController.swift in Sources */,
-				0FC646332700664A00BA6BF2 /* RequestCommunityController.swift in Sources */,
+				0FC646332700664A00BA6BF2 /* (null) in Sources */,
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
@@ -510,7 +510,7 @@
 				DA3D9B1C26F69E1900C844BB /* PostNoteViewController.swift in Sources */,
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
 				27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */,
-				0FEE900D2704F0040061875E /* LaunchScreenViewController.swift in Sources */,
+				0FEE900D2704F0040061875E /* (null) in Sources */,
 				0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

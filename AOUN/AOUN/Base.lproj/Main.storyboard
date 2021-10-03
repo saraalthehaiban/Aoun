@@ -553,7 +553,6 @@
             <objects>
                 <navigationController id="IQg-Te-XqA" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p1S-Ny-MCW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
