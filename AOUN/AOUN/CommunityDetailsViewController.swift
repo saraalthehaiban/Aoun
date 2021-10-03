@@ -7,21 +7,37 @@
 
 import UIKit
 import Firebase
-class CommunityDetailsViewController: UIViewController {
-  
 
+protocol CommunityDetailsViewControllerDelegate {
+    func delAt(index : IndexPath)
+}
+
+class CommunityDetailsViewController: UIViewController {
+    var delegate: CommunityDetailsViewControllerDelegate?
     let db = Firestore.firestore()
     var TitleName = ""
     @IBOutlet var name: UILabel!
     @IBOutlet var info: UILabel!
     var desc = ""
     var doc = ""
+    var index : IndexPath!
+    var requests : [Request] = []
     @IBAction func accept(_ sender: UIButton) {
         db.collection("Communities").document().setData(["Title" : TitleName, "Description" : desc, "questions": []])
         db.collection("Request").document(doc).delete()
+        delegate?.delAt(index: index)
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+        
     }
     @IBAction func reject(_ sender: UIButton) {
-        db.collection("Request").document(doc).delete()
+       db.collection("Request").document(doc).delete()
+       
+        delegate?.delAt(index: index)
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+
+        
     }
     override func viewDidLoad() {
         name.text = TitleName
@@ -31,16 +47,8 @@ class CommunityDetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }
+
+
+
