@@ -6,44 +6,84 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
-class resViewViewController: UIViewController {
-    @IBOutlet weak var topPic: UIImageView!
+class resViewViewController: UIViewController
+{
+    
+    @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     
-    
-    
-    // dataBase
-    @IBOutlet weak var smallBackground: UIImageView!
     @IBOutlet weak var resL: UILabel!
-    @IBOutlet weak var authL: UILabel!
-    @IBOutlet weak var pubL: UIImageView!
-    // dataBase
+    @IBOutlet weak var collection: UICollectionView!
     
-    
-    @IBOutlet weak var welcome: UILabel!
-    @IBOutlet weak var welcome2: UILabel!
-    
-    @IBOutlet weak var logo: UIImageView!
-    @IBOutlet weak var resourceL: UILabel!
+    var resources:[resFile] = []
+    let db = Firestore.firestore()
+    //dummy data
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcome2.text = "Sara!"
-        // Do any additional setup after loading the view.
+        let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
+        
+        collection.register(nipCell, forCellWithReuseIdentifier: "cell")
+        
+        loadResources()
     }
     
+    func loadResources(){
+        db.collection("Resources").getDocuments { querySnapshot, error in
+            if let e = error {
+                print("There was an issue retreving data from fireStore. \(e)")
+            }else {
+                if let snapshotDocuments = querySnapshot?.documents{
+                    for doc in snapshotDocuments{
+                        
+                        let data = doc.data()
+                        if let rName = data["ResName"] as? String, let aName  = data["authorName"] as? String, let pName = data["pubName"] as? String, let desc = data["desc"] as? String, let urlName = data["url"] as? String {
+                            let newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName)
+                            self.resources.append(newRes)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        self.collection.reloadData()
+                    }
+                }
+            }
+        }
+    }//end loadResources
+    
+}//end of class
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+
+extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 154, height: 160)
     }
-    */
-
-}
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return resources.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
+        cell.name.text = resources[indexPath.row].name
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController{
+            vc.resource = resources[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+    }
+}//extention
