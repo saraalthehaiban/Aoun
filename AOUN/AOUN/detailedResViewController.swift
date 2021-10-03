@@ -34,16 +34,16 @@ class detailedResViewController: UIViewController {
     }
     
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+   // @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
         @IBAction func downloadButtonTouched(_ sender: Any) {
             guard let url = resource.url else {
                 //TODO: Show download url error message
                 return
             }
-            activityIndicator.startAnimating()
+            //activityIndicator.startAnimating()
             DownloadManager.download(url: url) { success, data in
                 //guard let documentData = data.dataRe
-                self.activityIndicator.stopAnimating()
+                //self.activityIndicator.stopAnimating()
                 let vcActivity = UIActivityViewController(activityItems: [data], applicationActivities: nil)
                 self.present(vcActivity, animated: true, completion: nil)
             }

@@ -65,37 +65,44 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         //*****************************************
         if resourceV.text == "" ||  authorV.text == "" || publisherV.text == ""{
                     if resourceV.text == ""{
-                    errRes.text = "*"
+                    //errRes.text = "*"
+                        resourceV.attributedPlaceholder = NSAttributedString(string: "*Resource Name",
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                     }
                      if authorV.text == ""{
-                    errAuth.text = "*"
+                    //errAuth.text = "*"
+                        authorV.attributedPlaceholder = NSAttributedString(string: "*Author Name",
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                        
                     }
                      if publisherV.text == ""{
-                    errPub.text = "*"
+                    //errPub.text = "*"
+                        publisherV.attributedPlaceholder = NSAttributedString(string: "*Publisher Name",
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                     }
             error.text = "Missing field."
                 }
                 
-                if resourceV.text != "" ||  authorV.text != "" || publisherV.text != ""{
-                    if resourceV.text != ""{
-                    errRes.text = ""
-                    }
-                     if authorV.text != ""{
-                    errAuth.text = ""
-                    }
-                     if publisherV.text != ""{
-                    errPub.text = ""
-                    }
-                    error.text = ""
-
-                }
+//                if resourceV.text != "" ||  authorV.text != "" || publisherV.text != ""{
+//                    if resourceV.text != ""{
+//                    errRes.text = ""
+//                    }
+//                     if authorV.text != ""{
+//                    errAuth.text = ""
+//                    }
+//                     if publisherV.text != ""{
+//                    errPub.text = ""
+//                    }
+//                    error.text = ""
+//
+//                }
                 if resourceV.text == "" ||  authorV.text == "" || publisherV.text == ""{
                     return}
         
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, resourceV.text != "",  authorV.text != "", publisherV.text != ""
                 else {
-                    error.text = "Missing a File."
+                    error.text = "Missing PDF/ZIP File."
                     return
                 }
                 error.text = ""
@@ -151,7 +158,8 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         let desc = descV.text ?? " "
         
         db.collection("Resources").document().setData(["ResName": res, "authorName":author, "pubName":pub, "desc":desc, "url":url])
-       error.text = "Resource submitted."
+        error.attributedText = NSAttributedString(string: "Resource submitted.",
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.green])
     }
     
     
