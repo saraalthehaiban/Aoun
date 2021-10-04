@@ -18,9 +18,6 @@ class AdminDashboard: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName:"RequestCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         loadCommunities ()
-        if requests.count == 0{
-            EmptyTable.text = empty
-        }
 
         
     }
@@ -35,6 +32,7 @@ extension AdminDashboard: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! RequestCell
         cell.name.text = requests[indexPath.row].title
         return cell
+        EmptyTable.text = empty
         
     }
     
@@ -50,6 +48,7 @@ extension AdminDashboard: UITableViewDataSource{
                     if let name = data["Title"] as? String , let des = data["Description"] as? String {
                         let newReq = Request(title: name, description: des, doc : id )
                     self.requests.append(newReq)
+                        self.EmptyTable.text = "";
 
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -60,7 +59,7 @@ extension AdminDashboard: UITableViewDataSource{
     
         }
 
-        
+
     }
     
 }
