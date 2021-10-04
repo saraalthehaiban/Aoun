@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7LB-Bs-jnJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Fx-mD-zGT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -889,8 +889,8 @@
                         <outlet property="authorV" destination="gQ6-To-mbd" id="8aq-np-yPm"/>
                         <outlet property="background" destination="yTy-H8-miK" id="SpK-wS-EEt"/>
                         <outlet property="descV" destination="ULN-Vx-oKF" id="fle-j2-YAQ"/>
-                        <outlet property="error" destination="Mhf-u2-lm7" id="AIh-vN-IFU"/>
                         <outlet property="icon" destination="Pce-rJ-g7u" id="E9x-0S-Zlu"/>
+                        <outlet property="msg" destination="Mhf-u2-lm7" id="gwL-Pn-TUm"/>
                         <outlet property="publisherV" destination="Gmt-29-lew" id="3um-Rc-ckT"/>
                         <outlet property="resTitle" destination="1vY-J9-olL" id="KpY-eD-NyX"/>
                         <outlet property="resourceV" destination="LSW-rR-32k" id="Koc-ug-RNR"/>

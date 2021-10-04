@@ -23,6 +23,7 @@
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
 		0FC646332700664A00BA6BF2 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0FEE900D2704F0040061875E /* (null) in Sources */ = {isa = PBXBuildFile; };
+		271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271CFDD0270AF78C00FEE698 /* resPostViewController.swift */; };
 		274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */; };
 		276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D9C4E27063E0F0019B8AD /* DownloadManager.swift */; };
 		27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */; };
@@ -79,6 +80,7 @@
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/RequestCell.xib; sourceTree = SOURCE_ROOT; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
+		271CFDD0270AF78C00FEE698 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = resPostViewController.swift; path = ../resPostViewController.swift; sourceTree = "<group>"; };
 		274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCommunityController.swift; sourceTree = "<group>"; };
 		276D9C4E27063E0F0019B8AD /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resourceCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */,
 				2792FB2B26F66EAA00366961 /* resViewViewController.swift */,
 				27712C6E270346AD00450466 /* resFile.swift */,
+				271CFDD0270AF78C00FEE698 /* resPostViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				DA3D9B1B26F69E1900C844BB /* PostNoteViewController.swift */,
 				DA3D9B1D26F6A19E00C844BB /* ViewNotesViewController.swift */,
@@ -497,6 +500,7 @@
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
 				DA3D9B1E26F6A19E00C844BB /* ViewNotesViewController.swift in Sources */,
+				271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */,
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				27712C6F270346AD00450466 /* resFile.swift in Sources */,
