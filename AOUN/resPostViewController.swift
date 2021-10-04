@@ -25,8 +25,8 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     @IBOutlet weak var descV: UITextField!
     
     
-    @IBOutlet weak var error: UILabel!
-
+    @IBOutlet weak var msg: UILabel!
+    
     var files : [URL]?
     
     @IBAction func attach(_ sender: Any) {
@@ -70,7 +70,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
                         publisherV.attributedPlaceholder = NSAttributedString(string: "*Publisher Name",
                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                     }
-            error.text = "Missing field."
+            msg.text = "Missing field."
                 }
                 
                 if resourceV.text == "" ||  authorV.text == "" || publisherV.text == ""{
@@ -79,10 +79,10 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, resourceV.text != "",  authorV.text != "", publisherV.text != ""
                 else {
-                    error.text = "Missing PDF/ZIP File."
+                    msg.text = "Missing PDF/ZIP File."
                     return
                 }
-                error.text = ""
+                msg.text = ""
         
         
                 print("Selected File paths", files, localFile)
@@ -100,12 +100,12 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
                 let uploadTask = resRef.putFile(from: localFile, metadata: nil) { metadata, error in
                     if let e =  error {
                         print (e)
-                        self.error.text = "File couldn't be uploaded."
+                        self.msg.text = "File couldn't be uploaded."
                         return
                     }
                     guard let metadata = metadata else {
                         // Uh-oh, an error occurred!
-                        self.error.text = "File couldn't be uploaded."
+                        self.msg.text = "File couldn't be uploaded."
                         return
                     }
                     // Metadata contains file metadata such as size, content-type.
@@ -134,7 +134,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         let desc = descV.text ?? " "
         
         db.collection("Resources").document().setData(["ResName": res, "authorName":author, "pubName":pub, "desc":desc, "url":url])
-        error.attributedText = NSAttributedString(string: "Resource submitted.",
+        msg.attributedText = NSAttributedString(string: "Resource submitted.",
                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.green])
     }
     
