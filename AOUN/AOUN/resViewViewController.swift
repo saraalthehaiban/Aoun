@@ -45,16 +45,19 @@ class resViewViewController: UIViewController
                         if let rName = data["ResName"] as? String, let aName  = data["authorName"] as? String, let pName = data["pubName"] as? String, let desc = data["desc"] as? String, let urlName = data["url"] as? String {
                             let newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName)
                             self.resources.append(newRes)
+                         
+                            DispatchQueue.main.async {
+                                self.collection.reloadData()
+                            }
                         }
                     }
-                    DispatchQueue.main.async {
-                        self.collection.reloadData()
-                    }
+//                    DispatchQueue.main.async {
+//                        self.collection.reloadData()
+//                    }
                 }
             }
         }
     }//end loadResources
-    
 }//end of class
 
 
@@ -63,7 +66,8 @@ class resViewViewController: UIViewController
 extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 154, height: 160)
+        let w = (UIScreen.main.bounds.size.width - 110)/2
+        return CGSize(width: w, height: 160) //154
     }
     
     
@@ -83,7 +87,27 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
         if let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController{
             vc.resource = resources[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
-            
+        }
+    }
+}//extention
+
+//MARK:- Add Work
+
+extension resViewViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "si_viewResToPost", let vc = segue.destination as? resPostViewController {
+            vc.delegate = self
+        }
+    }
+}//extention
+
+extension resViewViewController: resPostViewControllerDelegate {
+    func resPost(_ vc: resPostViewController, resource: resFile?, added: Bool){
+        vc.dismiss(animated: true) {
+            if added, let r = resource {
+                self.resources.append(r)
+                self.collection.reloadData()
+            }
         }
     }
 }//extention
