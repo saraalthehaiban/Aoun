@@ -44,7 +44,13 @@ class CommunityDetailsViewController: UIViewController {
         info.text = desc
            
         super.viewDidLoad()
+        //Looks for single or multiple taps.
+        // let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+
+        //view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
   
