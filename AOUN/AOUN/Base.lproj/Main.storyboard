@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7LB-Bs-jnJ">
+
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -227,12 +228,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="842" id="zev-wj-EwU"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Resource details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-xy-sN8">
-                                <rect key="frame" x="44" y="377" width="247" height="69"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="bac" translatesAutoresizingMaskIntoConstraints="NO" id="jx7-S2-yLp">
                                 <rect key="frame" x="35" y="377" width="327" height="536"/>
                                 <constraints>
@@ -241,7 +236,7 @@
                                     <constraint firstAttribute="width" constant="327" id="zx3-Z7-eD9"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY3-bW-cdv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY3-bW-cdv">
                                 <rect key="frame" x="78" y="761" width="238" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="F3m-hy-GT3"/>
@@ -256,23 +251,23 @@
                                     <action selector="downloadButtonTouched:" destination="nqV-Xx-Ukx" eventType="touchUpInside" id="UuY-jP-Muo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="........" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RD-Wj-wIa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="........" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RD-Wj-wIa">
                                 <rect key="frame" x="64" y="615" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" layoutMarginsFollowReadableWidth="YES" text="````````````````" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VZ-nC-9an">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="````````````````" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VZ-nC-9an">
                                 <rect key="frame" x="64" y="685" width="280" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="b7i-WI-stn"/>
-                                    <constraint firstAttribute="width" secondItem="7VZ-nC-9an" secondAttribute="height" multiplier="61:17" id="sX2-tq-FQE"/>
+                                    <constraint firstAttribute="width" secondItem="7VZ-nC-9an" secondAttribute="height" multiplier="61:17" constant="36" id="sX2-tq-FQE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Publisher:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUH-mY-tCc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publisher:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUH-mY-tCc">
                                 <rect key="frame" x="64" y="580" width="280" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="rsO-Da-gxA"/>
@@ -281,7 +276,7 @@
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="27"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igh-0Z-JcF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igh-0Z-JcF">
                                 <rect key="frame" x="64" y="650" width="280" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Igh-0Z-JcF" secondAttribute="height" multiplier="167:24" constant="113" id="ChD-Ur-odC"/>
@@ -289,7 +284,13 @@
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="````````````````" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUu-kE-yAP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resource details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-xy-sN8">
+                                <rect key="frame" x="44" y="377" width="247" height="69"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="````````````````" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUu-kE-yAP">
                                 <rect key="frame" x="64" y="550" width="280" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0HT-vR-BDR"/>
@@ -298,7 +299,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Author:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1P-sg-x58">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1P-sg-x58">
                                 <rect key="frame" x="64" y="515" width="280" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="B1P-sg-x58" secondAttribute="height" multiplier="167:24" constant="113" id="Pca-Rs-DWB"/>
@@ -307,7 +308,7 @@
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Resource name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efs-4s-wgh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resource name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efs-4s-wgh">
                                 <rect key="frame" x="64" y="466" width="280" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="aQY-Jl-rPW"/>
@@ -330,17 +331,17 @@
                             <constraint firstItem="7VZ-nC-9an" firstAttribute="top" secondItem="Igh-0Z-JcF" secondAttribute="bottom" constant="11" id="6pC-vV-YCH"/>
                             <constraint firstItem="Z7Z-nK-avn" firstAttribute="bottom" secondItem="jx7-S2-yLp" secondAttribute="bottom" constant="-51" id="9dn-Wh-jpS"/>
                             <constraint firstItem="csY-vZ-alz" firstAttribute="leading" secondItem="Hnw-d8-6Yz" secondAttribute="leading" constant="-165" id="AVe-Mt-aSz"/>
-                            <constraint firstItem="Z7Z-nK-avn" firstAttribute="trailing" secondItem="7VZ-nC-9an" secondAttribute="trailing" constant="96" id="DgO-AC-jLK"/>
+                            <constraint firstItem="Z7Z-nK-avn" firstAttribute="trailing" secondItem="7VZ-nC-9an" secondAttribute="trailing" constant="70" id="DgO-AC-jLK"/>
                             <constraint firstItem="QUH-mY-tCc" firstAttribute="top" secondItem="BUu-kE-yAP" secondAttribute="bottom" constant="9" id="HVU-Ip-Yly"/>
                             <constraint firstItem="jx7-S2-yLp" firstAttribute="leading" secondItem="Z7Z-nK-avn" secondAttribute="leading" constant="35" id="IjW-9V-SuC"/>
                             <constraint firstItem="efs-4s-wgh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Z7Z-nK-avn" secondAttribute="leading" id="JGP-XH-5ZL"/>
                             <constraint firstItem="Igh-0Z-JcF" firstAttribute="leading" secondItem="Z7Z-nK-avn" secondAttribute="leading" constant="64" id="JWD-wL-me6"/>
                             <constraint firstItem="jx7-S2-yLp" firstAttribute="top" secondItem="Z7Z-nK-avn" secondAttribute="top" constant="333" id="Jfn-C0-3aY"/>
                             <constraint firstItem="Igh-0Z-JcF" firstAttribute="top" secondItem="7RD-Wj-wIa" secondAttribute="bottom" constant="14" id="KoN-Sx-KeV"/>
-                            <constraint firstItem="7VZ-nC-9an" firstAttribute="leading" secondItem="Z7Z-nK-avn" secondAttribute="leading" constant="74" id="LFR-59-3E2"/>
+                            <constraint firstItem="7VZ-nC-9an" firstAttribute="leading" secondItem="Z7Z-nK-avn" secondAttribute="leading" constant="64" id="LFR-59-3E2"/>
                             <constraint firstItem="Z7Z-nK-avn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="efs-4s-wgh" secondAttribute="trailing" id="Llm-IS-pb9"/>
                             <constraint firstItem="xBG-xy-sN8" firstAttribute="leading" secondItem="Z7Z-nK-avn" secondAttribute="leading" constant="44" id="MnN-hd-39Y"/>
-                            <constraint firstItem="csY-vZ-alz" firstAttribute="top" secondItem="Hnw-d8-6Yz" secondAttribute="top" constant="-89" id="PsO-Ox-HB6"/>
+                            <constraint firstItem="csY-vZ-alz" firstAttribute="top" secondItem="Hnw-d8-6Yz" secondAttribute="top" constant="-28" id="PsO-Ox-HB6"/>
                             <constraint firstItem="Z7Z-nK-avn" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QUH-mY-tCc" secondAttribute="trailing" id="QMS-b2-3d5"/>
                             <constraint firstItem="Z7Z-nK-avn" firstAttribute="trailing" secondItem="7RD-Wj-wIa" secondAttribute="trailing" constant="70" id="Tpa-Qo-nBg"/>
                             <constraint firstItem="efs-4s-wgh" firstAttribute="top" secondItem="xBG-xy-sN8" secondAttribute="bottom" constant="20" id="U0a-KL-E9h"/>
@@ -390,7 +391,7 @@
             <objects>
                 <viewController storyboardIdentifier="resPost_VC" id="L9m-pe-oaC" customClass="resPostViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UqG-Ex-pCM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="yTy-H8-miK">
@@ -402,7 +403,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resource details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vY-J9-olL">
-                                <rect key="frame" x="42" y="371" width="308" height="69"/>
+                                <rect key="frame" x="42" y="283" width="308" height="69"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1vY-J9-olL" secondAttribute="height" multiplier="308:69" id="dlL-Mc-e01"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="308" id="wl1-df-yBK"/>
@@ -412,7 +413,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="SZ0-Q4-gtR">
-                                <rect key="frame" x="35" y="437" width="327" height="386"/>
+                                <rect key="frame" x="35" y="349" width="327" height="386"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Resource Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LSW-rR-32k">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -434,8 +435,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please attach a PDF or Zip file" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9R-M9-De7">
+                                        <rect key="frame" x="0.0" y="224" width="327" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKQ-lq-RFw">
-                                        <rect key="frame" x="0.0" y="224" width="327" height="40"/>
+                                        <rect key="frame" x="0.0" y="254.5" width="327" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="wSZ-qq-idn"/>
                                         </constraints>
@@ -448,7 +455,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMC-UA-1SG">
-                                        <rect key="frame" x="0.0" y="280" width="327" height="40"/>
+                                        <rect key="frame" x="0.0" y="310.5" width="327" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="svg-jf-WTQ"/>
                                         </constraints>
@@ -460,8 +467,8 @@
                                             <action selector="submit:" destination="L9m-pe-oaC" eventType="touchUpInside" id="fyD-TQ-ZoN"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhf-u2-lm7">
-                                        <rect key="frame" x="0.0" y="336" width="327" height="50"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhf-u2-lm7">
+                                        <rect key="frame" x="0.0" y="366.5" width="327" height="19.5"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -478,7 +485,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="resource" translatesAutoresizingMaskIntoConstraints="NO" id="Pce-rJ-g7u">
-                                <rect key="frame" x="-15" y="180" width="280" height="126"/>
+                                <rect key="frame" x="-15" y="92" width="280" height="126"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="126" id="rk5-8W-rXa"/>
                                     <constraint firstAttribute="width" constant="280" id="sjy-xV-X9H"/>
@@ -506,6 +513,7 @@
                         <outlet property="authorV" destination="gQ6-To-mbd" id="8aq-np-yPm"/>
                         <outlet property="background" destination="yTy-H8-miK" id="SpK-wS-EEt"/>
                         <outlet property="descV" destination="ULN-Vx-oKF" id="fle-j2-YAQ"/>
+                        <outlet property="fileType" destination="p9R-M9-De7" id="AQX-yK-Odg"/>
                         <outlet property="icon" destination="Pce-rJ-g7u" id="E9x-0S-Zlu"/>
                         <outlet property="msg" destination="Mhf-u2-lm7" id="gwL-Pn-TUm"/>
                         <outlet property="publisherV" destination="Gmt-29-lew" id="3um-Rc-ckT"/>
@@ -521,7 +529,7 @@
         <!--Res View View Controller-->
         <scene sceneID="Hfp-ww-4gH">
             <objects>
-                <viewController storyboardIdentifier="resView_VC" id="Y5S-2Q-KcQ" customClass="resViewViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resViewViewController" id="Y5S-2Q-KcQ" customClass="resViewViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a31-LU-rSQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -586,7 +594,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="L9m-pe-oaC" kind="show" id="we7-GR-lcm"/>
+                                    <segue destination="L9m-pe-oaC" kind="presentation" identifier="si_viewResToPost" id="9WM-Da-sZ9"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="resource" translatesAutoresizingMaskIntoConstraints="NO" id="ucZ-hj-UhA">
