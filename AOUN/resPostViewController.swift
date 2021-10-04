@@ -10,21 +10,25 @@ import FirebaseStorage
 import Firebase
 import UniformTypeIdentifiers
 
+protocol resPostViewControllerDelegate{
+    func resPost(_ vc: resPostViewController, resource: resFile?, added: Bool)
+}
+
 class resPostViewController: UIViewController, UIDocumentPickerDelegate {
+    
+    var delegate: resPostViewControllerDelegate?
     
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var resTitle: UILabel!
     @IBOutlet weak var stack: UIStackView!
     
-    
-    
     @IBOutlet weak var resourceV: UITextField!
     @IBOutlet weak var authorV: UITextField!
     @IBOutlet weak var publisherV: UITextField!
     @IBOutlet weak var descV: UITextField!
     
-    
+    @IBOutlet weak var fileType: UILabel!
     @IBOutlet weak var msg: UILabel!
     
     var files : [URL]?
@@ -41,7 +45,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
             documentPicker.shouldShowFileExtensions = true
             self.present(documentPicker, animated: true, completion: nil)
         }))
-        
+
         
         attachSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
@@ -51,6 +55,8 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         files = urls
+        fileType.text = "A file has been attached."
+
     } //end func documentPicker
     
     
@@ -70,7 +76,8 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
                         publisherV.attributedPlaceholder = NSAttributedString(string: "*Publisher Name",
                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                     }
-            msg.text = "Missing field."
+            msg.attributedText = NSAttributedString(string: "Missing field.",
+                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                 }
                 
                 if resourceV.text == "" ||  authorV.text == "" || publisherV.text == ""{
@@ -79,7 +86,8 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, resourceV.text != "",  authorV.text != "", publisherV.text != ""
                 else {
-                    msg.text = "Missing PDF/ZIP File."
+            msg.attributedText = NSAttributedString(string: "Missing File.",
+                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                     return
                 }
                 msg.text = ""
@@ -100,12 +108,16 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
                 let uploadTask = resRef.putFile(from: localFile, metadata: nil) { metadata, error in
                     if let e =  error {
                         print (e)
-                        self.msg.text = "File couldn't be uploaded."
+                        self.msg.attributedText = NSAttributedString(string: "File couldn't be uploaded.",
+                                                                attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                      //  self.msg.text = "File couldn't be uploaded."
                         return
                     }
                     guard let metadata = metadata else {
                         // Uh-oh, an error occurred!
-                        self.msg.text = "File couldn't be uploaded."
+                        self.msg.attributedText = NSAttributedString(string: "File couldn't be uploaded.",
+                                                                attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                   //     self.msg.text = "File couldn't be uploaded."
                         return
                     }
                     // Metadata contains file metadata such as size, content-type.
@@ -128,16 +140,29 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
     func createDocument(with resURL : URL) {
         let url = resURL.absoluteString
         let db = Firestore.firestore()
-        let  res = resourceV.text
-        let author = authorV.text
-        let pub = publisherV.text
-        let desc = descV.text ?? " "
+        let res = resourceV.text!
+        let author = authorV.text!
+        let pub = publisherV.text!
+        let desc = descV.text ?? ""
+        let data = ["ResName": res, "authorName": author, "pubName":pub, "desc":desc, "url":url]
         
-        db.collection("Resources").document().setData(["ResName": res, "authorName":author, "pubName":pub, "desc":desc, "url":url])
+//        db.collection("Resources").document().setData(["ResName": res, "authorName":author, "pubName":pub, "desc":desc, "url":url])
+              
+        let resource = resFile(name: res, author: author, publisher: pub, desc: desc, urlString: url)
+        
+        db.collection("Resources").document().setData(data) { error in
+            if let e = error {
+                print (e)
+                self.delegate?.resPost(self, resource: resource, added: false)
+            return
+            }
+            
+            self.delegate?.resPost(self, resource: resource, added: true)
+        }
+        
         msg.attributedText = NSAttributedString(string: "Resource submitted.",
                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.green])
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
