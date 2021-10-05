@@ -161,7 +161,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         }
         
         msg.attributedText = NSAttributedString(string: "Resource submitted.",
-                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.green])
+                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue])
     }
     
     override func viewDidLoad() {

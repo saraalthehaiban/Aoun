@@ -80,9 +80,9 @@
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
-		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/RequestCell.xib; sourceTree = SOURCE_ROOT; };
+		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/Sara/RequestCell.xib; sourceTree = SOURCE_ROOT; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
-		271CFDD0270AF78C00FEE698 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = resPostViewController.swift; path = ../resPostViewController.swift; sourceTree = "<group>"; };
+		271CFDD0270AF78C00FEE698 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
 		274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCommunityController.swift; sourceTree = "<group>"; };
 		276D9C4E27063E0F0019B8AD /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resourceCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -145,6 +145,50 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0F3DECEC270C995F00C5F6BB /* Reema */ = {
+			isa = PBXGroup;
+			children = (
+				27712C6E270346AD00450466 /* resFile.swift */,
+				27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */,
+				271CFDD0270AF78C00FEE698 /* resPostViewController.swift */,
+				27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */,
+				2792FB2B26F66EAA00366961 /* resViewViewController.swift */,
+				27712C7027034CB200450466 /* detailedResViewController.swift */,
+			);
+			path = Reema;
+			sourceTree = "<group>";
+		};
+		0F3DECED270C99A800C5F6BB /* Sara */ = {
+			isa = PBXGroup;
+			children = (
+				27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */,
+				0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */,
+				0FC21B7B26F66ED100B83B0E /* Request.swift */,
+				274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */,
+				0F3DECEA270B207800C5F6BB /* RCell.xib */,
+				0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */,
+			);
+			path = Sara;
+			sourceTree = "<group>";
+		};
+		0F3DECEE270C99EE00C5F6BB /* Rasha */ = {
+			isa = PBXGroup;
+			children = (
+				DA3D9B1B26F69E1900C844BB /* PostNoteViewController.swift */,
+				DA3D9B1D26F6A19E00C844BB /* ViewNotesViewController.swift */,
+			);
+			path = Rasha;
+			sourceTree = "<group>";
+		};
+		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
+			isa = PBXGroup;
+			children = (
+				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
+				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
+			);
+			path = Shatha;
+			sourceTree = "<group>";
+		};
 		0F40BDE326F54F4900FB83AC = {
 			isa = PBXGroup;
 			children = (
@@ -170,31 +214,19 @@
 		0F40BDEE26F54F4900FB83AC /* AOUN */ = {
 			isa = PBXGroup;
 			children = (
-				52D00D2E26F69136009E3394 /* Rana */,
 				0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */,
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
-				27712C7027034CB200450466 /* detailedResViewController.swift */,
-				276D9C4E27063E0F0019B8AD /* DownloadManager.swift */,
-				27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */,
-				27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */,
-				27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */,
-				274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */,
-				2792FB2B26F66EAA00366961 /* resViewViewController.swift */,
-				27712C6E270346AD00450466 /* resFile.swift */,
-				271CFDD0270AF78C00FEE698 /* resPostViewController.swift */,
-				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
-				DA3D9B1B26F69E1900C844BB /* PostNoteViewController.swift */,
-				DA3D9B1D26F6A19E00C844BB /* ViewNotesViewController.swift */,
-				0F40BDF826F54F4900FB83AC /* Assets.xcassets */,
 				0F40BDFA26F54F4900FB83AC /* LaunchScreen.storyboard */,
+				276D9C4E27063E0F0019B8AD /* DownloadManager.swift */,
 				DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */,
+				0F40BDF826F54F4900FB83AC /* Assets.xcassets */,
 				0F40BDFD26F54F4900FB83AC /* Info.plist */,
-				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
-				0FC21B7B26F66ED100B83B0E /* Request.swift */,
-				0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */,
-				0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */,
-				0F3DECEA270B207800C5F6BB /* RCell.xib */,
+				52D00D2E26F69136009E3394 /* Rana */,
+				0F3DECEC270C995F00C5F6BB /* Reema */,
+				0F3DECED270C99A800C5F6BB /* Sara */,
+				0F3DECEE270C99EE00C5F6BB /* Rasha */,
+				0F3DECEF270C9A0900C5F6BB /* Shatha */,
 			);
 			path = AOUN;
 			sourceTree = "<group>";
@@ -629,7 +661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -684,7 +716,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -701,6 +733,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VKF39SH7Z5;
 				INFOPLIST_FILE = AOUN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -720,6 +753,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VKF39SH7Z5;
 				INFOPLIST_FILE = AOUN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
