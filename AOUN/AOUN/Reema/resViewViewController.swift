@@ -83,11 +83,11 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController{
-            vc.resource = resources[indexPath.row]
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        self.performSegue(withIdentifier: "si_resourceListToDetail", sender: indexPath)
+//        if let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController{
+//            vc.resource = resources[indexPath.row]
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
 }//extention
 
@@ -97,6 +97,9 @@ extension resViewViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "si_viewResToPost", let vc = segue.destination as? resPostViewController {
             vc.delegate = self
+        } else if segue.identifier == "si_resourceListToDetail",
+                  let vc = segue.destination as? detailedResViewController, let indexPath = sender as? IndexPath {
+            vc.resource = resources[indexPath.row]
         }
     }
 }//extention
