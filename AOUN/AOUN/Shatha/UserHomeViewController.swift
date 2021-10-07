@@ -46,4 +46,11 @@ class UserHomeViewController: UIViewController {
     }
     */
 
+    @IBAction func profileActionTouched(_ sender: Any) {
+        if let appDelegate = UIApplication.shared.delegate
+            as? AppDelegate {
+            let vc = appDelegate.viewController(storyBoardname: "Profile", viewControllerId: "si_SignoutViewController")
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
 }
