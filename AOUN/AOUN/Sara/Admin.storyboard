@@ -11,7 +11,7 @@
         <!--Admin Dashboard-->
         <scene sceneID="b7Y-uQ-LwC">
             <objects>
-                <viewController id="RMO-bV-8Wm" customClass="AdminDashboard" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="si_AdminDashboard" id="RMO-bV-8Wm" customClass="AdminDashboard" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PQu-WF-yqa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
