@@ -30,6 +30,12 @@
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
+		0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */; };
+		0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */; };
+		0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6356B270F8E5A004D7A2A /* detailedNoteViewController.swift */; };
+		0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6356D270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift */; };
+		0FC63571270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC6356E270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib */; };
+		0FC63572270F8EA7004D7A2A /* NoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6356F270F8EA7004D7A2A /* NoteFile.swift */; };
 		271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271CFDD0270AF78C00FEE698 /* resPostViewController.swift */; };
 		274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */; };
 		276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D9C4E27063E0F0019B8AD /* DownloadManager.swift */; };
@@ -93,6 +99,12 @@
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/Sara/RequestCell.xib; sourceTree = SOURCE_ROOT; };
+		0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNotesViewController.swift; sourceTree = "<group>"; };
+		0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostNoteViewController.swift; sourceTree = "<group>"; };
+		0FC6356B270F8E5A004D7A2A /* detailedNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailedNoteViewController.swift; sourceTree = "<group>"; };
+		0FC6356D270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		0FC6356E270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		0FC6356F270F8EA7004D7A2A /* NoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteFile.swift; sourceTree = "<group>"; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
 		271CFDD0270AF78C00FEE698 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
 		274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCommunityController.swift; sourceTree = "<group>"; };
@@ -183,13 +195,6 @@
 			path = Sara;
 			sourceTree = "<group>";
 		};
-		0F3DECEE270C99EE00C5F6BB /* Rasha */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Rasha;
-			sourceTree = "<group>";
-		};
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +229,7 @@
 		0F40BDEE26F54F4900FB83AC /* AOUN */ = {
 			isa = PBXGroup;
 			children = (
+				0FC63566270F8D5C004D7A2A /* Rasha */,
 				0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */,
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
@@ -235,7 +241,6 @@
 				52D00D2E26F69136009E3394 /* Rana */,
 				0F3DECEC270C995F00C5F6BB /* Reema */,
 				0F3DECED270C99A800C5F6BB /* Sara */,
-				0F3DECEE270C99EE00C5F6BB /* Rasha */,
 				0F3DECEF270C9A0900C5F6BB /* Shatha */,
 			);
 			path = AOUN;
@@ -257,6 +262,19 @@
 				0F40BE1326F54F4A00FB83AC /* Info.plist */,
 			);
 			path = AOUNUITests;
+			sourceTree = "<group>";
+		};
+		0FC63566270F8D5C004D7A2A /* Rasha */ = {
+			isa = PBXGroup;
+			children = (
+				0FC6356B270F8E5A004D7A2A /* detailedNoteViewController.swift */,
+				0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */,
+				0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */,
+				0FC6356D270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift */,
+				0FC6356E270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib */,
+				0FC6356F270F8EA7004D7A2A /* NoteFile.swift */,
+			);
+			name = Rasha;
 			sourceTree = "<group>";
 		};
 		4644E3BCA9AE27FF9518000A /* Pods */ = {
@@ -398,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC63571270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib in Resources */,
 				0F502A7E270F80D100912EF0 /* LaunchScreen.storyboard in Resources */,
 				0F502A7A270F77EA00912EF0 /* Auth.storyboard in Resources */,
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
@@ -566,16 +585,21 @@
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				27712C7127034CB200450466 /* detailedResViewController.swift in Sources */,
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
+				0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */,
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
 				0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */,
+				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
 				52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */,
 				52D00D3626F69195009E3394 /* HomeViewController.swift in Sources */,
+				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
+				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
 				27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */,
 				0F502A77270F77EA00912EF0 /* ForgotPassViewController.swift in Sources */,
 				0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */,
+				0FC63572270F8EA7004D7A2A /* NoteFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
