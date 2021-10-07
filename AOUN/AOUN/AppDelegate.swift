@@ -30,8 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIApplication.shared.windows.first
         if let cu =  Auth.auth().currentUser {//User is logged in
            //navigate to internal screens
-            let vc = viewController(storyBoardname: "Main", viewControllerId: "userHome")
-            window?.rootViewController = vc
+            if cu.email == "u001@aoun.com" {//TODO: Update this logic for admin sign up later
+                let vc = viewController(storyBoardname: "Admin", viewControllerId: "si_AdminDashboard")
+                window?.rootViewController = vc
+            } else {
+                let vc = viewController(storyBoardname: "Main", viewControllerId: "userHome")
+                window?.rootViewController = vc
+            }
         }else {
             //set landing screen to be internal
             window?.rootViewController = viewController(storyBoardname: "Auth", viewControllerId: "si_LandingViewController")
