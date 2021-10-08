@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,57 +11,51 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9WV-qy-HBa">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="43f-5X-Iqs">
-                                <rect key="frame" x="0.0" y="-46" width="485" height="496"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Aoun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ8-28-0Zu">
-                                <rect key="frame" x="84" y="662" width="283" height="32"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="32"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
+                                <rect key="frame" x="0.0" y="876" width="414" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="9" translatesAutoresizingMaskIntoConstraints="NO" id="bBX-mu-kdO">
-                                <rect key="frame" x="20" y="347" width="329" height="276"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Aoun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd5-YP-juX">
+                                <rect key="frame" x="114" y="634" width="300" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="276" id="o9y-5v-gsH"/>
+                                    <constraint firstAttribute="width" constant="300" id="10W-HV-GA4"/>
+                                    <constraint firstAttribute="height" constant="53" id="Yuu-2g-veE"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE7-v0-uFY">
-                                <rect key="frame" x="394" y="694" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9" translatesAutoresizingMaskIntoConstraints="NO" id="GyQ-T5-nuS">
+                                <rect key="frame" x="0.0" y="175" width="317" height="444"/>
+                            </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="wRR-19-gis"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wRR-19-gis" firstAttribute="trailing" secondItem="bBX-mu-kdO" secondAttribute="trailing" constant="65" id="0EG-2e-Yhc"/>
-                            <constraint firstItem="BE7-v0-uFY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AJ8-28-0Zu" secondAttribute="trailing" constant="8" symbolic="YES" id="7Ew-L0-rnu"/>
-                            <constraint firstItem="AJ8-28-0Zu" firstAttribute="top" secondItem="bBX-mu-kdO" secondAttribute="bottom" constant="39" id="9zP-vC-4i8"/>
-                            <constraint firstItem="wRR-19-gis" firstAttribute="trailing" secondItem="BE7-v0-uFY" secondAttribute="trailing" constant="20" id="djx-gP-tq9"/>
-                            <constraint firstItem="bBX-mu-kdO" firstAttribute="leading" secondItem="9WV-qy-HBa" secondAttribute="leadingMargin" id="egB-oZ-GXv"/>
-                            <constraint firstItem="wRR-19-gis" firstAttribute="bottom" secondItem="AJ8-28-0Zu" secondAttribute="bottom" constant="168" id="lpI-tc-QHX"/>
-                            <constraint firstItem="AJ8-28-0Zu" firstAttribute="leading" secondItem="wRR-19-gis" secondAttribute="leading" constant="84" id="nHs-Tg-MMl"/>
-                            <constraint firstItem="AJ8-28-0Zu" firstAttribute="baseline" secondItem="BE7-v0-uFY" secondAttribute="baseline" id="yBw-Oh-tkg"/>
+                            <constraint firstItem="GyQ-T5-nuS" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="5O9-Rs-00T"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="GyQ-T5-nuS" secondAttribute="trailing" constant="97" id="5pa-bH-n2Y"/>
+                            <constraint firstItem="GyQ-T5-nuS" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="131" id="CE0-Mm-NVF"/>
+                            <constraint firstItem="Bd5-YP-juX" firstAttribute="top" secondItem="GyQ-T5-nuS" secondAttribute="bottom" constant="15" id="Kpt-PA-Mib"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
+                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstItem="Bd5-YP-juX" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="mKC-HR-Y53"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="Bd5-YP-juX" secondAttribute="bottom" constant="175" id="nGD-Pd-vMu"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
         <image name="9" width="2772" height="2162"/>
-        <image name="waves" width="750" height="750"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
