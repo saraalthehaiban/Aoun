@@ -93,16 +93,16 @@ class LoginViewController: UIViewController {
         if emailTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" &&
             passwordTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)==""
         {
-            emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "*Email",
                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "*Password",
                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return "Please fill in missing fields"
         }
             
         if emailTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
             //.textColor = .red
-            emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "*Email",
                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
 //            emailTextField.borderColor = .red
 //            emailTextField.borderWidth = 0.5
@@ -112,7 +112,7 @@ class LoginViewController: UIViewController {
         }
         if passwordTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
 //            passwordTextField.textColor = .red
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "*Password",
                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return "Please fill in password field"
         }

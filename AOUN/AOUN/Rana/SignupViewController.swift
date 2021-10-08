@@ -44,15 +44,15 @@ class SignupViewController: UIViewController {
         
         
         {
-            firstNameTextField.attributedPlaceholder = NSAttributedString(string: "First Name",
+            firstNameTextField.attributedPlaceholder = NSAttributedString(string: "*First Name",
                                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             
-            lastNameTextField.attributedPlaceholder = NSAttributedString(string: "last Name",
+            lastNameTextField.attributedPlaceholder = NSAttributedString(string: "*Last Name",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             
-            emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "*Email",
                                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "*Password",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             
             return "please fill in missing fields"
@@ -62,7 +62,7 @@ class SignupViewController: UIViewController {
         
         if firstNameTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)==""
         {
-            firstNameTextField.attributedPlaceholder = NSAttributedString(string: "First Name",
+            firstNameTextField.attributedPlaceholder = NSAttributedString(string: "*First Name",
                                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             
             return "please fill in missing fields"
@@ -70,7 +70,7 @@ class SignupViewController: UIViewController {
         
         if lastNameTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)==""
         {
-            lastNameTextField.attributedPlaceholder = NSAttributedString(string: "Last Name",
+            lastNameTextField.attributedPlaceholder = NSAttributedString(string: "*Last Name",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             
             return "please fill in missing fields"
@@ -80,7 +80,7 @@ class SignupViewController: UIViewController {
         
         if emailTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
             //.textColor = .red
-            emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
+            emailTextField.attributedPlaceholder = NSAttributedString(string: "*Email",
                                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             //            emailTextField.borderColor = .red
             //            emailTextField.borderWidth = 0.5
@@ -90,7 +90,7 @@ class SignupViewController: UIViewController {
         }
         if passwordTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
             //            passwordTextField.textColor = .red
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: "*Password",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return "please fill missing fields"
         }
