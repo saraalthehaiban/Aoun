@@ -203,7 +203,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnV-TT-NdN">
                                         <rect key="frame" x="0.0" y="177" width="334" height="30"/>
-                                        <state key="normal" title="Forget password"/>
+                                        <state key="normal" title="Forgot password?"/>
                                         <connections>
                                             <segue destination="paG-h4-ht5" kind="presentation" id="fQm-ZD-IAc"/>
                                         </connections>
