@@ -203,9 +203,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnV-TT-NdN">
                                         <rect key="frame" x="0.0" y="177" width="334" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Forget password"/>
                                         <connections>
-                                            <segue destination="paG-h4-ht5" kind="show" id="b2p-oc-9Po"/>
+                                            <segue destination="paG-h4-ht5" kind="presentation" id="fQm-ZD-IAc"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zng-35-dig">
