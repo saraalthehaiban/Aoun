@@ -78,7 +78,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                         descriptionTextbox.attributedPlaceholder = NSAttributedString(string: "*Description",
                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                     }
-                    error.text = "Missing field"
+                    error.text = "Please fill in any missing field"
                     
                 }
                 
@@ -87,7 +87,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, noteTitleTextbox.text != "", autherTextbox.text != "" , descriptionTextbox.text != ""
         else {
-            error.attributedText = NSAttributedString(string: "Missing file", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+            error.attributedText = NSAttributedString(string: "Please attach file", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
             return
         }
         error.text = ""
@@ -149,7 +149,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         
         //self.activityIndicator.stopAnimating()
         
-        error.attributedText = NSAttributedString(string: "Note submitted", attributes: [NSAttributedString.Key.foregroundColor : UIColor.green])
+        error.attributedText = NSAttributedString(string: "Note submitted", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue])
         
     }
     
