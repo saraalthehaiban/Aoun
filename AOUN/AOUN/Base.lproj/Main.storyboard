@@ -344,7 +344,7 @@
                                     <constraint firstAttribute="width" secondItem="a9h-Rp-Alp" secondAttribute="height" multiplier="108:19" id="WFE-4t-Y9J"/>
                                     <constraint firstAttribute="height" constant="38" id="iot-si-FIM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="38"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -561,7 +561,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOu-Qu-ToD">
                                         <rect key="frame" x="42" y="246" width="249" height="126"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="38"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -647,17 +647,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45.5" id="jmp-mz-RV4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL4-a7-Q89">
-                                <rect key="frame" x="61" y="330" width="62" height="20"/>
+                                <rect key="frame" x="61" y="330" width="167" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="kL4-a7-Q89" secondAttribute="height" multiplier="31:10" id="aUE-kV-JFx"/>
+                                    <constraint firstAttribute="width" secondItem="kL4-a7-Q89" secondAttribute="height" multiplier="31:10" constant="105" id="aUE-kV-JFx"/>
                                     <constraint firstAttribute="height" constant="20" id="t10-5C-1dz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="........" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRF-MS-HGn">
@@ -671,15 +671,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPV-IF-Q7P">
-                                <rect key="frame" x="61" y="416" width="106" height="20"/>
+                                <rect key="frame" x="61" y="416" width="146" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="kPV-IF-Q7P" secondAttribute="height" multiplier="53:10" id="H21-l9-o5e"/>
+                                    <constraint firstAttribute="width" secondItem="kPV-IF-Q7P" secondAttribute="height" multiplier="53:10" constant="40" id="H21-l9-o5e"/>
                                     <constraint firstAttribute="height" constant="20" id="SA1-Jz-uc7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="........" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8d-eK-aez">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="........" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8d-eK-aez">
                                 <rect key="frame" x="61" y="427" width="247" height="114"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="I8d-eK-aez" secondAttribute="height" multiplier="13:6" id="BeC-kU-y87"/>
@@ -695,7 +695,7 @@
                                     <constraint firstAttribute="height" constant="20" id="1Lc-16-Z16"/>
                                     <constraint firstAttribute="width" secondItem="iek-DB-pyw" secondAttribute="height" multiplier="171:20" id="5nS-8a-UIj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKF-WW-YIl">

@@ -97,7 +97,7 @@ class LoginViewController: UIViewController {
                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            return "please fill in all fields"
+            return "Please fill in missing fields"
         }
             
         if emailTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
@@ -107,14 +107,14 @@ class LoginViewController: UIViewController {
 //            emailTextField.borderColor = .red
 //            emailTextField.borderWidth = 0.5
 //            emailTextField.cornerRadius = 8
-            return "please fill in email field"
+            return "Please fill in email field"
            
         }
         if passwordTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
 //            passwordTextField.textColor = .red
             passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password",
                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            return "please fill in password field"
+            return "Please fill in password field"
         }
         
         //check if the password is secure
