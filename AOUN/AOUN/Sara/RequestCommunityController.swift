@@ -29,20 +29,20 @@ class RequestCommunityController: UIViewController {
         if (n.isEmpty) && (d.isEmpty) {
             inputError.textColor = UIColor.systemRed;
             inputError.text = "Please fill in missing fields";
-            Name.attributedPlaceholder = NSAttributedString(string: "Title",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            Info.attributedPlaceholder = NSAttributedString(string: "Description",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            Name.attributedPlaceholder = NSAttributedString(string: "Title*",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            Info.attributedPlaceholder = NSAttributedString(string: "Description*",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
 
         }
         else{
         if (n.isEmpty) {
             inputError.text = "Please fill in missing field";
             inputError.textColor = UIColor.systemRed;
-            Name.attributedPlaceholder = NSAttributedString(string: "Title",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            Name.attributedPlaceholder = NSAttributedString(string: "Title*",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         } else {
             if (d.isEmpty) {
                 inputError.textColor = UIColor.systemRed;
                 inputError.text = "Please fill in missing field";
-                Info.attributedPlaceholder = NSAttributedString(string: "Description",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                Info.attributedPlaceholder = NSAttributedString(string: "Description*",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             } else {
                 db.collection("Request").document().setData(["Title": n, "Description":d]);
                 inputError.textColor = UIColor.systemGreen;

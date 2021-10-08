@@ -5,6 +5,13 @@ import Firebase
 
 class AdminDashboard: UIViewController {
     
+    @IBAction func SignOut(_ sender: Any) {
+            if let appDelegate = UIApplication.shared.delegate
+                as? AppDelegate {
+                let vc = appDelegate.viewController(storyBoardname: "Profile", viewControllerId: "si_SignoutViewController")
+                self.present(vc, animated: true, completion: nil)}
+        
+    }
     
     @IBOutlet var EmptyTable: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -34,9 +41,6 @@ class AdminDashboard: UIViewController {
                         if let name = data["Title"] as? String , let des = data["Description"] as? String {
                             let newReq = Request(title: name, description: des, doc : id )
                             self.requests.append(newReq)
-                            self.requests.append(newReq)
-                            self.requests.append(newReq)
-                            self.requests.append(newReq)
                             self.EmptyTable.text = "";
                         }
                         
@@ -63,9 +67,7 @@ extension AdminDashboard: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        let cell = tableView.dequeueReusableCell(withIdentifier: "ci_RequestCell", for: indexPath) as! RequestCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "ci_RCell", for: indexPath) as! RequestCell
-        
-        
-        
+        cell.contentView.isUserInteractionEnabled = false
         cell.name.text = requests[indexPath.row].title
         return cell
     }
@@ -78,7 +80,7 @@ extension AdminDashboard: UITableViewDataSource, UITableViewDelegate{
             vc.doc = requests[indexPath.row].doc
             vc.delegate = self
             vc.index = indexPath
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
