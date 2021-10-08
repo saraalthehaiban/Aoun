@@ -35,7 +35,7 @@
 		0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6356D270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift */; };
 		0FC63571270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC6356E270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib */; };
 		0FC63572270F8EA7004D7A2A /* NoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6356F270F8EA7004D7A2A /* NoteFile.swift */; };
-		0FC63575270F9EBB004D7A2A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC63573270F9DCF004D7A2A /* Launch Screen.storyboard */; };
+		0FC6357727107A56004D7A2A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC6357627107A56004D7A2A /* Launch Screen.storyboard */; };
 		271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271CFDD0270AF78C00FEE698 /* resPostViewController.swift */; };
 		274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */; };
 		276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D9C4E27063E0F0019B8AD /* DownloadManager.swift */; };
@@ -104,7 +104,7 @@
 		0FC6356D270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FC6356E270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		0FC6356F270F8EA7004D7A2A /* NoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteFile.swift; sourceTree = "<group>"; };
-		0FC63573270F9DCF004D7A2A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		0FC6357627107A56004D7A2A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		15DAB5EA3CB10857716A9EE8 /* Pods-AOUN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.debug.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.debug.xcconfig"; sourceTree = "<group>"; };
 		271CFDD0270AF78C00FEE698 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
 		274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCommunityController.swift; sourceTree = "<group>"; };
@@ -229,19 +229,19 @@
 		0F40BDEE26F54F4900FB83AC /* AOUN */ = {
 			isa = PBXGroup;
 			children = (
-				0FC63566270F8D5C004D7A2A /* Rasha */,
 				0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */,
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
 				276D9C4E27063E0F0019B8AD /* DownloadManager.swift */,
 				DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */,
+				0FC6357627107A56004D7A2A /* Launch Screen.storyboard */,
 				0F40BDF826F54F4900FB83AC /* Assets.xcassets */,
 				0F40BDFD26F54F4900FB83AC /* Info.plist */,
+				0FC63566270F8D5C004D7A2A /* Rasha */,
 				52D00D2E26F69136009E3394 /* Rana */,
 				0F3DECEC270C995F00C5F6BB /* Reema */,
 				0F3DECED270C99A800C5F6BB /* Sara */,
 				0F3DECEF270C9A0900C5F6BB /* Shatha */,
-				0FC63573270F9DCF004D7A2A /* Launch Screen.storyboard */,
 			);
 			path = AOUN;
 			sourceTree = "<group>";
@@ -416,13 +416,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FC63575270F9EBB004D7A2A /* Launch Screen.storyboard in Resources */,
 				0FC63571270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib in Resources */,
 				0F502A7A270F77EA00912EF0 /* Auth.storyboard in Resources */,
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
+				0FC6357727107A56004D7A2A /* Launch Screen.storyboard in Resources */,
 				0F502A80270F84B800912EF0 /* Admin.storyboard in Resources */,
 				0F502A82270F855300912EF0 /* Resources.storyboard in Resources */,
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
