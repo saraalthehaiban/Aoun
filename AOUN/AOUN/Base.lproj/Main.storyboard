@@ -254,7 +254,7 @@
                                 <rect key="frame" x="365" y="37" width="29" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.60000002379999995" green="0.71372550729999995" blue="0.83137255909999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" backgroundImage="logout (1)">
+                                <state key="normal" backgroundImage="logout (1) (1)">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -805,7 +805,7 @@
         <image name="Notes" width="492" height="492"/>
         <image name="Rectangle" width="327" height="50"/>
         <image name="bac" width="942" height="1173"/>
-        <image name="logout (1)" width="512" height="512"/>
+        <image name="logout (1) (1)" width="512" height="512"/>
         <image name="resources" width="492" height="492"/>
         <image name="user" width="1005" height="684"/>
         <image name="waves" width="750" height="750"/>
