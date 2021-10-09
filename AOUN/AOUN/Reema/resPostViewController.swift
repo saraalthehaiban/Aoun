@@ -86,7 +86,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, resourceV.text != "",  authorV.text != "", publisherV.text != ""
                 else {
-            msg.attributedText = NSAttributedString(string: "Please attach file.",
+            msg.attributedText = NSAttributedString(string: "Please attach file",
                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                     return
                 }

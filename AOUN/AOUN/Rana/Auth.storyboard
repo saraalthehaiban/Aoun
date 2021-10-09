@@ -80,7 +80,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="b1S-6L-hYD">
-                                <rect key="frame" x="40" y="426.5" width="327" height="310"/>
+                                <rect key="frame" x="44" y="434" width="327" height="330"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mo9-3t-Ui7">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -115,10 +115,10 @@
                                             <action selector="signUptapped:" destination="fug-91-0cl" eventType="touchUpInside" id="Hay-dY-3k2"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jy9-cI-bOz">
-                                        <rect key="frame" x="0.0" y="270" width="327" height="40"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jy9-cI-bOz">
+                                        <rect key="frame" x="0.0" y="270" width="327" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="LYG-6K-SZX"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="wI1-Je-btQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
@@ -140,10 +140,10 @@
                         <viewLayoutGuide key="safeArea" id="aGB-OK-dLt"/>
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aGB-OK-dLt" firstAttribute="trailing" secondItem="b1S-6L-hYD" secondAttribute="trailing" constant="47" id="H1t-En-gte"/>
-                            <constraint firstItem="aGB-OK-dLt" firstAttribute="bottom" secondItem="b1S-6L-hYD" secondAttribute="bottom" constant="71.5" id="Tzr-hT-GOB"/>
-                            <constraint firstItem="b1S-6L-hYD" firstAttribute="leading" secondItem="aGB-OK-dLt" secondAttribute="leading" constant="40" id="gsO-F5-erx"/>
-                            <constraint firstItem="b1S-6L-hYD" firstAttribute="leading" secondItem="p2l-Ki-kpM" secondAttribute="leading" id="jSg-nK-WHX"/>
+                            <constraint firstItem="aGB-OK-dLt" firstAttribute="trailing" secondItem="b1S-6L-hYD" secondAttribute="trailing" constant="43" id="H1t-En-gte"/>
+                            <constraint firstItem="aGB-OK-dLt" firstAttribute="bottom" secondItem="b1S-6L-hYD" secondAttribute="bottom" constant="44" id="Tzr-hT-GOB"/>
+                            <constraint firstItem="b1S-6L-hYD" firstAttribute="leading" secondItem="aGB-OK-dLt" secondAttribute="leading" constant="44" id="gsO-F5-erx"/>
+                            <constraint firstItem="b1S-6L-hYD" firstAttribute="leading" secondItem="p2l-Ki-kpM" secondAttribute="leading" constant="4" id="jSg-nK-WHX"/>
                             <constraint firstItem="p2l-Ki-kpM" firstAttribute="top" secondItem="aGB-OK-dLt" secondAttribute="top" constant="206" id="nPk-uB-5RH"/>
                             <constraint firstItem="aGB-OK-dLt" firstAttribute="trailing" secondItem="p2l-Ki-kpM" secondAttribute="trailing" constant="153" id="oiI-OV-6Ru"/>
                         </constraints>
