@@ -85,7 +85,7 @@ class SignupViewController: UIViewController {
             //            emailTextField.borderColor = .red
             //            emailTextField.borderWidth = 0.5
             //            emailTextField.cornerRadius = 8
-            return "please fill in missing fields"
+            return "Please fill in missing fields"
             
         }
         if passwordTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
@@ -98,6 +98,16 @@ class SignupViewController: UIViewController {
         
         
         //check if the password is secure
+        
+        let cleanedfirst = firstNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+                if Utilities.isValidName(testStr: cleanedfirst) == false {
+                    return "Invalid name format, please use alphabitic characters only"
+                }
+                
+                let cleanedlast = lastNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+                if Utilities.isValidName(testStr: cleanedlast) == false {
+                    return "Invalid name format, please use alphabitic characters only"
+                }
         
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
         if Utilities.isValidEmail(cleanedEmail) == false {
@@ -140,13 +150,14 @@ class SignupViewController: UIViewController {
                 
                 {
                     
+                    
                     //there was an error
                     self.showError("User already exists")
                 }
                 else
                 {
                     let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["FirstName": firstName, "LastName": lastName, "Email": email, "password": password, "uid": result!.user.uid]){(error)
+                                        db.collection("users").addDocument(data: ["FirstName": firstName, "LastName": lastName, "uid": result!.user.uid]){(error)
                         in
                         if error != nil{
                             

@@ -17,6 +17,14 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
     
+    static func isValidName(testStr:String) -> Bool {
+            guard testStr.count > 3, testStr.count < 18 else { return false }
+            let predicateTest = NSPredicate(format: "SELF MATCHES %@", "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$")
+            return predicateTest.evaluate(with: testStr)
+        }
+    
+
+    
     
     static func isValidEmail(_ email: String) -> Bool {
             return NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: email)
