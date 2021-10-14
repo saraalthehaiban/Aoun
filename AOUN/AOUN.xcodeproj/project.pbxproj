@@ -26,6 +26,9 @@
 		0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A7C270F7D6500912EF0 /* Profile.storyboard */; };
 		0F502A80270F84B800912EF0 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A7F270F84B800912EF0 /* Admin.storyboard */; };
 		0F502A82270F855300912EF0 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A81270F855300912EF0 /* Resources.storyboard */; };
+		0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B47027186786005511B1 /* CommunityHome.storyboard */; };
+		0FA3B47327187054005511B1 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47227187054005511B1 /* Community.swift */; };
+		0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B474271870A1005511B1 /* AskQuestion.swift */; };
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
@@ -94,6 +97,9 @@
 		0F502A7C270F7D6500912EF0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0F502A7F270F84B800912EF0 /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		0F502A81270F855300912EF0 /* Resources.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
+		0FA3B47027186786005511B1 /* CommunityHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunityHome.storyboard; sourceTree = "<group>"; };
+		0FA3B47227187054005511B1 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+		0FA3B474271870A1005511B1 /* AskQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestion.swift; sourceTree = "<group>"; };
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
@@ -191,6 +197,9 @@
 				0F3DECEA270B207800C5F6BB /* RCell.xib */,
 				0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */,
 				0F502A7F270F84B800912EF0 /* Admin.storyboard */,
+				0FA3B47027186786005511B1 /* CommunityHome.storyboard */,
+				0FA3B47227187054005511B1 /* Community.swift */,
+				0FA3B474271870A1005511B1 /* AskQuestion.swift */,
 			);
 			path = Sara;
 			sourceTree = "<group>";
@@ -420,6 +429,7 @@
 				0F502A7A270F77EA00912EF0 /* Auth.storyboard in Resources */,
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
+				0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */,
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
 				0FC6357727107A56004D7A2A /* Launch Screen.storyboard in Resources */,
@@ -589,6 +599,7 @@
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
 				0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */,
 				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
+				0FA3B47327187054005511B1 /* Community.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
 				52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */,
@@ -598,6 +609,7 @@
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
 				27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */,
 				0F502A77270F77EA00912EF0 /* ForgotPassViewController.swift in Sources */,
+				0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */,
 				0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */,
 				0FC63572270F8EA7004D7A2A /* NoteFile.swift in Sources */,
 			);
