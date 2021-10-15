@@ -27,6 +27,7 @@ class UserHomeViewController: UIViewController {
     }
     @IBOutlet weak var resourcesLabel: UILabel!
     @IBAction func communitiesButton(_ sender: UIButton) {
+        
     }
     @IBOutlet weak var CommunitiesLabel: UILabel!
     override func viewDidLoad() {
