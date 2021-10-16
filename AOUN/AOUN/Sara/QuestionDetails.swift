@@ -9,13 +9,16 @@ import UIKit
 
 class QuestionDetails: UIViewController {
 
-    @IBOutlet var AnsTable: UIView!
+
+    @IBOutlet var AnsTable: UITableView!
     @IBOutlet var Qtitle: UILabel!
     @IBOutlet var Qbody: UILabel!
-    var answers: [String]?
+    var answers: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        AnsTable.delegate = self
+        AnsTable.dataSource = self
+        AnsTable.register(UINib(nibName: "CommunityQuestion", bundle: nil), forCellReuseIdentifier: "QCell")
         // Do any additional setup after loading the view.
     }
     
@@ -30,4 +33,28 @@ class QuestionDetails: UIViewController {
     }
     */
 
+}
+extension QuestionDetails: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return answers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = AnsTable.dequeueReusableCell(withIdentifier: "ACell", for: indexPath) as! CommunityAnswer
+        cell.body.text = answers[indexPath.row]
+        return cell
+    }
+    
+    
+}
+extension QuestionDetails: UITableViewDelegate{
+   // func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //    let selectedRow = indexPath.row
+    //    if let vc = storyboard?.instantiateViewController(identifier: "QuestionDetails") as? QuestionDetails{
+    //        vc.Qtitle.text = questions[selectedRow].title
+   //         vc.Qbody.text = questions[selectedRow].body
+   //         vc.answers = questions[selectedRow].answer
+   //         self.present(vc, animated: true, completion: nil)
+   // }
+  //  }
 }

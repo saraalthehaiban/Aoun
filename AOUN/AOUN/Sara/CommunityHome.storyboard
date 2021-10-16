@@ -254,6 +254,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VJe-jU-n8m">
                                 <rect key="frame" x="31" y="417" width="357" height="390"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ACell" id="hIX-HS-4bz">
+                                        <rect key="frame" x="0.0" y="24.5" width="357" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hIX-HS-4bz" id="h6k-om-BB2">
+                                            <rect key="frame" x="0.0" y="0.0" width="357" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aHW-PD-wiW"/>
@@ -282,7 +292,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="AnsTable" destination="0uT-c5-JhD" id="uHK-9G-Pal"/>
+                        <outlet property="AnsTable" destination="VJe-jU-n8m" id="9Jc-2F-WfB"/>
                         <outlet property="Qbody" destination="koz-3V-Jd7" id="9ip-NW-0Vy"/>
                         <outlet property="Qtitle" destination="dCG-pH-0Xw" id="2Hr-mt-nuk"/>
                     </connections>
