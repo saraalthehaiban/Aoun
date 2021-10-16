@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		07FD4A8F6D89C11B03457F10 /* Pods_AOUN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087B2D4474784FC49F1E48AC /* Pods_AOUN.framework */; };
+		0B36C114271B7488001F6128 /* notesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B36C110271B7487001F6128 /* notesTableViewCell.xib */; };
+		0B36C115271B7488001F6128 /* ViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B36C111271B7487001F6128 /* ViewViewController.swift */; };
+		0B36C116271B7488001F6128 /* ViewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B36C112271B7487001F6128 /* ViewProfile.storyboard */; };
+		0B36C117271B7488001F6128 /* notesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B36C113271B7487001F6128 /* notesTableViewCell.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
 		0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3DECEA270B207800C5F6BB /* RCell.xib */; };
@@ -72,6 +76,10 @@
 
 /* Begin PBXFileReference section */
 		087B2D4474784FC49F1E48AC /* Pods_AOUN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B36C110271B7487001F6128 /* notesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = notesTableViewCell.xib; sourceTree = "<group>"; };
+		0B36C111271B7487001F6128 /* ViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
+		0B36C112271B7487001F6128 /* ViewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewProfile.storyboard; sourceTree = "<group>"; };
+		0B36C113271B7487001F6128 /* notesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notesTableViewCell.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		0F3DECEA270B207800C5F6BB /* RCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCell.xib; sourceTree = "<group>"; };
 		0F40BDEC26F54F4900FB83AC /* AOUN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AOUN.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +207,10 @@
 			isa = PBXGroup;
 			children = (
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
+				0B36C113271B7487001F6128 /* notesTableViewCell.swift */,
+				0B36C110271B7487001F6128 /* notesTableViewCell.xib */,
+				0B36C112271B7487001F6128 /* ViewProfile.storyboard */,
+				0B36C111271B7487001F6128 /* ViewViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
 			);
 			path = Shatha;
@@ -421,9 +433,11 @@
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
+				0B36C114271B7488001F6128 /* notesTableViewCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
 				0FC6357727107A56004D7A2A /* Launch Screen.storyboard in Resources */,
 				0F502A80270F84B800912EF0 /* Admin.storyboard in Resources */,
+				0B36C116271B7488001F6128 /* ViewProfile.storyboard in Resources */,
 				0F502A82270F855300912EF0 /* Resources.storyboard in Resources */,
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
@@ -581,6 +595,7 @@
 				0F502A78270F77EA00912EF0 /* Constants.swift in Sources */,
 				27712C6F270346AD00450466 /* resFile.swift in Sources */,
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
+				0B36C117271B7488001F6128 /* notesTableViewCell.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				27712C7127034CB200450466 /* detailedResViewController.swift in Sources */,
@@ -590,6 +605,7 @@
 				0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */,
 				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
+				0B36C115271B7488001F6128 /* ViewViewController.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
 				52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */,
 				52D00D3626F69195009E3394 /* HomeViewController.swift in Sources */,
