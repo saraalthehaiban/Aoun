@@ -60,13 +60,12 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
                             }
                         }
                     }
-//                    DispatchQueue.main.async {
-//                        self.collection.reloadData()
-//                    }
                 }
             }
         }
     }//end loadResources
+    
+    
     //search
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
@@ -77,15 +76,15 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
         self.searchBar.endEditing(true)
     }
 
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-        self.searchBar.endEditing(true)
-    }
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-        self.searchBar.endEditing(true)
-    }
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchActive = false;
+//        self.searchBar.endEditing(true)
+//    }
+//
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchActive = false;
+//        self.searchBar.endEditing(true)
+//    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         filtered = resources.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
@@ -94,6 +93,7 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
         } else {
             searchActive = true;
         }
+       
         self.collection.reloadData()
     }
 }//end of class
@@ -106,7 +106,7 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let w = (UIScreen.main.bounds.size.width - 110)/2
         return CGSize(width: w, height: 160) //154
-    }//end
+    }//end size
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -115,7 +115,7 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
            } else {
         return resources.count
            }
-    }//end
+    }//end count
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
@@ -126,8 +126,9 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
         } else {
         cell.name.text = resources[indexPath.row].name
         }
+  
         return cell
-    }//end
+    }//end cell
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "si_resourceListToDetail", sender: indexPath)
@@ -142,9 +143,13 @@ extension resViewViewController {
             vc.delegate = self
         } else if segue.identifier == "si_resourceListToDetail",
                   let vc = segue.destination as? detailedResViewController, let indexPath = sender as? IndexPath {
+            if searchActive {
+                vc.resource = filtered[indexPath.item]
+            } else {
             vc.resource = resources[indexPath.row]
+            }
         }
-    }
+    }//path for collectionView
 }//extention
 
 extension resViewViewController: resPostViewControllerDelegate {

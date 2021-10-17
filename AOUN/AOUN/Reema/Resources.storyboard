@@ -402,9 +402,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jev-ju-eTC">
-                                <rect key="frame" x="40" y="337" width="334" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jev-ju-eTC">
+                                <rect key="frame" x="0.0" y="337" width="414" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
@@ -415,15 +414,20 @@
                             <constraint firstItem="MkG-Gq-NOA" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" constant="42" id="3xo-P9-0HA"/>
                             <constraint firstItem="bDi-FG-gSI" firstAttribute="top" secondItem="Gfn-yV-qNO" secondAttribute="top" constant="-107" id="9Fw-yz-4Nf"/>
                             <constraint firstItem="I9k-95-Y94" firstAttribute="top" secondItem="MkG-Gq-NOA" secondAttribute="bottom" constant="359" id="JWW-nR-78s"/>
+                            <constraint firstItem="jev-ju-eTC" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" id="OEa-mk-t4x"/>
                             <constraint firstItem="Hib-fS-BRh" firstAttribute="leading" secondItem="Gfn-yV-qNO" secondAttribute="leading" constant="-15" id="OLL-0t-cUi"/>
                             <constraint firstItem="N5a-kl-DQj" firstAttribute="top" secondItem="3UN-vK-voZ" secondAttribute="top" constant="358" id="OV4-eK-iDc"/>
                             <constraint firstItem="I9k-95-Y94" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" constant="264" id="QOo-If-NCX"/>
                             <constraint firstItem="N5a-kl-DQj" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" constant="33" id="UaE-wV-Nq5"/>
                             <constraint firstItem="I9k-95-Y94" firstAttribute="top" secondItem="MkG-Gq-NOA" secondAttribute="bottom" constant="359" id="YWY-39-ddx"/>
+                            <constraint firstItem="3UN-vK-voZ" firstAttribute="trailing" secondItem="jev-ju-eTC" secondAttribute="trailing" id="agA-s1-96S"/>
                             <constraint firstItem="MkG-Gq-NOA" firstAttribute="top" secondItem="3UN-vK-voZ" secondAttribute="top" constant="202" id="cyZ-aZ-fLv"/>
+                            <constraint firstItem="jev-ju-eTC" firstAttribute="top" secondItem="Hib-fS-BRh" secondAttribute="bottom" constant="119" id="hRa-EV-gLe"/>
                             <constraint firstItem="3UN-vK-voZ" firstAttribute="trailing" secondItem="MkG-Gq-NOA" secondAttribute="trailing" constant="123" id="oFu-9q-4HC"/>
                             <constraint firstAttribute="trailing" secondItem="bDi-FG-gSI" secondAttribute="trailing" constant="-253" id="ooW-mi-XRQ"/>
                             <constraint firstItem="MkG-Gq-NOA" firstAttribute="top" secondItem="Hib-fS-BRh" secondAttribute="bottom" constant="28" id="tai-02-vwe"/>
+                            <constraint firstItem="N5a-kl-DQj" firstAttribute="top" secondItem="jev-ju-eTC" secondAttribute="bottom" constant="21" id="uA5-UF-xkS"/>
+                            <constraint firstItem="jev-ju-eTC" firstAttribute="top" secondItem="bDi-FG-gSI" secondAttribute="bottom" id="wg0-15-geR"/>
                             <constraint firstItem="MkG-Gq-NOA" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" constant="42" id="y4s-fd-xBp"/>
                         </constraints>
                     </view>
@@ -439,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nb1-RB-dUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2417.3913043478265" y="-364.28571428571428"/>
+            <point key="canvasLocation" x="-2418.840579710145" y="-364.28571428571428"/>
         </scene>
     </scenes>
     <resources>
