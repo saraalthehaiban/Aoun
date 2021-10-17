@@ -13,7 +13,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "notesTableViewCell", for: indexPath) as! RequestCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "notesTableViewCell", for: indexPath) as! notesTableViewCell
         cell.contentView.isUserInteractionEnabled = false
         cell.name.text = notes[indexPath.row].noteLable
         return cell
@@ -35,16 +35,16 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         notesTable.register(UINib(nibName:"notesTableViewCell", bundle: nil), forCellReuseIdentifier: "notesTableViewCell")
-//        tableView.register(UINib(nibName:"RCell", bundle: nil), forCellReuseIdentifier: "ci_RCell")
+//       tableView.register(UINib(nibName:"RCell", bundle: nil), forCellReuseIdentifier: "notesTableViewCell")
         notesTable.delegate = self
         notesTable.dataSource = self
-//        loadCommunities ()
+      loadNotes ()
 
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var Email: UILabel!
     
-    func loadCommunities (){
+    func loadNotes (){
         notes = []
         db.collection("Notes").getDocuments { querySnapshot, error in
             if let e = error {
@@ -56,17 +56,33 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                         if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String  {
                             let newNote = NoteFile(noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName)
                             self.notes.append(newNote)
+//                            self.EmptyTable.text = "";
                             DispatchQueue.main.async {
-//                                tableView.reloadData()
-                    
-                }
+                                self.notesTable.reloadData()
+                            }
+                            
             }
             
         }
         
         
                 }}}}
-    
+//    func setupProfile(){
+//
+//
+//
+//        if let uid = Auth.auth().currentUser?.uid{
+//            db.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+//                if let dict = snapshot.value as? [String: AnyObject]
+//                {
+//                    self.fullName.text = dict["username"] as? String
+//
+//
+//                }
+//            })
+//
+//            }
+//        }
 
     /*
     // MARK: - Navigation

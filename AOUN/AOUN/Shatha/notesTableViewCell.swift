@@ -11,6 +11,7 @@ class notesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var bubble: UIView!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var notePhoto: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

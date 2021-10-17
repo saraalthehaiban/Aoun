@@ -9,6 +9,13 @@ import UIKit
 
 class UserHomeViewController: UIViewController {
 
+   
+    @IBAction func profile(_ sender: UIButton) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let vc = appDelegate.viewController(storyBoardname: "ViewProfile", viewControllerId: "ViewViewController")
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     @IBOutlet weak var user: UIImageView!
     
     @IBOutlet weak var HelloUser: UILabel!
