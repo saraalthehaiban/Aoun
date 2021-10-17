@@ -6,27 +6,46 @@
 //
 
 import UIKit
+import Firebase
 
+protocol AskQuestionDelegate{
+    func add()
+}
 class AskQuestion: UIViewController {
-
+    var delegate: AskQuestionDelegate?
+    var db = Firestore.firestore()
+    @IBOutlet var titleError: UILabel!
+    @IBOutlet var descError: UILabel!
     @IBOutlet var Description: UITextView!
+    @IBOutlet var titleText: UITextField!
+    var ID : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.Description.layer.borderColor = UIColor .gray.cgColor;
-        self.Description.layer.borderWidth = 1.0;
-        self.Description.layer.cornerRadius = 8;
-        // Do any additional setup after loading the view.
+        self.Description.layer.borderWidth = 1.0; //check in runtime
+        self.Description.layer.cornerRadius = 8;// runtime
+        
+        
+        
     }
     
+    @IBAction func post(_ sender: Any) {
+        //check errors
+        let n = titleText.text
+        let d = Description.text
+        let ans : [String] = []
+        db.collection("Question").document().setData(["Title": n, "Body":d, "ID":ID, "Answers": ans]);
+        delegate?.add()
+        //Added successfully 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    
+     @IBAction func cancel(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+     }
+
 
 }
+
