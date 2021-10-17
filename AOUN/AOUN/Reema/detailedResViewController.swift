@@ -44,6 +44,7 @@ class detailedResViewController: UIViewController {
                 //TODO: Show download url error message
                 return
             }
+            
             //activityIndicator.startAnimating()
             DownloadManager.download(url: url) { success, data in
                 //guard let documentData = data.dataRe

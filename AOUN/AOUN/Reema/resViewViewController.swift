@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class resViewViewController: UIViewController
+class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate
 {
     
     @IBOutlet weak var background: UIImageView!
@@ -22,11 +22,20 @@ class resViewViewController: UIViewController
     let db = Firestore.firestore()
     //dummy data
     
-    
+    @IBOutlet weak var searchBar: UISearchBar!
+    var searchActive : Bool = false
+    var filtered:[resFile] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
+     
+        //
+        collection.delegate = self
+        collection.dataSource = self
+        searchBar.delegate = self
+        ///
         
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")
         
@@ -58,6 +67,35 @@ class resViewViewController: UIViewController
             }
         }
     }//end loadResources
+    //search
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+        self.searchBar.endEditing(true)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+        self.searchBar.endEditing(true)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+        self.searchBar.endEditing(true)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        filtered = resources.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.collection.reloadData()
+    }
 }//end of class
 
 
@@ -68,27 +106,32 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let w = (UIScreen.main.bounds.size.width - 110)/2
         return CGSize(width: w, height: 160) //154
-    }
+    }//end
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(searchActive) {
+               return filtered.count
+           } else {
         return resources.count
-    }
+           }
+    }//end
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+            
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
+        
+        if(searchActive) {
+            cell.name.text = filtered[indexPath.row].name
+        } else {
         cell.name.text = resources[indexPath.row].name
+        }
         return cell
-    }
+    }//end
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "si_resourceListToDetail", sender: indexPath)
-//        if let vc = storyboard?.instantiateViewController(withIdentifier: "detailedResViewController") as? detailedResViewController{
-//            vc.resource = resources[indexPath.row]
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-    }
+    }//end
 }//extention
 
 //MARK:- Add Work
