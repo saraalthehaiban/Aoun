@@ -46,9 +46,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bubble" destination="DeQ-vw-HsK" id="ADL-EC-whI"/>
-                <outlet property="name" destination="dCA-Qu-41g" id="gmB-Py-PBm"/>
-                <outlet property="notePhoto" destination="JJg-Rl-CYC" id="yTa-sv-lAV"/>
+                <outlet property="noteBubbble" destination="DeQ-vw-HsK" id="e9v-aF-yHl"/>
+                <outlet property="noteTitle" destination="dCA-Qu-41g" id="LaE-VA-AJt"/>
             </connections>
             <point key="canvasLocation" x="381.15942028985512" y="-31.138392857142854"/>
         </tableViewCell>

@@ -144,7 +144,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         let author = authorV.text!
         let pub = publisherV.text!
         let desc = descV.text ?? ""
-        let data = ["ResName": res, "authorName": author, "pubName":pub, "desc":desc, "url":url]
+        let data = ["ResName": res, "authorName": author, "pubName":pub, "desc":desc, "url":url, "uid":Auth.auth().currentUser?.uid]
         
 //        db.collection("Resources").document().setData(["ResName": res, "authorName":author, "pubName":pub, "desc":desc, "url":url])
               

@@ -138,6 +138,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         //db.collection("Notes").document().setData(["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url])
         
         let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url)
+        //db.collection("Users").document(uid).collection("Notes").document().setData(:)
         db.collection("Notes").document().setData(data) { error in
             if let e = error {
                 print(e)
