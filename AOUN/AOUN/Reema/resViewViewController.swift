@@ -143,7 +143,7 @@ extension resViewViewController {
             vc.delegate = self
         } else if segue.identifier == "si_resourceListToDetail",
                   let vc = segue.destination as? detailedResViewController, let indexPath = sender as? IndexPath {
-            if searchActive {
+            if searchActive && filtered.count != 0 {
                 vc.resource = filtered[indexPath.item]
             } else {
             vc.resource = resources[indexPath.row]
