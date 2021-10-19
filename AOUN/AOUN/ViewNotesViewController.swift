@@ -9,7 +9,7 @@ import UIKit
 import FirebaseStorage
 import Firebase
 
-class ViewNotesViewController: UIViewController {
+class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
@@ -20,12 +20,20 @@ class ViewNotesViewController: UIViewController {
     var notes:[NoteFile] = []
     let db = Firestore.firestore()
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    var searchActive : Bool = false
+    var filtered:[NoteFile] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //activityIndicator.startAnimating()
         // Do any additional setup after loading the view.
         
         let nipCell = UINib(nibName: "NoteCellCollectionViewCell", bundle: nil)
+        
+        collection.delegate = self
+        collection.dataSource = self
+        searchBar.delegate = self
         
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")
         
@@ -53,9 +61,29 @@ class ViewNotesViewController: UIViewController {
             }
         }
         //self.activityIndicator.stopAnimating()
-    }
+    }//end loadNotes
     
-}
+    //search
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+        self.searchBar.endEditing(true)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        filtered = notes.filter { $0.noteLable.localizedCaseInsensitiveContains(searchText) }
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+       
+        self.collection.reloadData()
+    }
+}//end class
 
 //mark:-
 extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -65,13 +93,23 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(searchActive) {
+               return filtered.count
+           } else {
         return notes.count
+           }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NoteCellCollectionViewCell
+        
+        if(searchActive) {
+            cell.noteLable.text = filtered[indexPath.row].noteLable
+        } else {
         cell.noteLable.text = notes[indexPath.row].noteLable
+        }
+        
         return cell
     }
     
@@ -91,8 +129,12 @@ extension ViewNotesViewController  {
         if segue.identifier == "si_viewNoteToPost", let vc = segue.destination as? PostNoteViewController {
             vc.delegate = self
         } else if segue.identifier == "si_noteListToDetail", let vc = segue.destination as? detailedNoteViewController, let indexPath = sender as? IndexPath {
+            if searchActive && filtered.count != 0{
+                vc.note = filtered[indexPath.item]
+            } else {
             vc.note = notes[indexPath.row]
-        }
+            }
+                    }
     }
 }
 
