@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19158" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19141"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Signout View Controller-->
+        <scene sceneID="91F-Zx-ckP">
+            <objects>
+                <viewController storyboardIdentifier="si_SignoutViewController" id="Qtx-YU-Z1G" customClass="SignoutViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uW5-fe-FOg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="CpD-VJ-28a">
+                                <rect key="frame" x="-226" y="-49" width="930" height="511"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="930" id="1OP-Wi-qa1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See You Soon!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdf-nk-h5f">
+                                <rect key="frame" x="20" y="386" width="231" height="32"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ut-vQ-QtN">
+                                <rect key="frame" x="43.5" y="541" width="327" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxQ-yJ-01e">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="HEc-wP-PF7"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign out" backgroundImage="Rectangle">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signout_tapped:" destination="Qtx-YU-Z1G" eventType="touchUpInside" id="agu-lW-UcI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ELs-cC-g6v"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ELs-cC-g6v" firstAttribute="bottom" secondItem="CpD-VJ-28a" secondAttribute="bottom" constant="400" id="1Ac-6e-ejr"/>
+                            <constraint firstItem="3Ut-vQ-QtN" firstAttribute="centerX" secondItem="uW5-fe-FOg" secondAttribute="centerX" id="7sa-CX-a7s"/>
+                            <constraint firstItem="CpD-VJ-28a" firstAttribute="leading" secondItem="uW5-fe-FOg" secondAttribute="leading" constant="-226" id="Cxd-KH-Xjf"/>
+                            <constraint firstItem="CpD-VJ-28a" firstAttribute="top" secondItem="uW5-fe-FOg" secondAttribute="topMargin" constant="-93" id="RH5-V0-j0M"/>
+                            <constraint firstItem="sdf-nk-h5f" firstAttribute="leading" secondItem="ELs-cC-g6v" secondAttribute="leading" constant="20" id="Vwv-zp-bZF"/>
+                            <constraint firstItem="sdf-nk-h5f" firstAttribute="top" secondItem="ELs-cC-g6v" secondAttribute="top" constant="342" id="dZi-0O-zmx"/>
+                            <constraint firstItem="3Ut-vQ-QtN" firstAttribute="top" secondItem="CpD-VJ-28a" secondAttribute="bottom" constant="79" id="ejV-S1-hVd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cdl-AB-eX9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DTt-vi-FMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3674" y="2927"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Rectangle" width="327" height="50"/>
+        <image name="waves" width="750" height="750"/>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

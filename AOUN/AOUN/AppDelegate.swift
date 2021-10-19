@@ -7,6 +7,12 @@
 
 import UIKit
 import Firebase
+<<<<<<< Updated upstream
+=======
+//import IQKeyboardManagerSwift
+
+
+>>>>>>> Stashed changes
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+<<<<<<< Updated upstream
+=======
+        //IQKeyboardManager.shared.enable = true
+        
+        //setRoot()
+>>>>>>> Stashed changes
         return true
     }
 

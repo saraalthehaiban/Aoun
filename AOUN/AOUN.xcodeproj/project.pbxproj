@@ -29,6 +29,13 @@
 		0FEE900D2704F0040061875E /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE900C2704F0040061875E /* LaunchScreenViewController.swift */; };
 		27609D3526F6693800254EA7 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27609D3426F6693800254EA7 /* resPostViewController.swift */; };
 		2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792FB2B26F66EAA00366961 /* resViewViewController.swift */; };
+<<<<<<< Updated upstream
+=======
+		27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */; };
+		52C97407271F4E2100EEACBD /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C97406271F4E2100EEACBD /* Community.storyboard */; };
+		52C97409271F4FAF00EEACBD /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C97408271F4FAF00EEACBD /* CommunityViewController.swift */; };
+		52C9740B271F525700EEACBD /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9740A271F525700EEACBD /* Community.swift */; };
+>>>>>>> Stashed changes
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3326F69173009E3394 /* LandingViewController.swift */; };
@@ -85,9 +92,15 @@
 		39A7D70903C5ABE413790ADA /* Pods-AOUNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.debug.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDA64D179885230CF863960 /* Pods-AOUN-AOUNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.release.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.release.xcconfig"; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		5213CF6726FFD95B009AFBAA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		524AB6F12705F741005EFDF6 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		526B875C2704302C004C18D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+=======
+		52C97406271F4E2100EEACBD /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
+		52C97408271F4FAF00EEACBD /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		52C9740A271F525700EEACBD /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		52D00D2F26F69149009E3394 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		52D00D3126F6915C009E3394 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52D00D3326F69173009E3394 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				52D00D3526F69195009E3394 /* HomeViewController.swift */,
+<<<<<<< Updated upstream
 				52D00D3326F69173009E3394 /* LandingViewController.swift */,
 				52D00D3126F6915C009E3394 /* LoginViewController.swift */,
 				52D00D2F26F69149009E3394 /* SignupViewController.swift */,
@@ -245,6 +259,12 @@
 			isa = PBXGroup;
 			children = (
 				5213CF6926FFD99F009AFBAA /* Helpers */,
+=======
+				0F502A7C270F7D6500912EF0 /* Profile.storyboard */,
+				52C97406271F4E2100EEACBD /* Community.storyboard */,
+				52C97408271F4FAF00EEACBD /* CommunityViewController.swift */,
+				52C9740A271F525700EEACBD /* Community.swift */,
+>>>>>>> Stashed changes
 			);
 			path = Rana;
 			sourceTree = "<group>";
@@ -361,7 +381,11 @@
 				0F40BDFC26F54F4900FB83AC /* LaunchScreen.storyboard in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
+<<<<<<< Updated upstream
 				0F40BDF726F54F4900FB83AC /* Main.storyboard in Resources */,
+=======
+				52C97407271F4E2100EEACBD /* Community.storyboard in Resources */,
+>>>>>>> Stashed changes
 				0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,11 +544,23 @@
 				DA3D9B1E26F6A19E00C844BB /* ViewNotesViewController.swift in Sources */,
 				0FC64635270222AB00BA6BF2 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
+<<<<<<< Updated upstream
+=======
+				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,
+				0F502A78270F77EA00912EF0 /* Constants.swift in Sources */,
+				27712C6F270346AD00450466 /* resFile.swift in Sources */,
+				52C97409271F4FAF00EEACBD /* CommunityViewController.swift in Sources */,
+>>>>>>> Stashed changes
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 
 				0FC646332700664A00BA6BF2 /* RequestCommunityController.swift in Sources */,
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
+<<<<<<< Updated upstream
+=======
+				0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */,
+				52C9740B271F525700EEACBD /* Community.swift in Sources */,
+>>>>>>> Stashed changes
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
 				52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */,

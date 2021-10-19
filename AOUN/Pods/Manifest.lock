@@ -534,6 +534,10 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
+<<<<<<< Updated upstream
 PODFILE CHECKSUM: 9a72aa79c277c6d53bcca0e936393ac85862c65c
+=======
+PODFILE CHECKSUM: 8e6bccd1376165f8fecf9ef8ead3d8eaf5574471
+>>>>>>> Stashed changes
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.11.2
