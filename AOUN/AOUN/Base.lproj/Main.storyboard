@@ -747,6 +747,7 @@
                         <outlet property="autherLable" destination="kL4-a7-Q89" id="Ga3-mZ-cMh"/>
                         <outlet property="desc" destination="I8d-eK-aez" id="VyW-RL-QcF"/>
                         <outlet property="descLable" destination="kPV-IF-Q7P" id="8xN-7r-M9E"/>
+                        <outlet property="downloadButton" destination="GKF-WW-YIl" id="uI1-o8-jOy"/>
                         <outlet property="errorMsg" destination="qTK-WU-PWk" id="Chs-n4-NZ0"/>
                         <outlet property="noteTitle" destination="nt0-v6-oEt" id="Sfy-5H-b4r"/>
                         <outlet property="price" destination="LaK-Pq-P9O" id="Wz9-2z-x4k"/>

@@ -344,6 +344,33 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - Braintree/ApplePay (5.4.4):
+    - Braintree/Core
+  - Braintree/Card (5.4.4):
+    - Braintree/Core
+  - Braintree/Core (5.4.4)
+  - Braintree/PaymentFlow (5.4.4):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+  - Braintree/PayPal (5.4.4):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+  - Braintree/PayPalDataCollector (5.4.4)
+  - Braintree/ThreeDSecure (5.4.4):
+    - Braintree/Card
+    - Braintree/PaymentFlow
+  - Braintree/UnionPay (5.4.4):
+    - Braintree/Card
+  - Braintree/Venmo (5.4.4):
+    - Braintree/Core
+  - BraintreeDropIn (9.2.0):
+    - Braintree/ApplePay (>= 5.4.2, ~> 5.4)
+    - Braintree/Card (>= 5.4.2, ~> 5.4)
+    - Braintree/Core (>= 5.4.2, ~> 5.4)
+    - Braintree/PayPal (>= 5.4.2, ~> 5.4)
+    - Braintree/ThreeDSecure (>= 5.4.2, ~> 5.4)
+    - Braintree/UnionPay (>= 5.4.2, ~> 5.4)
+    - Braintree/Venmo (>= 5.4.2, ~> 5.4)
   - Firebase (8.7.0):
     - Firebase/Core (= 8.7.0)
   - Firebase/Analytics (8.7.0):
@@ -486,6 +513,7 @@ PODS:
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
+  - BraintreeDropIn
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
@@ -497,6 +525,8 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - Braintree
+    - BraintreeDropIn
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -519,6 +549,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  Braintree: a609aec1e15f83a05ab4c9b4f09cb717e335555b
+  BraintreeDropIn: d9c1c1b01f3f15a7a1c32ff33c9e8ed22b85357a
   Firebase: bc9325d5ee2041524bac78a5213d0e530c651309
   FirebaseAnalytics: 52768800c2add1d84b751420cb4caaf8195f2c41
   FirebaseAuth: 2e7d029977648c67a5d51a263d4cbab76d34cf12
@@ -538,6 +570,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: dcf3802476e7f2547010800dcb9b2f07988ff0a5
+PODFILE CHECKSUM: 6f17a2effc22f86a0c7989f33b166bef79e335c9
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.11.2

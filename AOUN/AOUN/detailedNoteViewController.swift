@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import BraintreeDropIn
+
+enum DownloadAction : String {
+    case download  = "Download"
+    case pay = "Pay & Download"
+}
+
 
 class detailedNoteViewController: UIViewController {
+    let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
 
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var noteTitleLable: UILabel!
@@ -19,8 +27,11 @@ class detailedNoteViewController: UIViewController {
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var errorMsg: UILabel!
+    @IBOutlet weak var downloadButton: UIButton!
     
     var note : NoteFile!
+    
+    var priceOfNote:Decimal = 0
     
     
     override func viewDidLoad() {
@@ -30,7 +41,12 @@ class detailedNoteViewController: UIViewController {
         aoutherName.text = note.autherName
         desc.text = note.desc
         price.text = note.price
-
+        
+        if let p = note.price, p.count > 0, let price = Decimal(string: p), price > 0 {
+            downloadButton.setTitle("Pay & Download", for: .normal)
+            priceOfNote = price
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -42,6 +58,17 @@ class detailedNoteViewController: UIViewController {
             errorMsg.text = "Download field"
             return
         }
+        
+        if priceOfNote > 0 {
+            //payment
+            
+            showDropIn(clientTokenOrTokenizationKey:authorization, url:url )
+        }else{
+            download(url: url)
+        }
+    }
+    
+    func download (url:URL) {
         //activityIndicator.startAnimating()
         DownloadManager.download(url: url) { success, data in
             //guard let documentData = data.dataRe
@@ -50,4 +77,35 @@ class detailedNoteViewController: UIViewController {
             self.present(vcActivity, animated: true, completion: nil)
         }
     }
+}
+
+
+//payment implementation
+extension detailedNoteViewController {
+    
+    func showDropIn(clientTokenOrTokenizationKey: String, url:URL) {
+        let request =  BTDropInRequest()
+        let sRequest = BTThreeDSecureRequest()
+//        sRequest.amount = NSDecimalNumber(decimal: priceOfNote)
+//        request.threeDSecureRequest = sRequest
+        
+        let dropIn = BTDropInController(authorization: clientTokenOrTokenizationKey, request: request)
+        { (controller, result, error) in
+            if (error != nil) {
+                print("ERROR")
+            } else if (result?.isCanceled == true) {
+                print("CANCELED")
+            } else if let result = result {
+                // Use the BTDropInResult properties to update your UI
+                // result.paymentMethodType
+                // result.paymentMethod
+                // result.paymentIcon
+                // result.paymentDescription
+                self.download(url: url)
+            }
+            controller.dismiss(animated: true, completion: nil)
+        }
+        self.present(dropIn!, animated: true, completion: nil)
+    }
+    
 }
