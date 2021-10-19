@@ -47,6 +47,7 @@
 		27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */; };
 		52C9740F271F7ADD00EEACBD /* communityviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9740E271F7ADD00EEACBD /* communityviewcontroller.swift */; };
 		52C97411271F7B7A00EEACBD /* community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C97410271F7B7A00EEACBD /* community.swift */; };
+		52C97413271F7BE700EEACBD /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C97412271F7BE700EEACBD /* test.swift */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3326F69173009E3394 /* LandingViewController.swift */; };
@@ -122,6 +123,7 @@
 		4BDA64D179885230CF863960 /* Pods-AOUN-AOUNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.release.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.release.xcconfig"; sourceTree = "<group>"; };
 		52C9740E271F7ADD00EEACBD /* communityviewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = communityviewcontroller.swift; sourceTree = "<group>"; };
 		52C97410271F7B7A00EEACBD /* community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = community.swift; sourceTree = "<group>"; };
+		52C97412271F7BE700EEACBD /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		52D00D2F26F69149009E3394 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		52D00D3126F6915C009E3394 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52D00D3326F69173009E3394 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				0F502A72270F77EA00912EF0 /* ForgotPassViewController.swift */,
 				52C9740E271F7ADD00EEACBD /* communityviewcontroller.swift */,
 				52C97410271F7B7A00EEACBD /* community.swift */,
+				52C97412271F7BE700EEACBD /* test.swift */,
 				0F502A76270F77EA00912EF0 /* SignoutViewController.swift */,
 				0F502A74270F77EA00912EF0 /* Utilities.swift */,
 				52D00D2F26F69149009E3394 /* SignupViewController.swift */,
@@ -581,6 +584,7 @@
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
 				271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */,
+				52C97413271F7BE700EEACBD /* test.swift in Sources */,
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,
