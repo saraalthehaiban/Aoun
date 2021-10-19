@@ -24,6 +24,9 @@ target 'AOUN' do
 =======
   
   #pod 'IQKeyboardManagerSwift', '~> 6.5'
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 end
