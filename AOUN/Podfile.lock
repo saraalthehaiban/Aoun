@@ -476,6 +476,7 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.7.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - leveldb-library (1.22.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -490,6 +491,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - Firebase/Storage
+  - IQKeyboardManagerSwift (~> 6.5)
 
 SPEC REPOS:
   trunk:
@@ -509,6 +511,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - IQKeyboardManagerSwift
     - leveldb-library
     - nanopb
     - PromisesObjC
@@ -530,38 +533,11 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-PODFILE CHECKSUM: 9a72aa79c277c6d53bcca0e936393ac85862c65c
-=======
-PODFILE CHECKSUM: 8e6bccd1376165f8fecf9ef8ead3d8eaf5574471
->>>>>>> Stashed changes
-=======
-PODFILE CHECKSUM: 8e6bccd1376165f8fecf9ef8ead3d8eaf5574471
->>>>>>> Stashed changes
-=======
-PODFILE CHECKSUM: 8e6bccd1376165f8fecf9ef8ead3d8eaf5574471
->>>>>>> Stashed changes
-=======
-PODFILE CHECKSUM: 8e6bccd1376165f8fecf9ef8ead3d8eaf5574471
->>>>>>> Stashed changes
-=======
-PODFILE CHECKSUM: 8e6bccd1376165f8fecf9ef8ead3d8eaf5574471
->>>>>>> Stashed changes
-=======
-PODFILE CHECKSUM: 8e6bccd1376165f8fecf9ef8ead3d8eaf5574471
->>>>>>> Stashed changes
-=======
-PODFILE CHECKSUM: 8e6bccd1376165f8fecf9ef8ead3d8eaf5574471
->>>>>>> Stashed changes
+PODFILE CHECKSUM: dcf3802476e7f2547010800dcb9b2f07988ff0a5
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.0

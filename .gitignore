@@ -1,6 +1,8 @@
-.DS_Store
+*.DS_Store
 AOUN/AOUN.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 AOUN/AOUN.xcodeproj/project.xcworkspace/xcuserdata/*
 AOUN/AOUN.xcodeproj/xcuserdata/*
 AOUN/AOUN.xcworkspace/
 AOUN/Pods/
+AOUN/AOUN.xcworkspace/xcuserdata/saraalthehaiban.xcuserdatad/UserInterfaceState.xcuserstate
+AOUN/AOUN.xcworkspace/xcuserdata/saraalthehaiban.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist

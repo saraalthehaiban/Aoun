@@ -20,28 +20,7 @@ target 'AOUN' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
-<<<<<<< Updated upstream
-=======
   
-  #pod 'IQKeyboardManagerSwift', '~> 6.5'
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+  pod 'IQKeyboardManagerSwift', '~> 6.5'
 
 end
