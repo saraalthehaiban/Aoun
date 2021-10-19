@@ -37,6 +37,9 @@
 		52C9740B271F525700EEACBD /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9740A271F525700EEACBD /* Community.swift */; };
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -101,9 +104,15 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		5213CF6726FFD95B009AFBAA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		524AB6F12705F741005EFDF6 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		526B875C2704302C004C18D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+=======
+		52C97406271F4E2100EEACBD /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
+		52C97408271F4FAF00EEACBD /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		52C9740A271F525700EEACBD /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 =======
 		52C97406271F4E2100EEACBD /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
 		52C97408271F4FAF00EEACBD /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +293,9 @@
 				52C9740A271F525700EEACBD /* Community.swift */,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -408,7 +420,11 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				0F40BDF726F54F4900FB83AC /* Main.storyboard in Resources */,
+=======
+				52C97407271F4E2100EEACBD /* Community.storyboard in Resources */,
+>>>>>>> Stashed changes
 =======
 				52C97407271F4E2100EEACBD /* Community.storyboard in Resources */,
 >>>>>>> Stashed changes
@@ -584,6 +600,9 @@
 				52C97409271F4FAF00EEACBD /* CommunityViewController.swift in Sources */,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -600,6 +619,9 @@
 				52C9740B271F525700EEACBD /* Community.swift in Sources */,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
