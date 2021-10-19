@@ -3,6 +3,10 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        <deployment identifier="iOS"/>
+>>>>>>> Stashed changes
 =======
         <deployment identifier="iOS"/>
 >>>>>>> Stashed changes
