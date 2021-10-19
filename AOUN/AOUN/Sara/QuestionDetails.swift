@@ -42,6 +42,7 @@ extension QuestionDetails: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = AnsTable.dequeueReusableCell(withIdentifier: "ACell", for: indexPath) as! CommunityAnswer
         cell.body.text = answers[indexPath.row]
+        //hot fix
         return cell
     }
     
