@@ -17,9 +17,9 @@ class Community: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        display.register(UINib(nibName: "CommunityQuestion", bundle: nil), forCellReuseIdentifier: "QCell")
         display.delegate = self
         display.dataSource = self
-        display.register(UINib(nibName: "CommunityQuestion", bundle: nil), forCellReuseIdentifier: "QCell")
         loadQuestions()
         // Do any additional setup after loading the view.
     }
@@ -45,6 +45,9 @@ class Community: UIViewController {
                                     break
                                 }
                                }
+                            DispatchQueue.main.async {
+                                self.display.reloadData()
+                            }
                             
                            } //hard coded, get from transition var = ID
                         
@@ -67,6 +70,7 @@ extension Community: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = display.dequeueReusableCell(withIdentifier: "QCell", for: indexPath) as! CommunityQuestion
+        print("loaded")
         cell.QField.text = questions[indexPath.row].title
         //Title
         return cell
@@ -78,8 +82,8 @@ extension Community: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRow = indexPath.row
         if let vc = storyboard?.instantiateViewController(identifier: "QuestionDetails") as? QuestionDetails{
-            vc.Qtitle.text = questions[selectedRow].title
-            vc.Qbody.text = questions[selectedRow].body
+            vc.QV = questions[selectedRow].title
+            vc.BV = questions[selectedRow].body
             vc.answers = questions[selectedRow].answer
             self.present(vc, animated: true, completion: nil)
     }

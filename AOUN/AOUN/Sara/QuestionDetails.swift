@@ -13,12 +13,16 @@ class QuestionDetails: UIViewController {
     @IBOutlet var AnsTable: UITableView!
     @IBOutlet var Qtitle: UILabel!
     @IBOutlet var Qbody: UILabel!
+    var QV : String = ""
+    var BV : String = ""
     var answers: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         AnsTable.delegate = self
         AnsTable.dataSource = self
-        AnsTable.register(UINib(nibName: "CommunityQuestion", bundle: nil), forCellReuseIdentifier: "QCell")
+        AnsTable.register(UINib(nibName: "CommunityAnswer", bundle: nil), forCellReuseIdentifier: "ACell")
+        Qtitle.text = QV
+        Qbody.text = BV
         // Do any additional setup after loading the view.
     }
     

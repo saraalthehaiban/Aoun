@@ -34,7 +34,7 @@ class AskQuestion: UIViewController {
         let n = titleText.text
         let d = Description.text
         let ans : [String] = []
-        db.collection("Question").document().setData(["Title": n, "Body":d, "ID":ID, "Answers": ans]);
+        db.collection("Questions").document().setData(["Title": n, "Body":d, "ID":ID, "Answers": ans]);
         delegate?.add()
         //Added successfully 
 
