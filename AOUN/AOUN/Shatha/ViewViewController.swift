@@ -36,9 +36,9 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var myRes: UILabel!
     @IBOutlet weak var notesTable: UITableView!
     @IBOutlet weak var resTable: UITableView!
-    
-    @IBOutlet weak var Email: UILabel!
+    @IBOutlet weak var email: UILabel!
     var notes: [NoteFile] = []
+    var resources:[resFile] = []
     var empty =  "No notes"
     let db = Firestore.firestore()
     
@@ -50,11 +50,13 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         notesTable.delegate = self
         notesTable.dataSource = self
         loadNotes ()
-        
+        loadResources()
         getName { [self] (name) in
-            self.fullName.text = name
-        }
-        
+            self.fullName.text = name}
+       
+        getEmail { [self] (uEmail) in
+           self.email.text = uEmail
+       }
 //        let user = Auth.auth().currentUser
 //        fullName.text = user?.displayName
         // Do any additional setup after loading the view.
@@ -86,27 +88,39 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         })
                                 
-//
-//            if let e = error {
-//                print("There was an issue retreving data from fireStore. \(e)")
-//            }else {
-//                if let snapshotDocuments = querySnapshot?.documents{
-//                    for doc in snapshotDocuments {
-//                        let data = doc.data()
-//                        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String  {
-//                            let newNote = NoteFile(noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName)
-//                            self.notes.append(newNote)
-//                            //                            self.EmptyTable.text = "";
-//                            DispatchQueue.main.async {
-//                                self.notesTable.reloadData()
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
+        }// end of load note
+    
+    func loadResources(){
         
+        resources = []
+        
+        guard let thisUserId = Auth.auth().currentUser?.uid else {
+            return
         }
+        let query : Query = db.collection("Notes").whereField("uid", isEqualTo: thisUserId)
+//        query.collection("Notes").getDocuments { querySnapshot, error in
+        query.getDocuments ( completion:  {(snapShot, errror) in
+            
+            guard let ds = snapShot, !ds.isEmpty else {
+                //TODO: Add error handeling here
+                return
+            }
+            
+            for doc in ds.documents {
+                        
+                        let data = doc.data()
+                        if let rName = data["ResName"] as? String, let aName  = data["authorName"] as? String, let pName = data["pubName"] as? String, let desc = data["desc"] as? String, let urlName = data["url"] as? String {
+                            let newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName)
+                            self.resources.append(newRes)
+                         
+                            DispatchQueue.main.async {
+                                self.resTable.reloadData()
+                            }
+                        }
+                    } })
+        
+    }// end of loadResources
+
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -120,7 +134,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
             vc.index = indexPath
             self.present(vc, animated: true, completion: nil)
         }
-    }
+    }//function to go to note details
     
     func getName(completion: @escaping((String) -> ())) {
         guard let thisUserId = Auth.auth().currentUser?.uid else {
@@ -144,34 +158,17 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         })
         
-//        query.getDocuments { (docSnapshot, error) in
-//            if error != nil {
-//                print(error!)
-//            } else {
-//                guard let snapshot = docSnapshot, snapshot.exists else { return }
-//                guard let data = snapshot.data() else { return }
-//                let firstname = data["FirstName"] as? String ?? "No name"
-//                Completion(firstname)
-//            }
-//        }
-    }
+
+    }//end of getName
     
+    func getEmail(completion: @escaping((String) -> ())) {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let theEmail = user.email ?? ""
+            completion(theEmail)
+        }
+
+    }//end of getEmail
     
-    //    func setupProfile(){
-    //
-    //
-    //
-    //        if let uid = Auth.auth().currentUser?.uid{
-    //            db.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-    //                if let dict = snapshot.value as? [String: AnyObject]
-    //                {
-    //                    self.fullName.text = dict["username"] as? String
-    //
-    //
-    //                }
-    //            })
-    //
-    //            }
-    //        }
     
 }
