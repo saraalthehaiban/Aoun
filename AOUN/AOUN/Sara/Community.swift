@@ -85,7 +85,7 @@ extension Community: UITableViewDelegate{
             vc.QV = questions[selectedRow].title
             vc.BV = questions[selectedRow].body
             vc.answers = questions[selectedRow].answer
-            self.present(vc, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil) 
     }
     }
 }
