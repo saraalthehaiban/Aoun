@@ -16,19 +16,36 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView === notesTable {
         return notes.count
-    }
+        }
+        else if tableView === resTable {
+            return resources.count
+        }else {
+            fatalError("Invalid table")
+        }}
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "notesTableViewCell", for: indexPath) as! notesTableViewCell
-        cell.contentView.isUserInteractionEnabled = false
-        cell.noteTitle.text = notes[indexPath.row].noteLable
-        return cell
+        
+        
+        if tableView === notesTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "notesTableViewCell", for: indexPath) as! notesTableViewCell
+            cell.contentView.isUserInteractionEnabled = false
+            cell.noteTitle.text = notes[indexPath.row].noteLable
+            return cell
+        } else if tableView === resTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ResTableViewCell", for: indexPath) as! ResTableViewCell
+              cell.contentView.isUserInteractionEnabled = false
+              cell.resTitle.text = resources[indexPath.row].name
+              return cell
+        } else {
+            fatalError("Invalid table")
+        }
+     
     }
     
-    
-    
-    
+   
     @IBOutlet weak var waves: UIImageView!
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var fullName: UILabel!
@@ -37,6 +54,15 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var notesTable: UITableView!
     @IBOutlet weak var resTable: UITableView!
     @IBOutlet weak var email: UILabel!
+
+    @IBAction func editButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+    }
+
+    
     var notes: [NoteFile] = []
     var resources:[resFile] = []
     var empty =  "No notes"
@@ -50,6 +76,9 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         notesTable.delegate = self
         notesTable.dataSource = self
         loadNotes ()
+      resTable.register(UINib(nibName:"ResTableViewCell", bundle: nil), forCellReuseIdentifier: "ResTableViewCell")
+     resTable.delegate = self
+       resTable.dataSource = self
         loadResources()
         getName { [self] (name) in
             self.fullName.text = name}
@@ -57,9 +86,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         getEmail { [self] (uEmail) in
            self.email.text = uEmail
        }
-//        let user = Auth.auth().currentUser
-//        fullName.text = user?.displayName
-        // Do any additional setup after loading the view.
+//        saveButton.e  = true
     }
     func loadNotes (){
         notes = []
@@ -97,8 +124,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let thisUserId = Auth.auth().currentUser?.uid else {
             return
         }
-        let query : Query = db.collection("Notes").whereField("uid", isEqualTo: thisUserId)
-//        query.collection("Notes").getDocuments { querySnapshot, error in
+        let query : Query = db.collection("Resources").whereField("uid", isEqualTo: thisUserId)
+
         query.getDocuments ( completion:  {(snapShot, errror) in
             
             guard let ds = snapShot, !ds.isEmpty else {
@@ -124,6 +151,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView === notesTable {
         selectedRow = indexPath.row
         if let vc = storyboard?.instantiateViewController(identifier: "deleteNote") as? deleteNote {
             vc.TitleName = notes[indexPath.row].noteLable
@@ -133,7 +161,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
             vc.delegate = self
             vc.index = indexPath
             self.present(vc, animated: true, completion: nil)
-        }
+        }}
     }//function to go to note details
     
     func getName(completion: @escaping((String) -> ())) {

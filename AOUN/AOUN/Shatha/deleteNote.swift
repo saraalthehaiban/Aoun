@@ -2,7 +2,6 @@
 //  deleteNote.swift
 //  AOUN
 //
-//  Created by shatha on 11/03/1443 AH.
 //
 import Firebase
 import UIKit
@@ -18,7 +17,7 @@ class deleteNote: UIViewController {
     var pr = ""
     var index : IndexPath!
     var delegate: deleteNoteDelegate?
-
+    let db = Firestore.firestore()
     @IBOutlet weak var noteIMG: UIImageView!
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var wave: UIImageView!
@@ -28,10 +27,19 @@ class deleteNote: UIViewController {
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBAction func deleteNote(_ sender: UIButton) {
+        db.collection("Notes").self.document().delete() { err in
+            
+//            if let err = err {
+//                print("Error removing document: \(err)")
+//            } else {
+//                print("Document successfully removed!")
+//            }
+       }
     }
     @IBOutlet weak var pricePlace: UIImageView!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var errorMSG: UILabel!
+
     override func viewDidLoad() {
         noteTitle.text = TitleName
 //        info.text = desc

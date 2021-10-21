@@ -1,17 +1,16 @@
 //
-//  notesTableViewCell.swift
+//  ResTableViewCell.swift
 //  AOUN
 //
-//  Created by shatha on 10/03/1443 AH.
+//  Created by shatha on 15/03/1443 AH.
 //
 
 import UIKit
 
-class notesTableViewCell: UITableViewCell {
+class ResTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var noteBubbble: UIView!
-    @IBOutlet weak var noteTitle: UILabel!
-    
+    @IBOutlet weak var resBubble: UIView!
+    @IBOutlet weak var resTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

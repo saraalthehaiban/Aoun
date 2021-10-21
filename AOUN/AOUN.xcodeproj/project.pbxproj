@@ -13,6 +13,8 @@
 		0B36C116271B7488001F6128 /* ViewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B36C112271B7487001F6128 /* ViewProfile.storyboard */; };
 		0B36C117271B7488001F6128 /* notesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B36C113271B7487001F6128 /* notesTableViewCell.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
+		0B9E4BF22721CB0C0074B789 /* ResTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E4BF02721CB0C0074B789 /* ResTableViewCell.swift */; };
+		0B9E4BF32721CB0C0074B789 /* ResTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B9E4BF12721CB0C0074B789 /* ResTableViewCell.xib */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
 		0BF9EF6C271C4110004EC0E6 /* deleteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF9EF6B271C4110004EC0E6 /* deleteNote.swift */; };
 		0BF9EF6E271DE07B004EC0E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF9EF6D271DE07B004EC0E6 /* User.swift */; };
@@ -82,6 +84,8 @@
 		0B36C111271B7487001F6128 /* ViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
 		0B36C112271B7487001F6128 /* ViewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewProfile.storyboard; sourceTree = "<group>"; };
 		0B36C113271B7487001F6128 /* notesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notesTableViewCell.swift; sourceTree = "<group>"; };
+		0B9E4BF02721CB0C0074B789 /* ResTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResTableViewCell.swift; sourceTree = "<group>"; };
+		0B9E4BF12721CB0C0074B789 /* ResTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResTableViewCell.xib; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		0BF9EF6B271C4110004EC0E6 /* deleteNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteNote.swift; sourceTree = "<group>"; };
 		0BF9EF6D271DE07B004EC0E6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				0B36C113271B7487001F6128 /* notesTableViewCell.swift */,
 				0B36C110271B7487001F6128 /* notesTableViewCell.xib */,
+				0B9E4BF02721CB0C0074B789 /* ResTableViewCell.swift */,
+				0B9E4BF12721CB0C0074B789 /* ResTableViewCell.xib */,
 				0B36C112271B7487001F6128 /* ViewProfile.storyboard */,
 				0B36C111271B7487001F6128 /* ViewViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
@@ -438,6 +444,7 @@
 				0F502A7A270F77EA00912EF0 /* Auth.storyboard in Resources */,
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
+				0B9E4BF32721CB0C0074B789 /* ResTableViewCell.xib in Resources */,
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
 				0B36C114271B7488001F6128 /* notesTableViewCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
@@ -605,6 +612,7 @@
 				0B36C117271B7488001F6128 /* notesTableViewCell.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 				0BF9EF6C271C4110004EC0E6 /* deleteNote.swift in Sources */,
+				0B9E4BF22721CB0C0074B789 /* ResTableViewCell.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				27712C7127034CB200450466 /* detailedResViewController.swift in Sources */,
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,

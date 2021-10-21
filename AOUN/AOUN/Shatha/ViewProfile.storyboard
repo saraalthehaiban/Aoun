@@ -68,6 +68,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCy-hV-NUE">
+                                <rect key="frame" x="301" y="389" width="23" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="square.and.pencil" catalog="system"/>
+                                <connections>
+                                    <action selector="editButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZCn-wR-IiQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g27-1H-4vB">
+                                <rect key="frame" x="329" y="392" width="62" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
+                                <state key="normal" title="Save" image="Rectangle">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4pC-wz-bXc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -281,20 +300,13 @@
                     <navigationItem key="navigationItem" id="RY3-sb-D5n"/>
                     <connections>
                         <outlet property="AuthorLabel" destination="oPF-Xs-Ubo" id="7vW-fN-ldB"/>
-                        <outlet property="aoutherName" destination="DNk-ET-hJk" id="wjB-4R-LzA"/>
-                        <outlet property="autherLable" destination="oPF-Xs-Ubo" id="BpF-5N-Vh7"/>
                         <outlet property="authorName" destination="yQo-X2-P9A" id="uvQ-mF-vn8"/>
                         <outlet property="desc" destination="TPJ-44-dUq" id="8SH-UV-DKk"/>
                         <outlet property="descLabel" destination="ixE-No-kEM" id="bzR-V8-BtC"/>
-                        <outlet property="descLable" destination="ixE-No-kEM" id="hgF-VF-xcE"/>
                         <outlet property="errorMSG" destination="ImA-3I-wVh" id="EaS-U4-gRI"/>
-                        <outlet property="errorMsg" destination="ImA-3I-wVh" id="ACA-Kf-jfs"/>
                         <outlet property="noteIMG" destination="5zk-jq-2tq" id="xUk-MC-bmR"/>
                         <outlet property="noteTitle" destination="NU1-dJ-Wee" id="HQE-dW-Drr"/>
                         <outlet property="price" destination="AwM-TS-p2R" id="NQ8-aM-VSn"/>
-                        <outlet property="priceLable" destination="AwM-TS-p2R" id="2Pi-QO-sK3"/>
-                        <outlet property="pricePlace" destination="yQo-X2-P9A" id="vdW-Q8-07C"/>
-                        <outlet property="topPic" destination="L8I-q8-TP7" id="S1f-xv-OSx"/>
                         <outlet property="wave" destination="L8I-q8-TP7" id="82L-te-lWT"/>
                     </connections>
                 </viewController>
@@ -308,6 +320,7 @@
         <image name="9" width="2772" height="2162"/>
         <image name="Rectangle" width="327" height="50"/>
         <image name="bac" width="942" height="1173"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="waves" width="750" height="750"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
