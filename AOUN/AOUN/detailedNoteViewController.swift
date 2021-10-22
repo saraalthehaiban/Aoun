@@ -7,6 +7,7 @@
 
 import UIKit
 import BraintreeDropIn
+import StripeTerminal
 
 enum DownloadAction : String {
     case download  = "Download"
@@ -14,7 +15,7 @@ enum DownloadAction : String {
 }
 
 
-class detailedNoteViewController: UIViewController {
+class detailedNoteViewController: UIViewController{
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
 
     @IBOutlet weak var topPic: UIImageView!
@@ -81,13 +82,38 @@ class detailedNoteViewController: UIViewController {
 
 
 //payment implementation
-extension detailedNoteViewController {
+extension detailedNoteViewController : BTThreeDSecureRequestDelegate {
     
     func showDropIn(clientTokenOrTokenizationKey: String, url:URL) {
-        let request =  BTDropInRequest()
-        let sRequest = BTThreeDSecureRequest()
-//        sRequest.amount = NSDecimalNumber(decimal: priceOfNote)
-//        request.threeDSecureRequest = sRequest
+        
+        let request = BTDropInRequest()
+
+        let threeDSecureRequest = BTThreeDSecureRequest()
+        threeDSecureRequest.threeDSecureRequestDelegate = self
+
+        threeDSecureRequest.amount = 1.00
+        threeDSecureRequest.email = "test@example.com"
+        threeDSecureRequest.versionRequested = .version2
+
+        let address = BTThreeDSecurePostalAddress()
+        address.givenName = "Jill"
+        address.surname = "Doe"
+        address.phoneNumber = "5551234567"
+        address.streetAddress = "555 Smith St"
+        address.extendedAddress = "#2"
+        address.locality = "Chicago"
+        address.region = "IL"
+        address.postalCode = "12345"
+        address.countryCodeAlpha2 = "US"
+        threeDSecureRequest.billingAddress = address
+
+        // Optional additional information.
+        // For best results, provide as many of these elements as possible.
+        let additionalInformation = BTThreeDSecureAdditionalInformation()
+        additionalInformation.shippingAddress = address
+        threeDSecureRequest.additionalInformation = additionalInformation
+
+        request.threeDSecureRequest = threeDSecureRequest
         
         let dropIn = BTDropInController(authorization: clientTokenOrTokenizationKey, request: request)
         { (controller, result, error) in
@@ -107,5 +133,11 @@ extension detailedNoteViewController {
         }
         self.present(dropIn!, animated: true, completion: nil)
     }
+    
+    //Delegate
+    func onLookupComplete(_ request: BTThreeDSecureRequest, lookupResult result: BTThreeDSecureResult, next: @escaping () -> Void) {
+        
+    }
+    
     
 }
