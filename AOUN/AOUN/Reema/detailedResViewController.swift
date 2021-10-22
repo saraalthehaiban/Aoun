@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseStorage
 
 class detailedResViewController: UIViewController {
+
 
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var smallBackground: UIImageView!
     @IBOutlet weak var icon: UIImageView!
-    @IBOutlet weak var resTitle: UILabel!
     @IBOutlet weak var authTitle: UILabel!
     @IBOutlet weak var pubTitle: UILabel!
     @IBOutlet weak var descTitle: UILabel!
@@ -53,5 +55,5 @@ class detailedResViewController: UIViewController {
                 self.present(vcActivity, animated: true, completion: nil)
             }
         }
-
+    
 }

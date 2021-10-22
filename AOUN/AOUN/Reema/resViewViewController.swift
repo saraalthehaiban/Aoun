@@ -20,14 +20,12 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
     
     var resources:[resFile] = []
     let db = Firestore.firestore()
-    //dummy data
     
     @IBOutlet weak var searchBar: UISearchBar!
     var searchActive : Bool = false
     var filtered:[resFile] = []
 
-    
-    override func viewDidLoad() {
+      override func viewDidLoad() {
         super.viewDidLoad()
         let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
      
