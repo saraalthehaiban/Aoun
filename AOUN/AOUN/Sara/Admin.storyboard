@@ -189,7 +189,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="334" id="Zdx-bA-PHC"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="vJM-v0-Ios"/>
                                         </constraints>
-                                        <state key="normal" title="Accept" backgroundImage="Simple Copy">
+                                        <state key="normal" title="Accept" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -204,7 +204,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="334" id="LBT-Op-eXc"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="eWA-mf-e3F"/>
                                         </constraints>
-                                        <state key="normal" title="Decline" backgroundImage="Simple Copy1">
+                                        <state key="normal" title="Decline" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -255,8 +255,7 @@
     <resources>
         <image name="21" width="2777" height="2158"/>
         <image name="Admin" width="2048" height="2048"/>
-        <image name="Simple Copy" width="657" height="150"/>
-        <image name="Simple Copy1" width="657" height="150"/>
+        <image name="Rectangle" width="327" height="50"/>
         <image name="logout (1) (1)" width="512" height="512"/>
         <image name="waves" width="750" height="750"/>
         <systemColor name="systemBackgroundColor">
