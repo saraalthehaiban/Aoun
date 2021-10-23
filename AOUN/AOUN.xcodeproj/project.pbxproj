@@ -24,7 +24,6 @@
 		0F502A7A270F77EA00912EF0 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A75270F77EA00912EF0 /* Auth.storyboard */; };
 		0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F502A76270F77EA00912EF0 /* SignoutViewController.swift */; };
 		0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A7C270F7D6500912EF0 /* Profile.storyboard */; };
-		0F502A80270F84B800912EF0 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A7F270F84B800912EF0 /* Admin.storyboard */; };
 		0F502A82270F855300912EF0 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A81270F855300912EF0 /* Resources.storyboard */; };
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
@@ -50,8 +49,6 @@
 		52C97413271F7BE700EEACBD /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C97412271F7BE700EEACBD /* test.swift */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
-		52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3326F69173009E3394 /* LandingViewController.swift */; };
-		52D00D3626F69195009E3394 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3526F69195009E3394 /* HomeViewController.swift */; };
 		BDAE1FA4C72AA66F800CB7F4 /* Pods_AOUNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CBF0F61F194219BBC93029 /* Pods_AOUNTests.framework */; };
 		DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -95,7 +92,6 @@
 		0F502A75270F77EA00912EF0 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		0F502A76270F77EA00912EF0 /* SignoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignoutViewController.swift; sourceTree = "<group>"; };
 		0F502A7C270F7D6500912EF0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		0F502A7F270F84B800912EF0 /* Admin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		0F502A81270F855300912EF0 /* Resources.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -126,8 +122,6 @@
 		52C97412271F7BE700EEACBD /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		52D00D2F26F69149009E3394 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		52D00D3126F6915C009E3394 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		52D00D3326F69173009E3394 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
-		52D00D3526F69195009E3394 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6C90FF5E896C0BBC1A5162CF /* Pods-AOUN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.release.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.release.xcconfig"; sourceTree = "<group>"; };
 		73EBB3513DB7A9FAE733086C /* Pods-AOUN-AOUNUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.debug.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99FD85E0BC2565867CC16ADB /* Pods-AOUNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.release.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,7 +190,6 @@
 				274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */,
 				0F3DECEA270B207800C5F6BB /* RCell.xib */,
 				0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */,
-				0F502A7F270F84B800912EF0 /* Admin.storyboard */,
 			);
 			path = Sara;
 			sourceTree = "<group>";
@@ -309,8 +302,6 @@
 				0F502A74270F77EA00912EF0 /* Utilities.swift */,
 				52D00D2F26F69149009E3394 /* SignupViewController.swift */,
 				52D00D3126F6915C009E3394 /* LoginViewController.swift */,
-				52D00D3326F69173009E3394 /* LandingViewController.swift */,
-				52D00D3526F69195009E3394 /* HomeViewController.swift */,
 				0F502A7C270F7D6500912EF0 /* Profile.storyboard */,
 			);
 			path = Rana;
@@ -432,7 +423,6 @@
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
 				0FC6357727107A56004D7A2A /* Launch Screen.storyboard in Resources */,
-				0F502A80270F84B800912EF0 /* Admin.storyboard in Resources */,
 				0F502A82270F855300912EF0 /* Resources.storyboard in Resources */,
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
@@ -602,9 +592,7 @@
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
-				52D00D3426F69173009E3394 /* LandingViewController.swift in Sources */,
 				52C9740F271F7ADD00EEACBD /* communityviewcontroller.swift in Sources */,
-				52D00D3626F69195009E3394 /* HomeViewController.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
