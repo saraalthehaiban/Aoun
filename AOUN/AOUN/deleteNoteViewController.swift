@@ -1,28 +1,37 @@
 //
-//  detailedNoteViewController.swift
+//  deleteNoteViewController.swift
 //  AOUN
 //
-//  Created by Rasha on 28/09/2021.
+//  Created by Reema Turki on 17/03/1443 AH.
 //
-
+//
+//  deleteNote.swift
+//  AOUN
+//
+//
+import Firebase
 import UIKit
+protocol deleteNoteDelegate {
+    func delAt(index : IndexPath)
+}
 
-class detailedNoteViewController: UIViewController {
+class deleteNote: UIViewController {
 
-    @IBOutlet weak var topPic: UIImageView!
-    @IBOutlet weak var noteTitleLable: UILabel!
+    @IBOutlet weak var noteIMG: UIImageView!
     @IBOutlet weak var noteTitle: UILabel!
-    @IBOutlet weak var autherLable: UILabel!
+    @IBOutlet weak var wave: UIImageView!
+    @IBOutlet weak var AuthorLabel: UILabel!
     @IBOutlet weak var authorName: UILabel!
-    @IBOutlet weak var descLable: UILabel!
     @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var errorMsg: UILabel!
-    
+  
+    var delegate: deleteNoteDelegate?
+    let db = Firestore.firestore()
     var note : NoteFile!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,10 +39,7 @@ class detailedNoteViewController: UIViewController {
         authorName.text = note.autherName
         desc.text = note.desc
         price.text = note.price
-
-        // Do any additional setup after loading the view.
     }
-    
     
     //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func downloadButtonTouched(_ sender: Any) {
@@ -50,4 +56,16 @@ class detailedNoteViewController: UIViewController {
             self.present(vcActivity, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func deleteNote(_ sender: UIButton) {
+//        let id = self.db.collection("Notes").document(documentID);  db.collection("Notes").document(id).delete() { err in
+//
+//                    if let err = err {
+//                        print("Error removing document: \(err)")
+//                    } else {
+//                        print("Document successfully removed!")
+//                    }
+//               }
+    }
+    
 }
