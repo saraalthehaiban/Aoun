@@ -145,23 +145,27 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
         let pub = publisherV.text!
         let desc = descV.text ?? ""
         let data = ["ResName": res, "authorName": author, "pubName":pub, "desc":desc, "url":url]
-        
-//        db.collection("Resources").document().setData(["ResName": res, "authorName":author, "pubName":pub, "desc":desc, "url":url])
-              
         let resource = resFile(name: res, author: author, publisher: pub, desc: desc, urlString: url)
+
         
         db.collection("Resources").document().setData(data) { error in
             if let e = error {
                 print (e)
                 self.delegate?.resPost(self, resource: resource, added: false)
             return
+            } else {
+                //Show susccess message and go out
+                                    let alert = UIAlertController.init(title: "Done!", message: "Resource submitted successfully!", preferredStyle: .alert)
+                                    let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
+                                        self.dismiss(animated: true) {
+                                            //inform main controller t update the information
+                                        }
+                                    }
+                                    alert.addAction(cancleA)
+                                    self.present(alert, animated: true, completion: nil)
             }
-            
-            self.delegate?.resPost(self, resource: resource, added: true)
+//            self.delegate?.resPost(self, resource: resource, added: true)
         }
-        
-        msg.attributedText = NSAttributedString(string: "Resource submitted.",
-                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.blue])
     }
     
     override func viewDidLoad() {
