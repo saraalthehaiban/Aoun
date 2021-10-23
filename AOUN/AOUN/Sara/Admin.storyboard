@@ -42,16 +42,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" maximumZoomScale="2" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="vEn-vk-ceD">
-                                <rect key="frame" x="20" y="361" width="382" height="447"/>
-                                <color key="tintColor" red="0.3921568627" green="0.73333333329999995" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="447" id="oog-9u-RDR"/>
-                                </constraints>
-                                <color key="separatorColor" red="0.97254901959999995" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="sectionIndexBackgroundColor" red="0.97254908080000002" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVV-zd-ym1">
                                 <rect key="frame" x="365" y="37" width="29" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -73,6 +63,16 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" maximumZoomScale="2" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="vEn-vk-ceD">
+                                <rect key="frame" x="20" y="365" width="382" height="447"/>
+                                <color key="tintColor" red="0.3921568627" green="0.73333333329999995" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="447" id="oog-9u-RDR"/>
+                                </constraints>
+                                <color key="separatorColor" red="0.97254901959999995" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.97254908080000002" green="0.97254908080000002" blue="0.97254908080000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Otn-7S-8eS"/>
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
@@ -90,9 +90,9 @@
                             <constraint firstItem="caH-V7-faG" firstAttribute="leading" secondItem="PQu-WF-yqa" secondAttribute="leadingMargin" id="ZkV-Ml-ul7"/>
                             <constraint firstItem="Otn-7S-8eS" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="caH-V7-faG" secondAttribute="trailing" symbolic="YES" id="eH8-rE-ZEU"/>
                             <constraint firstItem="Otn-7S-8eS" firstAttribute="trailing" secondItem="j1K-qX-fzK" secondAttribute="trailing" constant="260" id="fbs-dz-00l"/>
-                            <constraint firstItem="Otn-7S-8eS" firstAttribute="bottom" secondItem="vEn-vk-ceD" secondAttribute="bottom" constant="54" id="gCN-Oi-20e"/>
-                            <constraint firstItem="vEn-vk-ceD" firstAttribute="top" secondItem="qrU-mK-2G0" secondAttribute="bottom" constant="-11" id="h4f-Yz-5Oh"/>
-                            <constraint firstItem="vEn-vk-ceD" firstAttribute="top" secondItem="caH-V7-faG" secondAttribute="bottom" constant="8" id="hMg-e2-3t1"/>
+                            <constraint firstItem="Otn-7S-8eS" firstAttribute="bottom" secondItem="vEn-vk-ceD" secondAttribute="bottom" constant="50" id="gCN-Oi-20e"/>
+                            <constraint firstItem="vEn-vk-ceD" firstAttribute="top" secondItem="qrU-mK-2G0" secondAttribute="bottom" constant="-7" id="h4f-Yz-5Oh"/>
+                            <constraint firstItem="vEn-vk-ceD" firstAttribute="top" secondItem="caH-V7-faG" secondAttribute="bottom" constant="12" id="hMg-e2-3t1"/>
                             <constraint firstItem="vEn-vk-ceD" firstAttribute="centerX" secondItem="PQu-WF-yqa" secondAttribute="centerX" constant="4" id="keS-Ib-FEO"/>
                             <constraint firstItem="9dv-zi-11d" firstAttribute="leading" secondItem="PQu-WF-yqa" secondAttribute="leadingMargin" constant="51" id="p6N-pr-ZIG"/>
                             <constraint firstItem="Azl-dU-DCM" firstAttribute="leading" secondItem="Otn-7S-8eS" secondAttribute="leading" constant="39" id="uyp-Id-AFx"/>
@@ -189,7 +189,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="334" id="Zdx-bA-PHC"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="vJM-v0-Ios"/>
                                         </constraints>
-                                        <state key="normal" title="Accept" backgroundImage="Simple Copy">
+                                        <state key="normal" title="Accept" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -204,7 +204,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="334" id="LBT-Op-eXc"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="eWA-mf-e3F"/>
                                         </constraints>
-                                        <state key="normal" title="Decline" backgroundImage="Simple Copy1">
+                                        <state key="normal" title="Decline" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -255,8 +255,7 @@
     <resources>
         <image name="21" width="2777" height="2158"/>
         <image name="Admin" width="2048" height="2048"/>
-        <image name="Simple Copy" width="657" height="150"/>
-        <image name="Simple Copy1" width="657" height="150"/>
+        <image name="Rectangle" width="327" height="50"/>
         <image name="logout (1) (1)" width="512" height="512"/>
         <image name="waves" width="750" height="750"/>
         <systemColor name="systemBackgroundColor">
