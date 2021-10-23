@@ -27,6 +27,11 @@ class UserHomeViewController: UIViewController {
     }
     @IBOutlet weak var resourcesLabel: UILabel!
     @IBAction func communitiesButton(_ sender: UIButton) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let vc = appDelegate.viewController(storyBoardname: "CommunityHome", viewControllerId: "Community")
+            self.present(vc, animated: true, completion: nil)
+        }
+        
     }
     @IBOutlet weak var CommunitiesLabel: UILabel!
     override func viewDidLoad() {
@@ -53,4 +58,8 @@ class UserHomeViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
+    
+
+    
+    
 }
