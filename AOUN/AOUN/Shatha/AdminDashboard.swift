@@ -21,7 +21,7 @@ class AdminDashboard: UIViewController {
     fileprivate var selectedRow: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName:"RequestCell", bundle: nil), forCellReuseIdentifier: "ci_RequestCell")
+        tableView.register(UINib(nibName:"RequestCell", bundle: nil), forCellReuseIdentifier: "ci_RequestCell") //Remove
         tableView.register(UINib(nibName:"RCell", bundle: nil), forCellReuseIdentifier: "ci_RCell")
         tableView.delegate = self
         tableView.dataSource = self
