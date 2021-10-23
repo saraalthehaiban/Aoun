@@ -30,8 +30,9 @@
                                     <segue destination="U0u-LK-fO8" kind="show" id="SIJ-U4-v5a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhz-YQ-hNi">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhz-YQ-hNi">
                                 <rect key="frame" x="80" y="701" width="254" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Register" backgroundImage="Rectangle">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,16 +74,13 @@
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1Pa-id-Dzd" firstAttribute="leading" secondItem="6Ch-g7-a0L" secondAttribute="leading" constant="80" id="1pf-K8-C64"/>
-                            <constraint firstItem="GqC-5T-gN9" firstAttribute="leading" secondItem="Uhz-YQ-hNi" secondAttribute="leading" id="1yv-HW-V27"/>
                             <constraint firstItem="nuy-aU-QY3" firstAttribute="top" secondItem="6Ch-g7-a0L" secondAttribute="top" constant="-52" id="8cR-Ut-M9B"/>
                             <constraint firstItem="1Pa-id-Dzd" firstAttribute="top" secondItem="6Ch-g7-a0L" secondAttribute="top" constant="163" id="8hZ-N2-qPk"/>
-                            <constraint firstItem="Uhz-YQ-hNi" firstAttribute="top" secondItem="GqC-5T-gN9" secondAttribute="bottom" constant="8" symbolic="YES" id="Fop-6o-A97"/>
                             <constraint firstItem="6mV-VY-sGc" firstAttribute="centerX" secondItem="GfN-Xn-Lmw" secondAttribute="centerX" id="JMB-J8-dLx"/>
                             <constraint firstItem="GqC-5T-gN9" firstAttribute="leading" secondItem="6Ch-g7-a0L" secondAttribute="leading" constant="80" id="Mc8-fJ-b7a"/>
                             <constraint firstItem="GqC-5T-gN9" firstAttribute="centerX" secondItem="dub-QS-75b" secondAttribute="centerX" id="QWs-Zg-27W"/>
                             <constraint firstItem="6mV-VY-sGc" firstAttribute="leading" secondItem="6Ch-g7-a0L" secondAttribute="leading" constant="149" id="Qyq-n9-RHR"/>
                             <constraint firstItem="6Ch-g7-a0L" firstAttribute="trailing" secondItem="6mV-VY-sGc" secondAttribute="trailing" constant="130" id="R1u-N2-kQ1"/>
-                            <constraint firstItem="GqC-5T-gN9" firstAttribute="trailing" secondItem="Uhz-YQ-hNi" secondAttribute="trailing" id="X5J-3d-ETO"/>
                             <constraint firstItem="6mV-VY-sGc" firstAttribute="top" secondItem="1Pa-id-Dzd" secondAttribute="bottom" constant="8" symbolic="YES" id="bf8-Yd-k8P"/>
                             <constraint firstItem="nuy-aU-QY3" firstAttribute="leading" secondItem="dub-QS-75b" secondAttribute="leadingMargin" constant="-25" id="dtG-Kv-mAU"/>
                             <constraint firstItem="GqC-5T-gN9" firstAttribute="top" secondItem="GfN-Xn-Lmw" secondAttribute="bottom" constant="85" id="eLe-D2-oAZ"/>
