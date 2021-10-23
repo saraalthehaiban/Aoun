@@ -27,14 +27,14 @@ class deleteNote: UIViewController {
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBAction func deleteNote(_ sender: UIButton) {
-        db.collection("Notes").self.document().delete() { err in
-            
-//            if let err = err {
-//                print("Error removing document: \(err)")
-//            } else {
-//                print("Document successfully removed!")
-//            }
-       }
+//        let id = self.db.collection("Notes").document(documentID);  db.collection("Notes").document(id).delete() { err in
+//
+//        //            if let err = err {
+//        //                print("Error removing document: \(err)")
+//        //            } else {
+//        //                print("Document successfully removed!")
+//        //            }
+//               }
     }
     @IBOutlet weak var pricePlace: UIImageView!
     @IBOutlet weak var price: UILabel!

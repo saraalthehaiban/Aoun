@@ -162,7 +162,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
             vc.index = indexPath
             self.present(vc, animated: true, completion: nil)
         }}
-    }//function to go to note details
+    }//function to view note details
     
     func getName(completion: @escaping((String) -> ())) {
         guard let thisUserId = Auth.auth().currentUser?.uid else {
