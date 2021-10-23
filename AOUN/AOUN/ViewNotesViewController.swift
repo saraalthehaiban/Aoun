@@ -33,6 +33,8 @@ class ViewNotesViewController: UIViewController {
         
     }
     
+    
+    
     func loadNotes(){
         db.collection("Notes").getDocuments { querySnapshot, error in
             if let e = error {

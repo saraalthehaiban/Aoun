@@ -14,7 +14,6 @@ enum DownloadAction : String {
     case pay = "Pay & Download"
 }
 
-
 class detailedNoteViewController: UIViewController{
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
 
@@ -107,6 +106,7 @@ extension detailedNoteViewController : BTThreeDSecureRequestDelegate {
         address.countryCodeAlpha2 = "US"
         threeDSecureRequest.billingAddress = address
 
+        
         // Optional additional information.
         // For best results, provide as many of these elements as possible.
         let additionalInformation = BTThreeDSecureAdditionalInformation()
