@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VD-Cz-6ce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-510" y="-364"/>
+            <point key="canvasLocation" x="-510.14492753623193" y="-364.28571428571428"/>
         </scene>
         <!--Res Post View Controller-->
         <scene sceneID="ZC2-Ao-1Nl">
@@ -556,17 +556,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQ0-sS-vGs">
-                                <rect key="frame" x="315" y="313" width="46" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="del:" destination="YvK-Fc-7jl" eventType="touchUpInside" id="iZS-vx-imU"/>
-                                    <action selector="delete:" destination="5De-pw-Wgk" eventType="touchUpInside" id="Fy3-om-Kez"/>
-                                    <action selector="delete:" destination="YvK-Fc-7jl" eventType="touchUpInside" id="eYU-jD-NT1"/>
-                                    <action selector="deleteRes:" destination="5De-pw-Wgk" eventType="touchUpInside" id="7yV-F6-765"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lQR-NB-1pm"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -634,7 +623,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRl-Ir-vKo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="YvK-Fc-7jl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="71.014492753623188" y="383.70535714285711"/>
         </scene>

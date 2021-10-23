@@ -1,16 +1,15 @@
 //
-//  detailedResViewController.swift
+//  deleteResViewController.swift
 //  AOUN
 //
-//  Created by Reema Turki on 21/02/1443 AH.
+//  Created by Reema Turki on 15/03/1443 AH.
 //
 
 import UIKit
 import Firebase
 import FirebaseStorage
 
-class detailedResViewController: UIViewController {
-
+class deleteResViewController: UIViewController {
 
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var smallBackground: UIImageView!
@@ -23,10 +22,10 @@ class detailedResViewController: UIViewController {
     @IBOutlet weak var authL: UILabel!
     @IBOutlet weak var pubL: UILabel!
     @IBOutlet weak var descL: UILabel!
-    @IBOutlet weak var errorMsg: UILabel!
-  
+    
     var resource: resFile!
-  
+    let db = Firestore.firestore()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         resL.text = resource.name
@@ -40,12 +39,29 @@ class detailedResViewController: UIViewController {
     }
     
 
+    
+    
+    @IBAction func deleteRes(_ sender: UIButton) {
+        //        let id = self.db.collection("Notes").document(documentID);  db.collection("Notes").document(id).delete() { err in
+        //
+        //                    if let err = err {
+        //                        print("Error removing document: \(err)")
+        //                    } else {
+        //                        print("Document successfully removed!")
+        //                    }
+        //               }
+        
+    }
+    
+    
    // @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
         @IBAction func downloadButtonTouched(_ sender: Any) {
             guard let url = resource.url else {
                 //TODO: Show download url error message
                 return
             }
+            
+            
             
             //activityIndicator.startAnimating()
             DownloadManager.download(url: url) { success, data in
@@ -55,5 +71,5 @@ class detailedResViewController: UIViewController {
                 self.present(vcActivity, animated: true, completion: nil)
             }
         }
-    
+
 }
