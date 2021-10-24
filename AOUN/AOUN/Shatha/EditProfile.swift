@@ -15,6 +15,7 @@ class VCEditProfile : UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    var user : User!
     
 
     override func viewDidLoad() {
@@ -27,6 +28,8 @@ class VCEditProfile : UIViewController {
     
     func setUpElements() {
         errorLabel.alpha=0
+        self.firstNameTextField.text = self.user.FirstName
+        self.lastNameTextField.text = self.user.LastName
     }
     
     func validateFields() -> String? {
@@ -58,29 +61,47 @@ class VCEditProfile : UIViewController {
                 //User is not logged in
                 return
             }
-            let dr = db.collection("users").document(userId)
+            
             let updateData = ["LastName":lastName, "FirstName":firstName]
-            
-            //let ref = FIRD
-            
-            //let ref : DatabaseReference!
-            
-            
-            dr.setData(updateData, merge: true) { error in
-                if let error = error {
-                    //show error messsgae
+            db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
+                if let err = error {
+                    //Display Error
                 } else {
-                    //Show susccess message and go out
-                    let alert = UIAlertController.init(title: "Done!", message: "Profile updated successfully!", preferredStyle: .alert)
-                    let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
-                        self.dismiss(animated: true) {
-                            //inform main controller t update the information
+                    let user = querySnapshot?.documents.first
+                    user?.reference.updateData(updateData, completion: { error in
+                        if let error = error {
+                            //show error messsgae
+                        } else {
+                            //Show susccess message and go out
+                            let alert = UIAlertController.init(title: "Done!", message: "Profile updated successfully!", preferredStyle: .alert)
+                            let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
+                                self.dismiss(animated: true) {
+                                    //inform main controller t update the information
+                                }
+                            }
+                            alert.addAction(cancleA)
+                            self.present(alert, animated: true, completion: nil)
                         }
-                    }
-                    alert.addAction(cancleA)
-                    self.present(alert, animated: true, completion: nil)
+                    })
                 }
             }
+            
+//            let dr = db.collection("users").document(userId)
+//            dr.updateData(updateData) { error in
+//                if let error = error {
+//                    //show error messsgae
+//                } else {
+//                    //Show susccess message and go out
+//                    let alert = UIAlertController.init(title: "Done!", message: "Profile updated successfully!", preferredStyle: .alert)
+//                    let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
+//                        self.dismiss(animated: true) {
+//                            //inform main controller t update the information
+//                        }
+//                    }
+//                    alert.addAction(cancleA)
+//                    self.present(alert, animated: true, completion: nil)
+//                }
+//            }
         }
     }
     

@@ -77,18 +77,6 @@
                                 <state key="normal" image="square.and.pencil" catalog="system"/>
                                 <connections>
                                     <action selector="editButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZCn-wR-IiQ"/>
-                                    <segue destination="E4f-Gj-Abs" kind="presentation" id="rIe-aU-4xh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g27-1H-4vB">
-                                <rect key="frame" x="329" y="392" width="62" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="9"/>
-                                <state key="normal" title="Save" image="Rectangle">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="4pC-wz-bXc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -138,6 +126,7 @@
                         <outlet property="picture" destination="5L3-KF-ytC" id="BFo-0p-WEQ"/>
                         <outlet property="resTable" destination="Bif-Fd-yj8" id="eq1-pX-vDi"/>
                         <outlet property="waves" destination="5L3-KF-ytC" id="fuT-cy-2d1"/>
+                        <segue destination="E4f-Gj-Abs" kind="presentation" identifier="si_profileToEdit" id="9Oa-jI-w4y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -232,7 +221,7 @@
         <!--Delete Note-->
         <scene sceneID="iTB-2N-BPt">
             <objects>
-                <viewController storyboardIdentifier="deleteNote" id="8gA-cZ-N5s" customClass="deleteNote" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="deleteNote" id="8gA-cZ-N5s" customClass="VCDeleteNote" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UH5-1K-vat">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,7 +304,7 @@
                                     <constraint firstAttribute="width" secondItem="ZJ0-Xh-y2b" secondAttribute="height" multiplier="15:2" id="AT1-wF-BDH"/>
                                     <constraint firstAttribute="height" constant="40" id="j9g-LP-A48"/>
                                 </constraints>
-                                <state key="normal" title="Delete" backgroundImage="Rectangle">
+                                <state key="normal" title="Download" backgroundImage="Rectangle">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -351,6 +340,14 @@
                                     <constraint firstAttribute="width" secondItem="L8I-q8-TP7" secondAttribute="height" multiplier="842:485" constant="4.1793814432988938" id="Odc-n1-fWt"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7h-eb-rws">
+                                <rect key="frame" x="96" y="785" width="222" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Delete Note " backgroundImage="Simple Copy1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="slW-br-4Yg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -403,13 +400,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSs-th-DIu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-894" y="42"/>
+            <point key="canvasLocation" x="-894.20289855072474" y="41.517857142857139"/>
         </scene>
     </scenes>
     <resources>
         <image name="26" width="2806" height="2093"/>
         <image name="9" width="2772" height="2162"/>
         <image name="Rectangle" width="327" height="50"/>
+        <image name="Simple Copy1" width="657" height="150"/>
         <image name="bac" width="942" height="1173"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="waves" width="750" height="750"/>

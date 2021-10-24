@@ -134,7 +134,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         let autherName = autherTextbox.text!
         let description = descriptionTextbox.text!
         let price = priceTextbox.text ?? ""
-        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url]
+        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
         //db.collection("Notes").document().setData(["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url])
         
         let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url)
