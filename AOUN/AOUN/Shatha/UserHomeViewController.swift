@@ -28,7 +28,7 @@ class UserHomeViewController: UIViewController {
     @IBOutlet weak var resourcesLabel: UILabel!
     @IBAction func communitiesButton(_ sender: UIButton) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            let vc = appDelegate.viewController(storyBoardname: "CommunityHome", viewControllerId: "Community")
+            let vc = appDelegate.viewController(storyBoardname: "Community", viewControllerId: "si_CommunityViewController")
             self.present(vc, animated: true, completion: nil)
         }
         

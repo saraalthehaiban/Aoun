@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-import RPTTextView
+//import RPTTextView
 
 protocol AskQuestionDelegate{
     func add()
@@ -17,7 +17,7 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
     var db = Firestore.firestore()
     @IBOutlet var titleError: UILabel!
     @IBOutlet var descError: UILabel!
-    @IBOutlet var descriptionTextView: RPTTextView!
+    @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var titleText: UITextField!
     var ID : String = ""
     var ComName : String = ""
@@ -41,7 +41,7 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
         }else{
             message = "*Please enter title"//TODO: Check and update message
         }
-        if let description = descriptionTextView.text, description.count > 1, description != descriptionTextView.placeHolder {
+        if let description = descriptionTextView.text, description.count > 1/*,description != descriptionTextView.placeHolder*/ {
             dataDictionary["Body"] = description
         }else{
             message += "\n*Please enter description"//TODO: Check and update message
