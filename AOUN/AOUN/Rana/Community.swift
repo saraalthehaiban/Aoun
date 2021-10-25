@@ -10,7 +10,7 @@ import Foundation
 class CommunityObject {
     var description : String = ""
     var title  : String = ""
-    varquestions : [Question]?
+    var questions : [Question]?
     
     init(description:String, title:String) {
         self.description = description

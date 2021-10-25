@@ -21,6 +21,6 @@ target 'AOUN' do
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
   
-  pod 'IQKeyboardManagerSwift', '~> 6.5'
+#  pod 'IQKeyboardManagerSwift', '~> 6.5'
 
 end
