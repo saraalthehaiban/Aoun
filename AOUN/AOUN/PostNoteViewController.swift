@@ -135,21 +135,30 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         let description = descriptionTextbox.text!
         let price = priceTextbox.text ?? ""
         let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url]
-        //db.collection("Notes").document().setData(["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url])
-        
         let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url)
+        
         db.collection("Notes").document().setData(data) { error in
             if let e = error {
                 print(e)
                 self.delegate?.postNote(self, note: note, added: false)
                 return
+            } else {
+                //Show susccess message and go out
+                                    let alert = UIAlertController.init(title: "Done!", message: "Note submitted successfully!", preferredStyle: .alert)
+                                    let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
+                                        self.dismiss(animated: true) {
+                                            //inform main controller t update the information
+                                        }
+                                    }
+                                    alert.addAction(cancleA)
+                                    self.present(alert, animated: true, completion: nil)
             }
             self.delegate?.postNote(self, note: note, added: true)
         }
         
         //self.activityIndicator.stopAnimating()
         
-        error.attributedText = NSAttributedString(string: "Note submitted", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue])
+//        error.attributedText = NSAttributedString(string: "Note submitted", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue])
         
     }
     

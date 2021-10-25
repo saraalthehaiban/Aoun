@@ -164,7 +164,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
                                     alert.addAction(cancleA)
                                     self.present(alert, animated: true, completion: nil)
             }
-//            self.delegate?.resPost(self, resource: resource, added: true)
+            self.delegate?.resPost(self, resource: resource, added: true)
         }
     }
     
