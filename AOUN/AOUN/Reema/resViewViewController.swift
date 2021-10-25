@@ -11,6 +11,7 @@ import FirebaseStorage
 
 class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate
 {
+    @IBOutlet weak var del: UIButton!
     
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var icon: UIImageView!
