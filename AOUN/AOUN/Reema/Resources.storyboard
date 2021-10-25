@@ -370,15 +370,16 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9k-95-Y94">
-                                <rect key="frame" x="264" y="730" width="120" height="132"/>
+                                <rect key="frame" x="170" y="788" width="74" height="74"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="132" id="EyU-Q7-OmS"/>
-                                    <constraint firstAttribute="width" secondItem="I9k-95-Y94" secondAttribute="height" multiplier="10:11" id="hkT-kJ-Jwi"/>
-                                    <constraint firstAttribute="width" constant="120" id="qDy-Oa-alr"/>
+                                    <constraint firstAttribute="height" constant="74" id="EyU-Q7-OmS"/>
+                                    <constraint firstAttribute="width" secondItem="I9k-95-Y94" secondAttribute="height" multiplier="10:11" constant="6.7272727272727337" id="hkT-kJ-Jwi"/>
+                                    <constraint firstAttribute="width" constant="74" id="qDy-Oa-alr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="0.60000002379999995" green="0.71372550729999995" blue="0.83137255909999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" backgroundImage="add">
+                                    <color key="titleColor" red="0.49019610879999997" green="0.81176471709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <segue destination="93J-zB-KLQ" kind="presentation" identifier="si_viewResToPost" id="FeF-Dx-epp"/>
@@ -413,7 +414,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynK-PU-7dn">
-                                <rect key="frame" x="86" y="811" width="91" height="51"/>
+                                <rect key="frame" x="20" y="825" width="91" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -424,16 +425,16 @@
                         <viewLayoutGuide key="safeArea" id="3UN-vK-voZ"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="N5a-kl-DQj" firstAttribute="trailing" secondItem="I9k-95-Y94" secondAttribute="trailing" constant="-3" id="06T-PU-zaa"/>
+                            <constraint firstItem="N5a-kl-DQj" firstAttribute="trailing" secondItem="I9k-95-Y94" secondAttribute="trailing" constant="137" id="06T-PU-zaa"/>
                             <constraint firstItem="MkG-Gq-NOA" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" constant="42" id="3xo-P9-0HA"/>
                             <constraint firstItem="bDi-FG-gSI" firstAttribute="top" secondItem="Gfn-yV-qNO" secondAttribute="top" constant="-107" id="9Fw-yz-4Nf"/>
-                            <constraint firstItem="I9k-95-Y94" firstAttribute="top" secondItem="MkG-Gq-NOA" secondAttribute="bottom" constant="359" id="JWW-nR-78s"/>
+                            <constraint firstItem="I9k-95-Y94" firstAttribute="top" secondItem="MkG-Gq-NOA" secondAttribute="bottom" constant="417" id="JWW-nR-78s"/>
                             <constraint firstItem="jev-ju-eTC" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" id="OEa-mk-t4x"/>
                             <constraint firstItem="Hib-fS-BRh" firstAttribute="leading" secondItem="Gfn-yV-qNO" secondAttribute="leading" constant="-15" id="OLL-0t-cUi"/>
                             <constraint firstItem="N5a-kl-DQj" firstAttribute="top" secondItem="3UN-vK-voZ" secondAttribute="top" constant="358" id="OV4-eK-iDc"/>
-                            <constraint firstItem="I9k-95-Y94" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" constant="264" id="QOo-If-NCX"/>
+                            <constraint firstItem="I9k-95-Y94" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" constant="170" id="QOo-If-NCX"/>
                             <constraint firstItem="N5a-kl-DQj" firstAttribute="leading" secondItem="3UN-vK-voZ" secondAttribute="leading" constant="33" id="UaE-wV-Nq5"/>
-                            <constraint firstItem="I9k-95-Y94" firstAttribute="top" secondItem="MkG-Gq-NOA" secondAttribute="bottom" constant="359" id="YWY-39-ddx"/>
+                            <constraint firstItem="I9k-95-Y94" firstAttribute="top" secondItem="MkG-Gq-NOA" secondAttribute="bottom" constant="417" id="YWY-39-ddx"/>
                             <constraint firstItem="3UN-vK-voZ" firstAttribute="trailing" secondItem="jev-ju-eTC" secondAttribute="trailing" id="agA-s1-96S"/>
                             <constraint firstItem="MkG-Gq-NOA" firstAttribute="top" secondItem="3UN-vK-voZ" secondAttribute="top" constant="202" id="cyZ-aZ-fLv"/>
                             <constraint firstItem="jev-ju-eTC" firstAttribute="top" secondItem="Hib-fS-BRh" secondAttribute="bottom" constant="119" id="hRa-EV-gLe"/>
@@ -451,6 +452,7 @@
                         <outlet property="collection" destination="N5a-kl-DQj" id="dDL-ZX-aEf"/>
                         <outlet property="del" destination="ynK-PU-7dn" id="RLS-yH-j7R"/>
                         <outlet property="icon" destination="Hib-fS-BRh" id="f2h-kR-agj"/>
+                        <outlet property="post" destination="I9k-95-Y94" id="4mZ-FK-GI6"/>
                         <outlet property="resL" destination="MkG-Gq-NOA" id="OoW-XH-fla"/>
                         <outlet property="searchBar" destination="jev-ju-eTC" id="aJ3-xm-rYK"/>
                         <segue destination="MOO-gV-LqA" kind="presentation" identifier="si_resourceListToDetail" id="Ocq-6F-yOB"/>
@@ -669,6 +671,7 @@
     <resources>
         <image name="Rectangle" width="327" height="50"/>
         <image name="Simple Copy1" width="657" height="150"/>
+        <image name="add" width="399" height="393"/>
         <image name="bac" width="942" height="1173"/>
         <image name="resource" width="3271" height="1792"/>
         <image name="waves" width="750" height="750"/>
