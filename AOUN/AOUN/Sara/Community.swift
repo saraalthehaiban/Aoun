@@ -12,6 +12,7 @@ class Community: UIViewController {
     var db = Firestore.firestore()
     var ID : String = ""
     var name : String = ""
+    var ids : [String] = []
     @IBOutlet var comName: UILabel!
     @IBOutlet var display: UITableView!
     var questions: [Question] = []
@@ -21,6 +22,7 @@ class Community: UIViewController {
         display.register(UINib(nibName: "CommunityQuestion", bundle: nil), forCellReuseIdentifier: "QCell")
         display.delegate = self
         display.dataSource = self
+        comName.text = name
         loadQuestions()
         // Do any additional setup after loading the view.
     }
@@ -36,15 +38,15 @@ class Community: UIViewController {
                                for doc in snapshotDocuments{
                                 let data =  doc.data()
                                 if data["ID"] as? String == self.ID{
-                                    self.comName.text = data["Community"] as? String
-                                    self.name = data["Community"] as? String ?? ""
+                                    //self.comName.text = data["Community"] as? String
+                                    //self.name = data["Community"] as? String ?? ""
                                     let Title = data["Title"] as? String
                                     let Body = data["Body"] as? String
                                     let Answers = data["Answers"] as? [String]
                                     let newQ = Question(title: Title!, body: Body!, answer: Answers!)
                                     self.questions.append(newQ)
                                     //Implement no questions in a community
-                                    
+                                    self.ids.append(doc.documentID)
                                 }
                                }
                             DispatchQueue.main.async {
@@ -84,10 +86,11 @@ extension Community: UITableViewDataSource{
 extension Community: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRow = indexPath.row
-        if let vc = storyboard?.instantiateViewController(identifier: "QuestionDetails") as? QuestionDetails{
+        if let vc = storyboard?.instantiateViewController(identifier: "QuestionDetails") as? QuestionDetail{
             vc.QV = questions[selectedRow].title
             vc.BV = questions[selectedRow].body
             vc.answers = questions[selectedRow].answer
+            vc.ID = ids[selectedRow]
             self.present(vc, animated: true, completion: nil) 
     }
     }

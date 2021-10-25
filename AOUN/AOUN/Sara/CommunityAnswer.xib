@@ -46,15 +46,21 @@
                             <constraint firstAttribute="trailing" secondItem="vGs-Ov-m5S" secondAttribute="trailing" constant="99" id="50V-QQ-FEQ"/>
                             <constraint firstItem="vGs-Ov-m5S" firstAttribute="top" secondItem="Lei-RL-icg" secondAttribute="top" constant="18" id="KXP-L1-Ksm"/>
                             <constraint firstItem="vGs-Ov-m5S" firstAttribute="centerY" secondItem="Lei-RL-icg" secondAttribute="centerY" id="ZKy-xT-inU"/>
+                            <constraint firstItem="nB7-MK-5Kk" firstAttribute="leading" secondItem="Lei-RL-icg" secondAttribute="leading" constant="8" id="hts-UM-h50"/>
                             <constraint firstItem="vGs-Ov-m5S" firstAttribute="leading" secondItem="nB7-MK-5Kk" secondAttribute="trailing" constant="23" id="t9b-dY-faJ"/>
+                            <constraint firstItem="nB7-MK-5Kk" firstAttribute="top" secondItem="Lei-RL-icg" secondAttribute="top" constant="-3" id="v1F-Hr-4lG"/>
                             <constraint firstItem="nB7-MK-5Kk" firstAttribute="top" secondItem="Lei-RL-icg" secondAttribute="top" constant="-3" id="v6j-2I-CGE"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Lei-RL-icg" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4i0-YQ-IkQ"/>
+                    <constraint firstAttribute="bottom" secondItem="Lei-RL-icg" secondAttribute="bottom" constant="12.5" id="CfA-LU-Lsa"/>
+                    <constraint firstItem="Lei-RL-icg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12.5" id="Qsr-NO-JWV"/>
+                    <constraint firstAttribute="trailing" secondItem="Lei-RL-icg" secondAttribute="trailing" constant="12" id="SNr-rI-jfd"/>
                     <constraint firstItem="Lei-RL-icg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="VZw-eT-0rd"/>
                     <constraint firstItem="Lei-RL-icg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZtT-UI-Hyl"/>
+                    <constraint firstItem="Lei-RL-icg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="d6Z-J4-JXN"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

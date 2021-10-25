@@ -16,6 +16,7 @@ class CommunityDetailsViewController: UIViewController {
     var delegate: CommunityDetailsViewControllerDelegate?
     let db = Firestore.firestore()
     var TitleName = ""
+    var id = ""
     @IBOutlet var name: UILabel!
     @IBOutlet var info: UILabel!
     var desc = ""
@@ -24,6 +25,24 @@ class CommunityDetailsViewController: UIViewController {
     var requests : [Request] = []
     @IBAction func accept(_ sender: UIButton) {
         db.collection("Communities").document().setData(["Title" : TitleName, "Description" : desc])
+//       db.collection("Communities").getDocuments{
+//       querySnapshot, error in
+//                  if let e = error {
+//                      print("There was an issue retreving data from fireStore. \(e)")
+//                  }else {
+//                      if let snapshotDocuments = querySnapshot?.documents{
+//                          for doc in snapshotDocuments{
+//                           let data =  doc.data()
+//                            if data["Title"] as? String == self.TitleName{
+//                                self.id = doc.documentID
+//
+//                            }
+//                            break
+//                          }
+//                      }
+//                  }
+//       }
+        
         db.collection("Request").document(doc).delete()
         delegate?.delAt(index: index)
         navigationController?.popViewController(animated: true)

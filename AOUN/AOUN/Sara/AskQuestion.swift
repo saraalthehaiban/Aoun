@@ -69,7 +69,9 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
         let vcAlert = UIAlertController(title: "Question Posted", message: "Question have been posted successfully.", preferredStyle: .alert)
         vcAlert.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 //        vcAlert.tit
-        
+        var imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
+        imageView.image = UIImage(named: "Check")
+        vcAlert.view.addSubview(imageView)
         vcAlert.setBackgroundColor(color:#colorLiteral(red: 0.5702208877, green: 0.7180579305, blue: 0.8433079123, alpha: 1))
         let okAction = UIAlertAction(title: "Ok", style: .default) { alertAction in
             self.dismiss(animated: true, completion: nil)

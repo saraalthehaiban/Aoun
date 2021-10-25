@@ -7,12 +7,12 @@
 
 import UIKit
 
-class QuestionDetails: UIViewController {
+class QuestionDetail: UIViewController {
 
-
+    @IBOutlet var Qbody: UILabel!
     @IBOutlet var AnsTable: UITableView!
     @IBOutlet var Qtitle: UILabel!
-    @IBOutlet var Qbody: UILabel!
+    var ID: String = ""
     var QV : String = ""
     var BV : String = ""
     var answers: [String] = []
@@ -27,6 +27,15 @@ class QuestionDetails: UIViewController {
     }
     
 
+
+    @IBAction func answer(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "AnswerQuestion") as? AnswerQuestion {
+            vc.bd = BV
+            vc.ID = ID
+            vc.answers = answers
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -38,7 +47,7 @@ class QuestionDetails: UIViewController {
     */
 
 }
-extension QuestionDetails: UITableViewDataSource{
+extension QuestionDetail: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
@@ -52,7 +61,7 @@ extension QuestionDetails: UITableViewDataSource{
     
     
 }
-extension QuestionDetails: UITableViewDelegate{
+extension QuestionDetail: UITableViewDelegate{
    // func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     //    let selectedRow = indexPath.row
     //    if let vc = storyboard?.instantiateViewController(identifier: "QuestionDetails") as? QuestionDetails{

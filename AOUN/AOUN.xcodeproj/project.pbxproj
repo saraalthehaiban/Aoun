@@ -31,10 +31,11 @@
 		0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */; };
 		0FA3B47B2719ED6D005511B1 /* CommunityQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */; };
 		0FA3B47D271A0944005511B1 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47C271A0944005511B1 /* Question.swift */; };
-		0FA3B47F271A11A1005511B1 /* QuestionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47E271A11A1005511B1 /* QuestionDetails.swift */; };
+		0FA3B47F271A11A1005511B1 /* QuestionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47E271A11A1005511B1 /* QuestionDetail.swift */; };
 		0FA3B486271B16B7005511B1 /* CommunityAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B484271B16B7005511B1 /* CommunityAnswer.swift */; };
 		0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */; };
 		0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B488272719C5005511B1 /* AOUNExtensions.swift */; };
+		0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */; };
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
@@ -110,10 +111,11 @@
 		0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityQuestion.swift; sourceTree = "<group>"; };
 		0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityQuestion.xib; sourceTree = "<group>"; };
 		0FA3B47C271A0944005511B1 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		0FA3B47E271A11A1005511B1 /* QuestionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetails.swift; sourceTree = "<group>"; };
+		0FA3B47E271A11A1005511B1 /* QuestionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetail.swift; sourceTree = "<group>"; };
 		0FA3B484271B16B7005511B1 /* CommunityAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAnswer.swift; sourceTree = "<group>"; };
 		0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityAnswer.xib; sourceTree = "<group>"; };
 		0FA3B488272719C5005511B1 /* AOUNExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOUNExtensions.swift; sourceTree = "<group>"; };
+		0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestion.swift; sourceTree = "<group>"; };
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
@@ -218,10 +220,11 @@
 				0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */,
 				0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */,
 				0FA3B47C271A0944005511B1 /* Question.swift */,
-				0FA3B47E271A11A1005511B1 /* QuestionDetails.swift */,
+				0FA3B47E271A11A1005511B1 /* QuestionDetail.swift */,
 				0FA3B484271B16B7005511B1 /* CommunityAnswer.swift */,
 				0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */,
 				0FA3B488272719C5005511B1 /* AOUNExtensions.swift */,
+				0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */,
 			);
 			path = Sara;
 			sourceTree = "<group>";
@@ -626,7 +629,7 @@
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
 				0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */,
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
-				0FA3B47F271A11A1005511B1 /* QuestionDetails.swift in Sources */,
+				0FA3B47F271A11A1005511B1 /* QuestionDetail.swift in Sources */,
 				0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */,
 				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
 				0FA3B47327187054005511B1 /* Community.swift in Sources */,
@@ -639,6 +642,7 @@
 				0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */,
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
 				27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */,
+				0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */,
 				0F502A77270F77EA00912EF0 /* ForgotPassViewController.swift in Sources */,
 				0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */,
 				0FA3B486271B16B7005511B1 /* CommunityAnswer.swift in Sources */,

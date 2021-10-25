@@ -83,6 +83,7 @@ extension CommunityViewController:UICollectionViewDelegateFlowLayout, UICollecti
            let storyboard = UIStoryboard(name: "CommunityHome", bundle: nil)
            if let vc = storyboard.instantiateViewController(identifier: "Community") as? Community{
             vc.ID = communities[indexPath.row].ID
+            vc.name = communities[indexPath.row].title
             self.present(vc, animated: true, completion: nil)
     }
 
