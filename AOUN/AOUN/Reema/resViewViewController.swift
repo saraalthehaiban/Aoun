@@ -15,6 +15,7 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
     
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var post: UIButton!
     
     @IBOutlet weak var resL: UILabel!
     @IBOutlet weak var collection: UICollectionView!
@@ -28,6 +29,9 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
 
       override func viewDidLoad() {
         super.viewDidLoad()
+        post.layer.shadowColor = UIColor.black.cgColor
+        post.layer.shadowOpacity = 0.25
+
         let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
      
         //

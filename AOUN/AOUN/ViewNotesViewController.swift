@@ -16,6 +16,7 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var addNoteButton: UIButton!
     //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var post: UIButton!
     
     var notes:[NoteFile] = []
     let db = Firestore.firestore()
@@ -24,10 +25,13 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
     var searchActive : Bool = false
     var filtered:[NoteFile] = []
     
+    @IBOutlet weak var delete: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         //activityIndicator.startAnimating()
         // Do any additional setup after loading the view.
+        post.layer.shadowColor = UIColor.black.cgColor
+        post.layer.shadowOpacity = 0.25
         
         let nipCell = UINib(nibName: "NoteCellCollectionViewCell", bundle: nil)
         
