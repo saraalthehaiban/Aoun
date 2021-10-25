@@ -9,8 +9,12 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
+protocol VCEditProfileDelegate {
+    func editView (editVC: VCEditProfile, profile : User, updated:Bool)
+}
 
 class VCEditProfile : UIViewController {
+    var delegate : VCEditProfileDelegate?
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
@@ -23,6 +27,8 @@ class VCEditProfile : UIViewController {
         
         // Do any additional setup after loading the view.
         setUpElements()
+        
+        
     }
     
     
@@ -73,6 +79,9 @@ class VCEditProfile : UIViewController {
                             //show error messsgae
                         } else {
                             //Show susccess message and go out
+//                            self.user.FirstName = firstName
+//                            self.user.LastName = lastName
+                            self.delegate?.editView(editVC: self, profile: self.user, updated: true)
                             let alert = UIAlertController.init(title: "Done!", message: "Profile updated successfully!", preferredStyle: .alert)
                             let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
                                 self.dismiss(animated: true) {
@@ -83,6 +92,7 @@ class VCEditProfile : UIViewController {
                             self.present(alert, animated: true, completion: nil)
                         }
                     })
+                    
                 }
             }
             

@@ -44,6 +44,32 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func logout(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Are you sure?", message: "This action will sign you out.", preferredStyle: .alert)
+        let da = UIAlertAction(title: "Sign out", style: .destructive) { action in
+            let auth = Auth.auth()
+            
+            do
+            {
+                try auth.signOut()
+                //TODO: Set RootView
+                let appD = UIApplication.shared.delegate as! AppDelegate
+                appD.setRoot()
+            }
+            catch let signoutError {
+              
+                print(signoutError)
+               
+                }
+        }
+        alert.addAction(da)
+        
+        let ca = UIAlertAction(title: "Cancle", style: .cancel, handler: nil)
+        alert.addAction(ca)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBOutlet weak var waves: UIImageView!
     @IBOutlet weak var picture: UIImageView!
@@ -60,8 +86,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    @IBAction func saveButton(_ sender: UIButton) {
-    }
+  
     
     
     var notes: [NoteFile] = []
@@ -70,6 +95,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     let db = Firestore.firestore()
     
     fileprivate var selectedRow: Int?
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,14 +108,17 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         resTable.delegate = self
         resTable.dataSource = self
         loadResources()
-        getName { [self] (name) in
-            self.fullName.text = name}
+//        getName { [self] (name) in
+//            self.fullName.text = name}
         
         getEmail { [self] (uEmail) in
             self.email.text = uEmail
         }
         //        saveButton.e  = true
+        getName { [self] (name) in
+            self.fullName.text = name}
     }
+    
     func loadNotes (){
         notes = []
         guard let thisUserId = Auth.auth().currentUser?.uid else {
@@ -208,16 +238,25 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     }//end of getEmail
     
     
+    
+    
 }
 
 //MARK: - Navigation
-extension ViewViewController {
+extension ViewViewController : VCEditProfileDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? VCEditProfile {
             vc.user = self.user
+            vc.delegate = self
         }
     }
+    
+    func editView (editVC: VCEditProfile, profile : User, updated:Bool) {
+        getName { [self] (name) in
+            self.fullName.text = name}
+    }
 }
+
 
 
 
