@@ -12,7 +12,7 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var collection: UICollectionView!
-    @IBOutlet weak var addNoteButton: UIButton!
+
     //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var communities:[CommunityObject] = []
@@ -31,6 +31,11 @@ class CommunityViewController: UIViewController {
         
     }
     
+    @IBAction func requestCommunity(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "RequestCommunity") as? RequestCommunityController {
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     func loadCommunities() {
         db.collection("Communities").getDocuments { querySnapshot, error in
             if let e = error {
@@ -38,9 +43,10 @@ class CommunityViewController: UIViewController {
             }else {
                 if let snapshotDocuments = querySnapshot?.documents{
                     for doc in snapshotDocuments {
+                        let ID = doc.documentID
                         let data = doc.data()
                         if let description = data["Description"] as? String, let title  = data["Title"] as? String  {
-                            let comminity = CommunityObject(description: description, title:title)
+                            let comminity = CommunityObject(description: description, title:title, ID:ID)
                             self.communities.append(comminity)
                         }
                     }
@@ -74,7 +80,11 @@ extension CommunityViewController:UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "si_noteListToDetail", sender: indexPath)
+           let storyboard = UIStoryboard(name: "CommunityHome", bundle: nil)
+           if let vc = storyboard.instantiateViewController(identifier: "Community") as? Community{
+            vc.ID = communities[indexPath.row].ID
+            self.present(vc, animated: true, completion: nil)
+    }
 
     }
 }

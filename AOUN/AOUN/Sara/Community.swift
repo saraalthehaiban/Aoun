@@ -10,7 +10,7 @@ import Firebase
 
 class Community: UIViewController {
     var db = Firestore.firestore()
-    var ID : String = "4mjNGYMa4HN6V74A0bP4"
+    var ID : String = ""
     var name : String = ""
     @IBOutlet var comName: UILabel!
     @IBOutlet var display: UITableView!

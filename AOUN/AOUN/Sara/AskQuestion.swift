@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-//import RPTTextView
+import RPTTextView
 
 protocol AskQuestionDelegate{
     func add()
@@ -15,7 +15,6 @@ protocol AskQuestionDelegate{
 class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UITextViewDelegate
     var delegate: AskQuestionDelegate?
     var db = Firestore.firestore()
-    @IBOutlet var titleError: UILabel!
     @IBOutlet var descError: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var titleText: UITextField!
@@ -23,11 +22,11 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
     var ComName : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        //descriptionTextView.delegate = self
+        descriptionTextView.delegate = self
         self.descriptionTextView.layer.borderColor = #colorLiteral(red: 0.9027513862, green: 0.8979359269, blue: 0.8978534341, alpha: 1)
 //        self.descriptionTextView.rpt
-//        self.descriptionTextView.text = "Description*"
-//        self.descriptionTextView.textColor = UIColor.lightGray
+        self.descriptionTextView.text = "*Description"
+        self.descriptionTextView.textColor = UIColor.lightGray
         self.descriptionTextView.layer.borderWidth = 1.0; //check in runtime
         self.descriptionTextView.layer.cornerRadius = 8;// runtime
     }
@@ -41,7 +40,7 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
         }else{
             message = "*Please enter title"//TODO: Check and update message
         }
-        if let description = descriptionTextView.text, description.count > 1/*,description != descriptionTextView.placeHolder*/ {
+        if let description = descriptionTextView.text, description != "*Description", description.count != 0 /*,description != descriptionTextView.placeHolder*/ {
             dataDictionary["Body"] = description
         }else{
             message += "\n*Please enter description"//TODO: Check and update message
@@ -98,7 +97,7 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
     //[3] Placeholder
     func textViewDidEndEditing(_ textView: UITextView) {
         if descriptionTextView.text.isEmpty {
-            descriptionTextView.text = "Description*"
+            descriptionTextView.text = "*Description"
             descriptionTextView.textColor = UIColor.lightGray
         }
     }

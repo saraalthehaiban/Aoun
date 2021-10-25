@@ -11,10 +11,12 @@ class CommunityObject {
     var description : String = ""
     var title  : String = ""
     var questions : [Question]?
+    var ID : String = ""
     
-    init(description:String, title:String) {
+    init(description:String, title:String, ID: String) {
         self.description = description
         self.title = title
+        self.ID = ID
     }
 }
 
