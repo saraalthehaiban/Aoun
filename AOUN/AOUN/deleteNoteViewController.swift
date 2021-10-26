@@ -15,7 +15,6 @@ protocol deleteNoteDelegate {
 
 class deleteNote: UIViewController {
 
-    @IBOutlet weak var noteIMG: UIImageView!
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var wave: UIImageView!
     @IBOutlet weak var AuthorLabel: UILabel!

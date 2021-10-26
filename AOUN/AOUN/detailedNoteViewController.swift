@@ -10,7 +10,6 @@ import UIKit
 class detailedNoteViewController: UIViewController {
 
     @IBOutlet weak var topPic: UIImageView!
-    @IBOutlet weak var noteTitleLable: UILabel!
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var autherLable: UILabel!
     @IBOutlet weak var authorName: UILabel!

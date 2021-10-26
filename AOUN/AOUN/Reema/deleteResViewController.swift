@@ -17,7 +17,6 @@ class deleteResViewController: UIViewController {
 
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var smallBackground: UIImageView!
-    @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var authTitle: UILabel!
     @IBOutlet weak var pubTitle: UILabel!
     @IBOutlet weak var descTitle: UILabel!

@@ -144,16 +144,22 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                 return
             } else {
                 //Show susccess message and go out
-                                    let alert = UIAlertController.init(title: "Done!", message: "Note submitted successfully!", preferredStyle: .alert)
-                                    let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
+                                    let alert = UIAlertController.init(title: "Posted", message: "Your note posted successfully.", preferredStyle: .alert)
+                alert.view.tintColor = .black
+                                            var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
+
+                                                    imageView.image = UIImage(named: "Check")
+
+                                            alert.view.addSubview(imageView)
+                let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
                                         self.dismiss(animated: true) {
                                             //inform main controller t update the information
+                                            self.delegate?.postNote(self, note: note, added: true)
                                         }
                                     }
                                     alert.addAction(cancleA)
                                     self.present(alert, animated: true, completion: nil)
             }
-            self.delegate?.postNote(self, note: note, added: true)
         }
         
         //self.activityIndicator.stopAnimating()

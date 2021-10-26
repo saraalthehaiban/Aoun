@@ -155,16 +155,20 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate {
             return
             } else {
                 //Show susccess message and go out
-                                    let alert = UIAlertController.init(title: "Done!", message: "Resource submitted successfully!", preferredStyle: .alert)
+                                    let alert = UIAlertController.init(title: "Posted", message: "Your resource posted successfully.", preferredStyle: .alert)
+                                        alert.view.tintColor = .black
+                                            var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
+                                                    imageView.image = UIImage(named: "Check")
+                                            alert.view.addSubview(imageView)
                                     let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
                                         self.dismiss(animated: true) {
                                             //inform main controller t update the information
+                                            self.delegate?.resPost(self, resource: resource, added: true)
                                         }
                                     }
                                     alert.addAction(cancleA)
                                     self.present(alert, animated: true, completion: nil)
             }
-            self.delegate?.resPost(self, resource: resource, added: true)
         }
     }
     
