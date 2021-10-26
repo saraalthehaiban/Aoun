@@ -6,16 +6,22 @@
 //
 
 import UIKit
-
+import Firebase
+protocol CommunityDelegate{
+    func update()
+}
 class QuestionDetail: UIViewController {
-
+    var delegate: CommunityDelegate?
+    var db = Firestore.firestore()
     @IBOutlet var Qbody: UILabel!
     @IBOutlet var AnsTable: UITableView!
     @IBOutlet var Qtitle: UILabel!
-    var ID: String = ""
+    var docID : String = ""
+    var comID : String = ""
     var QV : String = ""
     var BV : String = ""
     var answers: [String] = []
+    var ans : [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         AnsTable.delegate = self
@@ -23,16 +29,50 @@ class QuestionDetail: UIViewController {
         AnsTable.register(UINib(nibName: "CommunityAnswer", bundle: nil), forCellReuseIdentifier: "ACell")
         Qtitle.text = QV
         Qbody.text = BV
+        loadAnswers()
         // Do any additional setup after loading the view.
     }
     
-
+    func loadAnswers(){
+        //answers = []
+            db.collection("Questions").getDocuments{
+            querySnapshot, error in
+                       if let e = error {
+                           print("There was an issue retreving data from fireStore. \(e)")
+                       }else {
+                           if let snapshotDocuments = querySnapshot?.documents{
+                               for doc in snapshotDocuments{
+                                let data =  doc.data()
+                                if data["ID"] as? String == self.comID{
+                                    if data["answers"] != nil{
+                                        self.answers = data["answers"] as! [String]}
+                                    else{
+                                        break
+                                    }
+                                    
+                                   // print(Answers)
+                                    //self.answers = Answers
+                                }
+                               }
+                            
+                            DispatchQueue.main.async {
+                                self.AnsTable.reloadData()
+                            }
+                            
+                           } //hard coded, get from transition var = ID
+                        
+                       }
+                
+            }
+    }
+    
 
     @IBAction func answer(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "AnswerQuestion") as? AnswerQuestion {
             vc.bd = BV
-            vc.ID = ID
+            vc.ID = docID
             vc.answers = answers
+            vc.delegate = self
             self.present(vc, animated: true, completion: nil)
         }
     }
@@ -71,4 +111,11 @@ extension QuestionDetail: UITableViewDelegate{
    //         self.present(vc, animated: true, completion: nil)
    // }
   //  }
+}
+extension QuestionDetail: AnswerQuestionDelegate{
+    func update(){
+        loadAnswers()
+        print(self.answers)
+        //AnsTable.reloadData()
+    }
 }

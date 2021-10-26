@@ -7,8 +7,16 @@
 
 import UIKit
 import Firebase
+import RPTTextView
+
+protocol AnswerQuestionDelegate {
+    func update()
+}
 
 class AnswerQuestion: UIViewController, UITextViewDelegate {
+    @IBOutlet var descError: UILabel!
+    var delegate: AnswerQuestionDelegate?
+    var flag : DarwinBoolean = false
     var ID : String = ""
     var ans : String = ""
     @IBOutlet var desc: UITextView!
@@ -28,14 +36,59 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
         self.desc.layer.cornerRadius = 8;// runtime
         // Do any additional setup after loading the view.
     }
-    
-
-    @IBAction func post(_ sender: Any) {
+    func validatedData () -> [String:Any]? {
+        self.descError.text = nil
+        var message : String = ""
         ans = desc.text
         answers.append(ans)
-    db.collection("Questions").document(ID).updateData(["answers" : answers])
-        print("here")
-        print(ID)
+        var dataDictionary : [String:Any] = ["answers" : answers]
+        
+        if let description = desc.text, description != "*Description", description.count != 0 /*,description != descriptionTextView.placeHolder*/ {
+            dataDictionary["answers"] = answers
+        }else{
+            desc.textColor = .red
+            message += "\nPlease fill in description"//TODO: Check and update message
+        }
+        if message.count > 0 {
+            self.descError.text = message
+            return nil
+        }
+        
+        return dataDictionary
+    }
+
+    @IBAction func post(_ sender: Any) {
+        //ans = desc.text
+        //answers.append(ans)
+        guard let answersDic = self.validatedData() else {
+            return
+        }
+    db.collection("Questions").document(ID).updateData(answersDic)
+        delegate?.update()
+
+        let vcAlert = UIAlertController(title: "Question Posted", message: "You will be notified when somebody answers", preferredStyle: .alert)
+        vcAlert.view.tintColor = .black //OK
+//        vcAlert.tit
+        var imageView = UIImageView(frame: CGRect(x: 125, y: 77, width: 20, height: 20))
+        imageView.image = UIImage(named: "Check")
+        vcAlert.view.addSubview(imageView)
+       // vcAlert.setBackgroundColor(color:#colorLiteral(red: 0.5702208877, green: 0.7180579305, blue: 0.8433079123, alpha: 1))
+        let okAction = UIAlertAction(title: "Ok", style: .default) { alertAction in
+            self.dismiss(animated: true, completion: nil)
+        }
+        vcAlert.addAction(okAction)
+        self.present(vcAlert, animated: true, completion: nil)
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView == desc {
+            
+        }
+        
+        return true
+
+       /// navigationController?.popViewController(animated: true)
+      //  dismiss(animated: true, completion: nil)
         
     }
     
@@ -45,9 +98,13 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    
     //[2] placeholder
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if desc.textColor == UIColor.lightGray {
+        if desc.textColor == UIColor.lightGray ||  desc.textColor == UIColor.red{
+            if desc.textColor == .red{
+                flag = true
+            }
             desc.text = nil
             desc.textColor = UIColor.black
         }
@@ -55,9 +112,15 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
     
     //[3] Placeholder
     func textViewDidEndEditing(_ textView: UITextView) {
-        if desc.text.isEmpty {
+        if desc.text.isEmpty, desc.textColor != .red {
             desc.text = "*Description"
             desc.textColor = UIColor.lightGray
+        }
+        if flag == true {
+            print("Here")
+            desc.text = "*Description"
+            desc.textColor = UIColor.red
+            flag = false
         }
     }
     /*

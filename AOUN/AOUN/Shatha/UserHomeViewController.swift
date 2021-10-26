@@ -38,7 +38,6 @@ class UserHomeViewController: UIViewController {
             let vc = appDelegate.viewController(storyBoardname: "Community", viewControllerId: "si_CommunityViewController")
             self.present(vc, animated: true, completion: nil)
         }
-        
     }
     
     @IBOutlet weak var CommunitiesLabel: UILabel!

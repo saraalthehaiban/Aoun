@@ -12,7 +12,7 @@ class Community: UIViewController {
     var db = Firestore.firestore()
     var ID : String = ""
     var name : String = ""
-    var ids : [String] = []
+    var ids : [String] = [] //
     @IBOutlet var comName: UILabel!
     @IBOutlet var display: UITableView!
     var questions: [Question] = []
@@ -42,11 +42,12 @@ class Community: UIViewController {
                                     //self.name = data["Community"] as? String ?? ""
                                     let Title = data["Title"] as? String
                                     let Body = data["Body"] as? String
-                                    let Answers = data["Answers"] as? [String]
-                                    let newQ = Question(title: Title!, body: Body!, answer: Answers!)
+                                    let Answers = data["answers"] as? [String]
+                                    let newQ = Question(title: Title ?? "", body: Body ?? "", answer: Answers ?? [""] )
                                     self.questions.append(newQ)
                                     //Implement no questions in a community
                                     self.ids.append(doc.documentID)
+                                    
                                 }
                                }
                             DispatchQueue.main.async {
@@ -90,7 +91,10 @@ extension Community: UITableViewDelegate{
             vc.QV = questions[selectedRow].title
             vc.BV = questions[selectedRow].body
             vc.answers = questions[selectedRow].answer
-            vc.ID = ids[selectedRow]
+            vc.docID = ids[selectedRow]
+            vc.comID = ID
+            
+            vc.delegate = self
             self.present(vc, animated: true, completion: nil) 
     }
     }
@@ -103,5 +107,11 @@ extension Community: AskQuestionDelegate{
     }
     
     
+}
+extension Community: CommunityDelegate{
+    func update(){
+        loadQuestions()
+        display.reloadData()
+    }
 }
 
