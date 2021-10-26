@@ -86,14 +86,14 @@
                                     <constraint firstAttribute="height" constant="24" id="3xs-gL-Z73"/>
                                     <constraint firstAttribute="width" secondItem="aev-Xh-TSp" secondAttribute="height" multiplier="167:24" constant="113" id="oJe-4x-Kvf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="23"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGC-vq-aLO">
-                                <rect key="frame" x="87" y="665" width="238" height="50"/>
+                                <rect key="frame" x="87" y="665" width="240" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KdY-H3-6DF"/>
-                                    <constraint firstAttribute="width" secondItem="TGC-vq-aLO" secondAttribute="height" multiplier="119:25" id="jbk-EY-8Oy"/>
+                                    <constraint firstAttribute="width" secondItem="TGC-vq-aLO" secondAttribute="height" multiplier="119:25" constant="2" id="jbk-EY-8Oy"/>
                                 </constraints>
                                 <state key="normal" title="Download" backgroundImage="Rectangle">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
