@@ -362,7 +362,7 @@
                                     <constraint firstAttribute="height" constant="479" id="hRD-UD-Aaa"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleAspectFit" image="speech-bubble (3)" translatesAutoresizingMaskIntoConstraints="NO" id="Psu-ER-gel">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" image="speech-bubble (3)" translatesAutoresizingMaskIntoConstraints="NO" id="Psu-ER-gel">
                                 <rect key="frame" x="33" y="27" width="327" height="396"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ool-wo-3gv">
