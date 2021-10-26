@@ -43,22 +43,16 @@ class AdminDashboard: UIViewController {
                             self.requests.append(newReq)
                             self.EmptyTable.text = "";
                         }
-                        
                     }
-                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                    
                 }
             }
-            
         }
-        
-        
     }
-    
 }
+
 extension AdminDashboard: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return requests.count
