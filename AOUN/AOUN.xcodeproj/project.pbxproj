@@ -60,6 +60,7 @@
 		52C97411271F7B7A00EEACBD /* community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C97410271F7B7A00EEACBD /* community.swift */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
+		52F4336B2728C0480018E997 /* Notificationcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F4336A2728C0480018E997 /* Notificationcode.swift */; };
 		BDAE1FA4C72AA66F800CB7F4 /* Pods_AOUNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CBF0F61F194219BBC93029 /* Pods_AOUNTests.framework */; };
 		DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 		52C97410271F7B7A00EEACBD /* community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = community.swift; sourceTree = "<group>"; };
 		52D00D2F26F69149009E3394 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		52D00D3126F6915C009E3394 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		52F4336A2728C0480018E997 /* Notificationcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notificationcode.swift; sourceTree = "<group>"; };
 		6C90FF5E896C0BBC1A5162CF /* Pods-AOUN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.release.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.release.xcconfig"; sourceTree = "<group>"; };
 		73EBB3513DB7A9FAE733086C /* Pods-AOUN-AOUNUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.debug.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99FD85E0BC2565867CC16ADB /* Pods-AOUNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.release.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				523D7D7827253FC2001CF33E /* notification.swift */,
 				0F502A73270F77EA00912EF0 /* Constants.swift */,
 				0F502A72270F77EA00912EF0 /* ForgotPassViewController.swift */,
+				52F4336A2728C0480018E997 /* Notificationcode.swift */,
 				52C97410271F7B7A00EEACBD /* community.swift */,
 				0F502A76270F77EA00912EF0 /* SignoutViewController.swift */,
 				0F502A74270F77EA00912EF0 /* Utilities.swift */,
@@ -633,6 +636,7 @@
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
 				523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
+				52F4336B2728C0480018E997 /* Notificationcode.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
