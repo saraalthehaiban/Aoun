@@ -39,6 +39,15 @@
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
+		0FC3ABE72727FC5F00B43C26 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABDE2727FC5F00B43C26 /* User.swift */; };
+		0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABDF2727FC5F00B43C26 /* ResTableViewCell.swift */; };
+		0FC3ABE92727FC5F00B43C26 /* notesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */; };
+		0FC3ABEA2727FC5F00B43C26 /* ViewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */; };
+		0FC3ABEB2727FC5F00B43C26 /* notesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */; };
+		0FC3ABEC2727FC5F00B43C26 /* ResTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */; };
+		0FC3ABED2727FC5F00B43C26 /* deleteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE42727FC5F00B43C26 /* deleteNote.swift */; };
+		0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */; };
+		0FC3ABEF2727FC5F00B43C26 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */; };
 		0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */; };
 		0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */; };
 		0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6356B270F8E5A004D7A2A /* detailedNoteViewController.swift */; };
@@ -120,6 +129,15 @@
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/Sara/RequestCell.xib; sourceTree = SOURCE_ROOT; };
+		0FC3ABDE2727FC5F00B43C26 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0FC3ABDF2727FC5F00B43C26 /* ResTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResTableViewCell.swift; sourceTree = "<group>"; };
+		0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notesTableViewCell.swift; sourceTree = "<group>"; };
+		0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewProfile.storyboard; sourceTree = "<group>"; };
+		0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = notesTableViewCell.xib; sourceTree = "<group>"; };
+		0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResTableViewCell.xib; sourceTree = "<group>"; };
+		0FC3ABE42727FC5F00B43C26 /* deleteNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deleteNote.swift; sourceTree = "<group>"; };
+		0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
+		0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNotesViewController.swift; sourceTree = "<group>"; };
 		0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostNoteViewController.swift; sourceTree = "<group>"; };
 		0FC6356B270F8E5A004D7A2A /* detailedNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailedNoteViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +250,15 @@
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
+				0FC3ABE42727FC5F00B43C26 /* deleteNote.swift */,
+				0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */,
+				0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */,
+				0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */,
+				0FC3ABDF2727FC5F00B43C26 /* ResTableViewCell.swift */,
+				0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */,
+				0FC3ABDE2727FC5F00B43C26 /* User.swift */,
+				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
+				0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
 			);
@@ -461,11 +488,14 @@
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
 				0FC6357727107A56004D7A2A /* Launch Screen.storyboard in Resources */,
+				0FC3ABEA2727FC5F00B43C26 /* ViewProfile.storyboard in Resources */,
+				0FC3ABEC2727FC5F00B43C26 /* ResTableViewCell.xib in Resources */,
 				0FA3B47B2719ED6D005511B1 /* CommunityQuestion.xib in Resources */,
 				0F502A82270F855300912EF0 /* Resources.storyboard in Resources */,
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
 				0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
+				0FC3ABEB2727FC5F00B43C26 /* notesTableViewCell.xib in Resources */,
 				0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,13 +659,17 @@
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
 				0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */,
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
+				0FC3ABEF2727FC5F00B43C26 /* EditProfile.swift in Sources */,
+				0FC3ABE72727FC5F00B43C26 /* User.swift in Sources */,
 				0FA3B47F271A11A1005511B1 /* QuestionDetail.swift in Sources */,
 				0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */,
 				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
 				0FA3B47327187054005511B1 /* Community.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
 				523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */,
+				0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
+				0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
@@ -645,9 +679,11 @@
 				0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */,
 				0F502A77270F77EA00912EF0 /* ForgotPassViewController.swift in Sources */,
 				0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */,
+				0FC3ABED2727FC5F00B43C26 /* deleteNote.swift in Sources */,
 				0FA3B486271B16B7005511B1 /* CommunityAnswer.swift in Sources */,
 				0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */,
 				0FC63572270F8EA7004D7A2A /* NoteFile.swift in Sources */,
+				0FC3ABE92727FC5F00B43C26 /* notesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
