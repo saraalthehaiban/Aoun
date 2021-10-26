@@ -31,12 +31,24 @@
 		0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */; };
 		0FA3B47B2719ED6D005511B1 /* CommunityQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */; };
 		0FA3B47D271A0944005511B1 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47C271A0944005511B1 /* Question.swift */; };
-		0FA3B47F271A11A1005511B1 /* QuestionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47E271A11A1005511B1 /* QuestionDetails.swift */; };
+		0FA3B47F271A11A1005511B1 /* QuestionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47E271A11A1005511B1 /* QuestionDetail.swift */; };
 		0FA3B486271B16B7005511B1 /* CommunityAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B484271B16B7005511B1 /* CommunityAnswer.swift */; };
 		0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */; };
+		0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B488272719C5005511B1 /* AOUNExtensions.swift */; };
+		0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */; };
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
+		0FC3ABE72727FC5F00B43C26 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABDE2727FC5F00B43C26 /* User.swift */; };
+		0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABDF2727FC5F00B43C26 /* ResTableViewCell.swift */; };
+		0FC3ABE92727FC5F00B43C26 /* notesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */; };
+		0FC3ABEA2727FC5F00B43C26 /* ViewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */; };
+		0FC3ABEB2727FC5F00B43C26 /* notesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */; };
+		0FC3ABEC2727FC5F00B43C26 /* ResTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */; };
+		0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */; };
+		0FC3ABEF2727FC5F00B43C26 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */; };
+		0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */; };
+		0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABF227286BBD00B43C26 /* Admin.storyboard */; };
 		0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */; };
 		0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */; };
 		0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6356B270F8E5A004D7A2A /* detailedNoteViewController.swift */; };
@@ -53,9 +65,10 @@
 		27712C7127034CB200450466 /* detailedResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C7027034CB200450466 /* detailedResViewController.swift */; };
 		2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792FB2B26F66EAA00366961 /* resViewViewController.swift */; };
 		27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */; };
-		52C9740F271F7ADD00EEACBD /* communityviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C9740E271F7ADD00EEACBD /* communityviewcontroller.swift */; };
+		523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D7D7427253F79001CF33E /* CommunityyViewController.swift */; };
+		523D7D7927253FC2001CF33E /* notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D7D7827253FC2001CF33E /* notification.swift */; };
+		5264FC76272722150065DA81 /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5264FC75272722150065DA81 /* Community.storyboard */; };
 		52C97411271F7B7A00EEACBD /* community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C97410271F7B7A00EEACBD /* community.swift */; };
-		52C97413271F7BE700EEACBD /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C97412271F7BE700EEACBD /* test.swift */; };
 		52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D2F26F69149009E3394 /* SignupViewController.swift */; };
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		BDAE1FA4C72AA66F800CB7F4 /* Pods_AOUNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CBF0F61F194219BBC93029 /* Pods_AOUNTests.framework */; };
@@ -108,13 +121,25 @@
 		0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityQuestion.swift; sourceTree = "<group>"; };
 		0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityQuestion.xib; sourceTree = "<group>"; };
 		0FA3B47C271A0944005511B1 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		0FA3B47E271A11A1005511B1 /* QuestionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetails.swift; sourceTree = "<group>"; };
+		0FA3B47E271A11A1005511B1 /* QuestionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetail.swift; sourceTree = "<group>"; };
 		0FA3B484271B16B7005511B1 /* CommunityAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityAnswer.swift; sourceTree = "<group>"; };
 		0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityAnswer.xib; sourceTree = "<group>"; };
+		0FA3B488272719C5005511B1 /* AOUNExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOUNExtensions.swift; sourceTree = "<group>"; };
+		0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestion.swift; sourceTree = "<group>"; };
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RequestCell.xib; path = AOUN/Sara/RequestCell.xib; sourceTree = SOURCE_ROOT; };
+		0FC3ABDE2727FC5F00B43C26 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0FC3ABDF2727FC5F00B43C26 /* ResTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResTableViewCell.swift; sourceTree = "<group>"; };
+		0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notesTableViewCell.swift; sourceTree = "<group>"; };
+		0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewProfile.storyboard; sourceTree = "<group>"; };
+		0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = notesTableViewCell.xib; sourceTree = "<group>"; };
+		0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResTableViewCell.xib; sourceTree = "<group>"; };
+		0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
+		0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
+		0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDeleteNote.swift; sourceTree = "<group>"; };
+		0FC3ABF227286BBD00B43C26 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNotesViewController.swift; sourceTree = "<group>"; };
 		0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostNoteViewController.swift; sourceTree = "<group>"; };
 		0FC6356B270F8E5A004D7A2A /* detailedNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailedNoteViewController.swift; sourceTree = "<group>"; };
@@ -135,9 +160,10 @@
 		39A7D70903C5ABE413790ADA /* Pods-AOUNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.debug.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BDA64D179885230CF863960 /* Pods-AOUN-AOUNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN-AOUNUITests.release.xcconfig"; path = "Target Support Files/Pods-AOUN-AOUNUITests/Pods-AOUN-AOUNUITests.release.xcconfig"; sourceTree = "<group>"; };
-		52C9740E271F7ADD00EEACBD /* communityviewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = communityviewcontroller.swift; sourceTree = "<group>"; };
+		523D7D7427253F79001CF33E /* CommunityyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityyViewController.swift; sourceTree = "<group>"; };
+		523D7D7827253FC2001CF33E /* notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notification.swift; sourceTree = "<group>"; };
+		5264FC75272722150065DA81 /* Community.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
 		52C97410271F7B7A00EEACBD /* community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = community.swift; sourceTree = "<group>"; };
-		52C97412271F7BE700EEACBD /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		52D00D2F26F69149009E3394 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		52D00D3126F6915C009E3394 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6C90FF5E896C0BBC1A5162CF /* Pods-AOUN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUN.release.xcconfig"; path = "Target Support Files/Pods-AOUN/Pods-AOUN.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,22 +228,24 @@
 		0F3DECED270C99A800C5F6BB /* Sara */ = {
 			isa = PBXGroup;
 			children = (
+				0FC3ABF227286BBD00B43C26 /* Admin.storyboard */,
 				27E0F2CF270A13E6008C7B97 /* CommunityDetailsViewController.swift */,
 				0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */,
 				0FC21B7B26F66ED100B83B0E /* Request.swift */,
 				274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */,
 				0F3DECEA270B207800C5F6BB /* RCell.xib */,
 				0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */,
-				0F502A7F270F84B800912EF0 /* Admin.storyboard */,
 				0FA3B47027186786005511B1 /* CommunityHome.storyboard */,
 				0FA3B47227187054005511B1 /* Community.swift */,
 				0FA3B474271870A1005511B1 /* AskQuestion.swift */,
 				0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */,
 				0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */,
 				0FA3B47C271A0944005511B1 /* Question.swift */,
-				0FA3B47E271A11A1005511B1 /* QuestionDetails.swift */,
+				0FA3B47E271A11A1005511B1 /* QuestionDetail.swift */,
 				0FA3B484271B16B7005511B1 /* CommunityAnswer.swift */,
 				0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */,
+				0FA3B488272719C5005511B1 /* AOUNExtensions.swift */,
+				0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */,
 			);
 			path = Sara;
 			sourceTree = "<group>";
@@ -225,6 +253,15 @@
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
+				0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */,
+				0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */,
+				0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */,
+				0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */,
+				0FC3ABDF2727FC5F00B43C26 /* ResTableViewCell.swift */,
+				0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */,
+				0FC3ABDE2727FC5F00B43C26 /* User.swift */,
+				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
+				0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
 			);
@@ -320,12 +357,13 @@
 		52D00D2E26F69136009E3394 /* Rana */ = {
 			isa = PBXGroup;
 			children = (
+				5264FC75272722150065DA81 /* Community.storyboard */,
 				0F502A75270F77EA00912EF0 /* Auth.storyboard */,
+				523D7D7427253F79001CF33E /* CommunityyViewController.swift */,
+				523D7D7827253FC2001CF33E /* notification.swift */,
 				0F502A73270F77EA00912EF0 /* Constants.swift */,
 				0F502A72270F77EA00912EF0 /* ForgotPassViewController.swift */,
-				52C9740E271F7ADD00EEACBD /* communityviewcontroller.swift */,
 				52C97410271F7B7A00EEACBD /* community.swift */,
-				52C97412271F7BE700EEACBD /* test.swift */,
 				0F502A76270F77EA00912EF0 /* SignoutViewController.swift */,
 				0F502A74270F77EA00912EF0 /* Utilities.swift */,
 				52D00D2F26F69149009E3394 /* SignupViewController.swift */,
@@ -447,17 +485,21 @@
 				0FC63571270F8EA7004D7A2A /* NoteCellCollectionViewCell.xib in Resources */,
 				0F502A7A270F77EA00912EF0 /* Auth.storyboard in Resources */,
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
+				5264FC76272722150065DA81 /* Community.storyboard in Resources */,
 				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
 				0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */,
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
 				0FC6357727107A56004D7A2A /* Launch Screen.storyboard in Resources */,
-				0F502A80270F84B800912EF0 /* Admin.storyboard in Resources */,
+				0FC3ABEA2727FC5F00B43C26 /* ViewProfile.storyboard in Resources */,
+				0FC3ABEC2727FC5F00B43C26 /* ResTableViewCell.xib in Resources */,
 				0FA3B47B2719ED6D005511B1 /* CommunityQuestion.xib in Resources */,
 				0F502A82270F855300912EF0 /* Resources.storyboard in Resources */,
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
 				0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
+				0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */,
+				0FC3ABEB2727FC5F00B43C26 /* notesTableViewCell.xib in Resources */,
 				0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,13 +648,15 @@
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				0FA3B47D271A0944005511B1 /* Question.swift in Sources */,
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
+				0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */,
 				271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */,
-				52C97413271F7BE700EEACBD /* test.swift in Sources */,
+				0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */,
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,
 				0F502A78270F77EA00912EF0 /* Constants.swift in Sources */,
 				27712C6F270346AD00450466 /* resFile.swift in Sources */,
+				523D7D7927253FC2001CF33E /* notification.swift in Sources */,
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
@@ -620,24 +664,30 @@
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
 				0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */,
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
-				0FA3B47F271A11A1005511B1 /* QuestionDetails.swift in Sources */,
+				0FC3ABEF2727FC5F00B43C26 /* EditProfile.swift in Sources */,
+				0FC3ABE72727FC5F00B43C26 /* User.swift in Sources */,
+				0FA3B47F271A11A1005511B1 /* QuestionDetail.swift in Sources */,
 				0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */,
 				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
 				0FA3B47327187054005511B1 /* Community.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
+				523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */,
+				0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
+				0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
-				52C9740F271F7ADD00EEACBD /* communityviewcontroller.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
 				0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */,
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
 				27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */,
+				0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */,
 				0F502A77270F77EA00912EF0 /* ForgotPassViewController.swift in Sources */,
 				0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */,
 				0FA3B486271B16B7005511B1 /* CommunityAnswer.swift in Sources */,
 				0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */,
 				0FC63572270F8EA7004D7A2A /* NoteFile.swift in Sources */,
+				0FC3ABE92727FC5F00B43C26 /* notesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

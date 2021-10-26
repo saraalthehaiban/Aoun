@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19158" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19141"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -13,9 +12,9 @@
         <!--Request Community Controller-->
         <scene sceneID="XKF-aX-FYk">
             <objects>
-                <viewController id="acl-x0-ZMg" customClass="RequestCommunityController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RequestCommunity" id="acl-x0-ZMg" customClass="RequestCommunityController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZtK-22-t3B">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="hHm-DK-0Uk">
@@ -83,7 +82,7 @@
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="21" translatesAutoresizingMaskIntoConstraints="NO" id="Slf-pt-0yc">
-                                        <rect key="frame" x="33" y="108" width="186" height="158"/>
+                                        <rect key="frame" x="33" y="152" width="186" height="114"/>
                                     </imageView>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="PJb-Vo-Vse"/>
@@ -119,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZoV-fA-4g9" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2226" y="597"/>
+            <point key="canvasLocation" x="-2343" y="597"/>
         </scene>
         <!--Community View Controller-->
         <scene sceneID="LO2-4I-9AD">
@@ -164,7 +163,7 @@
                                         <color key="tintColor" red="0.60000002379999995" green="0.71372550729999995" blue="0.83137255909999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="+"/>
                                         <connections>
-                                            <segue destination="acl-x0-ZMg" kind="presentation" identifier="si_viewToAddCommunity" id="zny-rm-iwd"/>
+                                            <action selector="requestCommunity:" destination="AWb-g3-2Rw" eventType="touchUpInside" id="J2t-uT-Z0r"/>
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qPu-gx-lvs">
@@ -223,7 +222,6 @@
                     <navigationItem key="navigationItem" id="tQb-Hl-ETv"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="addNoteButton" destination="yPV-7S-6sk" id="43Z-SH-uy9"/>
                         <outlet property="collection" destination="qPu-gx-lvs" id="eOr-sL-gI6"/>
                         <outlet property="titleLable" destination="cdG-b4-N8L" id="7CR-gQ-3PW"/>
                         <outlet property="topPic" destination="s4d-iD-rA6" id="zO9-sz-tfc"/>

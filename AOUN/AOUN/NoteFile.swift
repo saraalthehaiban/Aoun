@@ -14,6 +14,7 @@ struct NoteFile {
     let desc : String
     let price : String?
     let urlString : String
+    var documentId : String?
     
     
     var url : URL? {
