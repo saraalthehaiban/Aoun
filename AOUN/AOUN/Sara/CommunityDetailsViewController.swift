@@ -25,6 +25,7 @@ class CommunityDetailsViewController: UIViewController {
     var requests : [Request] = []
     @IBAction func accept(_ sender: UIButton) {
         db.collection("Communities").document().setData(["Title" : TitleName, "Description" : desc])
+        
 //       db.collection("Communities").getDocuments{
 //       querySnapshot, error in
 //                  if let e = error {
@@ -50,11 +51,27 @@ class CommunityDetailsViewController: UIViewController {
         
     }
     @IBAction func reject(_ sender: UIButton) {
-        db.collection("Request").document(doc).delete()
+        //db.collection("Request").document(doc).delete()
+        let alert = UIAlertController(title: "Are you sure?", message: "Rejecting a community can't be undone", preferredStyle: .alert)
+        let da = UIAlertAction(title: "Yes", style: .destructive) { action in
+            do {  self.db.collection("Request").document(self.doc).delete()
+                self.delegate?.delAt(index: self.index)
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
+        alert.addAction(da)
         
-        delegate?.delAt(index: index)
-        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        let ca = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(ca)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    
+       // delegate?.delAt(index: index)
+      //  navigationController?.popViewController(animated: true)
+     //   dismiss(animated: true, completion: nil)
         
         
     }
