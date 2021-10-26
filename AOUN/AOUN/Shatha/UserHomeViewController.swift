@@ -9,6 +9,13 @@ import UIKit
 
 class UserHomeViewController: UIViewController {
 
+   
+    @IBAction func profile(_ sender: UIButton) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let vc = appDelegate.viewController(storyBoardname: "ViewProfile", viewControllerId: "ViewViewController")
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     @IBOutlet weak var user: UIImageView!
     
     @IBOutlet weak var HelloUser: UILabel!
@@ -27,11 +34,6 @@ class UserHomeViewController: UIViewController {
     }
     @IBOutlet weak var resourcesLabel: UILabel!
     @IBAction func communitiesButton(_ sender: UIButton) {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            let vc = appDelegate.viewController(storyBoardname: "Community", viewControllerId: "si_CommunityViewController")
-            self.present(vc, animated: true, completion: nil)
-        }
-        
     }
     @IBOutlet weak var CommunitiesLabel: UILabel!
     override func viewDidLoad() {
@@ -51,15 +53,5 @@ class UserHomeViewController: UIViewController {
     }
     */
 
-    @IBAction func profileActionTouched(_ sender: Any) {
-        if let appDelegate = UIApplication.shared.delegate
-            as? AppDelegate {
-            let vc = appDelegate.viewController(storyBoardname: "Profile", viewControllerId: "si_SignoutViewController")
-            self.present(vc, animated: true, completion: nil)
-        }
-    }
-    
-
-    
-    
+  
 }
