@@ -13,7 +13,7 @@ protocol VCEditProfileDelegate {
     func editView (editVC: VCEditProfile, profile : User, updated:Bool)
 }
 
-class VCEditProfile : UIViewController {
+class VCEditProfile : UIViewController, UITextFieldDelegate {
     var delegate : VCEditProfileDelegate?
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -24,7 +24,8 @@ class VCEditProfile : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
         // Do any additional setup after loading the view.
         setUpElements()
         
@@ -41,6 +42,15 @@ class VCEditProfile : UIViewController {
     func validateFields() -> String? {
         // Check that all fields are filled in
         var error = " "
+        let cleanedfirst = firstNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+                if Utilities.isValidName(testStr: cleanedfirst) == false {
+                    error = "Invalid name format, please use alphabitic characters only and at least 3 characters"
+                }
+                
+                let cleanedlast = lastNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+                if Utilities.isValidName(testStr: cleanedlast) == false {
+                    error = "Invalid name format, please use alphabitic characters only and at least 3 characters"
+                }
         if  firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
             firstNameTextField.attributedPlaceholder = NSAttributedString(string: "*First Name",
@@ -138,4 +148,20 @@ class VCEditProfile : UIViewController {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 10
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+//    func textField1(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let minLength = 3
+//        let currentString: NSString = (textField.text ?? "") as NSString
+//        let newString: NSString =
+//            currentString.replacingCharacters(in: range, with: string) as NSString
+//        return newString.length >= minLength
+//    }
 }

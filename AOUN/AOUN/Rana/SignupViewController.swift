@@ -110,12 +110,12 @@ class SignupViewController: UIViewController {
         
         let cleanedfirst = firstNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
                 if Utilities.isValidName(testStr: cleanedfirst) == false {
-                    return "Invalid name format, please use alphabitic characters only"
+                    return "Invalid name format, please use alphabitic characters only and at least 3 characters"
                 }
                 
                 let cleanedlast = lastNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
                 if Utilities.isValidName(testStr: cleanedlast) == false {
-                    return "Invalid name format, please use alphabitic characters only"
+                    return "Invalid name format, please use alphabitic characters only and at least 3 characters"
                 }
         
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)

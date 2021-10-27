@@ -171,7 +171,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ud0-dY-4El">
-                                <rect key="frame" x="43.5" y="348" width="327" height="222"/>
+                                <rect key="frame" x="43.5" y="343" width="327" height="232"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JKH-H2-Rgf">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
@@ -184,16 +184,18 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMl-ht-BBx">
-                                        <rect key="frame" x="0.0" y="108" width="327" height="60"/>
+                                        <rect key="frame" x="0.0" y="108" width="327" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="O7T-jt-buN"/>
+                                            <constraint firstAttribute="width" constant="327" id="6ge-VJ-pyj"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="O7T-jt-buN"/>
+                                            <constraint firstAttribute="height" constant="70" id="rr3-yW-O99"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-gP-1II">
-                                        <rect key="frame" x="0.0" y="182" width="327" height="40"/>
+                                        <rect key="frame" x="0.0" y="192" width="327" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="iNw-9c-PG2"/>
                                         </constraints>
