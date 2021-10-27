@@ -11,6 +11,7 @@ import RPTTextView
 
 protocol AskQuestionDelegate{
     func add()
+    func after(sendBack : String)
 }
 class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UITextViewDelegate
     var delegate: AskQuestionDelegate?
@@ -19,6 +20,7 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
     @IBOutlet var descError: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var titleText: UITextField!
+    var sendBack : String = "555"
     var ID : String = ""
     var ComName : String = ""
     override func viewDidLoad() {
@@ -49,7 +51,11 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
             descriptionTextView.textColor = .red
             message += "\nPlease fill in description"//TODO: Check and update message
         }
-        if message.count > 0 {
+        if message.count > 27{
+            message = "Please fill in all required fields"
+            self.descError.text = message
+            return nil
+        }else if message.count > 0{
             self.descError.text = message
             return nil
         }
@@ -64,8 +70,33 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
             return
         }
         
-        db.collection("Questions").document().setData(question);
+        db.collection("Questions").document().setData(question)
+        db.collection("Questions").getDocuments{
+        querySnapshot, error in
+                   if let e = error {
+                       print("There was an issue retreving data from fireStore. \(e)")
+                   }else {
+                       if let snapshotDocuments = querySnapshot?.documents{
+                           for doc in snapshotDocuments{
+                            let data =  doc.data()
+                            if data["Title"] as? String == self.titleText.text && data["Body"] as? String == self.descriptionTextView.text {
+                                self.sendBack = doc.documentID
+                                self.delegate?.after(sendBack: self.sendBack)
+                                print("Here is:", self.sendBack)
+                                break
+                                
+                            }
+                           }
+                        
+                       } //hard coded, get from transition var = ID
+                    
+                   }
+            
+        }
+        
         delegate?.add()
+      //  print("Here is 2: ", sendBack)
+     //   delegate?.after(sendBack: sendBack)
         
  //       navigationController?.popViewController(animated: true)
  //      dismiss(animated: true, completion: nil)
@@ -109,17 +140,14 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
             descriptionTextView.text = "*Description"
             descriptionTextView.textColor = UIColor.lightGray
         }
-        if flag == true {
+        if flag == true && descriptionTextView.text == ""{
             print("Here")
             descriptionTextView.text = "*Description"
             descriptionTextView.textColor = UIColor.red
             flag = false
         }
     }
-     @IBAction func cancel(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
-     }
+
 
 
 }
