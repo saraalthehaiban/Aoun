@@ -65,7 +65,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         alert.addAction(da)
         
-        let ca = UIAlertAction(title: "Cancle", style: .cancel, handler: nil)
+        let ca = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(ca)
         
         self.present(alert, animated: true, completion: nil)
@@ -133,6 +133,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let lable = UILabel()
                 lable.textAlignment = .center
                 lable.text = "You haven’t posted any notes yet"
+                lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
                 lable.sizeToFit()
                 
                 self.notesTable.tableHeaderView = lable

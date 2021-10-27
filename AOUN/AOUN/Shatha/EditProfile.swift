@@ -47,17 +47,17 @@ class VCEditProfile : UIViewController {
                                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             
             
-            error = "please fill in first name"
+            error = "Please fill in first name"
         }
         if lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
             lastNameTextField.attributedPlaceholder = NSAttributedString(string: "*Last Name",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            error = "please fill in last name"
+            error = "Please fill in last name"
         }
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" &&
             lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-    { error = "please fill in all missing fields"
+    { error = "Please fill in all missing fields"
         }
         if error == " "
         {

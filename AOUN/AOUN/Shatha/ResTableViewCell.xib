@@ -35,7 +35,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="26" translatesAutoresizingMaskIntoConstraints="NO" id="n9N-2n-UfW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="resource" translatesAutoresizingMaskIntoConstraints="NO" id="n9N-2n-UfW">
                                 <rect key="frame" x="224" y="2" width="53" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
@@ -49,10 +49,10 @@
                 <outlet property="resBubble" destination="vHe-Rv-kON" id="vhY-LS-qOs"/>
                 <outlet property="resTitle" destination="hyd-KF-IAd" id="WoZ-66-cHy"/>
             </connections>
-            <point key="canvasLocation" x="385.50724637681162" y="-32.142857142857139"/>
+            <point key="canvasLocation" x="108.69565217391305" y="-22.098214285714285"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="26" width="2806" height="2093"/>
+        <image name="resource" width="3271" height="1792"/>
     </resources>
 </document>
