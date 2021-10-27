@@ -510,17 +510,8 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - PayPalCheckout (0.73.0)
   - PromisesObjC (2.0.0)
-  - Stripe (21.9.0):
-    - Stripe/Stripe3DS2 (= 21.9.0)
-    - StripeCore (= 21.9.0)
-    - StripeUICore (= 21.9.0)
-  - Stripe/Stripe3DS2 (21.9.0):
-    - StripeCore (= 21.9.0)
-    - StripeUICore (= 21.9.0)
-  - StripeCore (21.9.0)
-  - StripeUICore (21.9.0):
-    - StripeCore (= 21.9.0)
 
 DEPENDENCIES:
   - BraintreeDropIn
@@ -530,7 +521,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - IQKeyboardManagerSwift (~> 6.5)
-  - Stripe
+  - PayPalCheckout
 
 SPEC REPOS:
   trunk:
@@ -555,10 +546,8 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - leveldb-library
     - nanopb
+    - PayPalCheckout
     - PromisesObjC
-    - Stripe
-    - StripeCore
-    - StripeUICore
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -582,11 +571,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PayPalCheckout: 9e9774b7e641be5b47164f4ab122cc682acbb0f4
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  Stripe: 41c3d261501e1dc84755b1bdabdaae50ebf92b53
-  StripeCore: 2ea9531e863ef20f191a0d61f00dedb7f061baef
-  StripeUICore: a0f9e40520823d34c63baec0782fc4a0c7fb7484
 
-PODFILE CHECKSUM: 3840bccc2963ce643204337cdfb3d0bccd55ec82
+PODFILE CHECKSUM: 078d0dc6aabb9dc77937179a4d600dceeffae266
 
 COCOAPODS: 1.11.2

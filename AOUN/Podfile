@@ -24,8 +24,6 @@ target 'AOUN' do
   pod 'IQKeyboardManagerSwift', '~> 6.5'
   
   pod 'BraintreeDropIn'
+  pod 'PayPalCheckout'
   
-  #pod 'StripeTerminal', '~> 2.0'
-  pod 'Stripe'
-
-end
+ end
