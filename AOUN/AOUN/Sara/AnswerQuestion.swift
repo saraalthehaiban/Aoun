@@ -10,7 +10,7 @@ import Firebase
 import RPTTextView
 
 protocol AnswerQuestionDelegate {
-    func update()
+    func update(ans : String)
 }
 
 class AnswerQuestion: UIViewController, UITextViewDelegate {
@@ -52,6 +52,8 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
         if message.count > 0 {
             self.descError.text = message
             return nil
+        }else if message.count > 26{
+            message = "Please enter all required fields"
         }
         
         return dataDictionary
@@ -64,9 +66,9 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
             return
         }
     db.collection("Questions").document(ID).updateData(answersDic)
-        delegate?.update()
+        delegate?.update(ans: ans)
 
-        let vcAlert = UIAlertController(title: "Question Posted", message: "You will be notified when somebody answers", preferredStyle: .alert)
+        let vcAlert = UIAlertController(title: "Answer Posted", message: "The member who asked the question will be notified", preferredStyle: .alert)
         vcAlert.view.tintColor = .black //OK
 //        vcAlert.tit
         var imageView = UIImageView(frame: CGRect(x: 125, y: 77, width: 20, height: 20))
@@ -92,17 +94,13 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
         
     }
     
-    
-    @IBAction func canel(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     
     //[2] placeholder
     func textViewDidBeginEditing(_ textView: UITextView) {
         if desc.textColor == UIColor.lightGray ||  desc.textColor == UIColor.red{
             if desc.textColor == .red{
+              //  print("HERE!")
                 flag = true
             }
             desc.text = nil
@@ -112,12 +110,11 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
     
     //[3] Placeholder
     func textViewDidEndEditing(_ textView: UITextView) {
-        if desc.text.isEmpty, desc.textColor != .red {
+        if desc.text.isEmpty {
             desc.text = "*Description"
             desc.textColor = UIColor.lightGray
         }
         if flag == true {
-            print("Here")
             desc.text = "*Description"
             desc.textColor = UIColor.red
             flag = false

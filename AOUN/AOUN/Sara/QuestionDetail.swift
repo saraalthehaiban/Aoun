@@ -9,8 +9,11 @@ import UIKit
 import Firebase
 protocol CommunityDelegate{
     func update()
+    func ID(index : Int) -> String
 }
 class QuestionDetail: UIViewController {
+    @IBOutlet var empty: UILabel!
+    var i : Int = 0
     var delegate: CommunityDelegate?
     var db = Firestore.firestore()
     @IBOutlet var Qbody: UILabel!
@@ -30,6 +33,9 @@ class QuestionDetail: UIViewController {
         Qtitle.text = QV
         Qbody.text = BV
         loadAnswers()
+        check()
+        print("before: ", answers)
+
         // Do any additional setup after loading the view.
     }
     
@@ -43,7 +49,7 @@ class QuestionDetail: UIViewController {
                            if let snapshotDocuments = querySnapshot?.documents{
                                for doc in snapshotDocuments{
                                 let data =  doc.data()
-                                if data["ID"] as? String == self.comID{
+                                if doc.documentID as? String == self.docID{
                                     if data["answers"] != nil{
                                         self.answers = data["answers"] as! [String]}
                                     else{
@@ -64,8 +70,21 @@ class QuestionDetail: UIViewController {
                        }
                 
             }
+
     }
-    
+    func check(){
+      //  delegate?.update()
+      //  delegate?.ID(index: 0)
+        if answers.count == 0{
+            empty.text = "Hasn't been answered yet"
+        } else {
+            print("HERE!")
+            empty.text = ""
+            empty.isHidden = true
+            empty.removeFromSuperview()
+        }
+        
+    }
 
     @IBAction func answer(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "AnswerQuestion") as? AnswerQuestion {
@@ -113,9 +132,12 @@ extension QuestionDetail: UITableViewDelegate{
   //  }
 }
 extension QuestionDetail: AnswerQuestionDelegate{
-    func update(){
+    func update(ans : String){
         loadAnswers()
-        print(self.answers)
+        answers.append(ans)
+        print("after: ", answers)
+        check()
+       // print(self.answers)
         //AnsTable.reloadData()
     }
 }

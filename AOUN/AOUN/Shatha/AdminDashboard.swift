@@ -26,6 +26,11 @@ class AdminDashboard: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         loadCommunities ()
+        if requests.count == 0{
+            EmptyTable.text = "No new requests"
+        } else {
+            EmptyTable.text = ""
+        }
     }
     
     func loadCommunities (){

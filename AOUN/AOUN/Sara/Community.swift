@@ -9,13 +9,15 @@ import UIKit
 import Firebase
 
 class Community: UIViewController {
+    @IBOutlet var empty: UILabel!
     var db = Firestore.firestore()
     var ID : String = ""
     var name : String = ""
-    var ids : [String] = [] //
+    var ids : [String : String] = [:] //
     @IBOutlet var comName: UILabel!
     @IBOutlet var display: UITableView!
     var questions: [Question] = []
+    var titleX : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,14 @@ class Community: UIViewController {
         display.dataSource = self
         comName.text = name
         loadQuestions()
+        print("Before:", ids)
         // Do any additional setup after loading the view.
+        if questions.count == 0 {
+            empty.text = "No questions have been asked yet"
+        }
+        else{
+            empty.text = ""
+        }
     }
     
     func loadQuestions(){
@@ -44,9 +53,9 @@ class Community: UIViewController {
                                     let Body = data["Body"] as? String
                                     let Answers = data["answers"] as? [String]
                                     let newQ = Question(title: Title ?? "", body: Body ?? "", answer: Answers ?? [""] )
+                                   
                                     self.questions.append(newQ)
-                                    //Implement no questions in a community
-                                    self.ids.append(doc.documentID)
+                                    self.ids[Title!] = doc.documentID
                                     
                                 }
                                }
@@ -91,8 +100,14 @@ extension Community: UITableViewDelegate{
             vc.QV = questions[selectedRow].title
             vc.BV = questions[selectedRow].body
             vc.answers = questions[selectedRow].answer
-            vc.docID = ids[selectedRow]
+            let cell = tableView.cellForRow(at: indexPath) as! CommunityQuestion
+            titleX = cell.QField.text ?? "NIL"
+            vc.docID = ids[titleX] ?? "NIL"
+
+         //   vc.docID = ids[selectedRow]
             vc.comID = ID
+            //vc.i = indexPath.row
+        
             
             vc.delegate = self
             self.present(vc, animated: true, completion: nil) 
@@ -105,6 +120,11 @@ extension Community: AskQuestionDelegate{
         loadQuestions()
         display.reloadData()
     }
+    func after(sendBack : String){
+        print("Here is 3: ", sendBack)
+       // ids.append(sendBack)
+        print("After:", ids)
+    }
     
     
 }
@@ -112,6 +132,9 @@ extension Community: CommunityDelegate{
     func update(){
         loadQuestions()
         display.reloadData()
+    }
+    func ID(index : Int) -> String{
+        return ""
     }
 }
 
