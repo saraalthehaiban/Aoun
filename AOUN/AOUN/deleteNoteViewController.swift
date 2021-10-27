@@ -63,7 +63,7 @@ class deleteNote: UIViewController {
         }
         alert.addAction(da)
         
-        let ca = UIAlertAction(title: "Cancle", style: .cancel, handler: nil)
+        let ca = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(ca)
         
         self.present(alert, animated: true, completion: nil)
