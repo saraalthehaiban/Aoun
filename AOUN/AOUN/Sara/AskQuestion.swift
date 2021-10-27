@@ -17,10 +17,11 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
     var delegate: AskQuestionDelegate?
     var db = Firestore.firestore()
     var flag : DarwinBoolean = false
+    var present = false
     @IBOutlet var descError: UILabel!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var titleText: UITextField!
-    var sendBack : String = "555"
+    var sendBack : String = ""
     var ID : String = ""
     var ComName : String = ""
     override func viewDidLoad() {
@@ -70,6 +71,30 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
             return
         }
         
+        db.collection("Questions").getDocuments{
+        querySnapshot, error in
+                   if let e = error {
+                       print("There was an issue retreving data from fireStore. \(e)")
+                   }else {
+                       if let snapshotDocuments = querySnapshot?.documents{
+                           for doc in snapshotDocuments{
+                            let data =  doc.data()
+                            if data["Title"] as? String == self.titleText.text {
+                                self.present = true // here!
+                                break
+                                
+                            }
+                           }
+                        
+                       }
+                    
+                   }
+            
+        }
+        
+        
+        
+        if !present{
         db.collection("Questions").document().setData(question)
         db.collection("Questions").getDocuments{
         querySnapshot, error in
@@ -82,7 +107,6 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
                             if data["Title"] as? String == self.titleText.text && data["Body"] as? String == self.descriptionTextView.text {
                                 self.sendBack = doc.documentID
                                 self.delegate?.after(sendBack: self.sendBack)
-                                print("Here is:", self.sendBack)
                                 break
                                 
                             }
@@ -95,6 +119,7 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
         }
         
         delegate?.add()
+        
       //  print("Here is 2: ", sendBack)
      //   delegate?.after(sendBack: sendBack)
         
@@ -113,6 +138,10 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
         }
         vcAlert.addAction(okAction)
         self.present(vcAlert, animated: true, completion: nil)
+        } else {
+            descError.text = "This question has already been asked"
+        }
+        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -141,7 +170,6 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
             descriptionTextView.textColor = UIColor.lightGray
         }
         if flag == true && descriptionTextView.text == ""{
-            print("Here")
             descriptionTextView.text = "*Description"
             descriptionTextView.textColor = UIColor.red
             flag = false

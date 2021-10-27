@@ -29,11 +29,11 @@ class Community: UIViewController {
         print("Before:", ids)
         // Do any additional setup after loading the view.
         if questions.count == 0 {
-            empty.text = "No questions have been asked yet"
+           empty.text = "No questions have been asked yet"
         }
-        else{
-            empty.text = ""
-        }
+//        else{
+//            empty.text = ""
+//        }
     }
     
     func loadQuestions(){
@@ -47,6 +47,7 @@ class Community: UIViewController {
                                for doc in snapshotDocuments{
                                 let data =  doc.data()
                                 if data["ID"] as? String == self.ID{
+                                    self.empty.text = ""
                                     //self.comName.text = data["Community"] as? String
                                     //self.name = data["Community"] as? String ?? ""
                                     let Title = data["Title"] as? String
