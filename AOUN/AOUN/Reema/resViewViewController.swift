@@ -119,7 +119,7 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
         return resources.count
            }
     }//end count
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
