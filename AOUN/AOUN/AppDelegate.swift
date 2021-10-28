@@ -7,7 +7,8 @@
 
 import UIKit
 import Firebase
-//import IQKeyboardManagerSwift
+import FirebaseMessaging
+import IQKeyboardManagerSwift
 
 
 @main
@@ -15,11 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        //IQKeyboardManager.shared.enable = true
+//        FirebaseApp.shared.
+        
+        IQKeyboardManager.shared.enable = true
         
         //setRoot()
         
+        //NOtificaion setting
         application.registerForRemoteNotifications()
+        let authOption: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options:  authOption) { condition, error in
+            //Check for authorization status and handle error
+        }
+        Messaging.messaging().delegate = self
+        
         return true
     }
     
@@ -58,13 +68,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+}
+
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([[.banner, .sound]])
+    }
+    
+    // The method will be called on the delegate when the user responded to the notification by opening the application, dismissing the notification or choosing a UNNotificationAction. The delegate must be set before the application returns from application:didFinishLaunchingWithOptions:.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    // The method will be called on the delegate when the application is launched in response to the user's request to view in-app notification settings. Add UNAuthorizationOptionProvidesAppNotificationSettings as an option in requestAuthorizationWithOptions:completionHandler: to add a button to inline notification settings view and the notification settings view in Settings. The notification will be nil when opened from Settings.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+       
+    }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
+        Messaging.messaging().apnsToken  = deviceToken
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         
     }
+    
+    func process(_ notification:UNNotification) {
+        let userInfor = notification.request.content.userInfo
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        //if let title
+        //Perform user notification handeling
+    }
 }
 
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        let tokenDictionary = ["token":fcmToken ?? ""]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FCMToken"), object: nil, userInfo: tokenDictionary)//trigger local notification will use it later
+    }
+}

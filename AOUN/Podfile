@@ -20,9 +20,10 @@ target 'AOUN' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Messaging'
 
   pod 'RPTTextView'
-#  pod 'FirebaseFirestoreSwift'
+
   
   pod 'IQKeyboardManagerSwift', '~> 6.5'
 

@@ -25,6 +25,7 @@
 		0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F502A76270F77EA00912EF0 /* SignoutViewController.swift */; };
 		0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A7C270F7D6500912EF0 /* Profile.storyboard */; };
 		0F502A82270F855300912EF0 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A81270F855300912EF0 /* Resources.storyboard */; };
+		0F6EAE12272ACD2C0060997F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */; };
 		0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B47027186786005511B1 /* CommunityHome.storyboard */; };
 		0FA3B47327187054005511B1 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47227187054005511B1 /* Community.swift */; };
 		0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B474271870A1005511B1 /* AskQuestion.swift */; };
@@ -115,6 +116,8 @@
 		0F502A76270F77EA00912EF0 /* SignoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignoutViewController.swift; sourceTree = "<group>"; };
 		0F502A7C270F7D6500912EF0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0F502A81270F855300912EF0 /* Resources.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
+		0F6EAE10272AC8EE0060997F /* AOUN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AOUN.entitlements; sourceTree = "<group>"; };
+		0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0FA3B47027186786005511B1 /* CommunityHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunityHome.storyboard; sourceTree = "<group>"; };
 		0FA3B47227187054005511B1 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		0FA3B474271870A1005511B1 /* AskQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestion.swift; sourceTree = "<group>"; };
@@ -293,12 +296,14 @@
 		0F40BDEE26F54F4900FB83AC /* AOUN */ = {
 			isa = PBXGroup;
 			children = (
+				0F6EAE10272AC8EE0060997F /* AOUN.entitlements */,
 				0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */,
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
 				276D9C4E27063E0F0019B8AD /* DownloadManager.swift */,
 				DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */,
 				0FC6357627107A56004D7A2A /* Launch Screen.storyboard */,
+				0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */,
 				0F40BDF826F54F4900FB83AC /* Assets.xcassets */,
 				0F40BDFD26F54F4900FB83AC /* Info.plist */,
 				0FC63566270F8D5C004D7A2A /* Rasha */,
@@ -499,6 +504,7 @@
 				0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
 				0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */,
+				0F6EAE12272ACD2C0060997F /* GoogleService-Info.plist in Resources */,
 				0FC3ABEB2727FC5F00B43C26 /* notesTableViewCell.xib in Resources */,
 				0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */,
 			);
@@ -856,14 +862,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AOUN/AOUN.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VKF39SH7Z5;
+				DEVELOPMENT_TEAM = 8Q5F7V8QAQ;
 				INFOPLIST_FILE = AOUN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Aoun.AOUN;
+				PRODUCT_BUNDLE_IDENTIFIER = swe444.aoun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -876,14 +883,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AOUN/AOUNRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VKF39SH7Z5;
+				DEVELOPMENT_TEAM = 8Q5F7V8QAQ;
 				INFOPLIST_FILE = AOUN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Aoun.AOUN;
+				PRODUCT_BUNDLE_IDENTIFIER = swe444.aoun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
