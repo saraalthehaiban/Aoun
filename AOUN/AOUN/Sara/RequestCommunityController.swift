@@ -8,52 +8,89 @@
 import UIKit
 import Firebase
 
-class RequestCommunityController: UIViewController {
-    
+let K_DescriptionLimit = 240
+let K_TitleLimit = 24
 
-    @IBOutlet var Name: UITextField!
-    @IBOutlet var Info: UITextField!
+class RequestCommunityController: UIViewController {
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var descriptionTextView: RPTTextView!
     @IBOutlet var inputError: UILabel!
+    
     var n : String = ""
     var d : String = ""
     var db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
+        self.nameTextField.delegate = self
+        self.descriptionTextView.characotrLimit = K_DescriptionLimit
+        self.descriptionTextView.placeHolderColor = .lightGray
+        self.descriptionTextView.placeHolder = "*Description"
 
-    @IBAction func submit(_ sender: Any) {
-        inputError.text = "";
-        n = Name.text ?? ""
-        d = Info.text ?? ""
-        if (n.isEmpty) && (d.isEmpty) {
-            inputError.textColor = UIColor.systemRed;
-            inputError.text = "Please fill in missing fields";
-            Name.attributedPlaceholder = NSAttributedString(string: "*Title",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            Info.attributedPlaceholder = NSAttributedString(string: "*Description",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        self.descriptionTextView.layer.borderWidth = 1.0; //check in runtime
+        self.descriptionTextView.layer.cornerRadius = 8;// runtime
+        self.descriptionTextView.layer.borderColor = #colorLiteral(red: 0.9027513862, green: 0.8979359269, blue: 0.8978534341, alpha: 1)
 
-        }
-        else{
-        if (n.isEmpty) {
-            inputError.text = "Please fill in missing field";
-            inputError.textColor = UIColor.systemRed;
-            Name.attributedPlaceholder = NSAttributedString(string: "*Title",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-        } else {
-            if (d.isEmpty) {
-                inputError.textColor = UIColor.systemRed;
-                inputError.text = "Please fill in missing field";
-                Info.attributedPlaceholder = NSAttributedString(string: "*Description",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            } else {
-                db.collection("Request").document().setData(["Title": n, "Description":d]);
-                inputError.textColor = UIColor.systemGreen;
-                inputError.text =  "Request sent successfuly";
-               // dismiss(animated: true, completion: nil)
-                
-            }
     }
     
+    func validatedData () -> [String:Any]? {
+        self.inputError.text = nil
+        var dataDictionary : [String:Any] = [:]
+        if let title = nameTextField.text, title.count > 1 {
+            dataDictionary["Title"] = title
+        }else{
+            inputError.textColor = UIColor.systemRed;
+            inputError.text = "Please fill in title field";
+            nameTextField.attributedPlaceholder = NSAttributedString(string: "*Title",attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        }
+        if let description = descriptionTextView.text, description != "*Description", description.count != 0  {
+            dataDictionary["Description"] = description
+        }else{
+            descriptionTextView.placeHolderColor = .red
+            inputError.text = "Please fill in description field";
         }
         
-    }
+        if dataDictionary.count < 2 {
+            if (dataDictionary.count == 0) {
+                inputError.text = "Please fill in all required fields";
+            }
+            return  nil
+        }
 
+        return dataDictionary
+    }
+    
+    @IBAction func submit(_ sender: Any) {
+        guard let data = self.validatedData() else {
+            return
+        }
+        
+        inputError.text = "";
+        n = nameTextField.text ?? ""
+        d = descriptionTextView.text ?? ""
+        
+        db.collection("Request").document().setData(data) { error in
+            if let e = error {
+                print("Error!", e)
+            }else {
+                CustomAlert.showAlert(
+                    title: "Request sent",
+                    message: "Wait for the admin's approval.",
+                    inController: self,
+                    with: UIImage(named: "Check"),
+                    cancleTitle: "Ok") {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        };
+    }
+}
+
+extension RequestCommunityController : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newText = ((textField.text ?? "") as NSString).replacingCharacters(in: range, with: string)
+        let numberOfChars = newText.count
+        return numberOfChars < K_TitleLimit
+    }
 }

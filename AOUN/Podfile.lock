@@ -496,7 +496,6 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
-  - RPTTextView (0.1.1)
 
 DEPENDENCIES:
   - Firebase
@@ -506,7 +505,6 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - IQKeyboardManagerSwift (~> 6.5)
-  - RPTTextView
 
 SPEC REPOS:
   trunk:
@@ -531,7 +529,6 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
-    - RPTTextView
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -555,8 +552,7 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  RPTTextView: 94e91d4db5a36e89eaddfbaaaca479c19e3895b1
 
-PODFILE CHECKSUM: 0ff02b8561a29eae0d0e4d917c7bcb0a15c89d3f
+PODFILE CHECKSUM: d87d6edc607d89edf3b50bf8feb37a112f6adb48
 
 COCOAPODS: 1.11.0

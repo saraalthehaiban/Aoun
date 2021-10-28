@@ -26,6 +26,8 @@
 		0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A7C270F7D6500912EF0 /* Profile.storyboard */; };
 		0F502A82270F855300912EF0 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A81270F855300912EF0 /* Resources.storyboard */; };
 		0F6EAE12272ACD2C0060997F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */; };
+		0F6EAE1A272AE61D0060997F /* RPTTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE19272AE61D0060997F /* RPTTextView.swift */; };
+		0F6EAE1C272B0EE70060997F /* CustomAlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */; };
 		0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B47027186786005511B1 /* CommunityHome.storyboard */; };
 		0FA3B47327187054005511B1 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47227187054005511B1 /* Community.swift */; };
 		0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B474271870A1005511B1 /* AskQuestion.swift */; };
@@ -118,6 +120,8 @@
 		0F502A81270F855300912EF0 /* Resources.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
 		0F6EAE10272AC8EE0060997F /* AOUN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AOUN.entitlements; sourceTree = "<group>"; };
 		0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0F6EAE19272AE61D0060997F /* RPTTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTTextView.swift; sourceTree = "<group>"; };
+		0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertMessage.swift; sourceTree = "<group>"; };
 		0FA3B47027186786005511B1 /* CommunityHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunityHome.storyboard; sourceTree = "<group>"; };
 		0FA3B47227187054005511B1 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		0FA3B474271870A1005511B1 /* AskQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestion.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */,
 				0FA3B488272719C5005511B1 /* AOUNExtensions.swift */,
 				0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */,
+				0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */,
 			);
 			path = Sara;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
 				276D9C4E27063E0F0019B8AD /* DownloadManager.swift */,
+				0F6EAE19272AE61D0060997F /* RPTTextView.swift */,
 				DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */,
 				0FC6357627107A56004D7A2A /* Launch Screen.storyboard */,
 				0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */,
@@ -663,12 +669,14 @@
 				0F502A78270F77EA00912EF0 /* Constants.swift in Sources */,
 				27712C6F270346AD00450466 /* resFile.swift in Sources */,
 				523D7D7927253FC2001CF33E /* notification.swift in Sources */,
+				0F6EAE1C272B0EE70060997F /* CustomAlertMessage.swift in Sources */,
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				27712C7127034CB200450466 /* detailedResViewController.swift in Sources */,
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
 				0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */,
+				0F6EAE1A272AE61D0060997F /* RPTTextView.swift in Sources */,
 				52D00D3026F69149009E3394 /* SignupViewController.swift in Sources */,
 				0FC3ABEF2727FC5F00B43C26 /* EditProfile.swift in Sources */,
 				0FC3ABE72727FC5F00B43C26 /* User.swift in Sources */,

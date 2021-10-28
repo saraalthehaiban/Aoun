@@ -49,7 +49,7 @@ class QuestionDetail: UIViewController {
                            if let snapshotDocuments = querySnapshot?.documents{
                                for doc in snapshotDocuments{
                                 let data =  doc.data()
-                                if doc.documentID as? String == self.docID{
+                                if doc.documentID as? String == self.docID {
                                     if data["answers"] != nil{
                                         self.answers = data["answers"] as! [String]}
                                     else{
