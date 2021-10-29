@@ -57,33 +57,40 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         files = urls
         fileMsg.text = "A file has been attached"
-
+        
     }
     
-
+    
     @IBAction func submitButton(_ sender: Any) {
-        
-        //activityIndicator.startAnimating()
+        if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
+            if noteTitleTextbox.text == ""{
+                noteTitleTextbox.attributedPlaceholder = NSAttributedString(string: "*Note Title",
+                                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if autherTextbox.text == ""{
+                autherTextbox.attributedPlaceholder = NSAttributedString(string: "*Author Name",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if descriptionTextbox.text == ""{
+                descriptionTextbox.attributedPlaceholder = NSAttributedString(string: "*Description",
+                                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if  priceSwitch.isOn {
+                if priceTextbox.text == "" {
+                    priceTextbox.attributedPlaceholder = NSAttributedString(string: "*Price",
+                                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                }
+            }
+            error.text = "Please fill in any missing field"
+        }
         
         if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
-                    if noteTitleTextbox.text == ""{
-                        noteTitleTextbox.attributedPlaceholder = NSAttributedString(string: "*Note Title",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                    }
-                     if autherTextbox.text == ""{
-                        autherTextbox.attributedPlaceholder = NSAttributedString(string: "*Author Name",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                    }
-                     if descriptionTextbox.text == ""{
-                        descriptionTextbox.attributedPlaceholder = NSAttributedString(string: "*Description",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                    }
-                    error.text = "Please fill in any missing field"
-                    
-                }
-                
-                if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
-                    return}
+            return}
+        
+        if  priceSwitch.isOn && priceTextbox.text == "" {
+            return
+        }
+        
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, noteTitleTextbox.text != "", autherTextbox.text != "" , descriptionTextbox.text != ""
         else {
@@ -99,7 +106,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         print("uid = ", uid, filename)
         
         let storageRef = Storage.storage().reference()
-
+        
         let notesRef = storageRef.child("Notes/\(uid)/\(filename)")
         
         let uploadTask = notesRef.putFile(from: localFile, metadata: nil) { metadata, error in
@@ -176,7 +183,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         return true
     }
     
-
+    
     
     @objc func stateChanged(switchState: UISwitch) {
         priceTextbox.isHidden = !switchState.isOn
