@@ -13,7 +13,6 @@
 		0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3DECEA270B207800C5F6BB /* RCell.xib */; };
 		0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */; };
 		0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */; };
-		0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F40BDF826F54F4900FB83AC /* Assets.xcassets */; };
 		0F40BE0726F54F4A00FB83AC /* AOUNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BE0626F54F4A00FB83AC /* AOUNTests.swift */; };
 		0F40BE1226F54F4A00FB83AC /* AOUNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BE1126F54F4A00FB83AC /* AOUNUITests.swift */; };
 		0F4D5A331EE4BADC3D0DB9AC /* Pods_AOUN_AOUNUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4927A2890AA37702C66CAEF5 /* Pods_AOUN_AOUNUITests.framework */; };
@@ -28,6 +27,7 @@
 		0F6EAE12272ACD2C0060997F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */; };
 		0F6EAE1A272AE61D0060997F /* RPTTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE19272AE61D0060997F /* RPTTextView.swift */; };
 		0F6EAE1C272B0EE70060997F /* CustomAlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */; };
+		0F6EAE1E272C2B570060997F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EAE1D272C2B570060997F /* Assets.xcassets */; };
 		0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B47027186786005511B1 /* CommunityHome.storyboard */; };
 		0FA3B47327187054005511B1 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47227187054005511B1 /* Community.swift */; };
 		0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B474271870A1005511B1 /* AskQuestion.swift */; };
@@ -103,7 +103,6 @@
 		0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0F40BDF626F54F4900FB83AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0F40BDF826F54F4900FB83AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F40BDFD26F54F4900FB83AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F40BE0226F54F4A00FB83AC /* AOUNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOUNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F40BE0626F54F4A00FB83AC /* AOUNTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOUNTests.swift; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F6EAE19272AE61D0060997F /* RPTTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTTextView.swift; sourceTree = "<group>"; };
 		0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertMessage.swift; sourceTree = "<group>"; };
+		0F6EAE1D272C2B570060997F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FA3B47027186786005511B1 /* CommunityHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunityHome.storyboard; sourceTree = "<group>"; };
 		0FA3B47227187054005511B1 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		0FA3B474271870A1005511B1 /* AskQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestion.swift; sourceTree = "<group>"; };
@@ -304,13 +304,13 @@
 				0F6EAE10272AC8EE0060997F /* AOUN.entitlements */,
 				0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */,
 				0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */,
+				0F6EAE1D272C2B570060997F /* Assets.xcassets */,
 				0F40BDF526F54F4900FB83AC /* Main.storyboard */,
 				276D9C4E27063E0F0019B8AD /* DownloadManager.swift */,
 				0F6EAE19272AE61D0060997F /* RPTTextView.swift */,
 				DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */,
 				0FC6357627107A56004D7A2A /* Launch Screen.storyboard */,
 				0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */,
-				0F40BDF826F54F4900FB83AC /* Assets.xcassets */,
 				0F40BDFD26F54F4900FB83AC /* Info.plist */,
 				0FC63566270F8D5C004D7A2A /* Rasha */,
 				52D00D2E26F69136009E3394 /* Rana */,
@@ -497,7 +497,6 @@
 				0F502A7A270F77EA00912EF0 /* Auth.storyboard in Resources */,
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
 				5264FC76272722150065DA81 /* Community.storyboard in Resources */,
-				0F40BDF926F54F4900FB83AC /* Assets.xcassets in Resources */,
 				0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */,
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
@@ -508,6 +507,7 @@
 				0F502A82270F855300912EF0 /* Resources.storyboard in Resources */,
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
 				0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */,
+				0F6EAE1E272C2B570060997F /* Assets.xcassets in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
 				0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */,
 				0F6EAE12272ACD2C0060997F /* GoogleService-Info.plist in Resources */,

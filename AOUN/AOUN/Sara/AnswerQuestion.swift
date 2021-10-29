@@ -21,7 +21,8 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
     var ans : String = ""
     @IBOutlet var desc: RPTTextView!
     var db = Firestore.firestore()
-    @IBOutlet var body: UILabel!
+  
+    @IBOutlet var body: UITextView!
     var bd: String = ""
     var answers: [String] = []
     override func viewDidLoad() {

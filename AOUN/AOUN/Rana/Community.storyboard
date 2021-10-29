@@ -159,14 +159,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPV-7S-6sk">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPV-7S-6sk">
                                         <rect key="frame" x="261" y="672" width="120" height="132"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="132" id="Kib-50-7JD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                         <color key="tintColor" red="0.60000002379999995" green="0.71372550729999995" blue="0.83137255909999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="+"/>
+                                        <state key="normal" image="Screen_Shot_1443-03-19_at_6.10.40_PM-removebg-preview"/>
                                         <connections>
                                             <action selector="requestCommunity:" destination="AWb-g3-2Rw" eventType="touchUpInside" id="J2t-uT-Z0r"/>
                                         </connections>
@@ -240,6 +239,7 @@
     <resources>
         <image name="21" width="2777" height="2158"/>
         <image name="Rectangle" width="327" height="50"/>
+        <image name="Screen_Shot_1443-03-19_at_6.10.40_PM-removebg-preview" width="399" height="393"/>
         <image name="waves" width="750" height="750"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

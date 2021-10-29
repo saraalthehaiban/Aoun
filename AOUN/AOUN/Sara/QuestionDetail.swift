@@ -15,8 +15,8 @@ class QuestionDetail: UIViewController {
     @IBOutlet var empty: UILabel!
     var i : Int = 0
     var delegate: CommunityDelegate?
+    @IBOutlet var Qbody: UITextView!
     var db = Firestore.firestore()
-    @IBOutlet var Qbody: UILabel!
     @IBOutlet var AnsTable: UITableView!
     @IBOutlet var Qtitle: UILabel!
     var docID : String = ""

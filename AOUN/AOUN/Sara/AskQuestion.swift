@@ -139,10 +139,7 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
                 }
             }
             
-            delegate?.add()
-            
-            //  print("Here is 2: ", sendBack)
-            //   delegate?.after(sendBack: sendBack)
+
             
             //       navigationController?.popViewController(animated: true)
             //      dismiss(animated: true, completion: nil)
@@ -162,7 +159,9 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
         } else {
             descError.text = "This question has already been asked"
         }*/
-        
+         delegate?.add()
+         print("Here is 2: ", sendBack)
+        delegate?.after(sendBack: sendBack)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
