@@ -32,6 +32,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
 
     
     var files : [URL]?
+
     
     @IBAction func importButton(_ sender: Any) {
         
@@ -57,34 +58,29 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         files = urls
-        let strUrl = "\(urls)"
-        let range = strUrl.lastIndex(of: "/")!
-        let name = strUrl[strUrl.index(after: range)...]
-        let newString = name.replacingOccurrences(of: "%20", with: " ")
-        fileMsg.text = "A file has been attached [\(newString)"
-
+        fileMsg.text = "A file has been attached"
+        
     }
     
     
     @IBAction func submitButton(_ sender: Any) {
-        
-        //activityIndicator.startAnimating()
-        
-        if noteTitleTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||  autherTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || descriptionTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-                    if noteTitleTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-                        noteTitleTextbox.attributedPlaceholder = NSAttributedString(string: "*Note Title",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                    }
-                     if autherTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-                        autherTextbox.attributedPlaceholder = NSAttributedString(string: "*Author Name",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                    }
-//                     if descriptionTextbox.text == ""{
-//                        descriptionTextbox.attributedPlaceholder = NSAttributedString(string: "*Description",
-//                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-//                    }
-                    error.text = "Please fill in any missing field"
-                    
+        if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
+            if noteTitleTextbox.text == ""{
+                noteTitleTextbox.attributedPlaceholder = NSAttributedString(string: "*Note Title",
+                                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if autherTextbox.text == ""{
+                autherTextbox.attributedPlaceholder = NSAttributedString(string: "*Author Name",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if descriptionTextbox.text == ""{
+               // descriptionTextbox.attributedPlaceholder = NSAttributedString(string: "*Description",
+                                                                    //          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if  priceSwitch.isOn {
+                if priceTextbox.text == "" {
+                    priceTextbox.attributedPlaceholder = NSAttributedString(string: "*Price",
+                                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                 }
             }
             error.text = "Please fill in any missing field"
@@ -97,20 +93,6 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
             return
         }
         
-        
-        let editedNote =  noteTitleTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let editedAuth =  autherTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let editeddesc =  descriptionTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-                if editedNote!.count < 4{
-                    error.text = "Note name must be more than 3 characters."
-                    return
-                }else if editedAuth!.count < 4{
-                    error.text = "Author name must be more than 3 characters."
-                    return
-                }else if editeddesc!.count < 4{
-                    error.text = "Description must be more than 3 characters."
-                    return
-        }
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, noteTitleTextbox.text != "", autherTextbox.text != "" , descriptionTextbox.text != ""
         else {
@@ -161,96 +143,34 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         let autherName = autherTextbox.text!
         let description = descriptionTextbox.text!
         let price = priceTextbox.text ?? ""
-        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
+        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url]
+        //db.collection("Notes").document().setData(["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url])
+        
         let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url)
         db.collection("Notes").document().setData(data) { error in
             if let e = error {
                 print(e)
                 self.delegate?.postNote(self, note: note, added: false)
                 return
-            } else {
-                //Show susccess message and go out
-                                    let alert = UIAlertController.init(title: "Posted", message: "Your note posted successfully.", preferredStyle: .alert)
-                alert.view.tintColor = .black
-                                            var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
-
-                                                    imageView.image = UIImage(named: "Check")
-
-                                            alert.view.addSubview(imageView)
-                let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
-                                        self.dismiss(animated: true) {
-                                            //inform main controller t update the information
-                                            self.delegate?.postNote(self, note: note, added: true)
-                                        }
-                                    }
-                                    alert.addAction(cancleA)
-                                    self.present(alert, animated: true, completion: nil)
             }
+            self.delegate?.postNote(self, note: note, added: true)
         }
         
         //self.activityIndicator.stopAnimating()
         
-//        error.attributedText = NSAttributedString(string: "Note submitted", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue])
+        error.attributedText = NSAttributedString(string: "Note submitted", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue])
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        noteTitleTextbox.delegate = self
-        autherTextbox.delegate = self
-        descriptionTextbox.delegate = self
-               self.descriptionTextbox.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-               self.descriptionTextbox.text = "*Description"
-               self.descriptionTextbox.textColor = UIColor.lightGray
-               self.descriptionTextbox.layer.borderWidth = 1.0; //check in runtime
-               self.descriptionTextbox.layer.cornerRadius = 8;// runtime
         priceTextbox.delegate = self
         
         priceSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
         stateChanged(switchState: priceSwitch)
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let maxLength = 20
-//        let currentString: NSString = (textField.text ?? "") as NSString
-//        let newString: NSString =
-//            currentString.replacingCharacters(in: range, with: string) as NSString
-//        return newString.length <= maxLength
-//    }
-
-    
-    //[2] placeholder
-        func textViewDidBeginEditing(_ textView: UITextView) {
-            if descriptionTextbox.textColor == UIColor.lightGray ||  descriptionTextbox.textColor == UIColor.red{
-                if descriptionTextbox.textColor == .red{
-                    flag = true
-                }
-                
-                descriptionTextbox.text = nil
-                descriptionTextbox.textColor = UIColor.black
-            }
-        }
-
-        //[3] Placeholder
-        func textViewDidEndEditing(_ textView: UITextView) {
-            if descriptionTextbox.text.isEmpty, descriptionTextbox.textColor != .red {
-                descriptionTextbox.text = "*Description"
-                descriptionTextbox.textColor = UIColor.lightGray
-            }
-
-            if flag == true {
-                print("Here")
-                descriptionTextbox.text = "*Description"
-                descriptionTextbox.textColor = UIColor.red
-                flag = false
-            }
-        }
-    
-    
-    
-    
-    
-    func textFieldPrice(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == priceTextbox {
             if let t = textField.text, t.count > 4 {return false}
             

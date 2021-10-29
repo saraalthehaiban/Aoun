@@ -288,16 +288,10 @@
                                             <constraint firstAttribute="height" constant="20" id="ryG-i6-AqL"/>
                                         </constraints>
                                     </switch>
-<<<<<<< HEAD
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iee-xo-je1">
-                                        <rect key="frame" x="0.0" y="253" width="327" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="JZc-z1-pTO"/>
-                                        </constraints>
-=======
+
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price(SAR)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iee-xo-je1">
                                         <rect key="frame" x="0.0" y="251" width="327" height="34"/>
->>>>>>> Rasha
+
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -633,16 +627,7 @@
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="................................................................................" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaK-Pq-P9O">
-                                <rect key="frame" x="32" y="631" width="268" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="LaK-Pq-P9O" secondAttribute="height" multiplier="67:5" id="VqC-Uw-eE3"/>
-                                    <constraint firstAttribute="height" constant="20" id="dOt-gw-bVh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                           
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=".................................................." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt0-v6-oEt">
                                 <rect key="frame" x="25" y="270" width="371" height="41"/>
                                 <constraints>
@@ -667,10 +652,7 @@
                                     <action selector="downloadButtonTouched:" destination="ct2-Jt-vaj" eventType="touchUpInside" id="Pxs-k8-UiT"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="................................................................................" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kj0-zZ-1jn">
-                                <rect key="frame" x="73" y="693" width="268" height="35"/>
-=======
+
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTK-WU-PWk">
                                 <rect key="frame" x="207" y="766" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
@@ -683,7 +665,7 @@
                                     <constraint firstAttribute="width" secondItem="LaK-Pq-P9O" secondAttribute="height" multiplier="67:5" id="VqC-Uw-eE3"/>
                                     <constraint firstAttribute="height" constant="20" id="dOt-gw-bVh"/>
                                 </constraints>
->>>>>>> Rasha
+
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
@@ -699,27 +681,19 @@
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LaK-Pq-P9O" secondAttribute="trailing" symbolic="YES" id="7Ae-qk-g21"/>
                             <constraint firstItem="kPV-IF-Q7P" firstAttribute="top" secondItem="xRF-MS-HGn" secondAttribute="bottom" constant="10" id="7YV-Ck-qln"/>
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I8d-eK-aez" secondAttribute="trailing" symbolic="YES" id="92Z-4i-5aL"/>
-<<<<<<< HEAD
-                            <constraint firstItem="nt0-v6-oEt" firstAttribute="top" secondItem="iJL-Jf-hVP" secondAttribute="top" constant="270" id="ALs-fw-YPG"/>
-                            <constraint firstItem="YN9-3N-3LX" firstAttribute="top" secondItem="iJL-Jf-hVP" secondAttribute="top" constant="32" id="EAg-xA-pq5"/>
-                            <constraint firstItem="Kj0-zZ-1jn" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="73" id="ExN-mK-Dh5"/>
-                            <constraint firstItem="GKF-WW-YIl" firstAttribute="centerX" secondItem="wAX-9z-qTS" secondAttribute="centerX" constant="2" id="Fzt-B4-l6t"/>
-                            <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="xRF-MS-HGn" secondAttribute="trailing" constant="12" id="Gzx-c6-dnM"/>
-=======
+
                             <constraint firstItem="nt0-v6-oEt" firstAttribute="top" secondItem="iJL-Jf-hVP" secondAttribute="top" constant="255" id="ALs-fw-YPG"/>
                             <constraint firstItem="qTK-WU-PWk" firstAttribute="centerX" secondItem="wAX-9z-qTS" secondAttribute="centerX" id="Ecd-J1-60D"/>
                             <constraint firstItem="GKF-WW-YIl" firstAttribute="centerX" secondItem="wAX-9z-qTS" secondAttribute="centerX" id="Fzt-B4-l6t"/>
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="xRF-MS-HGn" secondAttribute="trailing" constant="85" id="Gzx-c6-dnM"/>
->>>>>>> Rasha
+
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kL4-a7-Q89" secondAttribute="trailing" symbolic="YES" id="HLG-t8-G4q"/>
                             <constraint firstItem="I8d-eK-aez" firstAttribute="top" secondItem="xRF-MS-HGn" secondAttribute="bottom" constant="42" id="L9I-le-HrE"/>
                             <constraint firstItem="kPV-IF-Q7P" firstAttribute="leading" secondItem="I8d-eK-aez" secondAttribute="leading" id="M2r-ta-BCT"/>
-<<<<<<< HEAD
-                            <constraint firstItem="iJL-Jf-hVP" firstAttribute="bottom" secondItem="GKF-WW-YIl" secondAttribute="bottom" constant="22" id="O6s-lP-IZw"/>
-=======
+
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="bottom" secondItem="GKF-WW-YIl" secondAttribute="bottom" constant="106" id="O6s-lP-IZw"/>
                             <constraint firstAttribute="bottom" secondItem="qTK-WU-PWk" secondAttribute="bottom" constant="76" id="PdF-bS-3Do"/>
->>>>>>> Rasha
+
                             <constraint firstItem="kPV-IF-Q7P" firstAttribute="leading" secondItem="kL4-a7-Q89" secondAttribute="leading" id="Rc0-S1-jJS"/>
                             <constraint firstAttribute="bottom" secondItem="kPV-IF-Q7P" secondAttribute="bottom" constant="399" id="URn-cJ-Lmd"/>
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="YN9-3N-3LX" secondAttribute="trailing" constant="191.5" id="Ui5-aW-iNP"/>
@@ -735,13 +709,8 @@
                             <constraint firstItem="iek-DB-pyw" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="32" id="r8t-OS-ACB"/>
                             <constraint firstItem="YN9-3N-3LX" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="191.5" id="tgL-ml-V3y"/>
                             <constraint firstItem="kPV-IF-Q7P" firstAttribute="leading" secondItem="LaK-Pq-P9O" secondAttribute="leading" id="uP5-LC-RSl"/>
-<<<<<<< HEAD
-                            <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="Kj0-zZ-1jn" secondAttribute="trailing" constant="73" id="vyN-Ou-6NV"/>
-                            <constraint firstItem="GKF-WW-YIl" firstAttribute="top" secondItem="Kj0-zZ-1jn" secondAttribute="bottom" constant="8" id="wPa-p2-K77"/>
-                            <constraint firstItem="nt0-v6-oEt" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="25" id="ySJ-8F-jLY"/>
-=======
-                            <constraint firstItem="nt0-v6-oEt" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="43" id="ySJ-8F-jLY"/>
->>>>>>> Rasha
+                <constraint firstItem="nt0-v6-oEt" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="43" id="ySJ-8F-jLY"/>
+
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="31Y-Kv-4kL"/>
@@ -750,12 +719,10 @@
                         <outlet property="authorName" destination="xRF-MS-HGn" id="Igv-zC-hCv"/>
                         <outlet property="desc" destination="I8d-eK-aez" id="VyW-RL-QcF"/>
                         <outlet property="descLable" destination="kPV-IF-Q7P" id="8xN-7r-M9E"/>
-<<<<<<< HEAD
-                        <outlet property="errorMsg" destination="Kj0-zZ-1jn" id="ksP-Bl-TaA"/>
-=======
+
                         <outlet property="downloadButton" destination="GKF-WW-YIl" id="uI1-o8-jOy"/>
                         <outlet property="errorMsg" destination="qTK-WU-PWk" id="Chs-n4-NZ0"/>
->>>>>>> Rasha
+
                         <outlet property="noteTitle" destination="nt0-v6-oEt" id="Sfy-5H-b4r"/>
                         <outlet property="price" destination="LaK-Pq-P9O" id="Wz9-2z-x4k"/>
                         <outlet property="priceLable" destination="iek-DB-pyw" id="EWg-vP-Xp2"/>
