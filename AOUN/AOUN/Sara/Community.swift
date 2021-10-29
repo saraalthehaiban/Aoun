@@ -53,7 +53,8 @@ class Community: UIViewController {
                                     let Title = data["Title"] as? String
                                     let Body = data["Body"] as? String
                                     let Answers = data["answers"] as? [String]
-                                    let newQ = Question(title: Title ?? "", body: Body ?? "", answer: Answers ?? [""] )
+                                    let askingUserID = data["User"] as? String
+                                    let newQ = Question(title: Title ?? "", body: Body ?? "", answer: Answers ?? [""], askingUserID: askingUserID )
                                    
                                     self.questions.append(newQ)
                                     self.ids[Title!] = doc.documentID
