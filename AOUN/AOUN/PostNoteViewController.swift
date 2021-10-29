@@ -15,22 +15,24 @@ protocol PostNoteViewControllerDelegate  {
     func postNote (_ vc: PostNoteViewController, note:NoteFile?, added:Bool)
 }
 
-class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UITextFieldDelegate {
+class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UITextFieldDelegate, UITextViewDelegate {
     var delegate : PostNoteViewControllerDelegate?
     @IBOutlet weak var topIcon: UIImageView!
     @IBOutlet weak var postNotePageTitle: UILabel!
     @IBOutlet weak var noteTitleTextbox: UITextField!
     @IBOutlet weak var autherTextbox: UITextField!
-    @IBOutlet weak var descriptionTextbox: UITextField!
+    @IBOutlet weak var descriptionTextbox: UITextView!
     @IBOutlet weak var priceTextbox: UITextField!
     @IBOutlet weak var error: UILabel!
     @IBOutlet weak var priceSwitch: UISwitch!
     @IBOutlet weak var fileMsg: UILabel!
     //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    
+
+    var flag : DarwinBoolean = false
+
     
     var files : [URL]?
+
     
     @IBAction func importButton(_ sender: Any) {
         
@@ -57,33 +59,40 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         files = urls
         fileMsg.text = "A file has been attached"
-
+        
     }
     
-
+    
     @IBAction func submitButton(_ sender: Any) {
-        
-        //activityIndicator.startAnimating()
+        if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
+            if noteTitleTextbox.text == ""{
+                noteTitleTextbox.attributedPlaceholder = NSAttributedString(string: "*Note Title",
+                                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if autherTextbox.text == ""{
+                autherTextbox.attributedPlaceholder = NSAttributedString(string: "*Author Name",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if descriptionTextbox.text == ""{
+               // descriptionTextbox.attributedPlaceholder = NSAttributedString(string: "*Description",
+                                                                    //          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            }
+            if  priceSwitch.isOn {
+                if priceTextbox.text == "" {
+                    priceTextbox.attributedPlaceholder = NSAttributedString(string: "*Price",
+                                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                }
+            }
+            error.text = "Please fill in any missing field"
+        }
         
         if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
-                    if noteTitleTextbox.text == ""{
-                        noteTitleTextbox.attributedPlaceholder = NSAttributedString(string: "*Note Title",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                    }
-                     if autherTextbox.text == ""{
-                        autherTextbox.attributedPlaceholder = NSAttributedString(string: "*Author Name",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                    }
-                     if descriptionTextbox.text == ""{
-                        descriptionTextbox.attributedPlaceholder = NSAttributedString(string: "*Description",
-                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                    }
-                    error.text = "Please fill in any missing field"
-                    
-                }
-                
-                if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
-                    return}
+            return}
+        
+        if  priceSwitch.isOn && priceTextbox.text == "" {
+            return
+        }
+        
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, noteTitleTextbox.text != "", autherTextbox.text != "" , descriptionTextbox.text != ""
         else {
@@ -99,7 +108,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         print("uid = ", uid, filename)
         
         let storageRef = Storage.storage().reference()
-
+        
         let notesRef = storageRef.child("Notes/\(uid)/\(filename)")
         
         let uploadTask = notesRef.putFile(from: localFile, metadata: nil) { metadata, error in
@@ -134,11 +143,10 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         let autherName = autherTextbox.text!
         let description = descriptionTextbox.text!
         let price = priceTextbox.text ?? ""
-        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
+        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url]
         //db.collection("Notes").document().setData(["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url])
         
         let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url)
-        //db.collection("Users").document(uid).collection("Notes").document().setData(:)
         db.collection("Notes").document().setData(data) { error in
             if let e = error {
                 print(e)
@@ -164,14 +172,20 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == priceTextbox {
+            if let t = textField.text, t.count > 4 {return false}
+            
             let allowedCharacters = CharacterSet(charactersIn:"0123456789")
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
+        } else if textField == noteTitleTextbox {
+            if let t = textField.text, t.count > 24 {return false}
+        } else if textField == noteTitleTextbox {
+            if let t = textField.text, t.count > 24 {return false}
         }
         return true
     }
     
-
+    
     
     @objc func stateChanged(switchState: UISwitch) {
         priceTextbox.isHidden = !switchState.isOn

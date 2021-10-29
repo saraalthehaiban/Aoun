@@ -19,6 +19,7 @@ class DownloadManager {
                 //TODO: Show and alert of error
                 print( "Download Error: ", e)
             } else if let d = data {
+                
                 completion(true, d)
             }
         }

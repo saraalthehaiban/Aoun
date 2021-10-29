@@ -13,17 +13,18 @@ target 'AOUN' do
   end
 
   target 'AOUNUITests' do
-    # Pods for testing
+    # Pods for testing 
   end
 
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
-
-  pod 'RPTTextView'
-#  pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Messaging'
   
   pod 'IQKeyboardManagerSwift', '~> 6.5'
-
-end
+  
+  pod 'BraintreeDropIn'
+  pod 'PayPalCheckout'
+  
+ end

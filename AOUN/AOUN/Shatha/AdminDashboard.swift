@@ -17,7 +17,6 @@ class AdminDashboard: UIViewController {
     @IBOutlet var tableView: UITableView!
     let db = Firestore.firestore()
     var requests : [Request] = []
-    var empty =  "No new community requests"
     fileprivate var selectedRow: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +25,9 @@ class AdminDashboard: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         loadCommunities ()
+        if requests.count == 0{
+            EmptyTable.text = "No new requests"
+        }
     }
     
     func loadCommunities (){
@@ -43,6 +45,9 @@ class AdminDashboard: UIViewController {
                             self.requests.append(newReq)
                             self.EmptyTable.text = "";
                         }
+                    }
+                    if self.requests.count == 0{
+                        self.EmptyTable.text = "No new requests"
                     }
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -87,6 +92,7 @@ extension AdminDashboard: UITableViewDataSource, UITableViewDelegate{
 extension AdminDashboard: CommunityDetailsViewControllerDelegate{
     func delAt(index : IndexPath) {
         requests.remove(at: index.row)
+        loadCommunities()
         tableView.reloadData()
     }
     

@@ -10,4 +10,5 @@ struct Question{
     let title: String //title of question
     let body: String //body of question
     let answer: [String] //Array of answers
+    var askingUserID:String?
 }
