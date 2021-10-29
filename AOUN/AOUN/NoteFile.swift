@@ -16,7 +16,7 @@ struct NoteFile {
     let urlString : String
     var documentId : String?
     
-    
+    var documentId :  String?
     var url : URL? {
         get {
             return URL (string: urlString)

@@ -10,10 +10,9 @@ import UIKit
 class detailedNoteViewController: UIViewController {
 
     @IBOutlet weak var topPic: UIImageView!
-    @IBOutlet weak var noteTitleLable: UILabel!
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var autherLable: UILabel!
-    @IBOutlet weak var aoutherName: UILabel!
+    @IBOutlet weak var authorName: UILabel!
     @IBOutlet weak var descLable: UILabel!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var priceLable: UILabel!
@@ -27,7 +26,7 @@ class detailedNoteViewController: UIViewController {
         super.viewDidLoad()
         
         noteTitle.text = note.noteLable
-        aoutherName.text = note.autherName
+        authorName.text = note.autherName
         desc.text = note.desc
         price.text = note.price
 
