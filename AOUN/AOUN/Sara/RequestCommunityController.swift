@@ -25,7 +25,7 @@ class RequestCommunityController: UIViewController {
         
         self.nameTextField.delegate = self
         self.descriptionTextView.characotrLimit = K_DescriptionLimit
-        self.descriptionTextView.placeHolderColor = .lightGray
+        self.descriptionTextView.placeHolderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
         self.descriptionTextView.placeHolder = "*Description"
 
         self.descriptionTextView.layer.borderWidth = 1.0; //check in runtime

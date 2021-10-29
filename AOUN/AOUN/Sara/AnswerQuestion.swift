@@ -30,8 +30,9 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
         body.text = bd
         self.desc.layer.borderColor = #colorLiteral(red: 0.9027513862, green: 0.8979359269, blue: 0.8978534341, alpha: 1)
         self.desc.layer.borderWidth = 1
-        self.desc.placeHolder = "*Description"
         self.desc.layer.cornerRadius = 8;// runtime
+        self.desc.placeHolder = "*Description"
+        self.desc.placeHolderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
     }
     
     func validatedData () -> [String:Any]? {
