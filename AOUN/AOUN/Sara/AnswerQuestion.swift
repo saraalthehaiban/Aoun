@@ -41,7 +41,7 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
         answers.append(ans)
         var dataDictionary : [String:Any] = ["answers" : answers]
         
-        if let description = desc.text, description != "*Description", description.count != 0 /*,description != descriptionTextView.placeHolder*/ {
+        if let description = desc.text, description != "*Description", description.count != 0 {
             dataDictionary["answers"] = answers
         }else{
             desc.placeHolderColor = .red
@@ -82,7 +82,7 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
         
         return true
         
-        /// navigationController?.popViewController(animated: true)
+        // navigationController?.popViewController(animated: true)
         //  dismiss(animated: true, completion: nil)
         
     }
