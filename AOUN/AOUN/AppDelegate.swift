@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-//        FirebaseApp.shared.
+        //        FirebaseApp.shared.
         
         IQKeyboardManager.shared.enable = true
         
@@ -41,28 +41,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setRoot () {
         let window = UIApplication.shared.windows.first
         if let cu =  Auth.auth().currentUser {//User is logged in
-           //navigate to internal screens
+            //navigate to internal screens
             if cu.email == "u001@aoun.com" {//TODO: Update this logic for admin sign up later
                 let vc = viewController(storyBoardname: "Admin", viewControllerId: "si_AdminDashboard")
                 window?.rootViewController = vc
             } else {
                 let vc = viewController(storyBoardname: "Main", viewControllerId: "userHome")
                 window?.rootViewController = vc
+                //                Messaging.messaging().subscribe(toTopic: cu.uid) { error in
+                //                    if error == nil {
+                //                        print("User subscribe to topic \(cu.uid)")
+                //                    }
+                //                }
+                updateFirestorePushTokenIfNeeded()
             }
         }else {
             //set landing screen to be internal
             window?.rootViewController = viewController(storyBoardname: "Auth", viewControllerId: "si_LandingViewController")
         }
     }
-
+    
+    func updateFirestorePushTokenIfNeeded() {
+        if let token = Messaging.messaging().fcmToken {
+            //  let usersRef = Firestore.firestore().collection("users_table").document(userID)
+            //  usersRef.setData(["fcmToken": token], merge: true)
+        }
+    }
+    
     // MARK: UISceneSession Lifecycle
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
@@ -82,7 +95,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     
     // The method will be called on the delegate when the application is launched in response to the user's request to view in-app notification settings. Add UNAuthorizationOptionProvidesAppNotificationSettings as an option in requestAuthorizationWithOptions:completionHandler: to add a button to inline notification settings view and the notification settings view in Settings. The notification will be nil when opened from Settings.
     func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
-       
+        
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
