@@ -8,7 +8,6 @@
 
 import Foundation
 struct resFile {
-    
     let name : String
     let author : String
     let publisher : String

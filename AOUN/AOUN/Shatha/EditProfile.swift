@@ -13,7 +13,7 @@ protocol VCEditProfileDelegate {
     func editView (editVC: VCEditProfile, profile : User, updated:Bool)
 }
 
-class VCEditProfile : UIViewController {
+class VCEditProfile : UIViewController, UITextFieldDelegate {
     var delegate : VCEditProfileDelegate?
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -24,7 +24,8 @@ class VCEditProfile : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
         // Do any additional setup after loading the view.
         setUpElements()
         
@@ -40,17 +41,39 @@ class VCEditProfile : UIViewController {
     
     func validateFields() -> String? {
         // Check that all fields are filled in
-        if  firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" &&
-                lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        var error = " "
+        let cleanedfirst = firstNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+                if Utilities.isValidName(testStr: cleanedfirst) == false {
+                    error = "Invalid name format, please use alphabitic characters only and at least 3 characters"
+                }
+                
+                let cleanedlast = lastNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+                if Utilities.isValidName(testStr: cleanedlast) == false {
+                    error = "Invalid name format, please use alphabitic characters only and at least 3 characters"
+                }
+        if  firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
             firstNameTextField.attributedPlaceholder = NSAttributedString(string: "*First Name",
                                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             
+            
+            error = "Please fill in first name"
+        }
+        if lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        {
             lastNameTextField.attributedPlaceholder = NSAttributedString(string: "*Last Name",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            return "please fill in missing fields"
+            error = "Please fill in last name"
         }
-        return nil
+        if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" &&
+            lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+    { error = "Please fill in all missing fields"
+        }
+        if error == " "
+        {
+            return nil }
+        else{ return error}
+        
     }
     
     @IBAction func signUptapped(_ sender: Any) {
@@ -82,7 +105,13 @@ class VCEditProfile : UIViewController {
 //                            self.user.FirstName = firstName
 //                            self.user.LastName = lastName
                             self.delegate?.editView(editVC: self, profile: self.user, updated: true)
-                            let alert = UIAlertController.init(title: "Done!", message: "Profile updated successfully!", preferredStyle: .alert)
+                            let alert = UIAlertController.init(title: "Updated", message: "Your profile updated successfully", preferredStyle: .alert)
+                            alert.view.tintColor = .black
+                            var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
+
+                                    imageView.image = UIImage(named: "Check")
+
+                            alert.view.addSubview(imageView)
                             let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
                                 self.dismiss(animated: true) {
                                     //inform main controller t update the information
@@ -119,4 +148,20 @@ class VCEditProfile : UIViewController {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 10
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+//    func textField1(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let minLength = 3
+//        let currentString: NSString = (textField.text ?? "") as NSString
+//        let newString: NSString =
+//            currentString.replacingCharacters(in: range, with: string) as NSString
+//        return newString.length >= minLength
+//    }
 }

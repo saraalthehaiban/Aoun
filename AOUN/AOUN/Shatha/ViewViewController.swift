@@ -65,7 +65,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         alert.addAction(da)
         
-        let ca = UIAlertAction(title: "Cancle", style: .cancel, handler: nil)
+        let ca = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(ca)
         
         self.present(alert, animated: true, completion: nil)
@@ -132,7 +132,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 //TODO: Add error handeling here
                 let lable = UILabel()
                 lable.textAlignment = .center
-                lable.text = "No Records!"
+                lable.text = "You haven’t posted any notes yet"
+                lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
                 lable.sizeToFit()
                 
                 self.notesTable.tableHeaderView = lable
@@ -168,6 +169,14 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                                 
                                 guard let ds = snapShot, !ds.isEmpty else {
                                     //TODO: Add error handeling here
+                                    let lable = UILabel()
+                                    lable.textAlignment = .center
+                                    lable.text = "You haven’t posted any resources yet"
+                                    lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
+                                    lable.sizeToFit()
+                                    
+                                    self.resTable.tableHeaderView = lable
+                                    self.resTable.reloadData()//reload table for blank record set (in case of deleting last object we need this)
                                     return
                                 }
                                 

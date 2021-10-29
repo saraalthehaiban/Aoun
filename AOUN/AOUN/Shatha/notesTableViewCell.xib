@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -44,12 +43,11 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="noteBubbble" destination="DeQ-vw-HsK" id="e9v-aF-yHl"/>
                 <outlet property="noteTitle" destination="dCA-Qu-41g" id="LaE-VA-AJt"/>
             </connections>
-            <point key="canvasLocation" x="385.50724637681162" y="-32.142857142857139"/>
+            <point key="canvasLocation" x="376.81159420289856" y="-29.464285714285712"/>
         </tableViewCell>
     </objects>
     <resources>
