@@ -163,9 +163,15 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == priceTextbox {
+            if let t = textField.text, t.count > 4 {return false}
+            
             let allowedCharacters = CharacterSet(charactersIn:"0123456789")
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
+        } else if textField == noteTitleTextbox {
+            if let t = textField.text, t.count > 24 {return false}
+        } else if textField == noteTitleTextbox {
+            if let t = textField.text, t.count > 24 {return false}
         }
         return true
     }
