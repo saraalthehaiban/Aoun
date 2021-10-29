@@ -45,6 +45,8 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
         
     }
     
+    
+    
     func loadNotes(){
         db.collection("Notes").getDocuments { querySnapshot, error in
             if let e = error {

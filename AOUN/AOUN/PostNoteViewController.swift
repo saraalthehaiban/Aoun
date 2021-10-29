@@ -65,7 +65,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
 
     }
     
-
+    
     @IBAction func submitButton(_ sender: Any) {
         
         //activityIndicator.startAnimating()
@@ -86,9 +86,17 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                     error.text = "Please fill in any missing field"
                     
                 }
-                
-                if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
-                    return}
+            }
+            error.text = "Please fill in any missing field"
+        }
+        
+        if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
+            return}
+        
+        if  priceSwitch.isOn && priceTextbox.text == "" {
+            return
+        }
+        
         
         let editedNote =  noteTitleTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let editedAuth =  autherTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -118,7 +126,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         print("uid = ", uid, filename)
         
         let storageRef = Storage.storage().reference()
-
+        
         let notesRef = storageRef.child("Notes/\(uid)/\(filename)")
         
         let uploadTask = notesRef.putFile(from: localFile, metadata: nil) { metadata, error in
@@ -244,14 +252,20 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     
     func textFieldPrice(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == priceTextbox {
+            if let t = textField.text, t.count > 4 {return false}
+            
             let allowedCharacters = CharacterSet(charactersIn:"0123456789")
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
+        } else if textField == noteTitleTextbox {
+            if let t = textField.text, t.count > 24 {return false}
+        } else if textField == noteTitleTextbox {
+            if let t = textField.text, t.count > 24 {return false}
         }
         return true
     }
     
-
+    
     
     @objc func stateChanged(switchState: UISwitch) {
         priceTextbox.isHidden = !switchState.isOn

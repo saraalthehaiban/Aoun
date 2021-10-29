@@ -13,7 +13,7 @@ target 'AOUN' do
   end
 
   target 'AOUNUITests' do
-    # Pods for testing
+    # Pods for testing 
   end
 
   pod 'Firebase/Analytics'
@@ -23,5 +23,8 @@ target 'AOUN' do
   pod 'Firebase/Messaging'
   
   pod 'IQKeyboardManagerSwift', '~> 6.5'
-
-end
+  
+  pod 'BraintreeDropIn'
+  pod 'PayPalCheckout'
+  
+ end

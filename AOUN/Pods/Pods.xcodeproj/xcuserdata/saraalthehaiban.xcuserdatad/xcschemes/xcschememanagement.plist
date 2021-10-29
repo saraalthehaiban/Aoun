@@ -11,68 +11,93 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+<<<<<<< HEAD
 		<key>Firebase-fc1b9f38.xcscheme</key>
+=======
+		<key>Braintree.xcscheme</key>
+>>>>>>> Rasha
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Firebase.default-CoreOnly.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>FirebaseAnalytics.xcscheme</key>
+		<key>BraintreeDropIn-BraintreeDropIn-Localization.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>FirebaseAuth.xcscheme</key>
+		<key>BraintreeDropIn.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Firebase-Analytics-Auth-Core-CoreOnly-Firestore-Storage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>FirebaseCore.xcscheme</key>
+		<key>Firebase.default-CoreOnly.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>FirebaseCoreDiagnostics.xcscheme</key>
+		<key>FirebaseAnalytics.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>FirebaseFirestore.xcscheme</key>
+		<key>FirebaseAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>FirebaseInstallations.xcscheme</key>
+		<key>FirebaseCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
-		<key>FirebaseMessaging.xcscheme</key>
+		<key>FirebaseCoreDiagnostics.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>10</integer>
+		</dict>
+		<key>FirebaseFirestore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>FirebaseInstallations.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>FirebaseMessaging.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 		<key>FirebaseStorage.xcscheme</key>
 		<dict>
@@ -86,63 +111,106 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>18</integer>
+=======
+			<integer>20</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>GoogleAppMeasurement.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>12</integer>
+=======
+			<integer>14</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>GoogleDataTransport.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>13</integer>
+=======
+			<integer>15</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>GoogleUtilities.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>14</integer>
+=======
+			<integer>16</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>19</integer>
+=======
+			<integer>21</integer>
+		</dict>
+		<key>PayPalCheckout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>24</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>Pods-AOUN-AOUNUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>23</integer>
+=======
+			<integer>26</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>Pods-AOUN.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>22</integer>
+=======
+			<integer>25</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>Pods-AOUNTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>24</integer>
+=======
+			<integer>27</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>PromisesObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>25</integer>
+=======
+			<integer>28</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>abseil.xcscheme</key>
 		<dict>
@@ -156,35 +224,55 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>16</integer>
+=======
+			<integer>18</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>gRPC-C++.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>15</integer>
+=======
+			<integer>17</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>gRPC-Core.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>17</integer>
+=======
+			<integer>19</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>20</integer>
+=======
+			<integer>22</integer>
+>>>>>>> Rasha
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>21</integer>
+=======
+			<integer>23</integer>
+>>>>>>> Rasha
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

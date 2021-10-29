@@ -9,14 +9,30 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 import IQKeyboardManagerSwift
-
+import PayPalCheckout
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        //        FirebaseApp.shared.
+        
+        
+        let config = CheckoutConfig(
+            clientID: "AXv9g7HZI6zUH1f_ZAdauJfwi9hvocNKBs-r8J2n37e8FstRt_QojYEt4pmEzN76qWj8jjfd2HZHNT2I",
+            returnUrl: "aoun.aoun://paypalpay",
+            environment: .sandbox)
+        Checkout.set(config: config)
+        
+//        //start Rasha
+//        Auth.auth().signIn(withEmail: "rasha.alsughier@gmail.com", password: "123456") { result, error in
+//                    if let error = error, result == nil {
+//                        print(error)
+//                    } else {
+//                        print("Success:", result)
+//                    }
+//                }
+//        //end Rasha
         
         IQKeyboardManager.shared.enable = true
         
