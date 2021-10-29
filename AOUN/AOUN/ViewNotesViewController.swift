@@ -109,7 +109,7 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NoteCellCollectionViewCell
         
         if(searchActive) {
-            cell.noteLable.text = filtered[indexPath.row].noteLable
+            cell.noteLable.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].noteLable : ""
         } else {
         cell.noteLable.text = notes[indexPath.row].noteLable
         }

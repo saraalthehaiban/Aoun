@@ -8,7 +8,6 @@
 import Foundation
 
 struct NoteFile {
-    
     let noteLable : String
     let autherName : String
     let desc : String
@@ -16,11 +15,9 @@ struct NoteFile {
     let urlString : String
     var documentId : String?
     
-    var documentId :  String?
     var url : URL? {
         get {
             return URL (string: urlString)
         }
     }
-
 }
