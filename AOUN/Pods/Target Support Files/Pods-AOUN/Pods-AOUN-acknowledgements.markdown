@@ -2444,7 +2444,7 @@ SOFTWARE.
 
 SDK LICENSE
 
-Copyright ÃÂÃÂ© 2013 - 2017 PayPal Holdings, Inc.
+Copyright ÃÂÃÂÃÂÃÂ© 2013 - 2017 PayPal Holdings, Inc.
 
 NOTICE TO USER: PayPal Holdings, Inc. is providing the Software and
 Documentation for use under the terms of this Agreement. Any use, reproduction,
