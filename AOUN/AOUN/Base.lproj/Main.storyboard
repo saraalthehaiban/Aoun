@@ -334,7 +334,7 @@
         <scene sceneID="FVO-hG-oyA">
             <objects>
                 <viewController storyboardIdentifier="PostNote_VC" id="rdP-0I-vAU" customClass="PostNoteViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Hrt-mO-dAh">
+                    <view key="view" contentMode="scaleToFill" id="Hrt-mO-dAh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -485,7 +485,7 @@
                                     <constraint firstAttribute="height" constant="274" id="UTA-tQ-qs5"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="Vjh-ZL-PHs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="Vjh-ZL-PHs">
                                 <rect key="frame" x="-124" y="-120" width="775" height="444"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="444" id="BBp-BH-sHI"/>
@@ -823,8 +823,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="31Y-Kv-4kL"/>
                     <connections>
-                        <outlet property="aoutherName" destination="xRF-MS-HGn" id="96c-fV-hcz"/>
                         <outlet property="autherLable" destination="kL4-a7-Q89" id="Ga3-mZ-cMh"/>
+                        <outlet property="authorName" destination="xRF-MS-HGn" id="Igv-zC-hCv"/>
                         <outlet property="desc" destination="I8d-eK-aez" id="VyW-RL-QcF"/>
                         <outlet property="descLable" destination="kPV-IF-Q7P" id="8xN-7r-M9E"/>
                         <outlet property="errorMsg" destination="Kj0-zZ-1jn" id="ksP-Bl-TaA"/>

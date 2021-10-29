@@ -44,6 +44,8 @@ class detailedResViewController: UIViewController {
         @IBAction func downloadButtonTouched(_ sender: Any) {
             guard let url = resource.url else {
                 //TODO: Show download url error message
+                errorMsg.text = "Download field"
+
                 return
             }
             
@@ -51,9 +53,24 @@ class detailedResViewController: UIViewController {
             DownloadManager.download(url: url) { success, data in
                 //guard let documentData = data.dataRe
                 //self.activityIndicator.stopAnimating()
+                
                 let vcActivity = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+                
                 self.present(vcActivity, animated: true, completion: nil)
+                
             }
+            let alert = UIAlertController.init(title: "Downloaded", message: "The resource downloaded successfully.", preferredStyle: .alert)
+                alert.view.tintColor = .black
+                    var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
+                            imageView.image = UIImage(named: "Check")
+                    alert.view.addSubview(imageView)
+            let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
+                self.dismiss(animated: true) {
+                    //inform main controller t update the information
+                }
+            }
+
+            
         }
     
 }
