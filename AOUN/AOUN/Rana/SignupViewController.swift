@@ -98,6 +98,16 @@ class SignupViewController: UIViewController {
             return "please fill missing fields"
         }
        
+        
+        
+        if confirmPasswordTextField.text?.trimmingCharacters(in:.whitespacesAndNewlines)==""
+        {
+            confirmPasswordTextField.attributedPlaceholder = NSAttributedString(string: "*Confirm password",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            
+            return "please fill in missing fields"
+        }
+        
         if(passwordTextField.text != confirmPasswordTextField.text)
         {
         return "password doesn't match"
