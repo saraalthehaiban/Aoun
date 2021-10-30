@@ -8,9 +8,10 @@
 import UIKit
 import Firebase
 
-class ViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate {
+class ViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
     func delAt(index : IndexPath) {
         self.loadNotes()
+        self.loadResources()
     }
     
     
@@ -184,7 +185,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     
                                     let data = doc.data()
                                     if let rName = data["ResName"] as? String, let aName  = data["authorName"] as? String, let pName = data["pubName"] as? String, let desc = data["desc"] as? String, let urlName = data["url"] as? String {
-                                        let newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName)
+                                        var newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName)
+                                        newRes.documentId = doc.documentID
                                         self.resources.append(newRes)
                                         
                                         DispatchQueue.main.async {
@@ -198,9 +200,23 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView === resTable {
+            selectedRow = indexPath.row
+//            let storyboard = UIStoryboard(name: "CommunityHome", bundle: nil)
+//            if let vc = storyboard.instantiateViewController(identifier: "Community") as? Community{
+            let storyboard = UIStoryboard(name: "Resources", bundle: nil)
+            if let vc = storyboard.instantiateViewController(identifier: "deleteResViewController") as? deleteResViewController {
+                let  res = resources[indexPath.row]
+                vc.delegate = self
+                vc.index = indexPath
+                vc.resource = res
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
         if tableView === notesTable {
             selectedRow = indexPath.row
-            if let vc = storyboard?.instantiateViewController(identifier: "deleteNote") as? deleteNote {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyboard.instantiateViewController(identifier: "deleteNote") as? deleteNote {
                 let note  = notes[indexPath.row]
                 vc.delegate = self
                 vc.index = indexPath
@@ -208,6 +224,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.present(vc, animated: true, completion: nil)
             }
         }
+       
     }//function to view note details
     
     func getName(completion: @escaping((String) -> ())) {

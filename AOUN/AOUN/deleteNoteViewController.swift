@@ -37,23 +37,105 @@ class deleteNote: UIViewController {
         noteTitle.text = note.noteLable
         authorName.text = note.autherName
         desc.text = note.desc
-        if desc.text == "" {
-            desc.text = "No Description"
-        }
+    
         price.text = note.price!
     }//end viewDidLoad
     
     
     @IBAction func downloadButtonTouched(_ sender: Any) {
         guard let url = note.url else {
-            errorMsg.text = "Download field"
-            return
-        }
-        DownloadManager.download(url: url) { success, data in
-            let vcActivity = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-            self.present(vcActivity, animated: true, completion: nil)
-        }
-    }//end downloadButtonTouched
+
+                      //TODO: Show download url error message
+
+                      errorMsg.text = "Download failed"
+
+
+
+                      return
+
+                  }
+
+                  download(url:url)
+
+             }
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          func download (url:URL) {
+
+                  //activityIndicator.startAnimating()
+
+                  DownloadManager.download(url: url) { success, data in
+
+                      guard let d = data else{ return }
+
+                      self.showFileSaveActivity(data: d)
+
+                  }
+
+              }
+
+              
+
+
+
+              func showFileSaveActivity (data:Data) {
+
+                  let vcActivity = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+
+                  vcActivity.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+
+                      if !completed {
+
+                          // User canceled
+
+                          return
+
+                      }
+
+                      // User completed activity
+
+                      self.showDownloadSuccess()
+
+                  }
+
+                  self.present(vcActivity, animated: true, completion: nil)
+
+              }
+
+              
+
+
+
+              func showDownloadSuccess () {
+
+                  let alertVC = UIAlertController(title: "Downloaded!", message: "File \"\(self.note.noteLable)\" dowloaded successfully.", preferredStyle: .alert)
+
+                  var imageView = UIImageView(frame: CGRect(x: 125, y: 75, width: 20, height: 20))
+
+                          imageView.image = UIImage(named: "Check")
+
+                  alertVC.view.addSubview(imageView)
+
+                  let action = UIAlertAction(title: "Ok", style: .cancel) { action in
+
+                      self.dismiss(animated: true, completion: nil)
+
+                  }
+
+                  alertVC.addAction(action)
+
+                  self.present(alertVC, animated: true, completion: nil)
+
+              }
     
     
     @IBAction func deleteNote(_ sender: UIButton) {

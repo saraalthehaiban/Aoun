@@ -133,7 +133,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
             return}
         
         if  priceSwitch.isOn && priceTextbox.text == "" {
-            return
+            error.text = "Please fill in the price"
         }
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, noteTitleTextbox.text != "", autherTextbox.text != "" , descriptionTextbox.text != ""
@@ -216,9 +216,11 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
 
                 let price = priceTextbox.text ?? ""
 
-                let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url]
+        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
 
-                let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url)
+
+
+        let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url )
 
                 
 
@@ -243,9 +245,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                                                     var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
 
 
-
                                                             imageView.image = UIImage(named: "Check")
-
 
 
                                                     alert.view.addSubview(imageView)

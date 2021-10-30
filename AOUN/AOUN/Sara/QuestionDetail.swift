@@ -52,7 +52,8 @@ class QuestionDetail: UIViewController {
                                 let data =  doc.data()
                                 if doc.documentID as? String == self.docID {
                                     if data["answers"] != nil{
-                                        self.answers = data["answers"] as! [String]}
+                                        self.answers = data["answers"] as! [String]
+                                    }
                                     else{
                                         break
                                     }
@@ -74,12 +75,11 @@ class QuestionDetail: UIViewController {
 
     }
     func check(){
-      //  delegate?.update()
-      //  delegate?.ID(index: 0)
+        delegate?.update()
+        delegate?.ID(index: 0)
         if answers.count == 0{
             empty.text = "Hasn't been answered yet"
         } else {
-            print("HERE!")
             empty.text = ""
             empty.isHidden = true
             empty.removeFromSuperview()
@@ -135,11 +135,12 @@ extension QuestionDetail: UITableViewDelegate{
 }
 extension QuestionDetail: AnswerQuestionDelegate{
     func update(ans : String){
-        loadAnswers()
+      //  loadAnswers()
+        print("after: ", answers)
         answers.append(ans)
         print("after: ", answers)
         check()
        // print(self.answers)
-        //AnsTable.reloadData()
+        AnsTable.reloadData()
     }
 }

@@ -152,6 +152,7 @@ class SignupViewController: UIViewController {
             let lastName =  lastNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+            let balance = 0
             //create user
             Auth.auth().createUser(withEmail: email, password: password) {( result, err) in
                 
@@ -166,7 +167,7 @@ class SignupViewController: UIViewController {
                 else
                 {
                     let db = Firestore.firestore()
-                                        db.collection("users").addDocument(data: ["FirstName": firstName, "LastName": lastName, "uid": result!.user.uid]){(error)
+                    db.collection("users").addDocument(data: ["FirstName": firstName, "LastName": lastName, "uid": result!.user.uid]){(error)
                         in
                         if error != nil{
                             

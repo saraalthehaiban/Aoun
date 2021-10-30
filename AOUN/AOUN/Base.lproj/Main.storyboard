@@ -746,8 +746,8 @@
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eKb-pb-oa5">
-                                <rect key="frame" x="191.5" y="81" width="31" height="27"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eKb-pb-oa5">
+                                <rect key="frame" x="191.5" y="37" width="31" height="27"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36.5" id="G6s-hC-3hW"/>
@@ -833,7 +833,7 @@
                                     <constraint firstAttribute="height" constant="40" id="QaK-rB-DaA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Delete note" backgroundImage="Simple Copy1">
+                                <state key="normal" title="Delete" backgroundImage="Simple Copy1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" systemColor="systemPinkColor"/>
                                 </state>

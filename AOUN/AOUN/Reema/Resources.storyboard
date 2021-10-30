@@ -316,8 +316,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eUw-Ol-e1T">
-                                <rect key="frame" x="191.5" y="46.5" width="31" height="17.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eUw-Ol-e1T">
+                                <rect key="frame" x="191.5" y="37" width="31" height="27"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="aff-wZ-4Hh"/>
@@ -458,8 +458,8 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-gH-K2v">
-                                <rect key="frame" x="191.5" y="63" width="31" height="17.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-gH-K2v">
+                                <rect key="frame" x="191.5" y="37" width="31" height="27"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="Gn0-aZ-hQI"/>
@@ -549,8 +549,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-TB-4vb">
-                                <rect key="frame" x="191.5" y="81" width="31" height="27"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-TB-4vb">
+                                <rect key="frame" x="191.5" y="37" width="31" height="27"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36.5" id="3PR-lk-8JZ"/>
@@ -609,7 +609,7 @@
                                     <constraint firstAttribute="height" constant="40" id="tnb-Yp-z8I"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Delete Note" backgroundImage="Simple Copy1">
+                                <state key="normal" title="Delete" backgroundImage="Simple Copy1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" systemColor="systemPinkColor"/>
                                 </state>

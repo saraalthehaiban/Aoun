@@ -36,7 +36,7 @@ class detailedNoteViewController: UIViewController{
     @IBOutlet weak var downloadButton: UIButton!
     
     var note : NoteFile!
-    
+    var authID: String = ""
     var priceOfNote:Decimal = 0
     var hackCheck = false
      
@@ -46,7 +46,6 @@ class detailedNoteViewController: UIViewController{
         authorName.text = note.autherName
         desc.text = note.desc
         price.text = "SAR \(note.price ?? "")"
-        
         if note.priceDecimal != nil {
             downloadButton.setTitle("Pay & Download", for: .normal)
             priceOfNote = note.priceDecimal ?? 0
@@ -128,8 +127,8 @@ class detailedNoteViewController: UIViewController{
                 print(error)
             } else {
                 let user = querySnapshot?.documents.first
-                let earned : Decimal = (user?["earned"] as? Decimal) ?? 0
-                let newVal = earned + price
+                let earned : Double = ((user?.data()["earned"] as? Double)) ?? 0
+                let newVal = Decimal.init(earned) + price
                 let updateData = ["earned":newVal]
                 user?.reference.updateData(updateData, completion: { error in
                     if let error = error {
@@ -146,6 +145,29 @@ class detailedNoteViewController: UIViewController{
         //activityIndicator.startAnimating()
         DownloadManager.download(url: url) { success, data in
             guard let d = data else{ return }
+            
+            //NEW Code -Balance-
+//            //authID
+//            var db = Firestore.firestore()
+//            db.collection("users").getDocuments { querySnapshot, error in
+//                if let e = error {
+//                    print("There was an issue retreving data from fireStore. \(e)")
+//                }else {
+//                    if let snapshotDocuments = querySnapshot?.documents{
+//                        for doc in snapshotDocuments {
+//                            let data = doc.data()
+//                            if data["uid"] as! String == self.authID{
+//                                let bl = data["Balance"] as? Int.IntegerLiteralType
+//                               let bl2 =  Int(bl!)
+//                               // let final = Int(self.price.text!)! + Int(bl2)
+//                             let docID = doc.documentID
+//                            db.collection("users").document(docID).updateData(["Balance": final])}
+//                        }
+//                        }
+//
+//                    }
+//                }
+            
             self.showFileSaveActivity(data: d)
         }
     }
@@ -159,6 +181,12 @@ class detailedNoteViewController: UIViewController{
             }
             // User completed activity
             self.showDownloadSuccess()
+            
+            
+            
+            
+            
+            
         }
         self.present(vcActivity, animated: true, completion: nil)
     }

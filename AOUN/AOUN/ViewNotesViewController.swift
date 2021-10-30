@@ -55,8 +55,8 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
                 if let snapshotDocuments = querySnapshot?.documents{
                     for doc in snapshotDocuments {
                         let data = doc.data()
-                        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String  {
-                            let newNote = NoteFile(noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName)
+                        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String  {
+                            let newNote = NoteFile(noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth)
                             self.notes.append(newNote)
                             DispatchQueue.main.async {
                                 self.collection.reloadData()
@@ -120,13 +120,19 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "si_noteListToDetail", sender: indexPath)
-//        if let vc = storyboard?.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
-//            vc.note = notes[indexPath.row]
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
+    //    let destinationVC = detailedNoteViewController()
+        
+     //   self.performSegue(withIdentifier: "si_noteListToDetail", sender: indexPath)
+        let storyboard =  UIStoryboard(name: "Main", bundle: nil)
+       if let vc = storyboard.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
+            vc.note = notes[indexPath.row]
+        vc.authID = notes[indexPath.row].userId ?? ""
+            self.present(vc, animated: true, completion: nil)
+            
+        }
     }
 }
+
 
 
 //MARK:- Add Work

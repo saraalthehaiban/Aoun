@@ -18,7 +18,7 @@ class Utilities {
     }
     
     static func isValidName(testStr:String) -> Bool {
-            guard testStr.count > 3, testStr.count < 18 else { return false }
+            guard testStr.count > 3, testStr.count < 16 else { return false }
             let predicateTest = NSPredicate(format: "SELF MATCHES %@", "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$")
             return predicateTest.evaluate(with: testStr)
         }

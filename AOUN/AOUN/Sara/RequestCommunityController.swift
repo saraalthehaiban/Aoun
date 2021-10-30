@@ -30,7 +30,7 @@ class RequestCommunityController: UIViewController {
 
         self.descriptionTextView.layer.borderWidth = 1.0; //check in runtime
         self.descriptionTextView.layer.cornerRadius = 8;// runtime
-        self.descriptionTextView.layer.borderColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
+        self.descriptionTextView.layer.borderColor = #colorLiteral(red: 0.8439332843, green: 0.8391087651, blue: 0.8433424234, alpha: 1)
 
     }
     
