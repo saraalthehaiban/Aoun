@@ -8,7 +8,8 @@
 import UIKit
 import Firebase
 class CommunityViewController: UIViewController {
-    
+
+    @IBOutlet var requestCommunity: UIButton!
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var collection: UICollectionView!
@@ -20,9 +21,8 @@ class CommunityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //activityIndicator.startAnimating()
-        // Do any additional setup after loading the view.
-        
+        requestCommunity.layer.shadowColor = UIColor.black.cgColor
+        requestCommunity.layer.shadowOpacity = 0.25
         let nipCell = UINib(nibName: "NoteCellCollectionViewCell", bundle: nil)
         
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")

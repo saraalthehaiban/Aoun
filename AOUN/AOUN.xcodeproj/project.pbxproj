@@ -23,6 +23,8 @@
 		0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A7C270F7D6500912EF0 /* Profile.storyboard */; };
 		0F502A82270F855300912EF0 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A81270F855300912EF0 /* Resources.storyboard */; };
 		0F5CDD45272D4931007CD644 /* PushNotificationSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CDD44272D4931007CD644 /* PushNotificationSupport.swift */; };
+		0F5CDD47272D8DC1007CD644 /* deleteResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CDD46272D8DC1007CD644 /* deleteResViewController.swift */; };
+		0F5CDD49272D8DD4007CD644 /* deleteNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CDD48272D8DD4007CD644 /* deleteNoteViewController.swift */; };
 		0F6EAE12272ACD2C0060997F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */; };
 		0F6EAE1A272AE61D0060997F /* RPTTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE19272AE61D0060997F /* RPTTextView.swift */; };
 		0F6EAE1C272B0EE70060997F /* CustomAlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */; };
@@ -120,6 +122,8 @@
 		0F502A7C270F7D6500912EF0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0F502A81270F855300912EF0 /* Resources.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
 		0F5CDD44272D4931007CD644 /* PushNotificationSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSupport.swift; sourceTree = "<group>"; };
+		0F5CDD46272D8DC1007CD644 /* deleteResViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deleteResViewController.swift; sourceTree = "<group>"; };
+		0F5CDD48272D8DD4007CD644 /* deleteNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deleteNoteViewController.swift; sourceTree = "<group>"; };
 		0F6EAE10272AC8EE0060997F /* AOUN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AOUN.entitlements; sourceTree = "<group>"; };
 		0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F6EAE19272AE61D0060997F /* RPTTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTTextView.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 		0F3DECEC270C995F00C5F6BB /* Reema */ = {
 			isa = PBXGroup;
 			children = (
+				0F5CDD46272D8DC1007CD644 /* deleteResViewController.swift */,
 				27712C6E270346AD00450466 /* resFile.swift */,
 				27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */,
 				271CFDD0270AF78C00FEE698 /* resPostViewController.swift */,
@@ -340,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				0FC6356B270F8E5A004D7A2A /* detailedNoteViewController.swift */,
+				0F5CDD48272D8DD4007CD644 /* deleteNoteViewController.swift */,
 				0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */,
 				0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */,
 				0FC6356D270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift */,
@@ -665,6 +671,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
+				0F5CDD49272D8DD4007CD644 /* deleteNoteViewController.swift in Sources */,
 				0FA3B47D271A0944005511B1 /* Question.swift in Sources */,
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
 				0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */,
@@ -679,6 +686,7 @@
 				523D7D7927253FC2001CF33E /* notification.swift in Sources */,
 				0F6EAE1C272B0EE70060997F /* CustomAlertMessage.swift in Sources */,
 				0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */,
+				0F5CDD47272D8DC1007CD644 /* deleteResViewController.swift in Sources */,
 				0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */,
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				27712C7127034CB200450466 /* detailedResViewController.swift in Sources */,

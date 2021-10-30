@@ -74,27 +74,67 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate, UITextV
         //        let range = strUrl.lastIndex(of: "/")!
         //        let name = strUrl[strUrl.index(after: range)...]
         //        let newString = name.replacingOccurrences(of: "%20", with: " ")
-        fileType.text = "A file has been attached [\(urls.last?.lastPathComponent ?? "")"
+        fileType.text = "A file has been attached [\(urls.last?.lastPathComponent ?? "")]"
     } //end func documentPicker
     
     
     @IBAction func submit(_ sender: UIButton) {
         //*****************************************
+   
         if resourceV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||  authorV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || publisherV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-            if resourceV.text == ""{
-                resourceV.attributedPlaceholder = NSAttributedString(string: "*Resource Name",
-                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            }
-            if authorV.text == ""{
-                authorV.attributedPlaceholder = NSAttributedString(string: "*Author Name",
-                                                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-                
-            }
-            if publisherV.text == ""{
-                publisherV.attributedPlaceholder = NSAttributedString(string: "*Publisher Name",
-                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-            }
-            msg.attributedText = NSAttributedString(string: "Please fill in any missing field",
+
+                     if resourceV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+
+                         resourceV.attributedPlaceholder = NSAttributedString(string: "*Resource Name",
+
+                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+
+                     }
+
+                      if authorV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+
+                         authorV.attributedPlaceholder = NSAttributedString(string: "*Author Name",
+
+                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+
+                         
+
+                     }
+
+                      if publisherV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+
+                         publisherV.attributedPlaceholder = NSAttributedString(string: "*Publisher Name",
+
+                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+
+                     }
+
+                 }
+
+         
+
+         if resourceV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+
+             msg.attributedText = NSAttributedString(string: "Please fill in resource name.",
+
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+
+         }else if authorV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+
+             msg.attributedText = NSAttributedString(string: "Please fill in author name.",
+
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+
+         } else if publisherV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+
+             msg.attributedText = NSAttributedString(string: "Please fill in publisher name.",
+
+                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+
+         }
+        if resourceV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" &&  authorV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" && publisherV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            msg.attributedText = NSAttributedString(string: "Please fill in all missing fields.",
+
                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         }
         
@@ -245,11 +285,11 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate, UITextV
         authorV.delegate = self
         publisherV.delegate = self
         descV.delegate = self
-        self.descV.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        self.descV.text = "Description"
-        self.descV.textColor = UIColor.lightGray
-        self.descV.layer.borderWidth = 1.0; //check in runtime
-        self.descV.layer.cornerRadius = 8;// runtime
+        descV.layer.borderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
+        descV.text = "Description"
+        descV.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
+        descV.layer.borderWidth = 1.0; //check in runtime
+        descV.layer.cornerRadius = 8;// runtime
     } //end func viewDidLoad
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 20
@@ -261,7 +301,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate, UITextV
     
     //[2] placeholder
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if descV.textColor == UIColor.lightGray{
+        if descV.textColor == #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1){
             descV.text = nil
             descV.textColor = UIColor.black
         }
@@ -271,7 +311,7 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate, UITextV
     func textViewDidEndEditing(_ textView: UITextView) {
         if descV.text.isEmpty {
             descV.text = "Description"
-            descV.textColor = UIColor.lightGray
+            descV.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
         }
     }
 } //end func resPostViewController

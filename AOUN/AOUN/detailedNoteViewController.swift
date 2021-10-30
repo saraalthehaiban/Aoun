@@ -86,12 +86,13 @@ class detailedNoteViewController: UIViewController{
     func triggerPurchase(url:URL) {
         let title = "Purchase: \(note.noteLable) | SAR\(note.priceDecimal ?? 0) (USD\(note.usdString ?? ""))"
         let activityViewController = UIAlertController(title: title, message: "You will be re-directed to paypal to confirm payment", preferredStyle: .actionSheet)
+        
         let purchaseAction = UIAlertAction(title: "Purchase", style: .default) { action in
             self.paymentAction(url:url)
         }
         activityViewController.addAction(purchaseAction)
         
-        let cancleAction = UIAlertAction(title: "Cancle", style: .cancel, handler: nil)
+        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         activityViewController.addAction(cancleAction)
         self.present(activityViewController, animated: true, completion: nil)
     }
@@ -164,6 +165,7 @@ class detailedNoteViewController: UIViewController{
     
     func showDownloadSuccess () {
         let alertVC = UIAlertController(title: "Downloaded!", message: "File \"\(self.note.noteLable)\" dowloaded successfully.", preferredStyle: .alert)
+        
         let action = UIAlertAction(title: "Ok", style: .cancel) { action in
             self.dismiss(animated: true, completion: nil)
         }

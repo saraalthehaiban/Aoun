@@ -237,6 +237,7 @@
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collection" destination="qPu-gx-lvs" id="eOr-sL-gI6"/>
+                        <outlet property="requestCommunity" destination="yPV-7S-6sk" id="Sf6-PZ-8yq"/>
                         <outlet property="titleLable" destination="cdG-b4-N8L" id="7CR-gQ-3PW"/>
                         <outlet property="topPic" destination="s4d-iD-rA6" id="zO9-sz-tfc"/>
                     </connections>

@@ -22,7 +22,7 @@ class RequestCommunityController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.nameTextField.delegate = self
         self.descriptionTextView.characotrLimit = K_DescriptionLimit
         self.descriptionTextView.placeHolderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
@@ -30,7 +30,7 @@ class RequestCommunityController: UIViewController {
 
         self.descriptionTextView.layer.borderWidth = 1.0; //check in runtime
         self.descriptionTextView.layer.cornerRadius = 8;// runtime
-        self.descriptionTextView.layer.borderColor = #colorLiteral(red: 0.9027513862, green: 0.8979359269, blue: 0.8978534341, alpha: 1)
+        self.descriptionTextView.layer.borderColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
 
     }
     
@@ -62,6 +62,7 @@ class RequestCommunityController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
+        
         guard let data = self.validatedData() else {
             return
         }

@@ -200,7 +200,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView === notesTable {
             selectedRow = indexPath.row
-            if let vc = storyboard?.instantiateViewController(identifier: "deleteNote") as? VCDeleteNote {
+            if let vc = storyboard?.instantiateViewController(identifier: "deleteNote") as? deleteNote {
                 let note  = notes[indexPath.row]
                 vc.delegate = self
                 vc.index = indexPath
