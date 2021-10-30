@@ -75,7 +75,7 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
         else{ return error}
         
     }
-    
+    //TODO: fix shatha's errors
     @IBAction func signUptapped(_ sender: Any) {
         let error = validateFields()
         if error != nil {

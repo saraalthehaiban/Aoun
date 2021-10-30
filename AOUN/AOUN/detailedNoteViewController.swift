@@ -10,6 +10,7 @@ import UIKit
 import Braintree
 import BraintreeDropIn
 import PayPalCheckout
+import Firebase
 
 
 enum DownloadAction : String {
@@ -83,7 +84,7 @@ class detailedNoteViewController: UIViewController{
     }
     
     func triggerPurchase(url:URL) {
-        let title = "Purchase: \(note.noteLable) | SAR\(note.priceDecimal ?? 0) (USD\(note.usdPrice ?? 0))"
+        let title = "Purchase: \(note.noteLable) | SAR\(note.priceDecimal ?? 0) (USD\(note.usdString ?? ""))"
         let activityViewController = UIAlertController(title: title, message: "You will be re-directed to paypal to confirm payment", preferredStyle: .actionSheet)
         let purchaseAction = UIAlertAction(title: "Purchase", style: .default) { action in
             self.paymentAction(url:url)
@@ -101,9 +102,41 @@ class detailedNoteViewController: UIViewController{
         //            self.showDropIn(clientTokenOrTokenizationKey: authorization, url: url) //Metod 2
         
         self.startCheckout(amount: "\(priceOfNote)") { message in
+            self.updatePrice(price: self.note.priceDecimal ?? 0)
             self.download(url: url)
         } failure: { error in
-            //TODO: Show alert from sarah's code
+            //TODO: CHANGE MESSAGE HERE
+            CustomAlert.showAlert(
+                title: "Cenceled",
+                message: "Your PayPal transaction was canceled.",
+                inController: self,
+                cancleTitle: "Ok") {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func updatePrice(price:Decimal) {
+        guard let userId = self.note.userId else {return}
+        
+        let db = Firestore.firestore()
+        //let updateData = ["earned":fcmToken]
+        db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                //Display Error
+                print(error)
+            } else {
+                let user = querySnapshot?.documents.first
+                let earned : Decimal = (user?["earned"] as? Decimal) ?? 0
+                let newVal = earned + price
+                let updateData = ["earned":newVal]
+                user?.reference.updateData(updateData, completion: { error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                    }
+                })
+            }
         }
     }
     

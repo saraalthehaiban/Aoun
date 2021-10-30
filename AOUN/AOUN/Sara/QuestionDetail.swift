@@ -25,6 +25,7 @@ class QuestionDetail: UIViewController {
     var BV : String = ""
     var answers: [String] = []
     var ans : [String] = []
+    var question : Question!
     override func viewDidLoad() {
         super.viewDidLoad()
         AnsTable.delegate = self
@@ -92,6 +93,7 @@ class QuestionDetail: UIViewController {
             vc.ID = docID
             vc.answers = answers
             vc.delegate = self
+            vc.question = self.question
             self.present(vc, animated: true, completion: nil)
         }
     }

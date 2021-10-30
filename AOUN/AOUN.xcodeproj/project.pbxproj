@@ -22,6 +22,7 @@
 		0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F502A76270F77EA00912EF0 /* SignoutViewController.swift */; };
 		0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A7C270F7D6500912EF0 /* Profile.storyboard */; };
 		0F502A82270F855300912EF0 /* Resources.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F502A81270F855300912EF0 /* Resources.storyboard */; };
+		0F5CDD45272D4931007CD644 /* PushNotificationSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CDD44272D4931007CD644 /* PushNotificationSupport.swift */; };
 		0F6EAE12272ACD2C0060997F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */; };
 		0F6EAE1A272AE61D0060997F /* RPTTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE19272AE61D0060997F /* RPTTextView.swift */; };
 		0F6EAE1C272B0EE70060997F /* CustomAlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */; };
@@ -76,8 +77,8 @@
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		999DAFADF9E88D07E7F88ED7 /* Pods_AOUN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A25A9DB814CCD0E7AB81110C /* Pods_AOUN.framework */; };
 		DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */; };
-		EA0E09D99C7FC9FAD85CA034 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		F7049652DBD7CAA5687E9845 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		EA0E09D99C7FC9FAD85CA034 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		F7049652DBD7CAA5687E9845 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		0F502A76270F77EA00912EF0 /* SignoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignoutViewController.swift; sourceTree = "<group>"; };
 		0F502A7C270F7D6500912EF0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0F502A81270F855300912EF0 /* Resources.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Resources.storyboard; sourceTree = "<group>"; };
+		0F5CDD44272D4931007CD644 /* PushNotificationSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSupport.swift; sourceTree = "<group>"; };
 		0F6EAE10272AC8EE0060997F /* AOUN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AOUN.entitlements; sourceTree = "<group>"; };
 		0F6EAE11272ACD2C0060997F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F6EAE19272AE61D0060997F /* RPTTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTTextView.swift; sourceTree = "<group>"; };
@@ -195,7 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA0E09D99C7FC9FAD85CA034 /* BuildFile in Frameworks */,
+				EA0E09D99C7FC9FAD85CA034 /* (null) in Frameworks */,
 				30DA87332F3C712B25BBA530 /* Pods_AOUNTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7049652DBD7CAA5687E9845 /* BuildFile in Frameworks */,
+				F7049652DBD7CAA5687E9845 /* (null) in Frameworks */,
 				2CBE62BCDF0E866E6B52A0B7 /* Pods_AOUN_AOUNUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +250,7 @@
 				0FA3B488272719C5005511B1 /* AOUNExtensions.swift */,
 				0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */,
 				0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */,
+				0F5CDD44272D4931007CD644 /* PushNotificationSupport.swift */,
 			);
 			path = Sara;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */,
 				271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */,
 				0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */,
+				0F5CDD45272D4931007CD644 /* PushNotificationSupport.swift in Sources */,
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,

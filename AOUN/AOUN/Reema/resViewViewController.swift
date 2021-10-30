@@ -125,7 +125,7 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
         
         if(searchActive) {
-            cell.name.text = filtered[indexPath.row].name
+            cell.name.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].name : ""
         } else {
         cell.name.text = resources[indexPath.row].name
         }

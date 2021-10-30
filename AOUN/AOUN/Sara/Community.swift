@@ -112,6 +112,7 @@ extension Community: UITableViewDelegate{
             //   vc.docID = ids[selectedRow]
             vc.comID = ID
             //vc.i = indexPath.row
+            vc.question = questions[selectedRow]
             
             
             vc.delegate = self

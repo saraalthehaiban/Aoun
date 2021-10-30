@@ -21,10 +21,12 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
     var ans : String = ""
     @IBOutlet var desc: RPTTextView!
     var db = Firestore.firestore()
-  
     @IBOutlet var body: UITextView!
     var bd: String = ""
     var answers: [String] = []
+    
+    var question : Question!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         body.text = bd
@@ -63,16 +65,41 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
             return
         }
         
-        db.collection("Questions").document(ID).updateData(answersDic)
-        delegate?.update(ans: ans)
-        //imageView.image =
-        CustomAlert.showAlert(
-            title: "Answer Posted",
-            message: "The member who asked the question will be notified",
-            inController: self,
-            with: UIImage(named: "Check"),
-            cancleTitle: "Ok") {
-            self.dismiss(animated: true, completion: nil)
+        db.collection("Questions").document(ID).updateData(answersDic) { error in
+            if let error = error {
+                print (error)
+            }else {
+                self.delegate?.update(ans: self.ans)
+                //imageView.image =
+                self.triggerNotification()
+                CustomAlert.showAlert(
+                    title: "Answer Posted",
+                    message: "The member who asked the question will be notified",
+                    inController: self,
+                    with: UIImage(named: "Check"),
+                    cancleTitle: "Ok") {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func triggerNotification()  {
+        guard let askingUserID = question.askingUserID else {
+            return
+        }
+        
+        //
+        db.collection("users").whereField("uid", isEqualTo: askingUserID).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                //Display Error
+                print(error)
+            } else {
+                guard let user = querySnapshot?.documents.first, let fcmToken = user["fcmToken"] as? String else {
+                    return
+                }
+                PushNotificationSender.sendPushNotification(to: fcmToken, title: "Answer posted", body: "Ansswer posted to your question \(self.question.title)")
+            }
         }
     }
     

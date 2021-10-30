@@ -55,8 +55,21 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         
     }
     
-    
+    var documentFileData : Data!
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard controller.documentPickerMode == .open, let url = urls.last, url.startAccessingSecurityScopedResource() else {return}
+        defer {
+            DispatchQueue.main.async {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+        
+        do {
+            let document = try Data(contentsOf: url.absoluteURL)
+            documentFileData = document
+        } catch {
+            print("Error loadin file", error)
+        }
         files = urls
         fileMsg.text = "A file has been attached"
         
@@ -93,7 +106,6 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
             return
         }
         
-        
         guard let fs = files, fs.count > 0, let localFile = fs.last, noteTitleTextbox.text != "", autherTextbox.text != "" , descriptionTextbox.text != ""
         else {
             error.attributedText = NSAttributedString(string: "Please attach file", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
@@ -108,9 +120,34 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         print("uid = ", uid, filename)
         
         let storageRef = Storage.storage().reference()
-        
         let notesRef = storageRef.child("Notes/\(uid)/\(filename)")
         
+        let ut = notesRef.putData(documentFileData, metadata: nil) { metadata, error in
+            if let e =  error {
+                print (e)
+                self.error.attributedText = NSAttributedString(string: "File couldn't be uploaded", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+                return
+            }
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                self.error.attributedText = NSAttributedString(string: "File couldn't be uploaded", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+                return
+            }
+            // Metadata contains file metadata such as size, content-type.
+            //let size = metadata.size
+            // You can also access to download URL after upload.
+            notesRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                self.createDocument(with : downloadURL)
+            }
+        }
+        
+        
+        
+        /*
         let uploadTask = notesRef.putFile(from: localFile, metadata: nil) { metadata, error in
             if let e =  error {
                 print (e)
@@ -133,7 +170,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                 self.createDocument(with : downloadURL)
             }
         }
-        uploadTask.resume()
+        uploadTask.resume()*/
     }
     
     func createDocument(with noteURL : URL) {

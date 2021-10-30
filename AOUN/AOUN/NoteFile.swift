@@ -15,6 +15,7 @@ struct NoteFile {
     let price : String?
     let urlString : String
     var documentId : String?
+    var userId:String?
     
     //...
     var priceDecimal : Decimal? {
@@ -32,6 +33,16 @@ struct NoteFile {
                 return pd / K_SAR_TO_USD_CONVERSION_RATE
             }
             return nil
+        }
+    }
+    
+    var usdString : String! {
+        get {
+            if let d = self.usdPrice {
+                let doubleValue = Double(truncating: d as NSNumber)
+                return String(format: "%.2f", doubleValue)
+            }
+            return ""
         }
     }
     

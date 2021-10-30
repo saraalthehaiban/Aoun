@@ -24,19 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             environment: .sandbox)
         Checkout.set(config: config)
         
-//        //start Rasha
-//        Auth.auth().signIn(withEmail: "rasha.alsughier@gmail.com", password: "123456") { result, error in
-//                    if let error = error, result == nil {
-//                        print(error)
-//                    } else {
-//                        print("Success:", result)
-//                    }
-//                }
-//        //end Rasha
+        //        //start Rasha
+        //        Auth.auth().signIn(withEmail: "rasha.alsughier@gmail.com", password: "123456") { result, error in
+        //                    if let error = error, result == nil {
+        //                        print(error)
+        //                    } else {
+        //                        print("Success:", result)
+        //                    }
+        //                }
+        //        //end Rasha
         
         IQKeyboardManager.shared.enable = true
         
-        //setRoot()
+        
         
         //NOtificaion setting
         application.registerForRemoteNotifications()
@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Messaging.messaging().delegate = self
         
+        self.perform(#selector(setRoot), with: nil, afterDelay: 0.9)
+        
         return true
     }
     
@@ -54,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return sb.instantiateViewController(withIdentifier: viewControllerId)
     }
     
+    @objc
     func setRoot () {
         let window = UIApplication.shared.windows.first
         if let cu =  Auth.auth().currentUser {//User is logged in
@@ -64,11 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 let vc = viewController(storyBoardname: "Main", viewControllerId: "userHome")
                 window?.rootViewController = vc
-                //                Messaging.messaging().subscribe(toTopic: cu.uid) { error in
-                //                    if error == nil {
-                //                        print("User subscribe to topic \(cu.uid)")
-                //                    }
-                //                }
                 updateFirestorePushTokenIfNeeded()
             }
         }else {
@@ -122,9 +120,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
     }
     
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+    }
+    
     func process(_ notification:UNNotification) {
         let userInfor = notification.request.content.userInfo
-        UIApplication.shared.applicationIconBadgeNumber = 0
+        print (userInfor)
+        //UIApplication.shared.applicationIconBadgeNumber = 0
         //if let title
         //Perform user notification handeling
     }
@@ -132,7 +135,32 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 
 extension AppDelegate : MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        let tokenDictionary = ["token":fcmToken ?? ""]
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FCMToken"), object: nil, userInfo: tokenDictionary)//trigger local notification will use it later
+        guard let token = fcmToken else {return}
+//        let tokenDictionary = ["token":token]
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FCMToken"), object: nil, userInfo: tokenDictionary)//trigger local notification will use it later
+        self.updateToken(fcmToken: token)
+    }
+    
+    func updateToken(fcmToken:String)  {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            //User is not logged in
+            return
+        }
+        let db = Firestore.firestore()
+        let updateData = ["fcmToken":fcmToken]
+        db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                //Display Error
+                print(error)
+            } else {
+                let user = querySnapshot?.documents.first
+                user?.reference.updateData(updateData, completion: { error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                    }
+                })
+            }
+        }
     }
 }
