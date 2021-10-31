@@ -45,7 +45,25 @@ class detailedNoteViewController: UIViewController{
         noteTitle.text = note.noteLable
         authorName.text = note.autherName
         desc.text = note.desc
-        price.text = "SAR \(note.price ?? "")"
+//        let intPrice = note.price!
+//
+//        if note.price != nil {
+//            if Int(intPrice)! >= 0{
+//                price.text = "SAR \(note.price ?? "")"
+//            }
+//        }else{
+//            price.text = "Free"
+//        }
+        
+        price.text = "\(note.price ?? "")"
+        if price.text != ""{
+            price.text = "\(note.price ?? "") SAR"
+        } else{
+            price.text = "Free"
+        }
+        
+        
+        
         if note.priceDecimal != nil {
             downloadButton.setTitle("Pay & Download", for: .normal)
             priceOfNote = note.priceDecimal ?? 0

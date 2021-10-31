@@ -451,7 +451,7 @@
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c25-gw-49L">
-                                        <rect key="frame" x="33" y="368" width="348" height="368"/>
+                                        <rect key="frame" x="33" y="368" width="348" height="359"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="20" id="vFa-Ee-x2x">
                                             <size key="itemSize" width="154" height="160"/>
@@ -494,9 +494,9 @@
                                     <constraint firstItem="c25-gw-49L" firstAttribute="trailing" secondItem="6zv-zG-lev" secondAttribute="trailing" constant="137" id="S43-Dl-gzu"/>
                                     <constraint firstItem="coj-VW-dDC" firstAttribute="trailing" secondItem="XCj-mE-z4C" secondAttribute="trailing" constant="191.5" id="ap4-iq-pZk"/>
                                     <constraint firstItem="6zv-zG-lev" firstAttribute="bottom" secondItem="coj-VW-dDC" secondAttribute="bottom" constant="-53" id="dDG-Pm-tWM"/>
-                                    <constraint firstItem="6zv-zG-lev" firstAttribute="top" secondItem="c25-gw-49L" secondAttribute="bottom" constant="-1" id="fty-gc-8Hx"/>
+                                    <constraint firstItem="6zv-zG-lev" firstAttribute="top" secondItem="c25-gw-49L" secondAttribute="bottom" constant="8" id="fty-gc-8Hx"/>
                                     <constraint firstItem="c25-gw-49L" firstAttribute="top" secondItem="hsR-VR-kBp" secondAttribute="bottom" constant="51" id="gpK-Bt-Tuz"/>
-                                    <constraint firstItem="6zv-zG-lev" firstAttribute="top" secondItem="c25-gw-49L" secondAttribute="bottom" constant="-1" id="j2o-JB-vkT"/>
+                                    <constraint firstItem="6zv-zG-lev" firstAttribute="top" secondItem="c25-gw-49L" secondAttribute="bottom" constant="8" id="j2o-JB-vkT"/>
                                     <constraint firstItem="XCj-mE-z4C" firstAttribute="leading" secondItem="coj-VW-dDC" secondAttribute="leading" constant="191.5" id="k50-Wi-g1b"/>
                                     <constraint firstItem="SOu-Qu-ToD" firstAttribute="top" secondItem="XCj-mE-z4C" secondAttribute="bottom" constant="147.5" id="kLe-s9-P3v"/>
                                     <constraint firstItem="c25-gw-49L" firstAttribute="top" secondItem="SOu-Qu-ToD" secondAttribute="bottom" constant="26" id="kOM-a4-wii"/>
@@ -617,7 +617,7 @@
                                     <constraint firstAttribute="width" secondItem="LaK-Pq-P9O" secondAttribute="height" multiplier="21:5" id="T9x-1C-ouz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemRedColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTK-WU-PWk">
@@ -915,7 +915,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TrD-Xz-AGi"/>
+        <segue reference="UXZ-oN-kF0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="26" width="2806" height="2093"/>
