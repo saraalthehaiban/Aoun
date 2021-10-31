@@ -88,12 +88,33 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
   
+    let db = Firestore.firestore()
+    @IBOutlet var balanceLable: UILabel!
+    
+    func callBalance (){
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                //Display Error
+                print(error)
+            } else {
+                let user = querySnapshot?.documents.first
+                let earned : Double = ((user?.data()["earned"] as? Double)) ?? 0
+                self.balanceLable.text = String(earned) + " SAR"
+               
+            
+            }
+        }
+        
+    }
     
     
     var notes: [NoteFile] = []
     var resources:[resFile] = []
     var empty =  "No notes"
-    let db = Firestore.firestore()
+    
     
     fileprivate var selectedRow: Int?
     
@@ -118,6 +139,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         //        saveButton.e  = true
         getName { [self] (name) in
             self.fullName.text = name}
+        callBalance()
     }
     
     func loadNotes (){
