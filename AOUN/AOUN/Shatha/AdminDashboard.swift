@@ -6,10 +6,29 @@ import Firebase
 class AdminDashboard: UIViewController {
     
     @IBAction func SignOut(_ sender: Any) {
-            if let appDelegate = UIApplication.shared.delegate
-                as? AppDelegate {
-                let vc = appDelegate.viewController(storyBoardname: "Profile", viewControllerId: "si_SignoutViewController")
-                self.present(vc, animated: true, completion: nil)}
+        let alert = UIAlertController(title: "Are you sure?", message: "This action will sign you out.", preferredStyle: .alert)
+        let da = UIAlertAction(title: "Sign out", style: .destructive) { action in
+            let auth = Auth.auth()
+            
+            do
+            {
+                try auth.signOut()
+                //TODO: Set RootView
+                let appD = UIApplication.shared.delegate as! AppDelegate
+                appD.setRoot()
+            }
+            catch let signoutError {
+              
+                print(signoutError)
+               
+                }
+        }
+        alert.addAction(da)
+        
+        let ca = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(ca)
+        
+        self.present(alert, animated: true, completion: nil)
         
     }
     

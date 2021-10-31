@@ -298,13 +298,22 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate, UITextV
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
-    
+    func textView
+    (_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+
+        let numberOfChars = newText.count
+
+        return numberOfChars < 191    // 190 Limit Value
+
+    }
     //[2] placeholder
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if descV.textColor == #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1){
-            descV.text = nil
-            descV.textColor = UIColor.black
-        }
+        //if descV.textColor == #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1){
+               descV.text = nil
+                    descV.textColor = UIColor.black
+      //  }
     }
     //
     //[3] Placeholder

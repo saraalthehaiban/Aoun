@@ -288,7 +288,29 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         priceSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
         stateChanged(switchState: priceSwitch)
     }
-    
+    func textFieldLength(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+          let maxLength = 20
+
+          let currentString: NSString = (textField.text ?? "") as NSString
+
+          let newString: NSString =
+
+              currentString.replacingCharacters(in: range, with: string) as NSString
+
+          return newString.length <= maxLength
+
+      }
+
+      func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+
+          let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+
+          let numberOfChars = newText.count
+
+          return numberOfChars < 191    // 190 Limit Value
+
+      }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
                 if descriptionTextbox.textColor == #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1) || descriptionTextbox.textColor == UIColor.red{
