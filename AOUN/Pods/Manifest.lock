@@ -344,24 +344,24 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
-  - Braintree/ApplePay (5.4.4):
+  - Braintree/ApplePay (5.5.0):
     - Braintree/Core
-  - Braintree/Card (5.4.4):
+  - Braintree/Card (5.5.0):
     - Braintree/Core
-  - Braintree/Core (5.4.4)
-  - Braintree/PaymentFlow (5.4.4):
-    - Braintree/Core
-    - Braintree/PayPalDataCollector
-  - Braintree/PayPal (5.4.4):
+  - Braintree/Core (5.5.0)
+  - Braintree/PaymentFlow (5.5.0):
     - Braintree/Core
     - Braintree/PayPalDataCollector
-  - Braintree/PayPalDataCollector (5.4.4)
-  - Braintree/ThreeDSecure (5.4.4):
+  - Braintree/PayPal (5.5.0):
+    - Braintree/Core
+    - Braintree/PayPalDataCollector
+  - Braintree/PayPalDataCollector (5.5.0)
+  - Braintree/ThreeDSecure (5.5.0):
     - Braintree/Card
     - Braintree/PaymentFlow
-  - Braintree/UnionPay (5.4.4):
+  - Braintree/UnionPay (5.5.0):
     - Braintree/Card
-  - Braintree/Venmo (5.4.4):
+  - Braintree/Venmo (5.5.0):
     - Braintree/Core
   - BraintreeDropIn (9.2.0):
     - Braintree/ApplePay (>= 5.4.2, ~> 5.4)
@@ -573,7 +573,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
-  Braintree: a609aec1e15f83a05ab4c9b4f09cb717e335555b
+  Braintree: acd5dd18b4aff8858346d6b6f6f3b5bc059332fb
   BraintreeDropIn: d9c1c1b01f3f15a7a1c32ff33c9e8ed22b85357a
   Firebase: 13d8d96499e2635428d5bf0ec675df21f95d9a95
   FirebaseAnalytics: 3a11ed901750e1ebcbe35e75915ff079878ea385
