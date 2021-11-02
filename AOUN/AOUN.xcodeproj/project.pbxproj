@@ -53,7 +53,6 @@
 		0FC3ABEC2727FC5F00B43C26 /* ResTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */; };
 		0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */; };
 		0FC3ABEF2727FC5F00B43C26 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */; };
-		0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */; };
 		0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABF227286BBD00B43C26 /* Admin.storyboard */; };
 		0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */; };
 		0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */; };
@@ -156,7 +155,6 @@
 		0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResTableViewCell.xib; sourceTree = "<group>"; };
 		0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
 		0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
-		0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDeleteNote.swift; sourceTree = "<group>"; };
 		0FC3ABF227286BBD00B43C26 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNotesViewController.swift; sourceTree = "<group>"; };
 		0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostNoteViewController.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
-				0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */,
 				0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */,
 				0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */,
 				0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */,
@@ -682,7 +679,6 @@
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
 				0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */,
 				271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */,
-				0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */,
 				0F5CDD45272D4931007CD644 /* PushNotificationSupport.swift in Sources */,
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
@@ -896,7 +892,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AOUN/AOUN.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8Q5F7V8QAQ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AOUN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

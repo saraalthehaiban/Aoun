@@ -7,13 +7,15 @@
 
 import Foundation
 struct Workshops {
-    let title : String
-    let presenter : String
-    let description : String
-    let dateTime: String
-    let seat : String
-    let price : String
-   
+        let Title : String
+        let presenter : String
+        let price : String
+        let seat : String
+        let description : String
+        let dateTime: String
+       
+        
+        var documentId : String?
     
 }
 

@@ -22,16 +22,16 @@ class workshopDetailsVC: UIViewController {
     @IBOutlet weak var price: UILabel!
     @IBAction func bookSeat(_ sender: UIButton) {
         
-        
-        //if payment succeed
-        //check the seats and seatNum--
-        // rewrite the value in database
+//        if payment succeed  {
+//            workshop.seat --
+//            //change in database code
+//    }
     }
     var workshop: Workshops!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        workshopTitle.text = workshop.title
+        workshopTitle.text = workshop.Title
         presenterName.text = workshop.presenter
         desc.text = workshop.description
         dateValue.text = workshop.dateTime
