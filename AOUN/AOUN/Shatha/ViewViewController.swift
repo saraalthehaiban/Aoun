@@ -87,6 +87,11 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func openNote(_ sender: UIButton) {
+        notesTable.isHidden = false
+        
+    }
+    
   
     let db = Firestore.firestore()
     @IBOutlet var balanceLable: UILabel!
@@ -126,6 +131,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         notesTable.delegate = self
         notesTable.dataSource = self
         loadNotes ()
+        notesTable.isHidden = true
         resTable.register(UINib(nibName:"ResTableViewCell", bundle: nil), forCellReuseIdentifier: "ResTableViewCell")
         resTable.delegate = self
         resTable.dataSource = self

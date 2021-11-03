@@ -20,6 +20,7 @@ class workshopDetailsVC: UIViewController {
     @IBOutlet weak var seatsNum: UILabel!
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var price: UILabel!
+    
     @IBAction func bookSeat(_ sender: UIButton) {
         
 //        if payment succeed  {
@@ -34,9 +35,15 @@ class workshopDetailsVC: UIViewController {
         workshopTitle.text = workshop.Title
         presenterName.text = workshop.presenter
         desc.text = workshop.description
-        dateValue.text = workshop.dateTime
+        dateValue.text = "\(workshop.dateTime)"
         seatsNum.text = workshop.seat
         price.text = workshop.price
+//        workshopTitle.text = "hello"
+//        presenterName.text = "Shatha"
+//        desc.text = "dhgfjdnkfvdgavuhrbijntkovsacacsVUQWEBRIJ"
+//        dateValue.text = "12/12/2021"
+//        seatsNum.text = "44"
+//        price.text = "100"
 
         // Do any additional setup after loading the view.
     }
