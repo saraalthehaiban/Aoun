@@ -11,7 +11,7 @@ import Firebase
 import UniformTypeIdentifiers
 
 protocol postWorkshopViewControllerDelegate{
-    func postWorkshop(_ vc: postWorkshopViewController, workshop: workshopFile?, added: Bool)
+    func postWorkshop(_ vc: postWorkshopViewController, workshop: Workshops?, added: Bool)
 }
 
 class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UITextViewDelegate, UITextFieldDelegate {
@@ -21,6 +21,7 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var stack: UIStackView!
     
+    @IBOutlet weak var workshopLabel: UILabel!
     @IBOutlet weak var Wtitle: UITextField!
     @IBOutlet weak var presenter: UITextField!
     @IBOutlet weak var priceTextbox: UITextField!
@@ -29,7 +30,6 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var msg: UILabel!
-        
     
     
     @IBAction func submit(_ sender: UIButton) {
@@ -55,11 +55,10 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
 
                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
            }
-//            if descV.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "*Description"{
-//                descV.attributedPlaceholder = NSAttributedString(string: "*Description",
-//
-//                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-//           }
+            if descV.text == "*Description"{
+                descV.text = "*Description"
+                descV.textColor = UIColor.red
+            }
                  }
         
          if Wtitle.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
@@ -110,7 +109,7 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
             msg.attributedText = NSAttributedString(string: "Presenter Name must be more than 3 characters.",
                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
-        }else if editedPresenter!.count < 11{
+        }else if editedDesc!.count < 11{
             msg.attributedText = NSAttributedString(string: "Description must be more than 10 characters.",
                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
@@ -136,11 +135,12 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
         let price =  priceTextbox.text!
         let se =  seat.text!
         let desc = descV.text!
+        let dateP = datePicker.date
+        let data = ["title": ti, "presenter": pres, "price": price, "seat": se, "desc": desc, "dateTime": dateP, "uid":Auth.auth().currentUser?.uid] as [String : Any]
+        let workshop = Workshops(Title: ti, presenter: pres, price: price, seat: se, description: desc, dateTime: dateP)
         
-        let data = ["title": ti, "presenter": pres, "price": price, "seat": se, "desc":desc,  "uid":Auth.auth().currentUser?.uid]
-        let workshop = workshopFile(Title: ti, Presenter: pres, Price: price, Seat: se, Description: desc)
 
-        db.collection("Workshop").document().setData(data) { error in
+        db.collection("Workshops").document().setData(data) { error in
             if let e = error {
                 print (e)
                 self.delegate?.postWorkshop(self, workshop: workshop, added: false)
@@ -166,11 +166,15 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         Wtitle.delegate = self
         presenter.delegate = self
+        priceTextbox.delegate = self
+        seat.delegate = self
+
         descV.delegate = self
         descV.layer.borderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
-        descV.text = "Description"
+        descV.text = "*Description"
         descV.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
         descV.layer.borderWidth = 1.0; //check in runtime
         descV.layer.cornerRadius = 8;// runtime
@@ -188,25 +192,22 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
     
     // how?
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == priceTextbox  || textField == seat{
-            if let t = textField.text, t.count > 4 {return false}
-            
+        if textField == priceTextbox || textField == seat {
+            let maxLength = 4
+            let currentString: NSString = (textField.text ?? "") as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
             let allowedCharacters = CharacterSet(charactersIn:"0123456789")
             let characterSet = CharacterSet(charactersIn: string)
-            return allowedCharacters.isSuperset(of: characterSet)
-        }else{
+            return allowedCharacters.isSuperset(of: characterSet) && newString.length <= maxLength
+        } 
+        if(textField == Wtitle || textField == presenter){
             let maxLength = 20
             let currentString: NSString = (textField.text ?? "") as NSString
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
-            
         }
-//        else if textField == noteTitleTextbox {
-//            if let t = textField.text, t.count > 24 {return false}
-//        } else if textField == noteTitleTextbox {
-//            if let t = textField.text, t.count > 24 {return false}
-//        }
         return true
     }
     
@@ -226,11 +227,11 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
             }
     
     //[3] Placeholder
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        if descV.text.isEmpty {
-//            descV.text = "Description"
-//            descV.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
-//        }
-//    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if descV.text.isEmpty {
+            descV.text = "*Description"
+            descV.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
+        }
+    }
     
 } //end func resPostViewController
