@@ -26,5 +26,5 @@ target 'AOUN' do
   
   pod 'BraintreeDropIn'
   pod 'PayPalCheckout'
-  
+  pod 'Cosmos'
  end

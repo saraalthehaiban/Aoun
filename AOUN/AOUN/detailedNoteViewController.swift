@@ -24,6 +24,9 @@ class detailedNoteViewController: UIViewController{
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
     var braintreeClient: BTAPIClient?
     
+    @IBOutlet var addReview: UIButton!
+    
+    @IBOutlet var reviews: UITableView!
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var autherLable: UILabel!
@@ -60,6 +63,7 @@ class detailedNoteViewController: UIViewController{
             price.text = "\(note.price ?? "") SAR"
         } else{
             price.text = "Free"
+            price.textColor = .systemGreen
         }
         
         
@@ -85,7 +89,7 @@ class detailedNoteViewController: UIViewController{
     @IBAction func downloadButtonTouched(_ sender: Any) {
         guard let url = note.url else {
             //TODO: Show download url error message
-            errorMsg.text = "Download field"
+            errorMsg.text = "Download failed"
             return
         }
         
@@ -121,6 +125,7 @@ class detailedNoteViewController: UIViewController{
         
         self.startCheckout(amount: "\(priceOfNote)") { message in
             self.updatePrice(price: self.note.priceDecimal ?? 0)
+            //downladed URL
             self.download(url: url)
         } failure: { error in
             //TODO: CHANGE MESSAGE HERE
@@ -132,6 +137,7 @@ class detailedNoteViewController: UIViewController{
                 self.dismiss(animated: true, completion: nil)
             }
         }
+   //l
     }
     
     func updatePrice(price:Decimal) {
@@ -139,6 +145,7 @@ class detailedNoteViewController: UIViewController{
         
         let db = Firestore.firestore()
         //let updateData = ["earned":fcmToken]
+        //db.collection("Notes").document("asdj adasjhl").collection("reviews").document("id")
         db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
             if let error = error {
                 //Display Error

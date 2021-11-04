@@ -38,6 +38,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         
         let attachSheet = UIAlertController(title: nil, message: "File attaching", preferredStyle: .actionSheet)
         
+        //UIImagePickerController
         
         attachSheet.addAction(UIAlertAction(title: "File", style: .default,handler: { (action) in
             let supportedTypes: [UTType] = [UTType.pdf,UTType.zip, UTType.word]
@@ -68,7 +69,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
             let document = try Data(contentsOf: url.absoluteURL)
             documentFileData = document
         } catch {
-            print("Error loadin file", error)
+            print("Error loading file", error)
         }
         files = urls
 //        let strUrl = "\(urls)"
@@ -223,7 +224,6 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url )
 
                 
-
                 db.collection("Notes").document().setData(data) { error in
 
                     if let e = error {
