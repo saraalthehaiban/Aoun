@@ -19,6 +19,36 @@ class Community: UIViewController {
     var questions: [Question] = []
     var titleX : String = ""
     
+    //SearchBar
+    @IBOutlet weak var searchBarQ: UISearchBar!
+    var searchActive : Bool = false
+    var filtered:[Question] = []
+    
+    //search
+    func searchBarQTextDidBeginEditing(_ searchBarQ: UISearchBar) {
+        searchActive = true;
+    }
+
+    func searchBarQTextDidEndEditing(_ searchBarQ: UISearchBar) {
+        searchActive = false;
+        self.searchBarQ.endEditing(true)
+    }
+    func searchBarQ(_ searchBarQ: UISearchBar, textDidChange searchText: String) {
+
+        filtered = questions.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+       
+        //self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.display.reloadData()
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         display.register(UINib(nibName: "CommunityQuestion", bundle: nil), forCellReuseIdentifier: "QCell")
@@ -31,10 +61,15 @@ class Community: UIViewController {
         if questions.count == 0 {
             empty.text = "No questions have been asked yet"
         }
+        
+        
         //        else{
         //            empty.text = ""
         //        }
     }
+    
+
+    
     
     func loadQuestions(){
         questions = []
@@ -94,6 +129,29 @@ extension Community: UITableViewDataSource{
         cell.QField.text = questions[indexPath.row].title
         //Title
         return cell
+        
+        //search
+        func tableView(_ tableView: UITableView, numberOfItemsInSection section: Int) -> Int {
+            if(searchActive) {
+                   return filtered.count
+               } else {
+            return questions.count
+               }
+        }
+        
+        func tableView(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommunityQuestion
+            
+            if(searchActive) {
+                cell.title.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].title : ""
+            } else {
+            cell.title.text = questions[indexPath.row].title
+            }
+            
+            return cell
+        }
+        
     }
     
     
