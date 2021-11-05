@@ -24,11 +24,6 @@
                         <color key="textColor" systemColor="secondaryLabelColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAD-Q6-NNW" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="268" y="19" width="120" height="53"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
-                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OvalUser" translatesAutoresizingMaskIntoConstraints="NO" id="L9i-4Y-wOX">
                         <rect key="frame" x="0.0" y="8" width="84" height="75"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -40,10 +35,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MS8-nm-hn4" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="222" y="3" width="167" height="80"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemGray6Color"/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="body" destination="fq0-LG-Pc0" id="yT9-rK-ljG"/>
+                <outlet property="stars" destination="MS8-nm-hn4" id="bz3-Kz-BW8"/>
+                <outlet property="user" destination="zfi-Qr-hc0" id="RfL-eF-lhF"/>
+            </connections>
             <point key="canvasLocation" x="1.4492753623188408" y="25.446428571428569"/>
         </tableViewCell>
     </objects>
@@ -51,9 +56,6 @@
         <image name="OvalUser" width="208" height="208"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

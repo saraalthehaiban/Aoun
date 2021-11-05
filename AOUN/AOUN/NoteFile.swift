@@ -16,7 +16,7 @@ struct NoteFile {
     let urlString : String
     var documentId : String?
     var userId:String?
-    
+    var docID: String
     //...
     var priceDecimal : Decimal? {
         get {

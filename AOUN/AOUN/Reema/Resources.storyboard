@@ -371,7 +371,6 @@
         <!--Res View View Controller-->
         <scene sceneID="4pL-uh-Xlh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nb1-RB-dUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="si_resViewViewController" id="idI-da-qbV" customClass="resViewViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gfn-yV-qNO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -504,6 +503,7 @@
                         <segue destination="MOO-gV-LqA" kind="presentation" identifier="si_resourceListToDetail" id="Ocq-6F-yOB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nb1-RB-dUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2418.840579710145" y="-364.28571428571428"/>
         </scene>

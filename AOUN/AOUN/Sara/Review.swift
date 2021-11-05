@@ -8,8 +8,8 @@
 import Foundation
 import Cosmos
 struct Review{
-    let user: String //title of question
-    let body: String //body of question
+    let user: String //user name
+    let body: String //body
     let rating: CosmosView //star rating
     
 }
