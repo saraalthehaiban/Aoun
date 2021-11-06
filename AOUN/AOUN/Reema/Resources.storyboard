@@ -843,7 +843,7 @@
                                     <constraint firstAttribute="width" constant="31" id="hN1-rM-iP1"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="29-1" translatesAutoresizingMaskIntoConstraints="NO" id="HhM-n0-SzQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="25" translatesAutoresizingMaskIntoConstraints="NO" id="HhM-n0-SzQ">
                                 <rect key="frame" x="-15" y="92" width="280" height="126"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="126" id="cTH-b0-thZ"/>
@@ -951,7 +951,7 @@
                                     <segue destination="fKJ-wR-XvH" kind="show" identifier="si_viewWorkshopToPost" id="Mpx-WT-LdU"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="resource" translatesAutoresizingMaskIntoConstraints="NO" id="9w8-aR-JEx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="25" translatesAutoresizingMaskIntoConstraints="NO" id="9w8-aR-JEx">
                                 <rect key="frame" x="-15" y="92" width="280" height="126"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="126" id="iPd-BP-2Tc"/>
@@ -1219,7 +1219,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="29-1" width="3271" height="1792"/>
+        <image name="25" width="2394" height="2216"/>
         <image name="Rectangle" width="327" height="50"/>
         <image name="Simple Copy1" width="657" height="150"/>
         <image name="add" width="399" height="393"/>
