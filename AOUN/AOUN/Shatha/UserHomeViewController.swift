@@ -25,6 +25,10 @@ class UserHomeViewController: UIViewController {
     }
     @IBOutlet weak var notesLabel: UILabel!
     @IBAction func workshopsButton(_ sender: UIButton) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let vc = appDelegate.viewController(storyBoardname: "Resources", viewControllerId: "postWorkshopViewController")
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     @IBOutlet weak var workshopsLabel: UILabel!
     @IBAction func resourcesButton(_ sender: UIButton) {
@@ -40,6 +44,7 @@ class UserHomeViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
+    
     
     @IBOutlet weak var CommunitiesLabel: UILabel!
     override func viewDidLoad() {
