@@ -37,6 +37,7 @@ class detailedNoteViewController: UIViewController{
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var errorMsg: UILabel!
     @IBOutlet weak var downloadButton: UIButton!
+    
     var docID: String = ""
     var note : NoteFile!
     var authID: String = ""
@@ -50,6 +51,12 @@ class detailedNoteViewController: UIViewController{
     var rating: CosmosView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //start table set up
+        reviews.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "RevCell")
+        reviews.delegate = self
+        reviews.dataSource = self
+        loadReviews()
+        //end table set up
         noteTitle.text = note.noteLable
         authorName.text = note.autherName
         desc.text = note.desc
@@ -68,7 +75,6 @@ class detailedNoteViewController: UIViewController{
             priceOfNote = note.priceDecimal ?? 0
         }
         
-        loadReviews()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -201,24 +207,24 @@ class detailedNoteViewController: UIViewController{
         Reviews = []
         colRef = Firestore.firestore().collection("Notes").document(docID).collection("reviews")
         colRef.getDocuments() { (querySnapshot, error) in
+            var hideEmptyLabel = true
             if let error = error {
                 print("Error getting documents: \(error)")
+                hideEmptyLabel = false
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     self.docRef = data["user"] as? DocumentReference
                     let body = data["review"] as? String
                     let point = data["point"] as? Double
-                    //self.rating.rating = point!
                     let stars : CosmosView = CosmosView()
                     stars.rating = point ?? 0.0
                     let user = self.docRef.documentID
                     Firestore.firestore().collection("users").getDocuments(){
                         querySnapshot, error in
-                            var hideEmptyLabel = true
+                       
                             if let e = error {
                                 print("There was an issue retreving data from fireStore. \(e)")
-                                hideEmptyLabel = false
                             }else {
                                 if let snapshotDocuments = querySnapshot?.documents{
                                     for doc in snapshotDocuments{
@@ -228,23 +234,24 @@ class detailedNoteViewController: UIViewController{
                                         var lName = document.data()["LastName"] as? String
                                          fName?.append(lName ?? "")
                                         let newRev = Review(user: fName!, body: body!, rating: stars)
+                                        self.Reviews.append(newRev)
+                                        print(self.Reviews.description, "NewRev")
                                         }
+                                    }
+                                    DispatchQueue.main.async {
+                                        self.reviews.reloadData()
                                     }
  
                                 } //hard coded, get from transition var = ID
                             }
                         }
-
-
-                                
-                            
+                    //MARK:- ^Got user
                     }
-                
-                }
-
-
+                hideEmptyLabel = (self.Reviews.count != 0)
             }
+            self.noRevs.isHidden = hideEmptyLabel
         }
+    }
 }
         
 
@@ -361,12 +368,23 @@ extension detailedNoteViewController : BTThreeDSecureRequestDelegate {
     }
 }
 
-//Paypal Payment
+//MARK:- Reviews by Sara
 
-extension detailedNoteViewController {
+
     
+extension detailedNoteViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Reviews.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = reviews.dequeueReusableCell(withIdentifier: "RevCell", for: indexPath) as! ReviewCell
+        cell.user.text = Reviews[indexPath.row].user
+        cell.body.text = Reviews[indexPath.row].body
+        cell.stars = Reviews[indexPath.row].rating
+        return cell
+    }
 }
 
-//MARK:- Reviews by Sara
 
 
