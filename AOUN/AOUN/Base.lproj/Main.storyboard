@@ -142,7 +142,7 @@
                                 <rect key="frame" x="350" y="49" width="44" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" backgroundImage="line.horizontal.3" catalog="system">
+                                <state key="normal" backgroundImage="person.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -938,8 +938,8 @@
         <image name="Simple Copy1" width="657" height="150"/>
         <image name="add" width="399" height="393"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="new res bg " width="478" height="701"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="resources" width="492" height="492"/>
         <image name="submit" width="981" height="150"/>
         <image name="user" width="1005" height="684"/>

@@ -89,7 +89,12 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func openNote(_ sender: UIButton) {
         notesTable.isHidden = false
-        
+//        openNote.setBackgroundImage(image: UIImage, named: "Chevron down", state: UIControlState)
+       
+    }
+    
+    @IBAction func openRes(_ sender: UIButton) {
+        resTable.isHidden = false
     }
     
   
@@ -136,6 +141,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         resTable.delegate = self
         resTable.dataSource = self
         loadResources()
+        resTable.isHidden = true
 //        getName { [self] (name) in
 //            self.fullName.text = name}
         
