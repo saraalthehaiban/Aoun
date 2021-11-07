@@ -288,30 +288,13 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         priceSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
         stateChanged(switchState: priceSwitch)
     }
-    func textFieldLength(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-          let maxLength = 20
-
-          let currentString: NSString = (textField.text ?? "") as NSString
-
-          let newString: NSString =
-
-              currentString.replacingCharacters(in: range, with: string) as NSString
-
-          return newString.length <= maxLength
-
-      }
-
       func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-
           let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-
           let numberOfChars = newText.count
-
           return numberOfChars < 191    // 190 Limit Value
-
       }
     
+    //[2] Placeholder
     func textViewDidBeginEditing(_ textView: UITextView) {
                 if descriptionTextbox.textColor == #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1) || descriptionTextbox.textColor == UIColor.red{
                     descriptionTextbox.text = nil
@@ -320,14 +303,13 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
             }
 
 
-
             //[3] Placeholder
 
             func textViewDidEndEditing(_ textView: UITextView) {
-//                if descriptionTextbox.text.isEmpty{
-//                      descriptionTextbox.text = "*Description"
-//                    descriptionTextbox.textColor = UIColor.red
-//                }
+                if descriptionTextbox.text.isEmpty{
+                      descriptionTextbox.text = "*Description"
+                    descriptionTextbox.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
+                }
 
 
             }
@@ -335,15 +317,20 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == priceTextbox {
-            if let t = textField.text, t.count > 4 {return false}
-            
+            let maxLength = 4
+            let currentString: NSString = (textField.text ?? "") as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
             let allowedCharacters = CharacterSet(charactersIn:"0123456789")
             let characterSet = CharacterSet(charactersIn: string)
-            return allowedCharacters.isSuperset(of: characterSet)
-        } else if textField == noteTitleTextbox {
-            if let t = textField.text, t.count > 24 {return false}
-        } else if textField == noteTitleTextbox {
-            if let t = textField.text, t.count > 24 {return false}
+            return allowedCharacters.isSuperset(of: characterSet) && newString.length <= maxLength
+        }
+        if(textField == noteTitleTextbox || textField == autherTextbox){
+            let maxLength = 20
+            let currentString: NSString = (textField.text ?? "") as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
         }
         return true
     }
