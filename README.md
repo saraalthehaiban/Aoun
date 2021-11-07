@@ -32,10 +32,12 @@
 <li> Member Searches for Specific Tags in Community </li> 
 <li> Member Searches for Specific Notes, Resources or Workshops </li> 
 <li> Member Can Chat with Another Member </li> 
-<li> Member chat notification </li> 
+<li> Member Chat Notification </li> 
 <li> Questions Answered Notification </li> 
     <li> Member View other Members' Profiles in Communities </li>
     <li> Member View Purchased Notes </li>
+    <li> Member Write A Review on a Purchased/Downloaded Note </li>
+    <li> Member Views Reviews of Notes </li>
   </ol>
 <h3 align="center"> Knowledge Acquisition Features</h3>
   <ol>
