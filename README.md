@@ -34,6 +34,8 @@
 <li> Member Can Chat with Another Member </li> 
 <li> Member chat notification </li> 
 <li> Questions Answered Notification </li> 
+    <li> Member View User Names in Communities </li>
+    <li> Member View Purchased Notes </li>
   </ol>
 <h3 align="center"> Knowledge Acquisition Features</h3>
   <ol>
