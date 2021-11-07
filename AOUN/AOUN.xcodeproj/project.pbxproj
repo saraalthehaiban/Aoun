@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0E335727304C5A000255F5 /* workshopDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E335627304C5A000255F5 /* workshopDetailsVC.swift */; };
+		0B0E335927304E9E000255F5 /* Workshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E335827304E9E000255F5 /* Workshops.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
 		0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3DECEA270B207800C5F6BB /* RCell.xib */; };
@@ -51,7 +53,6 @@
 		0FC3ABEC2727FC5F00B43C26 /* ResTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */; };
 		0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */; };
 		0FC3ABEF2727FC5F00B43C26 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */; };
-		0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */; };
 		0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABF227286BBD00B43C26 /* Admin.storyboard */; };
 		0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */; };
 		0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */; };
@@ -101,6 +102,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B0E335627304C5A000255F5 /* workshopDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workshopDetailsVC.swift; sourceTree = "<group>"; };
+		0B0E335827304E9E000255F5 /* Workshops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshops.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		0F3DECEA270B207800C5F6BB /* RCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCell.xib; sourceTree = "<group>"; };
 		0F40BDEC26F54F4900FB83AC /* AOUN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AOUN.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +155,6 @@
 		0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResTableViewCell.xib; sourceTree = "<group>"; };
 		0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
 		0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
-		0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDeleteNote.swift; sourceTree = "<group>"; };
 		0FC3ABF227286BBD00B43C26 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		0FC63567270F8D7B004D7A2A /* ViewNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNotesViewController.swift; sourceTree = "<group>"; };
 		0FC63568270F8D7B004D7A2A /* PostNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostNoteViewController.swift; sourceTree = "<group>"; };
@@ -263,7 +265,6 @@
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
-				0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */,
 				0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */,
 				0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */,
 				0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */,
@@ -271,6 +272,8 @@
 				0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */,
 				0FC3ABDE2727FC5F00B43C26 /* User.swift */,
 				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
+				0B0E335827304E9E000255F5 /* Workshops.swift */,
+				0B0E335627304C5A000255F5 /* workshopDetailsVC.swift */,
 				0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
@@ -676,10 +679,10 @@
 				0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */,
 				0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */,
 				271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */,
-				0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */,
 				0F5CDD45272D4931007CD644 /* PushNotificationSupport.swift in Sources */,
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
+				0B0E335927304E9E000255F5 /* Workshops.swift in Sources */,
 				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,
 				0F502A78270F77EA00912EF0 /* Constants.swift in Sources */,
 				27712C6F270346AD00450466 /* resFile.swift in Sources */,
@@ -707,6 +710,7 @@
 				0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
+				0B0E335727304C5A000255F5 /* workshopDetailsVC.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
 				0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */,
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
