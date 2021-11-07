@@ -162,7 +162,8 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
                 self.present(alert, animated: true, completion: nil)
             }
         }
-    }
+    }//end func createDocument
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,19 +179,9 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
         descV.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
         descV.layer.borderWidth = 1.0; //check in runtime
         descV.layer.cornerRadius = 8;// runtime
-    } //end func viewDidLoad
+    }//end func viewDidLoad
+
     
-    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let maxLength = 20
-//        let currentString: NSString = (textField.text ?? "") as NSString
-//        let newString: NSString =
-//            currentString.replacingCharacters(in: range, with: string) as NSString
-//        return newString.length <= maxLength
-//    }
-   
-    
-    // how?
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == priceTextbox || textField == seat {
             let maxLength = 4
@@ -209,14 +200,15 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
             return newString.length <= maxLength
         }
         return true
-    }
+    }//end func textField
+    
     
     func textView
     (_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.count
         return numberOfChars < 191    // 190 Limit Value
-    }
+    }//end func textView
     
     //[2] placeholder
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -224,7 +216,7 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
                     descV.text = nil
                     descV.textColor = UIColor.black
                 }
-            }
+            }//end func textViewDidBeginEditing
     
     //[3] Placeholder
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -232,6 +224,6 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
             descV.text = "*Description"
             descV.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
         }
-    }
+    }//end func textViewDidEndEditing
     
 } //end func resPostViewController
