@@ -144,9 +144,9 @@ extension Community: UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommunityQuestion
             
             if(searchActive) {
-                cell.title.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].title : ""
+                cell.QField.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].title : ""
             } else {
-            cell.title.text = questions[indexPath.row].title
+                cell.QField.text = questions[indexPath.row].title
             }
             
             return cell
