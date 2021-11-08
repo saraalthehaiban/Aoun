@@ -11,6 +11,36 @@ import Firebase
 class ViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
     @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
+    var K_TableHeights :  CGFloat = 0.0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.K_TableHeights = (UIScreen.main.bounds.size.height - 532   ) / 2
+        notesTable.register(UINib(nibName:"notesTableViewCell", bundle: nil), forCellReuseIdentifier: "notesTableViewCell")
+        notesTable.delegate = self
+        notesTable.dataSource = self
+        loadNotes ()
+        notesTable.isHidden = true
+        resTable.register(UINib(nibName:"ResTableViewCell", bundle: nil), forCellReuseIdentifier: "ResTableViewCell")
+        resTable.delegate = self
+        resTable.dataSource = self
+        loadResources()
+        resTable.isHidden = true
+//        getName { [self] (name) in
+//            self.fullName.text = name}
+        
+        getEmail { [self] (uEmail) in
+            self.email.text = uEmail
+        }
+        //        saveButton.e  = true
+        getName { [self] (name) in
+            self.fullName.text = name}
+        callBalance()
+        
+        self.hc_noteTable.constant = 0
+        self.hc_resourceTable.constant = 0
+    }
+    
     
     func delAt(index : IndexPath) {
         self.loadNotes()
@@ -27,7 +57,6 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         }else {
             fatalError("Invalid table")
         }
-
     }
     
     
@@ -95,18 +124,13 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func openNote(_ sender: UIButton) {
         notesTable.isHidden = false
         sender.isSelected = !sender.isSelected
-        
-        self.hc_noteTable.constant = (sender.isSelected) ? 160 : 0
-        
-        
-//        openNote.setBackgroundImage(image: UIImage, named: "Chevron down", state: UIControlState)
-       
+        self.hc_noteTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
     
     @IBAction func openRes(_ sender: UIButton) {
         resTable.isHidden = false
         sender.isSelected = !sender.isSelected
-        self.hc_resourceTable.constant = (sender.isSelected) ? 160 : 0
+        self.hc_resourceTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
     
   
@@ -140,32 +164,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     fileprivate var selectedRow: Int?
     
-  
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        notesTable.register(UINib(nibName:"notesTableViewCell", bundle: nil), forCellReuseIdentifier: "notesTableViewCell")
-        notesTable.delegate = self
-        notesTable.dataSource = self
-        loadNotes ()
-        notesTable.isHidden = true
-        resTable.register(UINib(nibName:"ResTableViewCell", bundle: nil), forCellReuseIdentifier: "ResTableViewCell")
-        resTable.delegate = self
-        resTable.dataSource = self
-        loadResources()
-        resTable.isHidden = true
-//        getName { [self] (name) in
-//            self.fullName.text = name}
-        
-        getEmail { [self] (uEmail) in
-            self.email.text = uEmail
-        }
-        //        saveButton.e  = true
-        getName { [self] (name) in
-            self.fullName.text = name}
-        callBalance()
-    }
-    
+
     func loadNotes (){
         notes = []
         guard let thisUserId = Auth.auth().currentUser?.uid else {
