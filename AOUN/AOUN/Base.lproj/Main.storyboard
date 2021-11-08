@@ -598,12 +598,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BGBt" translatesAutoresizingMaskIntoConstraints="NO" id="Trh-4w-VCC">
-                                <rect key="frame" x="302" y="727" width="92" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="VBT-LG-rqo"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaK-Pq-P9O">
                                 <rect key="frame" x="192" y="370" width="38.5" height="20"/>
                                 <constraints>
@@ -622,12 +616,12 @@
                                 <color key="textColor" red="0.40000003579999999" green="0.4196078479" blue="0.47058826679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yL-xg-kH2">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yL-xg-kH2">
                                 <rect key="frame" x="303" y="718" width="93" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="92" id="iBO-Hl-BPH"/>
                                 </constraints>
-                                <state key="normal" title="Review" image="AddQ">
+                                <state key="normal" title="Review" image="reviewButton">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -637,7 +631,7 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No one has posted a review yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKF-mc-tad">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKF-mc-tad">
                                 <rect key="frame" x="88" y="640" width="246" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="JXg-dv-gHi"/>
@@ -662,7 +656,6 @@
                             <constraint firstItem="qtm-yy-CF9" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="10" id="Bzd-Jj-C0v"/>
                             <constraint firstItem="3kc-ZX-ZOl" firstAttribute="top" secondItem="wAX-9z-qTS" secondAttribute="topMargin" constant="-9" id="DDW-6i-ZlB"/>
                             <constraint firstItem="qTK-WU-PWk" firstAttribute="top" secondItem="LaK-Pq-P9O" secondAttribute="bottom" constant="10" id="JHd-rg-RUF"/>
-                            <constraint firstItem="Trh-4w-VCC" firstAttribute="top" secondItem="GKF-mc-tad" secondAttribute="bottom" constant="2" id="LyM-HD-Dky"/>
                             <constraint firstItem="3kc-ZX-ZOl" firstAttribute="leading" secondItem="wAX-9z-qTS" secondAttribute="leading" constant="-154" id="Nu4-Dy-XQm"/>
                             <constraint firstItem="GKF-WW-YIl" firstAttribute="top" secondItem="AKg-z9-nlu" secondAttribute="bottom" constant="22" id="RDb-um-kar"/>
                             <constraint firstItem="I8d-eK-aez" firstAttribute="top" secondItem="xRF-MS-HGn" secondAttribute="bottom" constant="7" id="S4c-m8-V93"/>
@@ -677,7 +670,6 @@
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="qTK-WU-PWk" secondAttribute="trailing" constant="189" id="d8S-oA-gyS"/>
                             <constraint firstItem="qTK-WU-PWk" firstAttribute="trailing" secondItem="qtm-yy-CF9" secondAttribute="trailing" id="e4h-lR-oAf"/>
                             <constraint firstItem="GKF-mc-tad" firstAttribute="leading" secondItem="AKg-z9-nlu" secondAttribute="leading" id="fB5-Dy-kPJ"/>
-                            <constraint firstItem="Trh-4w-VCC" firstAttribute="trailing" secondItem="wAX-9z-qTS" secondAttribute="trailingMargin" id="gt8-3G-tzg"/>
                             <constraint firstItem="GKF-WW-YIl" firstAttribute="top" secondItem="LaK-Pq-P9O" secondAttribute="bottom" constant="44" id="kA0-aY-np1"/>
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="GKF-WW-YIl" secondAttribute="trailing" constant="86" id="m9h-ae-3Te"/>
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="1yL-xg-kH2" secondAttribute="trailing" constant="18" id="mvW-Xi-YAz"/>
@@ -687,7 +679,6 @@
                             <constraint firstItem="LaK-Pq-P9O" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="192" id="sJ0-04-Htx"/>
                             <constraint firstItem="qTK-WU-PWk" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="204" id="sMA-NU-f3a"/>
                             <constraint firstItem="zkJ-KE-qOh" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" id="sQ5-PZ-n0v"/>
-                            <constraint firstItem="iJL-Jf-hVP" firstAttribute="bottom" secondItem="Trh-4w-VCC" secondAttribute="bottom" constant="9" id="tv8-LP-R8v"/>
                             <constraint firstItem="I8d-eK-aez" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="96" id="u9s-1v-iaq"/>
                             <constraint firstItem="qtm-yy-CF9" firstAttribute="top" secondItem="GKF-WW-YIl" secondAttribute="bottom" constant="7" id="xxj-ya-xeC"/>
                             <constraint firstItem="I8d-eK-aez" firstAttribute="top" secondItem="xRF-MS-HGn" secondAttribute="bottom" constant="7" id="y5O-ps-ueG"/>
@@ -927,8 +918,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="26" width="2806" height="2093"/>
-        <image name="AddQ" width="365" height="361"/>
-        <image name="BGBt" width="92" height="91"/>
         <image name="Communities" width="492" height="492"/>
         <image name="Notes" width="492" height="492"/>
         <image name="NotesBox" width="747" height="1020"/>
@@ -939,6 +928,7 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="new res bg " width="478" height="701"/>
         <image name="resources" width="492" height="492"/>
+        <image name="reviewButton" width="365" height="361"/>
         <image name="submit" width="981" height="150"/>
         <image name="user" width="1005" height="684"/>
         <image name="waves" width="750" height="750"/>

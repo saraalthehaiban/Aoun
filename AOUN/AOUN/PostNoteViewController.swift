@@ -221,7 +221,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
 
 
 
-        let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url, docID: "")
+        let note = NoteFile(id:"doc.documentID", noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url, docID: "")
 
                 
                 db.collection("Notes").document().setData(data) { error in

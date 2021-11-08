@@ -74,7 +74,7 @@ class detailedNoteViewController: UIViewController{
             downloadButton.setTitle("Pay & Download", for: .normal)
             priceOfNote = note.priceDecimal ?? 0
         }
-        
+        self.loadUserReference()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,6 +124,7 @@ class detailedNoteViewController: UIViewController{
         
         self.startCheckout(amount: "\(priceOfNote)") { message in
             self.updatePrice(price: self.note.priceDecimal ?? 0)
+            
             //downladed URL
             self.download(url: url)
         } failure: { error in
@@ -164,11 +165,66 @@ class detailedNoteViewController: UIViewController{
         }
     }
     
+    func updateReviewButton() {
+        self.purchased(note: self.note) { condition in
+            self.addReview.isHidden = !condition
+        }
+    }
+    
+    func  purchased(note:NoteFile, _ complition: @escaping (Bool)->Void) {
+        guard let reference = self.user?["purchasedNotes"] as? [DocumentReference] else {
+            complition(false)
+            return
+        }
+        
+        for dr in reference {
+            if dr.documentID == note.id {
+                complition(true)
+                return;
+            }
+        }
+        complition(false)
+    }
+    
+    var user:QueryDocumentSnapshot?
+    func loadUserReference()  {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            //User is not logged in
+            return
+        }
+        let db = Firestore.firestore()
+        db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print(error)
+            } else {
+                self.user = querySnapshot?.documents.first
+                self.updateReviewButton()
+            }
+        }
+    }
+    
+    func updateNoteDownload (note:NoteFile) {
+        var purchasedNotes : [DocumentReference] = []
+        if  let pn = self.user?["purchasedNotes"] as? [DocumentReference] {
+            purchasedNotes = pn
+        }
+        purchasedNotes.append(db.document("Notes/\(note.id)"))
+        let updateData = ["purchasedNotes":purchasedNotes]
+        self.user?.reference.updateData(updateData, completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+            }
+        })
+    }
+    
+    
     
     func download (url:URL) {
         //activityIndicator.startAnimating()
         DownloadManager.download(url: url) { success, data in
             guard let d = data else{ return }
+            self.updateNoteDownload(note: self.note)
             self.showFileSaveActivity(data: d)
         }
     }
@@ -182,12 +238,6 @@ class detailedNoteViewController: UIViewController{
             }
             // User completed activity
             self.showDownloadSuccess()
-            
-            
-            
-            
-            
-            
         }
         self.present(vcActivity, animated: true, completion: nil)
     }

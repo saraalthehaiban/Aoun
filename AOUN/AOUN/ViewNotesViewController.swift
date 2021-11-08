@@ -55,7 +55,7 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
                     for doc in snapshotDocuments {
                         let data = doc.data()
                         if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String, let docId = doc.documentID as? String{
-                            let newNote = NoteFile(noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId)
+                            let newNote = NoteFile(id:doc.documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId)
                             self.notes.append(newNote)
                             DispatchQueue.main.async {
                                 self.collection.reloadData()
