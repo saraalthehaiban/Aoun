@@ -10,9 +10,7 @@ import Firebase
 import FirebaseStorage
 
 class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate
-{
-    @IBOutlet weak var del: UIButton!
-    
+{    
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var post: UIButton!
@@ -41,7 +39,7 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
         ///
         
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")
-        
+    
         loadResources()
     }
     
@@ -79,15 +77,15 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
         self.searchBar.endEditing(true)
     }
 
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        searchActive = false;
-//        self.searchBar.endEditing(true)
-//    }
-//
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        searchActive = false;
-//        self.searchBar.endEditing(true)
-//    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+        self.searchBar.endEditing(true)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+        self.searchBar.endEditing(true)
+    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         filtered = resources.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
