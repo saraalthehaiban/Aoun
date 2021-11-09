@@ -1,36 +1,36 @@
 //
-//  resViewViewController.swift
+//  viewWorkshopViewController.swift
 //  AOUN
 //
-//  Created by Reema Turki on 11/02/1443 AH.
+//  Created by Reema Turki on 28/03/1443 AH.
 //
 
 import UIKit
 import Firebase
 import FirebaseStorage
 
-class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate
-{    
+class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate{
+    
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var post: UIButton!
     
-    @IBOutlet weak var resL: UILabel!
+    @IBOutlet weak var workshopL: UILabel!
     @IBOutlet weak var collection: UICollectionView!
     
-    var resources:[resFile] = []
+    var workshops:[Workshops] = []
     let db = Firestore.firestore()
     
     @IBOutlet weak var searchBar: UISearchBar!
     var searchActive : Bool = false
-    var filtered:[resFile] = []
+    var filtered:[Workshops] = []
 
       override func viewDidLoad() {
         super.viewDidLoad()
         post.layer.shadowColor = UIColor.black.cgColor
         post.layer.shadowOpacity = 0.25
 
-        let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
+        let nipCell = UINib(nibName: "workshopCellCollectionViewCell", bundle: nil)
      
         //
         collection.delegate = self
@@ -39,12 +39,12 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
         ///
         
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")
-    
-        loadResources()
+        
+        loadWorkshops()
     }
     
-    func loadResources(){
-        db.collection("Resources").getDocuments { querySnapshot, error in
+    func loadWorkshops(){
+        db.collection("Workshops").getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
             }else {
@@ -52,10 +52,11 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
                     for doc in snapshotDocuments{
                         
                         let data = doc.data()
-                        if let rName = data["ResName"] as? String, let aName  = data["authorName"] as? String, let pName = data["pubName"] as? String, let desc = data["desc"] as? String, let urlName = data["url"] as? String {
-                            let newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName)
-                            self.resources.append(newRes)
+                        if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? Date {
+                            let newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime)
+                            self.workshops.append(newWorkshop)
                          
+                        
                             DispatchQueue.main.async {
                                 self.collection.reloadData()
                             }
@@ -88,7 +89,7 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        filtered = resources.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        filtered = workshops.filter { $0.Title.localizedCaseInsensitiveContains(searchText) }
         if(filtered.count == 0){
             searchActive = false;
         } else {
@@ -102,7 +103,7 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
 
 
 
-extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension viewWorkshopViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let w = (UIScreen.main.bounds.size.width - 110)/2
@@ -114,7 +115,7 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
         if(searchActive) {
                return filtered.count
            } else {
-        return resources.count
+        return workshops.count
            }
     }//end count
 
@@ -123,41 +124,41 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
         
         if(searchActive) {
-            cell.name.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].name : ""
+            cell.name.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].Title : ""
         } else {
-        cell.name.text = resources[indexPath.row].name
+        cell.name.text = workshops[indexPath.row].Title
         }
   
         return cell
     }//end cell
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "si_resourceListToDetail", sender: indexPath)
+        self.performSegue(withIdentifier: "si_workshopListToDetail", sender: indexPath)
     }//end
 }//extention
 
 //MARK:- Add Work
 
-extension resViewViewController {
+extension viewWorkshopViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "si_viewResToPost", let vc = segue.destination as? resPostViewController {
+        if segue.identifier == "si_viewWorkshopToPost", let vc = segue.destination as? postWorkshopViewController {
             vc.delegate = self
-        } else if segue.identifier == "si_resourceListToDetail",
-                  let vc = segue.destination as? detailedResViewController, let indexPath = sender as? IndexPath {
+        } else if segue.identifier == "si_workshopListToDetail",
+                  let vc = segue.destination as? DetailedWorkshopViewController, let indexPath = sender as? IndexPath {
             if searchActive && filtered.count != 0 {
-                vc.resource = filtered[indexPath.item]
+    //            vc.workshop = filtered[indexPath.item]
             } else {
-            vc.resource = resources[indexPath.row]
+     //       vc.workshop = workshops[indexPath.row]
             }
         }
     }//path for collectionView
 }//extention
 
-extension resViewViewController: resPostViewControllerDelegate {
-    func resPost(_ vc: resPostViewController, resource: resFile?, added: Bool){
+extension viewWorkshopViewController: postWorkshopViewControllerDelegate {
+    func postWorkshop(_ vc: postWorkshopViewController, workshop: Workshops?, added: Bool){
         vc.dismiss(animated: true) {
-            if added, let r = resource {
-                self.resources.append(r)
+            if added, let r = workshop {
+                self.workshops.append(r)
                 self.collection.reloadData()
             }
         }
