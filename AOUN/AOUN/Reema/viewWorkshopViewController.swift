@@ -146,9 +146,9 @@ extension viewWorkshopViewController {
         } else if segue.identifier == "si_workshopListToDetail",
                   let vc = segue.destination as? DetailedWorkshopViewController, let indexPath = sender as? IndexPath {
             if searchActive && filtered.count != 0 {
-                vc.workshop = filtered[indexPath.item]
+    //            vc.workshop = filtered[indexPath.item]
             } else {
-            vc.workshop = workshops[indexPath.row]
+     //       vc.workshop = workshops[indexPath.row]
             }
         }
     }//path for collectionView
