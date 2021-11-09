@@ -15,12 +15,21 @@ class ChangePasswordVC: UIViewController {
     @IBOutlet weak var rePass: UITextField!
     @IBOutlet weak var errorMSG: UILabel!
     @IBAction func changePassword(_ sender: UIButton) {
+        var password = newPass.text  //fix the logic
+            
+        Auth.auth().currentUser?.updatePassword(to: password) { error in
+          // ...
+        }
+//        Auth.auth().currentUser?.updatePassword(to: password) { error in
+//          // ...
+//        }
     }
+  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = Auth.auth().currentUser
         let credential: AuthCredential
-
         // Prompt the user to re-provide their sign-in credentials
 
 //        user?.reauthenticate(with: credential) { error,arg  in
