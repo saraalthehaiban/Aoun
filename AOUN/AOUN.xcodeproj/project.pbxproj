@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0E335727304C5A000255F5 /* workshopDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E335627304C5A000255F5 /* workshopDetailsVC.swift */; };
+		0B0E335727304C5A000255F5 /* WorkshopDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E335627304C5A000255F5 /* WorkshopDetailsVC.swift */; };
 		0B0E335927304E9E000255F5 /* Workshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E335827304E9E000255F5 /* Workshops.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
@@ -80,6 +80,7 @@
 		52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D00D3126F6915C009E3394 /* LoginViewController.swift */; };
 		999DAFADF9E88D07E7F88ED7 /* Pods_AOUN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A25A9DB814CCD0E7AB81110C /* Pods_AOUN.framework */; };
 		DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */; };
+		DAB85E88273AB90800DF5980 /* Workshop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB85E87273AB90800DF5980 /* Workshop.storyboard */; };
 		EA0E09D99C7FC9FAD85CA034 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		F7049652DBD7CAA5687E9845 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
@@ -102,7 +103,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B0E335627304C5A000255F5 /* workshopDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workshopDetailsVC.swift; sourceTree = "<group>"; };
+		0B0E335627304C5A000255F5 /* WorkshopDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopDetailsVC.swift; sourceTree = "<group>"; };
 		0B0E335827304E9E000255F5 /* Workshops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshops.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		0F3DECEA270B207800C5F6BB /* RCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCell.xib; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 		A25A9DB814CCD0E7AB81110C /* Pods_AOUN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E4201DB3D2E9FB5EEB0FB8 /* Pods-AOUNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.release.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA73ECB126FB9A680016ACA3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DAB85E87273AB90800DF5980 /* Workshop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Workshop.storyboard; sourceTree = "<group>"; };
 		ED6605DD51AFB6714DBC5866 /* Pods-AOUNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AOUNTests.debug.xcconfig"; path = "Target Support Files/Pods-AOUNTests/Pods-AOUNTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -273,10 +275,11 @@
 				0FC3ABDE2727FC5F00B43C26 /* User.swift */,
 				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
 				0B0E335827304E9E000255F5 /* Workshops.swift */,
-				0B0E335627304C5A000255F5 /* workshopDetailsVC.swift */,
+				0B0E335627304C5A000255F5 /* WorkshopDetailsVC.swift */,
 				0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
+				DAB85E87273AB90800DF5980 /* Workshop.storyboard */,
 			);
 			path = Shatha;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				0F502A82270F855300912EF0 /* Resources.storyboard in Resources */,
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
 				0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */,
+				DAB85E88273AB90800DF5980 /* Workshop.storyboard in Resources */,
 				0F6EAE1E272C2B570060997F /* Assets.xcassets in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
 				0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */,
@@ -710,7 +714,7 @@
 				0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
-				0B0E335727304C5A000255F5 /* workshopDetailsVC.swift in Sources */,
+				0B0E335727304C5A000255F5 /* WorkshopDetailsVC.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
 				0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */,
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
