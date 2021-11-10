@@ -14,7 +14,8 @@ struct Workshops {
     let description : String
     let dateTime: Date
     var documentId : String?
-    let uid : String
+    let uid:String?
+    //there wasn (?)
     
     //...
     var priceDecimal : Decimal? {

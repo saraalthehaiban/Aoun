@@ -143,8 +143,11 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
         let se =  seat.text!
         let desc = descV.text!
         let dateP = datePicker.date
+        let id = Auth.auth().currentUser?.uid ?? ""
+
         let data = ["title": ti, "presenter": pres, "price": price, "seat": se, "desc": desc, "dateTime": dateP, "uid":Auth.auth().currentUser?.uid] as [String : Any]
-        let workshop = Workshops(Title: ti, presenter: pres, price: price, seat: se, description: desc, dateTime: dateP)
+        
+        let workshop = Workshops(Title: ti, presenter: pres, price: price, seat: se, description: desc, dateTime: dateP, uid: id)
         
 
         db.collection("Workshops").document().setData(data) { error in
