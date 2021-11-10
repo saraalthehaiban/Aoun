@@ -16,10 +16,10 @@ class ChangePasswordVC: UIViewController {
     @IBOutlet weak var errorMSG: UILabel!
     @IBAction func changePassword(_ sender: UIButton) {
         var password = newPass.text  //fix the logic
-            
-        Auth.auth().currentUser?.updatePassword(to: password) { error in
-          // ...
-        }
+//
+//        Auth.auth().currentUser?.updatePassword(to: password) { error in
+//          // ...
+//        }
 //        Auth.auth().currentUser?.updatePassword(to: password) { error in
 //          // ...
 //        }
