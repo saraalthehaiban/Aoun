@@ -12,7 +12,7 @@ class UserHomeViewController: UIViewController {
 
     
     @IBAction func hi(_ sender: UIButton) { if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-        let vc = appDelegate.viewController(storyBoardname: "ViewProfile", viewControllerId: "workshopDetailsVC")
+        let vc = appDelegate.viewController(storyBoardname: "Workshop", viewControllerId: "si_WorkshopDetailsVC")
         self.present(vc, animated: true, completion: nil)
     }
     }
