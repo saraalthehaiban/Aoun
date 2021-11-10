@@ -10,6 +10,13 @@ import FirebaseStorage
 import Firebase
 import UniformTypeIdentifiers
 
+extension Date {
+    func dateByAddingDays(inDays:Int)->Date{
+        let today = Date()
+        return Calendar.current.date(byAdding: .day, value: inDays, to: today)!
+    }
+}
+
 protocol postWorkshopViewControllerDelegate{
     func postWorkshop(_ vc: postWorkshopViewController, workshop: Workshops?, added: Bool)
 }
@@ -179,6 +186,9 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
         descV.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
         descV.layer.borderWidth = 1.0; //check in runtime
         descV.layer.cornerRadius = 8;// runtime
+        
+        let d = Date().dateByAddingDays(inDays: 1)
+        datePicker.minimumDate = d
     }//end func viewDidLoad
 
     
