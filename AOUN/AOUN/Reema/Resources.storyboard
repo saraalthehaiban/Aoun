@@ -948,7 +948,7 @@
                                     <color key="titleColor" red="0.49019610879999997" green="0.81176471709999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fKJ-wR-XvH" kind="show" identifier="si_viewWorkshopToPost" id="Mpx-WT-LdU"/>
+                                    <segue destination="fKJ-wR-XvH" kind="show" id="vf3-RR-oib"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="25" translatesAutoresizingMaskIntoConstraints="NO" id="9w8-aR-JEx">
