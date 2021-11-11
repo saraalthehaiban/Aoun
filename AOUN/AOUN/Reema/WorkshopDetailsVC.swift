@@ -27,27 +27,32 @@ class WorkshopDetailsVC: UIViewController {
     @IBOutlet weak var seatsNum: UILabel!
     @IBOutlet weak var priceLable: UILabel!
     @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var timeVal: UILabel!
+    
     var workshop: Workshops!
+    var authID: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO: Remove this code
-        workshop = Workshops(Title: "Test", presenter: "P_Test", price: "16.0", seat: "1", description: "Some Description", dateTime: Date(), documentId: "001", uid: "E0RYJx9Y09bmGgjsfl79Ky9SF4c2")
-        
+//        //TODO: Remove this code
+//        workshop = Workshops(Title: "Test", presenter: "P_Test", price: "16.0", seat: "1", description: "Some Description", dateTime: Date(), documentId: "001", uid: "E0RYJx9Y09bmGgjsfl79Ky9SF4c2")
+        var newdate = workshop.dateTime
+        let tindex = newdate.index(newdate.startIndex, offsetBy: 17)
+        let time = newdate[..<tindex]
+        let newtime = time.suffix(5)
+        let date = newdate.prefix(11)
         workshopTitle.text = workshop.Title
         presenterName.text = workshop.presenter
         desc.text = workshop.description
-        dateValue.text = "\(workshop.dateTime)"
+        dateValue.text = " \(date)"
+        timeVal.text = "\(newtime)"
         seatsNum.text = workshop.seat
-        price.text = workshop.price
-        //        workshopTitle.text = "hello"
-        //        presenterName.text = "Shatha"
-        //        desc.text = "dhgfjdnkfvdgavuhrbijntkovsacacsVUQWEBRIJ"
-        //        dateValue.text = "12/12/2021"
-        //        seatsNum.text = "44"
-        //        price.text = "100"
+        price.text = workshop.price + " SAR"
         
+        
+            
+      
         // Do any additional setup after loading the view.
     }
     

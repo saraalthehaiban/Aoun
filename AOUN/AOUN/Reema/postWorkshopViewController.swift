@@ -142,7 +142,7 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
         let price =  priceTextbox.text!
         let se =  seat.text!
         let desc = descV.text!
-        let dateP = datePicker.date
+        let dateP = " \(datePicker.date)"
         let id = Auth.auth().currentUser?.uid ?? ""
 
         let data = ["title": ti, "presenter": pres, "price": price, "seat": se, "desc": desc, "dateTime": dateP, "uid":Auth.auth().currentUser?.uid] as [String : Any]

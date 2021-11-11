@@ -12,7 +12,7 @@ struct Workshops {
     let price : String
     let seat : String
     let description : String
-    let dateTime: Date
+    let dateTime: String
     var documentId : String?
     let uid:String?
     //there wasn (?)
