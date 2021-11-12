@@ -16,34 +16,18 @@ class Community: UIViewController {
     var ids : [String : String] = [:] //
     @IBOutlet var comName: UILabel!
     @IBOutlet var display: UITableView!
-    var questions: [Question] = []
     var titleX : String = ""
     
     //SearchBar
     @IBOutlet weak var searchBarQ: UISearchBar!
     var searchActive : Bool = false
-    var filtered:[Question] = []
-    
-    //search
-    func searchBarQTextDidBeginEditing(_ searchBarQ: UISearchBar) {
-        searchActive = true;
-    }
-
-    func searchBarQTextDidEndEditing(_ searchBarQ: UISearchBar) {
-        searchActive = false;
-        self.searchBarQ.endEditing(true)
-    }
-    func searchBarQ(_ searchBarQ: UISearchBar, textDidChange searchText: String) {
-
-        filtered = questions.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
-        if(filtered.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
+    var questions: [Question] = [] {
+        didSet {
+            filtered = questions
         }
-       
-        //self.tableView.reloadData()
-        DispatchQueue.main.async {
+    }
+    var filtered:[Question] = [] {
+        didSet {
             self.display.reloadData()
         }
     }
@@ -56,58 +40,40 @@ class Community: UIViewController {
         display.dataSource = self
         comName.text = name
         loadQuestions()
-        print("Before:", ids)
-        // Do any additional setup after loading the view.
-        if questions.count == 0 {
-            empty.text = "No questions have been asked yet"
-        }
-        
-        
-        //        else{
-        //            empty.text = ""
-        //        }
     }
-    
-
-    
     
     func loadQuestions(){
         questions = []
-        db.collection("Questions").getDocuments{
+        self.set(message: "Loading..")
+        db.collection("Questions").getDocuments {
             querySnapshot, error in
-            var hideEmptyLabel = true
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
-                hideEmptyLabel = false
             }else {
                 if let snapshotDocuments = querySnapshot?.documents{
+                    var qs : [Question] = []
                     for doc in snapshotDocuments{
                         let data =  doc.data()
                         if data["ID"] as? String == self.ID{
-                            self.empty.text = ""
-                            //self.comName.text = data["Community"] as? String
-                            //self.name = data["Community"] as? String ?? ""
                             let Title = data["Title"] as? String
                             let Body = data["Body"] as? String
                             let Answers = data["answers"] as? [String]
                             let askingUserID = data["User"] as? String
                             let newQ = Question(title: Title ?? "", body: Body ?? "", answer: Answers ?? [""], askingUserID: askingUserID )
                             
-                            self.questions.append(newQ)
+                            qs.append(newQ)
                             self.ids[Title!] = doc.documentID
-                            
                         }
                     }
-                    hideEmptyLabel = (self.questions.count != 0)
-                    DispatchQueue.main.async {
-                        self.display.reloadData()
-                    }
                     
-                } //hard coded, get from transition var = ID
-                
+                    DispatchQueue.main.async {
+                        self.questions = qs
+                        self.set(message: (self.questions.count == 0) ? "No questions have been asked yet" : nil)
+                    }
+                }
             }
-            self.empty.isHidden = hideEmptyLabel
         }
+        //a
     }
     
     @IBAction func addQ(_ sender: Any) {
@@ -121,84 +87,74 @@ class Community: UIViewController {
 }
 extension Community: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        return filtered.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = display.dequeueReusableCell(withIdentifier: "QCell", for: indexPath) as! CommunityQuestion
-        cell.QField.text = questions[indexPath.row].title
-        //Title
+        cell.QField.text = filtered[indexPath.row].title
         return cell
-        
-        //search
-        func tableView(_ tableView: UITableView, numberOfItemsInSection section: Int) -> Int {
-            if(searchActive) {
-                   return filtered.count
-               } else {
-            return questions.count
-               }
-        }
-        
-        func tableView(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommunityQuestion
-            
-            if(searchActive) {
-                cell.QField.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].title : ""
-            } else {
-                cell.QField.text = questions[indexPath.row].title
-            }
-            
-            return cell
-        }
-        
     }
-    
-    
 }
+
 extension Community: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRow = indexPath.row
         if let vc = storyboard?.instantiateViewController(identifier: "QuestionDetails") as? QuestionDetail{
-            vc.QV = questions[selectedRow].title
-            vc.BV = questions[selectedRow].body
-            vc.answers = questions[selectedRow].answer
+            vc.QV = filtered[selectedRow].title
+            vc.BV = filtered[selectedRow].body
+            vc.answers = filtered[selectedRow].answer
             let cell = tableView.cellForRow(at: indexPath) as! CommunityQuestion
             titleX = cell.QField.text ?? "NIL"
             vc.docID = ids[titleX] ?? "NIL"
-            
-            //   vc.docID = ids[selectedRow]
             vc.comID = ID
-            //vc.i = indexPath.row
-            vc.question = questions[selectedRow]
-            
-            
+            vc.question = filtered[selectedRow]
             vc.delegate = self
             self.present(vc, animated: true, completion: nil) 
         }
     }
 }
 
-extension Community: AskQuestionDelegate{
-    func add(){
+extension Community: AskQuestionDelegate {
+    func add() {
         loadQuestions()
-        display.reloadData()
     }
+    
     func after(sendBack : String){
         print("Here is 3: ", sendBack)
         // ids.append(sendBack)
         print("After:", ids)
     }
-    
-    
 }
+
 extension Community: CommunityDelegate{
     func update(){
         loadQuestions()
-        display.reloadData()
     }
+    
     func ID(index : Int) -> String{
         return ""
     }
 }
 
+extension Community: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filter(searchText: searchText)
+        
+    }
+    
+    func filter (searchText:String?) {
+        if let st = searchText, st.count > 0 {
+            filtered = questions.filter { $0.title.range(of: st, options: .caseInsensitive) != nil }
+            
+        }else{
+            filtered = questions
+        }
+        
+        self.set(message: (filtered.count == 0) ? "No records" : nil)
+    }
+    
+    func set(message:String?) {
+        self.empty.text = message
+    }
+}
