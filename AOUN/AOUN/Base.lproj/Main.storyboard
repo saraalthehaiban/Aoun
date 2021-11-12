@@ -631,7 +631,7 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKF-mc-tad">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKF-mc-tad">
                                 <rect key="frame" x="88" y="640" width="246" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="JXg-dv-gHi"/>
@@ -666,6 +666,7 @@
                             <constraint firstItem="qtm-yy-CF9" firstAttribute="bottom" secondItem="3kc-ZX-ZOl" secondAttribute="bottom" id="XVc-We-eOL"/>
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="AKg-z9-nlu" secondAttribute="trailing" constant="80" id="ZMx-dW-ynl"/>
                             <constraint firstItem="AKg-z9-nlu" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="88" id="aSl-CI-2lC"/>
+                            <constraint firstItem="iJL-Jf-hVP" firstAttribute="bottom" secondItem="GKF-mc-tad" secondAttribute="bottom" constant="83" id="bAB-eE-py7"/>
                             <constraint firstItem="GKF-WW-YIl" firstAttribute="top" secondItem="qTK-WU-PWk" secondAttribute="bottom" constant="1" id="cEH-PD-WIz"/>
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" secondItem="qTK-WU-PWk" secondAttribute="trailing" constant="189" id="d8S-oA-gyS"/>
                             <constraint firstItem="qTK-WU-PWk" firstAttribute="trailing" secondItem="qtm-yy-CF9" secondAttribute="trailing" id="e4h-lR-oAf"/>
