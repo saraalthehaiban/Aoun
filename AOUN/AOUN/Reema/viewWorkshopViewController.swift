@@ -47,13 +47,14 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
         db.collection("Workshops").getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
-            }else {
+            }
+        //    else {
                 if let snapshotDocuments = querySnapshot?.documents{
                     for doc in snapshotDocuments{
                         
                         let data = doc.data()
-                        if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? Date {
-                            let newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime)
+                        if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? String, let auth = data["uid"] as? String {
+                            let newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime, uid: auth)
                             self.workshops.append(newWorkshop)
                          
                         
@@ -63,9 +64,9 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
                         }
                     }
                 }
-            }
+          //  }
         }
-    }//end loadResources
+    }//end loadWorkshops
     
     
     //search
@@ -121,7 +122,7 @@ extension viewWorkshopViewController:UICollectionViewDelegateFlowLayout, UIColle
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
-        let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
+        let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! workshopCellCollectionViewCell
         
         if(searchActive) {
             cell.name.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].Title : ""
@@ -131,10 +132,22 @@ extension viewWorkshopViewController:UICollectionViewDelegateFlowLayout, UIColle
   
         return cell
     }//end cell
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        self.performSegue(withIdentifier: "si_viewWorkshopToDetails", sender: indexPath)
+//    }//end
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "si_workshopListToDetail", sender: indexPath)
-    }//end
+        let storyboard =  UIStoryboard(name: "Resources", bundle: nil)
+       if let vc = storyboard.instantiateViewController(withIdentifier: "si_WorkshopDetailsVC") as? WorkshopDetailsVC {
+            vc.workshop = workshops[indexPath.row]
+        vc.authID = workshops[indexPath.row].uid ?? ""
+        
+            self.present(vc, animated: true, completion: nil)
+
+        }
+    }
+
 }//extention
 
 //MARK:- Add Work
@@ -143,12 +156,12 @@ extension viewWorkshopViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "si_viewWorkshopToPost", let vc = segue.destination as? postWorkshopViewController {
             vc.delegate = self
-        } else if segue.identifier == "si_workshopListToDetail",
-                  let vc = segue.destination as? DetailedWorkshopViewController, let indexPath = sender as? IndexPath {
+        } else if segue.identifier == "si_viewWorkshopToDetails", //change
+                  let vc = segue.destination as? WorkshopDetailsVC, let indexPath = sender as? IndexPath {
             if searchActive && filtered.count != 0 {
-    //            vc.workshop = filtered[indexPath.item]
+                vc.workshop = filtered[indexPath.item]
             } else {
-     //       vc.workshop = workshops[indexPath.row]
+            vc.workshop = workshops[indexPath.row]
             }
         }
     }//path for collectionView

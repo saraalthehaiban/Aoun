@@ -9,6 +9,39 @@ import UIKit
 import Firebase
 
 class ViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
+    @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
+    @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
+    var K_TableHeights :  CGFloat = 0.0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.K_TableHeights = (UIScreen.main.bounds.size.height - 532   ) / 2
+        notesTable.register(UINib(nibName:"notesTableViewCell", bundle: nil), forCellReuseIdentifier: "notesTableViewCell")
+        notesTable.delegate = self
+        notesTable.dataSource = self
+        loadNotes ()
+        notesTable.isHidden = true
+        resTable.register(UINib(nibName:"ResTableViewCell", bundle: nil), forCellReuseIdentifier: "ResTableViewCell")
+        resTable.delegate = self
+        resTable.dataSource = self
+        loadResources()
+        resTable.isHidden = true
+//        getName { [self] (name) in
+//            self.fullName.text = name}
+        
+        getEmail { [self] (uEmail) in
+            self.email.text = uEmail
+        }
+        //        saveButton.e  = true
+        getName { [self] (name) in
+            self.fullName.text = name}
+        callBalance()
+        
+        self.hc_noteTable.constant = 0
+        self.hc_resourceTable.constant = 0
+    }
+    
+    
     func delAt(index : IndexPath) {
         self.loadNotes()
         self.loadResources()
@@ -23,7 +56,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
             return resources.count
         }else {
             fatalError("Invalid table")
-        }}
+        }
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,6 +106,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func changepass(_ sender: UIButton) {
+    }
     @IBOutlet weak var waves: UIImageView!
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var fullName: UILabel!
@@ -85,6 +121,18 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func editButton(_ sender: UIButton) {
         performSegue(withIdentifier: "si_profileToEdit", sender: self.user)
         
+    }
+    
+    @IBAction func openNote(_ sender: UIButton) {
+        notesTable.isHidden = false
+        sender.isSelected = !sender.isSelected
+        self.hc_noteTable.constant = (sender.isSelected) ? K_TableHeights : 0
+    }
+    
+    @IBAction func openRes(_ sender: UIButton) {
+        resTable.isHidden = false
+        sender.isSelected = !sender.isSelected
+        self.hc_resourceTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
     
   
@@ -118,30 +166,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     fileprivate var selectedRow: Int?
     
-  
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        notesTable.register(UINib(nibName:"notesTableViewCell", bundle: nil), forCellReuseIdentifier: "notesTableViewCell")
-        notesTable.delegate = self
-        notesTable.dataSource = self
-        loadNotes ()
-        resTable.register(UINib(nibName:"ResTableViewCell", bundle: nil), forCellReuseIdentifier: "ResTableViewCell")
-        resTable.delegate = self
-        resTable.dataSource = self
-        loadResources()
-//        getName { [self] (name) in
-//            self.fullName.text = name}
-        
-        getEmail { [self] (uEmail) in
-            self.email.text = uEmail
-        }
-        //        saveButton.e  = true
-        getName { [self] (name) in
-            self.fullName.text = name}
-        callBalance()
-    }
-    
+
     func loadNotes (){
         notes = []
         guard let thisUserId = Auth.auth().currentUser?.uid else {
