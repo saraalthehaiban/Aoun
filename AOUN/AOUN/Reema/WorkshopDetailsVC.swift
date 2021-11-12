@@ -31,13 +31,10 @@ class WorkshopDetailsVC: UIViewController {
     
     var workshop: Workshops!
     var authID: String = ""
-    
+    let db = Firestore.firestore()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        //TODO: Remove this code
-//        workshop = Workshops(Title: "Test", presenter: "P_Test", price: "16.0", seat: "1", description: "Some Description", dateTime: Date(), documentId: "001", uid: "E0RYJx9Y09bmGgjsfl79Ky9SF4c2")
-        var newdate = workshop.dateTime
+        let newdate = workshop.dateTime
         let tindex = newdate.index(newdate.startIndex, offsetBy: 17)
         let time = newdate[..<tindex]
         let newtime = time.suffix(5)
@@ -92,7 +89,7 @@ extension WorkshopDetailsVC {
     func paymentAction(){
         self.startCheckout(amount: "\(workshop.priceDecimal ?? 0.0)") { message in
             self.updatePrice(price: self.workshop.priceDecimal ?? 0)
-            self.confirmWorkshopSeat()
+            self.seats()
         } failure: { error in
             CustomAlert.showAlert(
                 title: "Cenceled",
@@ -147,8 +144,21 @@ extension WorkshopDetailsVC {
     }
     
     //TODO: Add code to increase seat or other stuff
-    func confirmWorkshopSeat() {
+    func confirmWorkshopSeat(workshop:Workshops) {
+        let newSeat = Int(workshop.seat)! - 1
+//        let ref = db.collection("Workshops").document(workshop.documentId!)
+        self.db.collection("Workshops").document(workshop.documentId!).updateData(["seat" : "\(newSeat)"]){ error in
+            if error != nil {
+                //Handle Error here
+            } else {
+                //Dismiss view controller and inform previosu view""
+//                self.dismiss(animated: true, completion: nil)
+//                self.delegate?.delAt(index: self.index)
+            }
+        }
+            
         print("Seat Purchased!")
     }
+    func seats () {self.confirmWorkshopSeat(workshop: self.workshop)}
 }
 

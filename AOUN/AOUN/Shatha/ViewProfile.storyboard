@@ -156,6 +156,15 @@
                                     <constraint firstAttribute="height" constant="180" id="p2w-yi-nV7"/>
                                 </constraints>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBY-JU-cgo">
+                                <rect key="frame" x="263" y="135" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="change password"/>
+                                <connections>
+                                    <action selector="changepass:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BYH-0E-ZRJ"/>
+                                    <segue destination="Uhi-gO-YqO" kind="show" id="gG8-5q-ga6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -311,11 +320,11 @@
             <objects>
                 <viewController storyboardIdentifier="ChangePasswordVC" id="Uhi-gO-YqO" customClass="ChangePasswordVC" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxv-Yn-Mm4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="uhU-3Y-wBV">
-                                <rect key="frame" x="-117" y="-90" width="775" height="444"/>
+                                <rect key="frame" x="-117" y="-144" width="775" height="444"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uhU-3Y-wBV" secondAttribute="height" multiplier="842:485" constant="4.1793814432988938" id="ocG-1L-FVJ"/>
                                     <constraint firstAttribute="height" constant="444" id="vsL-NE-B9o"/>
@@ -326,26 +335,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8YB-Hp-USu">
-                                <rect key="frame" x="191.5" y="81" width="31" height="27"/>
+                                <rect key="frame" x="191.5" y="37" width="31" height="27"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36.5" id="4Z9-Gb-3DQ"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="feD-61-eg3">
-                                <rect key="frame" x="43.5" y="425" width="327" height="232"/>
+                                <rect key="frame" x="43.5" y="371" width="327" height="232"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c1w-Zu-ahQ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c1w-Zu-ahQ">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <nil key="textColor"/>
+                                        <textInputTraits key="textInputTraits" textContentType="new-password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9E-Zf-xVk">
                                         <rect key="frame" x="0.0" y="54" width="327" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwj-yx-jCm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwj-yx-jCm">
                                         <rect key="frame" x="0.0" y="108" width="327" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="327" id="0QE-81-OJ9"/>
@@ -369,7 +378,6 @@
                                         </state>
                                         <connections>
                                             <action selector="changePassword:" destination="Uhi-gO-YqO" eventType="touchUpInside" id="yhm-AS-bnR"/>
-                                            <action selector="signUptapped:" destination="Uhi-gO-YqO" eventType="touchUpInside" id="bZz-Zg-qiY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -394,14 +402,11 @@
                             <constraint firstItem="feD-61-eg3" firstAttribute="top" secondItem="uhU-3Y-wBV" secondAttribute="bottom" constant="71" id="v0h-gM-Qzn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="eQQ-wm-b5r"/>
                     <connections>
-                        <outlet property="errorLabel" destination="Rwj-yx-jCm" id="rJ4-Od-ozv"/>
                         <outlet property="errorMSG" destination="Rwj-yx-jCm" id="1gv-9I-Yfr"/>
-                        <outlet property="firstNameTextField" destination="c1w-Zu-ahQ" id="ssL-EO-8Cv"/>
-                        <outlet property="lastNameTextField" destination="l9E-Zf-xVk" id="FUx-jR-daK"/>
                         <outlet property="newPass" destination="c1w-Zu-ahQ" id="gWq-F2-0to"/>
                         <outlet property="rePass" destination="l9E-Zf-xVk" id="K1t-h1-8ki"/>
-                        <outlet property="signUpButton" destination="5c7-EM-hbP" id="9TC-7H-kEj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XY4-gi-3Lv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

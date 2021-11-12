@@ -10,7 +10,7 @@ struct Workshops {
     let Title : String
     let presenter : String
     let price : String
-    let seat : String
+    var seat : String
     let description : String
     let dateTime: String
     var documentId : String?

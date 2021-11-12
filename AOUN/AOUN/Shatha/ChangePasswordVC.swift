@@ -15,31 +15,32 @@ class ChangePasswordVC: UIViewController {
     @IBOutlet weak var rePass: UITextField!
     @IBOutlet weak var errorMSG: UILabel!
     @IBAction func changePassword(_ sender: UIButton) {
-        var password = newPass.text  //fix the logic
-//
-//        Auth.auth().currentUser?.updatePassword(to: password) { error in
-//          // ...
-//        }
-//        Auth.auth().currentUser?.updatePassword(to: password) { error in
-//          // ...
-//        }
-    }
+        errorMSG.text = validatPassword()  //fix the logic
+        let password = newPass.text
+        var email = ""
+        getEmail { [self] (uEmail) in
+            email = uEmail
+        }
+        if (errorMSG.text == nil && password != nil){
+            let user = Auth.auth().currentUser
+            var credential: AuthCredential
+            var credentials = EmailAuthProvider.credential(withEmail: email, password: password!)
+            // Prompt the user to re-provide their sign-in credentials
+
+            user?.reauthenticate(with: credentials) { error,arg  in
+              if let error = error {
+                // An error happened.
+              } else {
+                Auth.auth().currentUser?.updatePassword(to: password!) { (error) in              }
+            }
+        }
+        }}
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let user = Auth.auth().currentUser
-        let credential: AuthCredential
-        // Prompt the user to re-provide their sign-in credentials
-
-//        user?.reauthenticate(with: credential) { error,arg  in
-//            if error != nil {
-//            // An error happened.
-//          } else {
-//            // User re-authenticated.
-//          }
-//        }
-//        // Do any additional setup after loading the view.
+       
+    
     }
     
     func validatPassword() -> String? {
@@ -74,6 +75,16 @@ class ChangePasswordVC: UIViewController {
         }
         return nil 
     }
+    
+    func getEmail(completion: @escaping((String) -> ())) {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let theEmail = user.email ?? ""
+            completion(theEmail)
+        }
+        
+    }//end of getEmail
+    
     /*
     // MARK: - Navigation
 

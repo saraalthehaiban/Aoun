@@ -106,6 +106,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func changepass(_ sender: UIButton) {
+    }
     @IBOutlet weak var waves: UIImageView!
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var fullName: UILabel!
