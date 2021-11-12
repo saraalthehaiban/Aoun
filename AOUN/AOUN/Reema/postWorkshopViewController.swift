@@ -11,9 +11,12 @@ import Firebase
 import UniformTypeIdentifiers
 
 extension Date {
-    func dateByAddingDays(inDays:Int)->Date{
-        let today = Date()
-        return Calendar.current.date(byAdding: .day, value: inDays, to: today)!
+    func dateByAddingDays(inDays:Int, setToInitial:Bool = false)->Date{
+        let nextDate = Calendar.current.date(byAdding: .day, value: inDays, to: Date())!
+        if setToInitial {
+            return Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: nextDate)!
+        }
+        return nextDate
     }
 }
 
@@ -190,7 +193,8 @@ class postWorkshopViewController: UIViewController, UIDocumentPickerDelegate, UI
         descV.layer.borderWidth = 1.0; //check in runtime
         descV.layer.cornerRadius = 8;// runtime
         
-        let d = Date().dateByAddingDays(inDays: 1)
+        let d = Date().dateByAddingDays(inDays: 1, setToInitial: true)
+        print("Date: ", d)
         datePicker.minimumDate = d
     }//end func viewDidLoad
 
