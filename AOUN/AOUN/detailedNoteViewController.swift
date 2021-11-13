@@ -252,15 +252,20 @@ class detailedNoteViewController: UIViewController{
         self.present(alertVC, animated: true, completion: nil)
     }
     
-    //MARK:- loadReviews and check for user history
+    //MARK:- loadReviews and check for user history - Sara
     func loadReviews(){
+        
         Reviews = []
         colRef = Firestore.firestore().collection("Notes").document(docID).collection("reviews")
         colRef.getDocuments() { (querySnapshot, error) in
-            var hideEmptyLabel = true
+            var hideEmptyLabel = false //1
+            self.noRevs.isHidden = hideEmptyLabel//4
             if let error = error {
+                
                 print("Error getting documents: \(error)")
                 hideEmptyLabel = false
+                self.noRevs.isHidden = hideEmptyLabel//4
+      //          hideEmptyLabel = false //2
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
@@ -272,9 +277,11 @@ class detailedNoteViewController: UIViewController{
                     let user = self.docRef.documentID
                     Firestore.firestore().collection("users").getDocuments(){
                         querySnapshot, error in
-                       
+                        var hideEmptyLabel = true
                             if let e = error {
                                 print("There was an issue retreving data from fireStore. \(e)")
+                                hideEmptyLabel = false
+                                self.noRevs.isHidden = hideEmptyLabel//4
                             }else {
                                 if let snapshotDocuments = querySnapshot?.documents{
                                     for doc in snapshotDocuments{
@@ -285,21 +292,19 @@ class detailedNoteViewController: UIViewController{
                                          fName?.append(lName ?? "")
                                         let newRev = Review(user: fName!, body: body!, rating: stars)
                                         self.Reviews.append(newRev)
-                                        print(self.Reviews.description, "NewRev")
                                         }
                                     }
+                                    hideEmptyLabel = (self.Reviews.count != 0)//3
                                     DispatchQueue.main.async {
                                         self.reviews.reloadData()
                                     }
- 
-                                } //hard coded, get from transition var = ID
+                                }
                             }
+                        self.noRevs.isHidden = hideEmptyLabel//4
                         }
                     //MARK:- ^Got user
                     }
-                hideEmptyLabel = (self.Reviews.count != 0)
             }
-            self.noRevs.isHidden = hideEmptyLabel
         }
     }
 }
