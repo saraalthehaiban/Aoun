@@ -9,6 +9,7 @@ import UIKit
 import Cosmos
 class ReviewCell: UITableViewCell {
     @IBOutlet var body: UILabel!
+    
     @IBOutlet var stars: CosmosView!
     @IBOutlet var user: UILabel!
     override func awakeFromNib() {

@@ -40,8 +40,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qcy-rX-8lD" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="224" y="15" width="140" height="62"/>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTz-7g-4sJ" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="256" y="7" width="178" height="79"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
@@ -60,7 +60,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="body" destination="fq0-LG-Pc0" id="yT9-rK-ljG"/>
-                <outlet property="stars" destination="Qcy-rX-8lD" id="rAr-rC-Sa1"/>
+                <outlet property="stars" destination="pTz-7g-4sJ" id="rw9-rv-QJN"/>
                 <outlet property="user" destination="zfi-Qr-hc0" id="RfL-eF-lhF"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="26.450892857142858"/>
