@@ -11,4 +11,14 @@ struct User : Codable {
     let FirstName : String
     let LastName : String
     let uid : String
+    
+    //
+    var docID : String?
+    
+    var fullName : String? {
+        get {
+            let fullName = "\(FirstName) \(LastName)"
+            return fullName.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+    }
 }

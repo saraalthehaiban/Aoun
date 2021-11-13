@@ -328,6 +328,11 @@ class detailedNoteViewController: UIViewController{
             }
         }
     }
+    
+    @IBAction func addReview(_ sender: Any) {
+        self.performSegue(withIdentifier: "si_reviewToAddReview", sender: note)
+    }
+    
 }
 
 
@@ -462,5 +467,13 @@ extension detailedNoteViewController: UITableViewDataSource, UITableViewDelegate
     }
 }
 
+
+extension detailedNoteViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PostReview {
+            vc.note = note
+        }
+    }
+}
 
 
