@@ -106,8 +106,8 @@
             filePath = "AOUN/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "setRoot()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,8 +122,8 @@
             filePath = "AOUN/detailedNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "updateNoteDownload(note:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -131,179 +131,20 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AE9570DA-C30E-4477-89C7-2BC9BE9DC50E"
+            uuid = "CE73269A-5CDE-498D-80C0-94488A316F9D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AOUN/detailedNoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "updateReviewButton()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AE9570DA-C30E-4477-89C7-2BC9BE9DC50E - 1315bf12d98121c4"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AOUN.detailedNoteViewController.updateReviewButton() -&gt; ()"
-                  moduleName = "AOUN"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/detailedNoteViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "169"
-                  endingLineNumber = "169"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "AE9570DA-C30E-4477-89C7-2BC9BE9DC50E - e15662d5a156c1ce"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool) -&gt; () in AOUN.detailedNoteViewController.updateReviewButton() -&gt; ()"
-                  moduleName = "AOUN"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/detailedNoteViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B82C99D9-60E7-438D-8CCE-F25B9F87BB47"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "purchased(note:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7C42B5ED-13CC-4387-8B64-EED425421EC3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "purchased(note:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "19AE7374-60EF-4647-A874-588CFCBD8161"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
-            landmarkName = "purchased(note:_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "71B80B4D-FCA9-46BA-9CAA-871A8790A714"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "updateReviewButton()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BF9DBCCA-F8FA-449A-A103-CA62444A4EFD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "loadReviews()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E9EED167-D043-4014-9D59-2086EF906D36"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
-            landmarkName = "loadReviews()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E315920C-66CC-45AB-816E-15901F866F25"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "loadReviews()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E315920C-66CC-45AB-816E-15901F866F25 - 585d8098eb1a12b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AOUN.detailedNoteViewController.loadReviews() -&gt; ()"
-                  moduleName = "AOUN"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/detailedNoteViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "260"
-                  endingLineNumber = "260"
-                  offsetFromSymbolStart = "552">
-               </Location>
-               <Location
-                  uuid = "E315920C-66CC-45AB-816E-15901F866F25 - 753780092752f438"
+                  uuid = "CE73269A-5CDE-498D-80C0-94488A316F9D - 753780092752ecd7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -313,9 +154,24 @@
                   urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/detailedNoteViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261"
-                  offsetFromSymbolStart = "192">
+                  startingLineNumber = "326"
+                  endingLineNumber = "326"
+                  offsetFromSymbolStart = "1548">
+               </Location>
+               <Location
+                  uuid = "CE73269A-5CDE-498D-80C0-94488A316F9D - aea11f8fccf62d0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AOUN.detailedNoteViewController.loadReviews() -&gt; ()"
+                  moduleName = "AOUN"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/detailedNoteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "327"
+                  endingLineNumber = "327"
+                  offsetFromSymbolStart = "48">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -323,33 +179,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A818333A-A791-4B79-A2C7-5E2D0E061827"
+            uuid = "AB9A52F9-B351-4FC7-B6AC-C55EEF31D2D5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
+            filePath = "AOUN/Sara/PostReview.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
-            landmarkName = "loadReviews()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "postReview(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EF1EDF34-B216-4423-8DC1-5F45E6D0CBD9"
+            uuid = "D108AFD6-38AA-49CC-87DB-008B9DEAC5EA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AOUN/detailedNoteViewController.swift"
+            filePath = "AOUN/Sara/PostReview.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
-            landmarkName = "loadReviews()"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "postReview(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D108AFD6-38AA-49CC-87DB-008B9DEAC5EA - e58083646b791d06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AOUN.PostReview.postReview(Any) -&gt; ()"
+                  moduleName = "AOUN"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/Sara/PostReview.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "2852">
+               </Location>
+               <Location
+                  uuid = "D108AFD6-38AA-49CC-87DB-008B9DEAC5EA - 9eaebe14c72851e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in AOUN.PostReview.postReview(Any) -&gt; ()"
+                  moduleName = "AOUN"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/Sara/PostReview.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

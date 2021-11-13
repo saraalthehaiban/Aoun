@@ -17,12 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="454" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq0-LG-Pc0">
-                        <rect key="frame" x="114" y="43" width="184" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="184" id="RcO-1d-Cha"/>
-                            <constraint firstAttribute="height" constant="32" id="Zju-lN-fDd"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq0-LG-Pc0">
+                        <rect key="frame" x="114" y="43" width="320" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" systemColor="secondaryLabelColor"/>
                         <nil key="highlightedColor"/>
@@ -40,21 +36,36 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pTz-7g-4sJ" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="256" y="7" width="178" height="79"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcy-rX-8lD" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="294" y="13" width="140" height="24"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="LPQ-pt-QKK"/>
+                            <constraint firstAttribute="height" constant="24" id="ZaX-8Y-iWd"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="fq0-LG-Pc0" secondAttribute="bottom" constant="18" id="0yh-Qh-1Jb"/>
                     <constraint firstItem="L9i-4Y-wOX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-14" id="5LU-zt-0bd"/>
                     <constraint firstItem="L9i-4Y-wOX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="64V-VB-tms"/>
-                    <constraint firstItem="fq0-LG-Pc0" firstAttribute="leading" secondItem="L9i-4Y-wOX" secondAttribute="trailing" constant="27" id="8gK-ch-cBC"/>
-                    <constraint firstItem="fq0-LG-Pc0" firstAttribute="top" secondItem="zfi-Qr-hc0" secondAttribute="bottom" constant="8" symbolic="YES" id="Rd7-Xa-9cI"/>
-                    <constraint firstAttribute="bottom" secondItem="fq0-LG-Pc0" secondAttribute="bottom" constant="18" id="Tzk-qi-uGq"/>
-                    <constraint firstItem="L9i-4Y-wOX" firstAttribute="top" secondItem="zfi-Qr-hc0" secondAttribute="top" id="pky-in-RlA"/>
-                    <constraint firstItem="zfi-Qr-hc0" firstAttribute="leading" secondItem="fq0-LG-Pc0" secondAttribute="leading" id="sIR-0I-r3C"/>
+                    <constraint firstItem="zfi-Qr-hc0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13.5" id="8JP-CA-Kc6"/>
+                    <constraint firstItem="fq0-LG-Pc0" firstAttribute="top" secondItem="Qcy-rX-8lD" secondAttribute="bottom" constant="6" id="Ft5-Wk-yNA"/>
+                    <constraint firstAttribute="trailing" secondItem="Qcy-rX-8lD" secondAttribute="trailing" constant="20" symbolic="YES" id="Kfe-9x-d1y"/>
+                    <constraint firstItem="Qcy-rX-8lD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="LeT-vi-zPi"/>
+                    <constraint firstItem="fq0-LG-Pc0" firstAttribute="leading" secondItem="L9i-4Y-wOX" secondAttribute="trailing" constant="27" id="NxG-vR-45T"/>
+                    <constraint firstItem="zfi-Qr-hc0" firstAttribute="leading" secondItem="L9i-4Y-wOX" secondAttribute="trailing" constant="27" id="nGv-88-mu3"/>
+                    <constraint firstItem="Qcy-rX-8lD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zfi-Qr-hc0" secondAttribute="trailing" constant="8" id="qwd-HC-woP"/>
+                    <constraint firstAttribute="trailing" secondItem="fq0-LG-Pc0" secondAttribute="trailing" constant="20" symbolic="YES" id="uK9-Th-GeK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

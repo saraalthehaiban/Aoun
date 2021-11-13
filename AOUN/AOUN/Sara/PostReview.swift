@@ -6,14 +6,41 @@
 //
 
 import UIKit
+import Cosmos
+import Firebase
 
 class PostReview: UIViewController {
-
+    @IBOutlet var starsConsmosView: CosmosView!
+    @IBOutlet var reviewNoteTextView: RPTTextView!
+    @IBOutlet var errorLable: UILabel!
+    var rating : Double?
+    var note : NoteFile!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        starsConsmosView.didFinishTouchingCosmos = { rating in
+//            rating = rating
+//        }
+//        if let c = starsConsmosView.didFinishTouchingCosmos {
+//            c(
+//        }
+        self.reviewNoteTextView.characotrLimit = K_DescriptionLimit
+        self.reviewNoteTextView.placeHolderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
+        self.reviewNoteTextView.placeHolder = "*Review"
+        
+        self.reviewNoteTextView.layer.borderWidth = 1.0; //check in runtime
+        self.reviewNoteTextView.layer.cornerRadius = 8;// runtime
+        self.reviewNoteTextView.layer.borderColor = #colorLiteral(red: 0.8439332843, green: 0.8391087651, blue: 0.8433424234, alpha: 1)
+
+       
+        starsConsmosView.didTouchCosmos = { (rating:Double)->() in
+            self.rating = rating
+        }
     }
+    
+    
     
 
     /*
@@ -25,5 +52,51 @@ class PostReview: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func isValid () -> Bool {
+        var isValid = true
+        if self.rating == nil {
+            self.errorLable.text  = "Please add rating!"
+            isValid = false
+        }
+    
+        if self.reviewNoteTextView.text.count == 0 && self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
+            self.reviewNoteTextView.placeHolderColor = .red
+            self.errorLable.text  = "Please add review"
+            isValid = false
+        }
+        
+        if rating == nil && self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
+            self.errorLable.text  = "Enter all field"
+            isValid = false
+        }
+        
+        return isValid
+    }
+    
+    @IBAction func postReview(_ sender: Any) {
+        guard isValid() == true else {return}
+        
+        let db = Firestore.firestore()
+        
+        let docRef = db.collection("Notes").document(note.docID).collection("reviews").document()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        var data : [String :Any] = [:]
+        data["review"] = self.reviewNoteTextView.text!
+        data["point"] =  self.rating
+        data["nameOfUser"] = appDelegate.thisUser.fullName
+        //"users/\(user?.documentID)"
+        data["user"] = db.document("users/\(appDelegate.thisUser.docID!)")
+        docRef.setData(data) { error in
+            if let e = error {
+                print("Error", e.localizedDescription)
+            } else {
+              //TODO: Inform previos class
+            }
+        }
+        
+    }
+    
 }

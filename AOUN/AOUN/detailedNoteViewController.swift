@@ -24,6 +24,7 @@ class detailedNoteViewController: UIViewController{
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
     var braintreeClient: BTAPIClient?
     
+    @IBOutlet var buttonLabel: UILabel!
     @IBOutlet var addReview: UIButton!
     @IBOutlet var noRevs: UILabel!
     @IBOutlet var reviews: UITableView!
@@ -128,7 +129,6 @@ class detailedNoteViewController: UIViewController{
             //downladed URL
             self.download(url: url)
         } failure: { error in
-            //TODO: CHANGE MESSAGE HERE
             CustomAlert.showAlert(
                 title: "Cenceled",
                 message: "Your PayPal transaction was canceled.",
@@ -137,7 +137,6 @@ class detailedNoteViewController: UIViewController{
                 self.dismiss(animated: true, completion: nil)
             }
         }
-   //l
     }
     
     func updatePrice(price:Decimal) {
@@ -168,6 +167,8 @@ class detailedNoteViewController: UIViewController{
     func updateReviewButton() {
         self.purchased(note: self.note) { condition in
             self.addReview.isHidden = !condition
+            self.buttonLabel.isHidden = !condition
+            
         }
     }
     
@@ -252,63 +253,88 @@ class detailedNoteViewController: UIViewController{
         self.present(alertVC, animated: true, completion: nil)
     }
     
+    
+    func set(message:String?) {
+        self.noRevs.text  = message
+    }
+    
     //MARK:- loadReviews and check for user history - Sara
     func loadReviews(){
-        
+        self.set(message: "Loading..")
         Reviews = []
         colRef = Firestore.firestore().collection("Notes").document(docID).collection("reviews")
         colRef.getDocuments() { (querySnapshot, error) in
-            var hideEmptyLabel = false //1
-            self.noRevs.isHidden = hideEmptyLabel//4
             if let error = error {
-                
                 print("Error getting documents: \(error)")
-                hideEmptyLabel = false
-                self.noRevs.isHidden = hideEmptyLabel//4
-      //          hideEmptyLabel = false //2
+                self.set(message: error.localizedDescription)
             } else {
-                for document in querySnapshot!.documents {
+                guard let docuents = querySnapshot?.documents else {
+                    return
+                }
+                for document in docuents {
                     let data = document.data()
-                    self.docRef = data["user"] as? DocumentReference
-                    let body = data["review"] as? String
-                    let point = data["point"] as? Double
-                    let stars : CosmosView = CosmosView()
-                    stars.rating = point ?? 0.0
-                    let user = self.docRef.documentID
-                    Firestore.firestore().collection("users").getDocuments(){
-                        querySnapshot, error in
-                        var hideEmptyLabel = true
-                            if let e = error {
-                                print("There was an issue retreving data from fireStore. \(e)")
-                                hideEmptyLabel = false
-                                self.noRevs.isHidden = hideEmptyLabel//4
-                            }else {
-                                if let snapshotDocuments = querySnapshot?.documents{
-                                    for doc in snapshotDocuments{
-                                       if doc.documentID == user{
-                                       let dataN = doc.data()
-                                        var fName = dataN["FirstName"] as? String
-                                        var lName = document.data()["LastName"] as? String
-                                         fName?.append(lName ?? "")
-                                        let newRev = Review(user: fName!, body: body!, rating: stars)
-                                        self.Reviews.append(newRev)
-                                        }
-                                    }
-                                    hideEmptyLabel = (self.Reviews.count != 0)//3
-                                    DispatchQueue.main.async {
-                                        self.reviews.reloadData()
-                                    }
-                                }
-                            }
-                        self.noRevs.isHidden = hideEmptyLabel//4
-                        }
-                    //MARK:- ^Got user
-                    }
+                    let user = data["user"] as! DocumentReference
+                    let review = data["review"] as! String
+                    let point = data["point"] as! Double
+                    let nameOfUser = data["nameOfUser"] as! String
+                    let newRev = Review(nameOfUser: nameOfUser, review: review, point: point, user: user)
+                    self.Reviews.append(newRev)
+                    
+//                    user?.getDocument(completion: { userQuery, error in
+//                        if let e = error {
+//                            print("There was an issue retreving data from fireStore. \(e)")
+//                            self.set(message: error?.localizedDescription)
+//                        }else {
+//                            if let dataN = userQuery?.data() {
+//                                var fName = dataN["FirstName"] as? String
+//                                let lName = document.data()["LastName"] as? String
+//                                fName?.append(lName ?? "")
+//                                let newRev = Review(user: fName!, body: body!, rating: stars)
+//                                self.Reviews.append(newRev)
+//                                DispatchQueue.main.async {
+//                                    self.reviews.insertRows(at: [IndexPath(row: self.Reviews.count-1, section: 1)], with: .left)
+//                                }
+//                            }
+//                        }
+//                    })
+                   
+                    
+//                    Firestore.firestore().collection("users").getDocuments(){
+//                        querySnapshot, error in
+//                        if let e = error {
+//                            print("There was an issue retreving data from fireStore. \(e)")
+//                            self.set(message: error?.localizedDescription)
+//                        }else {
+//                            if let snapshotDocuments = querySnapshot?.documents{
+//                                for doc in snapshotDocuments{
+//                                    if doc.documentID == user {
+//                                        let dataN = doc.data()
+//                                        var fName = dataN["FirstName"] as? String
+//                                        let lName = document.data()["LastName"] as? String
+//                                        fName?.append(lName ?? "")
+//                                        let newRev = Review(user: fName!, body: body!, rating: stars)
+//                                        self.Reviews.append(newRev)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.reviews.reloadData()
+                }
+                self.set(message: (self.Reviews.count == 0) ? "No reviews have been written yet" : nil)
             }
         }
     }
+    
+    @IBAction func addReview(_ sender: Any) {
+        self.performSegue(withIdentifier: "si_reviewToAddReview", sender: note)
+    }
+    
 }
-        
+
 
 
 
@@ -426,7 +452,7 @@ extension detailedNoteViewController : BTThreeDSecureRequestDelegate {
 //MARK:- Reviews by Sara
 
 
-    
+
 extension detailedNoteViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Reviews.count
@@ -434,12 +460,20 @@ extension detailedNoteViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = reviews.dequeueReusableCell(withIdentifier: "RevCell", for: indexPath) as! ReviewCell
-        cell.user.text = Reviews[indexPath.row].user
-        cell.body.text = Reviews[indexPath.row].body
-        cell.stars = Reviews[indexPath.row].rating
+        cell.user.text = Reviews[indexPath.row].nameOfUser
+        cell.body.text = Reviews[indexPath.row].review
+        cell.stars.rating = Reviews[indexPath.row].point
         return cell
     }
 }
 
+
+extension detailedNoteViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PostReview {
+            vc.note = note
+        }
+    }
+}
 
 

@@ -13,7 +13,10 @@ import PayPalCheckout
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     var window: UIWindow?
+    var thisUser : User!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow()
@@ -157,8 +160,12 @@ extension AppDelegate : MessagingDelegate {
                 //Display Error
                 print(error)
             } else {
-                let user = querySnapshot?.documents.first
-                user?.reference.updateData(updateData, completion: { error in
+                guard let user = querySnapshot?.documents.first  else {return}
+                //"users/\(user?.documentID)"
+                let fName = (user["FirstName"] as? String) ?? ""
+                let lName = (user["LastName"] as? String) ?? ""
+                self.thisUser = User(FirstName:fName , LastName: lName, uid: userId, docID: user.documentID)
+                user.reference.updateData(updateData, completion: { error in
                     if let error = error {
                         print(error)
                     } else {

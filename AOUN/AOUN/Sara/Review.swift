@@ -7,9 +7,10 @@
 
 import Foundation
 import Cosmos
+import Firebase
 struct Review{
-    let user: String //user name
-    let body: String //body
-    let rating: CosmosView //star rating
-    
+    let nameOfUser: String //user name
+    let review: String //body
+    let point: Double //star rating
+    let user : DocumentReference
 }
