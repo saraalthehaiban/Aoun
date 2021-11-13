@@ -158,6 +158,7 @@ extension AppDelegate : MessagingDelegate {
                 print(error)
             } else {
                 let user = querySnapshot?.documents.first
+                //"users/\(user?.documentID)"
                 user?.reference.updateData(updateData, completion: { error in
                     if let error = error {
                         print(error)
