@@ -63,6 +63,7 @@
 		0FC920BB2734399D00996757 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC920B92734399D00996757 /* ReviewCell.swift */; };
 		0FC920BC2734399D00996757 /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC920BA2734399D00996757 /* ReviewCell.xib */; };
 		0FC920BE273439B000996757 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC920BD273439B000996757 /* Review.swift */; };
+		0FC920C8273FE5BD00996757 /* PostReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC920C7273FE5BD00996757 /* PostReview.swift */; };
 		271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271CFDD0270AF78C00FEE698 /* resPostViewController.swift */; };
 		274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */; };
 		276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D9C4E27063E0F0019B8AD /* DownloadManager.swift */; };
@@ -167,6 +168,7 @@
 		0FC920B92734399D00996757 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		0FC920BA2734399D00996757 /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		0FC920BD273439B000996757 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		0FC920C7273FE5BD00996757 /* PostReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReview.swift; sourceTree = "<group>"; };
 		103176AEF5B50E04B40C046C /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271CFDD0270AF78C00FEE698 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
 		274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCommunityController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				0FC920B92734399D00996757 /* ReviewCell.swift */,
 				0FC920BA2734399D00996757 /* ReviewCell.xib */,
 				0FC920BD273439B000996757 /* Review.swift */,
+				0FC920C7273FE5BD00996757 /* PostReview.swift */,
 			);
 			path = Sara;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
 				0FC920BE273439B000996757 /* Review.swift in Sources */,
 				0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */,
+				0FC920C8273FE5BD00996757 /* PostReview.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
