@@ -44,7 +44,6 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
         collection.delegate = self
         collection.dataSource = self
         
-        
         searchBar.delegate = self
         ///
         
@@ -58,7 +57,8 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
         db.collection("Workshops").getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
-            }
+            }else {
+
             if let snapshotDocuments = querySnapshot?.documents{
                 for doc in snapshotDocuments{
                     let data = doc.data()
@@ -74,6 +74,7 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
                 }
             }
         }
+     }
     }//end loadWorkshops
     
     func set(message:String? = nil) {
@@ -164,6 +165,7 @@ extension viewWorkshopViewController {
         } else if segue.identifier == "si_viewWorkshopToDetails", //change
                   let vc = segue.destination as? WorkshopDetailsVC, let indexPath = sender as? IndexPath {
             vc.workshop = filtered[indexPath.item]
+            
 //            if searchActive && filtered.count != 0 {
 //                vc.workshop = filtered[indexPath.item]
 //            } else {

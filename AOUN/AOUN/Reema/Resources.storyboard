@@ -360,6 +360,12 @@
                                     <outlet property="delegate" destination="idI-da-qbV" id="oU4-Bv-IYt"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcI-QM-DKz">
+                                <rect key="frame" x="186" y="539" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9k-95-Y94">
                                 <rect key="frame" x="170" y="788" width="74" height="74"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
@@ -429,10 +435,12 @@
                             <constraint firstItem="I9k-95-Y94" firstAttribute="top" secondItem="MkG-Gq-NOA" secondAttribute="bottom" constant="417" id="YWY-39-ddx"/>
                             <constraint firstItem="3UN-vK-voZ" firstAttribute="trailing" secondItem="jev-ju-eTC" secondAttribute="trailing" id="agA-s1-96S"/>
                             <constraint firstItem="MkG-Gq-NOA" firstAttribute="top" secondItem="3UN-vK-voZ" secondAttribute="top" constant="202" id="cyZ-aZ-fLv"/>
+                            <constraint firstItem="wcI-QM-DKz" firstAttribute="centerX" secondItem="N5a-kl-DQj" secondAttribute="centerX" id="dvm-gP-HUh"/>
                             <constraint firstItem="Sdh-gH-K2v" firstAttribute="centerX" secondItem="jev-ju-eTC" secondAttribute="centerX" id="eSC-L3-QQu"/>
                             <constraint firstItem="jev-ju-eTC" firstAttribute="top" secondItem="Hib-fS-BRh" secondAttribute="bottom" constant="119" id="hRa-EV-gLe"/>
                             <constraint firstItem="3UN-vK-voZ" firstAttribute="trailing" secondItem="MkG-Gq-NOA" secondAttribute="trailing" constant="123" id="oFu-9q-4HC"/>
                             <constraint firstAttribute="trailing" secondItem="bDi-FG-gSI" secondAttribute="trailing" constant="-253" id="ooW-mi-XRQ"/>
+                            <constraint firstItem="wcI-QM-DKz" firstAttribute="centerY" secondItem="N5a-kl-DQj" secondAttribute="centerY" constant="-34" id="q8y-eD-HxA"/>
                             <constraint firstItem="MkG-Gq-NOA" firstAttribute="top" secondItem="Hib-fS-BRh" secondAttribute="bottom" constant="28" id="tai-02-vwe"/>
                             <constraint firstItem="N5a-kl-DQj" firstAttribute="top" secondItem="jev-ju-eTC" secondAttribute="bottom" constant="21" id="uA5-UF-xkS"/>
                             <constraint firstItem="jev-ju-eTC" firstAttribute="top" secondItem="bDi-FG-gSI" secondAttribute="bottom" id="wg0-15-geR"/>
@@ -444,6 +452,7 @@
                         <outlet property="background" destination="bDi-FG-gSI" id="c3o-Oq-W7b"/>
                         <outlet property="collection" destination="N5a-kl-DQj" id="dDL-ZX-aEf"/>
                         <outlet property="icon" destination="Hib-fS-BRh" id="f2h-kR-agj"/>
+                        <outlet property="messageLabel" destination="wcI-QM-DKz" id="8MP-MT-SFn"/>
                         <outlet property="post" destination="I9k-95-Y94" id="4mZ-FK-GI6"/>
                         <outlet property="resL" destination="MkG-Gq-NOA" id="OoW-XH-fla"/>
                         <outlet property="searchBar" destination="jev-ju-eTC" id="aJ3-xm-rYK"/>
@@ -452,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nb1-RB-dUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2459" y="-364"/>
+            <point key="canvasLocation" x="-2459.4202898550725" y="-364.28571428571428"/>
         </scene>
         <!--Delete Res View Controller-->
         <scene sceneID="vX7-SC-Osc">
@@ -982,7 +991,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwH-SL-H6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2807" y="313"/>
+            <point key="canvasLocation" x="-2459" y="313"/>
         </scene>
         <!--Workshop DetailsVC-->
         <scene sceneID="i8Q-3G-fSv">
@@ -1189,7 +1198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phz-mQ-60o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3652.1739130434785" y="312.72321428571428"/>
+            <point key="canvasLocation" x="-746" y="313"/>
         </scene>
     </scenes>
     <resources>
