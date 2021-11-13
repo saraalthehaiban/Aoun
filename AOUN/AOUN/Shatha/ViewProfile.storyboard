@@ -342,20 +342,25 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="feD-61-eg3">
-                                <rect key="frame" x="43.5" y="371" width="327" height="232"/>
+                                <rect key="frame" x="43.5" y="371" width="327" height="280"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c1w-Zu-ahQ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Current Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c1w-Zu-ahQ">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" textContentType="new-password"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LPe-bQ-5cX">
+                                        <rect key="frame" x="0.0" y="54" width="327" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" textContentType="new-password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9E-Zf-xVk">
-                                        <rect key="frame" x="0.0" y="54" width="327" height="40"/>
+                                        <rect key="frame" x="0.0" y="102" width="327" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwj-yx-jCm">
-                                        <rect key="frame" x="0.0" y="108" width="327" height="70"/>
+                                        <rect key="frame" x="0.0" y="156" width="327" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="327" id="0QE-81-OJ9"/>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="GNq-wI-rbB"/>
@@ -368,7 +373,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5c7-EM-hbP">
-                                        <rect key="frame" x="0.0" y="192" width="327" height="40"/>
+                                        <rect key="frame" x="0.0" y="240" width="327" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="QHk-kU-ko6"/>
                                         </constraints>
@@ -404,9 +409,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="eQQ-wm-b5r"/>
                     <connections>
+                        <outlet property="currentPassword" destination="c1w-Zu-ahQ" id="VjJ-5W-ZRV"/>
                         <outlet property="errorMSG" destination="Rwj-yx-jCm" id="1gv-9I-Yfr"/>
-                        <outlet property="newPass" destination="c1w-Zu-ahQ" id="gWq-F2-0to"/>
-                        <outlet property="rePass" destination="l9E-Zf-xVk" id="K1t-h1-8ki"/>
+                        <outlet property="newPass" destination="LPe-bQ-5cX" id="hkr-5y-kbn"/>
+                        <outlet property="rePass" destination="l9E-Zf-xVk" id="vgg-JE-0ZG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XY4-gi-3Lv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
