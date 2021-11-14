@@ -71,6 +71,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="body" destination="fq0-LG-Pc0" id="yT9-rK-ljG"/>
+                <outlet property="stars" destination="pTz-7g-4sJ" id="rw9-rv-QJN"/>
                 <outlet property="user" destination="zfi-Qr-hc0" id="RfL-eF-lhF"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="26.450892857142858"/>
