@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 import FirebaseStorage
 import Firebase
 
-
+//merge again...
 protocol PostNoteViewControllerDelegate  {
     func postNote (_ vc: PostNoteViewController, note:NoteFile?, added:Bool)
 }
