@@ -20,7 +20,6 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
     
     var notes:[NoteFile] = []
     let db = Firestore.firestore()
-    
     @IBOutlet weak var searchBar: UISearchBar!
     var searchActive : Bool = false
     var filtered:[NoteFile] = []
@@ -55,8 +54,8 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
                 if let snapshotDocuments = querySnapshot?.documents{
                     for doc in snapshotDocuments {
                         let data = doc.data()
-                        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String  {
-                            let newNote = NoteFile(noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth)
+                        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String, let docId = doc.documentID as? String{
+                            let newNote = NoteFile(id:doc.documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId)
                             self.notes.append(newNote)
                             DispatchQueue.main.async {
                                 self.collection.reloadData()
@@ -127,6 +126,7 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
        if let vc = storyboard.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
             vc.note = notes[indexPath.row]
         vc.authID = notes[indexPath.row].userId ?? ""
+        vc.docID = notes[indexPath.row].docID
             self.present(vc, animated: true, completion: nil)
             
         }
@@ -145,6 +145,7 @@ extension ViewNotesViewController  {
                 vc.note = filtered[indexPath.item]
             } else {
             vc.note = notes[indexPath.row]
+            
             }
                     }
     }

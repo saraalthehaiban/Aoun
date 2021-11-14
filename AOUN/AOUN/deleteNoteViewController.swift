@@ -39,6 +39,12 @@ class deleteNote: UIViewController {
         desc.text = note.desc
     
         price.text = note.price!
+        if price.text != ""{
+            price.text = "\(note.price ?? "") SAR"
+        } else{
+            price.text = "Free"
+            price.textColor = .systemGreen
+        }
     }//end viewDidLoad
     
     

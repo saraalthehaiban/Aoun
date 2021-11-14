@@ -192,7 +192,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
             for doc in ds.documents {
                 let data = doc.data()
                 if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String  {
-                    var newNote = NoteFile(noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName)
+                    var newNote = NoteFile(id:doc.documentID, noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, docID: "")
                     newNote.documentId = doc.documentID
                     self.notes.append(newNote)
                 }

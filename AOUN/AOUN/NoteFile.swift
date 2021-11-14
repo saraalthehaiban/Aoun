@@ -9,6 +9,7 @@ import Foundation
 
 let K_SAR_TO_USD_CONVERSION_RATE : Decimal = 3.75
 struct NoteFile {
+    let id : String
     let noteLable : String
     let autherName : String
     let desc : String
@@ -16,7 +17,7 @@ struct NoteFile {
     let urlString : String
     var documentId : String?
     var userId:String?
-    
+    var docID: String
     //...
     var priceDecimal : Decimal? {
         get {

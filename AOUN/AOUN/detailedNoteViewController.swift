@@ -11,7 +11,7 @@ import Braintree
 import BraintreeDropIn
 import PayPalCheckout
 import Firebase
-
+import Cosmos
 
 enum DownloadAction : String {
     case download  = "Download"
@@ -24,6 +24,10 @@ class detailedNoteViewController: UIViewController{
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
     var braintreeClient: BTAPIClient?
     
+    @IBOutlet var buttonLabel: UILabel!
+    @IBOutlet var addReview: UIButton!
+    @IBOutlet var noRevs: UILabel!
+    @IBOutlet var reviews: UITableView!
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var autherLable: UILabel!
@@ -35,39 +39,40 @@ class detailedNoteViewController: UIViewController{
     @IBOutlet weak var errorMsg: UILabel!
     @IBOutlet weak var downloadButton: UIButton!
     
+    var docID: String = ""
     var note : NoteFile!
     var authID: String = ""
     var priceOfNote:Decimal = 0
     var hackCheck = false
-     
+    var db  = Firestore.firestore()
+    var Reviews: [Review] = []
+    var revID: String = ""
+    var colRef: CollectionReference!
+    var docRef: DocumentReference!
+    var rating: CosmosView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //start table set up
+        reviews.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "RevCell")
+        reviews.delegate = self
+        reviews.dataSource = self
+        loadReviews()
+        //end table set up
         noteTitle.text = note.noteLable
         authorName.text = note.autherName
         desc.text = note.desc
-//        let intPrice = note.price!
-//
-//        if note.price != nil {
-//            if Int(intPrice)! >= 0{
-//                price.text = "SAR \(note.price ?? "")"
-//            }
-//        }else{
-//            price.text = "Free"
-//        }
-        
         price.text = "\(note.price ?? "")"
         if price.text != ""{
             price.text = "\(note.price ?? "") SAR"
         } else{
             price.text = "Free"
+            price.textColor = .systemGreen
         }
         if note.priceDecimal != nil {
             downloadButton.setTitle("Pay & Download", for: .normal)
             priceOfNote = note.priceDecimal ?? 0
         }
-        
-        // Do any additional setup after loading the view.
-        //self.configurePayPalCheckout()
+        self.loadUserReference()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,11 +83,10 @@ class detailedNoteViewController: UIViewController{
         }
     }
     
-    //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func downloadButtonTouched(_ sender: Any) {
         guard let url = note.url else {
             //TODO: Show download url error message
-            errorMsg.text = "Download field"
+            errorMsg.text = "Download failed"
             return
         }
         
@@ -119,6 +123,8 @@ extension detailedNoteViewController {
     func paymentAction(url:URL){
         self.startCheckout(amount: "\(priceOfNote)") { message in
             self.updatePrice(price: self.note.priceDecimal ?? 0)
+            
+            //downladed URL
             self.download(url: url)
         } failure: { error in
             CustomAlert.showAlert(
@@ -158,6 +164,7 @@ extension detailedNoteViewController {
         
         let db = Firestore.firestore()
         //let updateData = ["earned":fcmToken]
+        //db.collection("Notes").document("asdj adasjhl").collection("reviews").document("id")
         db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
             if let error = error {
                 //Display Error
@@ -177,34 +184,68 @@ extension detailedNoteViewController {
         }
     }
     
+    func updateReviewButton() {
+        self.purchased(note: self.note) { condition in
+            self.addReview.isHidden = !condition
+            self.buttonLabel.isHidden = !condition
+            
+        }
+    }
+    
+    func  purchased(note:NoteFile, _ complition: @escaping (Bool)->Void) {
+        guard let reference = self.user?["purchasedNotes"] as? [DocumentReference] else {
+            complition(false)
+            return
+        }
+        
+        for dr in reference {
+            if dr.documentID == note.id {
+                complition(true)
+                return;
+            }
+        }
+        complition(false)
+    }
+    
+    var user:QueryDocumentSnapshot?
+    func loadUserReference()  {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            //User is not logged in
+            return
+        }
+        let db = Firestore.firestore()
+        db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print(error)
+            } else {
+                self.user = querySnapshot?.documents.first
+                self.updateReviewButton()
+            }
+        }
+    }
+    
+    func updateNoteDownload (note:NoteFile) {
+        var purchasedNotes : [DocumentReference] = []
+        if  let pn = self.user?["purchasedNotes"] as? [DocumentReference] {
+            purchasedNotes = pn
+        }
+        purchasedNotes.append(db.document("Notes/\(note.id)"))
+        let updateData = ["purchasedNotes":purchasedNotes]
+        self.user?.reference.updateData(updateData, completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+            }
+        })
+    }
+    
+    
     
     func download (url:URL) {
         //activityIndicator.startAnimating()
         DownloadManager.download(url: url) { success, data in
             guard let d = data else{ return }
-            
-            //NEW Code -Balance-
-//            //authID
-//            var db = Firestore.firestore()
-//            db.collection("users").getDocuments { querySnapshot, error in
-//                if let e = error {
-//                    print("There was an issue retreving data from fireStore. \(e)")
-//                }else {
-//                    if let snapshotDocuments = querySnapshot?.documents{
-//                        for doc in snapshotDocuments {
-//                            let data = doc.data()
-//                            if data["uid"] as! String == self.authID{
-//                                let bl = data["Balance"] as? Int.IntegerLiteralType
-//                               let bl2 =  Int(bl!)
-//                               // let final = Int(self.price.text!)! + Int(bl2)
-//                             let docID = doc.documentID
-//                            db.collection("users").document(docID).updateData(["Balance": final])}
-//                        }
-//                        }
-//
-//                    }
-//                }
-            
+            self.updateNoteDownload(note: self.note)
             self.showFileSaveActivity(data: d)
         }
     }
@@ -231,10 +272,114 @@ extension detailedNoteViewController {
         alertVC.addAction(action)
         self.present(alertVC, animated: true, completion: nil)
     }
+    
+    
+    func set(message:String?) {
+        self.noRevs.text  = message
+    }
+    
+    //MARK:- loadReviews and check for user history - Sara
+    func loadReviews(){
+        self.set(message: "Loading..")
+        Reviews = []
+        colRef = Firestore.firestore().collection("Notes").document(docID).collection("reviews")
+        colRef.getDocuments() { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+                self.set(message: error.localizedDescription)
+            } else {
+                guard let docuents = querySnapshot?.documents else {
+                    return
+                }
+                for document in docuents {
+                    let data = document.data()
+                    let user = data["user"] as! DocumentReference
+                    let review = data["review"] as! String
+                    let point = data["point"] as! Double
+                    let nameOfUser = data["nameOfUser"] as! String
+                    let newRev = Review(nameOfUser: nameOfUser, review: review, point: point, user: user)
+                    self.Reviews.append(newRev)
+                    
+//                    user?.getDocument(completion: { userQuery, error in
+//                        if let e = error {
+//                            print("There was an issue retreving data from fireStore. \(e)")
+//                            self.set(message: error?.localizedDescription)
+//                        }else {
+//                            if let dataN = userQuery?.data() {
+//                                var fName = dataN["FirstName"] as? String
+//                                let lName = document.data()["LastName"] as? String
+//                                fName?.append(lName ?? "")
+//                                let newRev = Review(user: fName!, body: body!, rating: stars)
+//                                self.Reviews.append(newRev)
+//                                DispatchQueue.main.async {
+//                                    self.reviews.insertRows(at: [IndexPath(row: self.Reviews.count-1, section: 1)], with: .left)
+//                                }
+//                            }
+//                        }
+//                    })
+                   
+                    
+//                    Firestore.firestore().collection("users").getDocuments(){
+//                        querySnapshot, error in
+//                        if let e = error {
+//                            print("There was an issue retreving data from fireStore. \(e)")
+//                            self.set(message: error?.localizedDescription)
+//                        }else {
+//                            if let snapshotDocuments = querySnapshot?.documents{
+//                                for doc in snapshotDocuments{
+//                                    if doc.documentID == user {
+//                                        let dataN = doc.data()
+//                                        var fName = dataN["FirstName"] as? String
+//                                        let lName = document.data()["LastName"] as? String
+//                                        fName?.append(lName ?? "")
+//                                        let newRev = Review(user: fName!, body: body!, rating: stars)
+//                                        self.Reviews.append(newRev)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.reviews.reloadData()
+                }
+                self.set(message: (self.Reviews.count == 0) ? "No reviews have been written yet" : nil)
+            }
+        }
+    }
+    
+    @IBAction func addReview(_ sender: Any) {
+        self.performSegue(withIdentifier: "si_reviewToAddReview", sender: note)
+    }
+    
 }
 
 //Paypal Payment
 
-extension detailedNoteViewController {
+
+
+extension detailedNoteViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Reviews.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = reviews.dequeueReusableCell(withIdentifier: "RevCell", for: indexPath) as! ReviewCell
+        cell.user.text = Reviews[indexPath.row].nameOfUser
+        cell.body.text = Reviews[indexPath.row].review
+        cell.stars.rating = Reviews[indexPath.row].point
+        return cell
+    }
 }
+
+
+extension detailedNoteViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PostReview {
+            vc.note = note
+        }
+    }
+}
+
+
