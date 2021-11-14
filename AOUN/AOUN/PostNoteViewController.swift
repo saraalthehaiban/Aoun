@@ -21,18 +21,18 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     @IBOutlet weak var postNotePageTitle: UILabel!
     @IBOutlet weak var noteTitleTextbox: UITextField!
     @IBOutlet weak var autherTextbox: UITextField!
-    @IBOutlet weak var descriptionTextbox: UITextView!
+    @IBOutlet weak var descriptionTextbox: RPTTextView!
     @IBOutlet weak var priceTextbox: UITextField!
     @IBOutlet weak var error: UILabel!
     @IBOutlet weak var priceSwitch: UISwitch!
     @IBOutlet weak var fileMsg: UILabel!
     //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    
     var flag : DarwinBoolean = false
-
+    
     
     var files : [URL]?
-
+    
     
     @IBAction func importButton(_ sender: Any) {
         
@@ -72,15 +72,15 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
             print("Error loading file", error)
         }
         files = urls
-//        let strUrl = "\(urls)"
-//
-//               let range = strUrl.lastIndex(of: "/")!
-//
-//               let name = strUrl[strUrl.index(after: range)...]
-//
-//               let newString = name.replacingOccurrences(of: "%20", with: " ")
-//
-//               fileMsg.text = "A file has been attached [\(newString)"
+        //        let strUrl = "\(urls)"
+        //
+        //               let range = strUrl.lastIndex(of: "/")!
+        //
+        //               let name = strUrl[strUrl.index(after: range)...]
+        //
+        //               let newString = name.replacingOccurrences(of: "%20", with: " ")
+        //
+        //               fileMsg.text = "A file has been attached [\(newString)"
         fileMsg.text = "A file has been attached [\(urls.last?.lastPathComponent ?? "")]"
         
     }
@@ -88,11 +88,11 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     
     @IBAction func submitButton(_ sender: Any) {
         if descriptionTextbox.text.isEmpty{
-//              descriptionTextbox.text = "*Description"
-//            descriptionTextbox.textColor = UIColor.red
+            //              descriptionTextbox.text = "*Description"
+            //            descriptionTextbox.textColor = UIColor.red
             
         }
-       
+        
         if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
             if noteTitleTextbox.text == ""{
                 noteTitleTextbox.attributedPlaceholder = NSAttributedString(string: "*Note Title",
@@ -102,31 +102,30 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                 autherTextbox.attributedPlaceholder = NSAttributedString(string: "*Author Name",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             }
-            if descriptionTextbox.text == ""{
-                descriptionTextbox.text = "*Description"
-              descriptionTextbox.textColor = UIColor.red
+            if descriptionTextbox.text == "" || descriptionTextbox.text == descriptionTextbox.placeHolder {
+                descriptionTextbox.placeHolderColor = .red
             }
             if  priceSwitch.isOn {
                 if priceTextbox.text == "" {
                     priceTextbox.attributedPlaceholder = NSAttributedString(string: "*Price",
-                                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+                                                                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
                 }
             }
             
         }
         if noteTitleTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-
-             error.text = "Please fill in note title"
-
-         }else if autherTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-
-             error.text = "Please fill in author name"
-
-         }else if descriptionTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-
-             error.text = "Please fill in the description"
-
-         }
+            
+            error.text = "Please fill in note title"
+            
+        }else if autherTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            
+            error.text = "Please fill in author name"
+            
+        }else if descriptionTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            
+            error.text = "Please fill in the description"
+            
+        }
         if noteTitleTextbox.text == "" &&  autherTextbox.text == "" && descriptionTextbox.text == "*Description"{
             error.text = "Please fill in all missing fields"
         }
@@ -179,44 +178,44 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         
         
         /*
-        let uploadTask = notesRef.putFile(from: localFile, metadata: nil) { metadata, error in
-            if let e =  error {
-                print (e)
-                self.error.attributedText = NSAttributedString(string: "File couldn't be uploaded", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
-                return
-            }
-            guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
-                self.error.attributedText = NSAttributedString(string: "File couldn't be uploaded", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
-                return
-            }
-            // Metadata contains file metadata such as size, content-type.
-            //let size = metadata.size
-            // You can also access to download URL after upload.
-            notesRef.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                    // Uh-oh, an error occurred!
-                    return
-                }
-                self.createDocument(with : downloadURL)
-            }
-        }
-        uploadTask.resume()*/
+         let uploadTask = notesRef.putFile(from: localFile, metadata: nil) { metadata, error in
+         if let e =  error {
+         print (e)
+         self.error.attributedText = NSAttributedString(string: "File couldn't be uploaded", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+         return
+         }
+         guard let metadata = metadata else {
+         // Uh-oh, an error occurred!
+         self.error.attributedText = NSAttributedString(string: "File couldn't be uploaded", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+         return
+         }
+         // Metadata contains file metadata such as size, content-type.
+         //let size = metadata.size
+         // You can also access to download URL after upload.
+         notesRef.downloadURL { (url, error) in
+         guard let downloadURL = url else {
+         // Uh-oh, an error occurred!
+         return
+         }
+         self.createDocument(with : downloadURL)
+         }
+         }
+         uploadTask.resume()*/
     }
     
     func createDocument(with noteURL : URL) {
         let url = noteURL.absoluteString
-
-                let db = Firestore.firestore()
-
-                let noteTitle = noteTitleTextbox.text!
-
-                let autherName = autherTextbox.text!
-
-                let description = descriptionTextbox.text!
-
-                let price = priceTextbox.text ?? ""
-
+        
+        let db = Firestore.firestore()
+        
+        let noteTitle = noteTitleTextbox.text!
+        
+        let autherName = autherTextbox.text!
+        
+        let description = descriptionTextbox.text!
+        
+        let price = priceTextbox.text ?? ""
+        
         let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
 
 
@@ -267,8 +266,15 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                                             self.present(alert, animated: true, completion: nil)
 
                     }
-
+                    
                 }
+                
+                alert.addAction(cancleA)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+        }
         
     }
     
@@ -276,14 +282,14 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         super.viewDidLoad()
         
         noteTitleTextbox.delegate = self
-               autherTextbox.delegate = self
-               descriptionTextbox.delegate = self
-                      self.descriptionTextbox.layer.borderColor =  #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
-                      self.descriptionTextbox.text = "*Description"
-                      self.descriptionTextbox.textColor = #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
-                      self.descriptionTextbox.layer.borderWidth =  1.0; //check in runtime
-                      self.descriptionTextbox.layer.cornerRadius = 8;// runtime
-        priceTextbox.delegate = self
+        autherTextbox.delegate = self
+        
+        descriptionTextbox.placeHolderColor = #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
+        descriptionTextbox.placeHolder = "*Description"
+        descriptionTextbox.layer.borderColor =  #colorLiteral(red: 0.7685510516, green: 0.7686815858, blue: 0.7814407945, alpha: 1)
+        descriptionTextbox.layer.borderWidth =  1.0; //check in runtime
+        descriptionTextbox.layer.cornerRadius = 8;// runtime
+        
         
         priceSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
         stateChanged(switchState: priceSwitch)
@@ -334,8 +340,6 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         }
         return true
     }
-    
-    
     
     @objc func stateChanged(switchState: UISwitch) {
         priceTextbox.isHidden = !switchState.isOn
