@@ -477,6 +477,3 @@ extension detailedNoteViewController {
 }
 
 
-
-
-

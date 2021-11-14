@@ -41,6 +41,12 @@ class LoginViewController: UIViewController {
         }
         else {
             
+            //validate
+            
+            
+            
+            // defining
+            
             let email = emailTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
             
             let password = passwordTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)

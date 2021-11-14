@@ -18,20 +18,11 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
     //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var post: UIButton!
     
-    var notes:[NoteFile] = []{
-        didSet {
-            self.filtered = notes
-        }
-    }
+    var notes:[NoteFile] = []
     let db = Firestore.firestore()
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var messageLabel: UILabel!
-    //  var searchActive : Bool = false
-    var filtered:[NoteFile] = []{
-        didSet {
-            self.collection.reloadData()
-        }
-    }
+    var searchActive : Bool = false
+    var filtered:[NoteFile] = []
     
     @IBOutlet weak var delete: UIButton!
     override func viewDidLoad() {
@@ -66,11 +57,10 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
                         if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String, let docId = doc.documentID as? String{
                             let newNote = NoteFile(id:doc.documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId)
                             self.notes.append(newNote)
+                            DispatchQueue.main.async {
+                                self.collection.reloadData()
+                            }
                         }
-                    }
-                    DispatchQueue.main.async {
-                        self.set(message:(self.notes.count == 0) ? "No notes yet." : nil)
-                        self.collection.reloadData()
                     }
                 }
             }
@@ -78,32 +68,25 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
         //self.activityIndicator.stopAnimating()
     }//end loadNotes
     
-    func set(message:String? = nil) {
-        self.messageLabel.text = message
-//        if let m = message, m.count > 0 {
-//            self.messageLabel.text = m
-//            self.messageLabel.isHidden = false
-//        }else {
-//            self.messageLabel.isHidden = false
-//        }
-    }//end set
-    
     //search
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
         self.searchBar.endEditing(true)
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.filter(searchText: searchText)
-    }
-    
-    func filter(searchText:String?) {
-        if let s = searchText, s.count > 0 {
-            filtered = notes.filter { $0.noteLable.localizedCaseInsensitiveContains(s) }
+
+        filtered = notes.filter { $0.noteLable.localizedCaseInsensitiveContains(searchText) }
+        if(filtered.count == 0){
+            searchActive = false;
         } else {
-            filtered = notes
+            searchActive = true;
         }
-        
-        set(message:(filtered.count == 0) ? "No results." : nil)
+       
+        self.collection.reloadData()
     }
 }//end class
 
@@ -115,25 +98,22 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.filtered.count
-
-//        if(searchActive) {
-//               return filtered.count
-//           } else {
-//        return resources.count
-//           }
-    }//end count
+        if(searchActive) {
+               return filtered.count
+           } else {
+        return notes.count
+           }
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NoteCellCollectionViewCell
-        cell.noteLable.text = filtered[indexPath.row].noteLable
-
-//        if(searchActive) {
-//            cell.noteLable.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].noteLable : ""
-//        } else {
-//        cell.noteLable.text = notes[indexPath.row].noteLable
-//        }
+        
+        if(searchActive) {
+            cell.noteLable.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].noteLable : ""
+        } else {
+        cell.noteLable.text = notes[indexPath.row].noteLable
+        }
         
         return cell
     }
@@ -161,13 +141,12 @@ extension ViewNotesViewController  {
         if segue.identifier == "si_viewNoteToPost", let vc = segue.destination as? PostNoteViewController {
             vc.delegate = self
         } else if segue.identifier == "si_noteListToDetail", let vc = segue.destination as? detailedNoteViewController, let indexPath = sender as? IndexPath {
-             vc.note = filtered[indexPath.item]
-
-//            if searchActive && filtered.count != 0{
-//                vc.note = filtered[indexPath.item]
-//            } else {
-//            vc.note = notes[indexPath.row]
-//            }
+            if searchActive && filtered.count != 0{
+                vc.note = filtered[indexPath.item]
+            } else {
+            vc.note = notes[indexPath.row]
+            
+            }
                     }
     }
 }
