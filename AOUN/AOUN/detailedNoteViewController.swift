@@ -68,6 +68,9 @@ class detailedNoteViewController: UIViewController{
             price.text = "Free"
             price.textColor = .systemGreen
         }
+        
+        
+        
         if note.priceDecimal != nil {
             downloadButton.setTitle("Pay & Download", for: .normal)
             priceOfNote = note.priceDecimal ?? 0
@@ -95,17 +98,12 @@ class detailedNoteViewController: UIViewController{
         if priceOfNote > 0 {
             //payment
             self.triggerPurchase(url: url)
+            
         }else{
             download(url: url)
         }
     }
     
-   
-}
-
-
-//MARK:- payment and purchase
-extension detailedNoteViewController {
     func triggerPurchase(url:URL) {
         let title = "Purchase: \(note.noteLable) | SAR\(note.priceDecimal ?? 0) (USD\(note.usdString ?? ""))"
         let activityViewController = UIAlertController(title: title, message: "You will be re-directed to paypal to confirm payment", preferredStyle: .actionSheet)
@@ -121,6 +119,10 @@ extension detailedNoteViewController {
     }
     
     func paymentAction(url:URL){
+        //        self.triggerPayPalCheckout()
+        
+        //            self.showDropIn(clientTokenOrTokenizationKey: authorization, url: url) //Metod 2
+        
         self.startCheckout(amount: "\(priceOfNote)") { message in
             self.updatePrice(price: self.note.priceDecimal ?? 0)
             
@@ -133,28 +135,6 @@ extension detailedNoteViewController {
                 inController: self,
                 cancleTitle: "Ok") {
                 self.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-    
-    func startCheckout(amount:String, success: @escaping (String)->Void, failure: @escaping (Error) -> Void) {
-        braintreeClient = BTAPIClient(authorization: authorization)
-        if let btClient = braintreeClient {
-            let payPalDriver = BTPayPalDriver(apiClient: btClient)
-            let request = BTPayPalCheckoutRequest(amount: amount)
-            request.currencyCode = "USD"
-            payPalDriver.tokenizePayPalAccount(with: request) { (tokenizedPayPalAccount, error) in
-                if let tokenizedPayPalAccount = tokenizedPayPalAccount {
-                    print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
-                    let email = tokenizedPayPalAccount.email
-                    success(email ?? "")
-                } else if let error = error {
-                    
-                    print(error.localizedDescription)
-                    failure(error)
-                    self.errorMsg.text = error.localizedDescription
-                } else {
-                }
             }
         }
     }
@@ -355,7 +335,121 @@ extension detailedNoteViewController {
     
 }
 
-//Paypal Payment
+
+
+
+//MARK:- payment implementation
+extension detailedNoteViewController : BTThreeDSecureRequestDelegate {
+    func showDropIn(clientTokenOrTokenizationKey: String, url:URL) {
+        let request = BTDropInRequest()
+        
+        let threeDSecureRequest = BTThreeDSecureRequest()
+        threeDSecureRequest.threeDSecureRequestDelegate = self
+        
+        threeDSecureRequest.amount = 1.00
+        threeDSecureRequest.email = "test@example.com"
+        threeDSecureRequest.versionRequested = .version2
+        
+        let address = BTThreeDSecurePostalAddress()
+        address.givenName = "Jill"
+        address.surname = "Doe"
+        address.phoneNumber = "5551234567"
+        address.streetAddress = "555 Smith St"
+        address.extendedAddress = "#2"
+        address.locality = "Chicago"
+        address.region = "IL"
+        address.postalCode = "12345"
+        address.countryCodeAlpha2 = "US"
+        threeDSecureRequest.billingAddress = address
+        
+        
+        let additionalInformation = BTThreeDSecureAdditionalInformation()
+        additionalInformation.shippingAddress = address
+        threeDSecureRequest.additionalInformation = additionalInformation
+        
+        request.threeDSecureRequest = threeDSecureRequest
+        
+        let dropIn = BTDropInController(authorization: clientTokenOrTokenizationKey, request: request)
+        { (controller, result, error) in
+            if (error != nil) {
+                print("ERROR")
+            } else if (result?.isCanceled == true) {
+                print("CANCELED")
+            } else if let result = result {
+                self.download(url: url)
+            }
+            controller.dismiss(animated: true, completion: nil)
+        }
+        self.present(dropIn!, animated: true, completion: nil)
+    }
+    
+    //Delegate
+    func onLookupComplete(_ request: BTThreeDSecureRequest, lookupResult result: BTThreeDSecureResult, next: @escaping () -> Void) {
+        
+    }
+    
+    func returnToDownload() {
+        self.download(url: note.url!)
+    }
+    
+    func triggerPayPalCheckout() {
+        self.hackCheck = true
+        Checkout.start(presentingViewController: self) { createOrder in
+            let amount = PurchaseUnit.Amount(currencyCode: .usd, value: "\(self.priceOfNote)")
+            let purchaseUnit = PurchaseUnit(amount: amount)
+            let order = OrderRequest(intent: .capture, purchaseUnits: [purchaseUnit])
+            
+            createOrder.create(order: order)
+        } onApprove: { approval in
+            approval.actions.capture { (response, error) in
+                self.returnToDownload()
+                print("Order successfully captured: \(response?.data)")
+            }
+        } onShippingChange: { shippingChange, shippingChangeAction in
+        } onCancel: {
+            print("Order onCancel captur")
+        } onError: { errorInfo in
+            print("Order onError captur")
+        }
+    }
+    
+    func startCheckout(amount:String, success: @escaping (String)->Void, failure: @escaping (Error) -> Void) {
+        braintreeClient = BTAPIClient(authorization: authorization)
+        if let btClient = braintreeClient {
+            let payPalDriver = BTPayPalDriver(apiClient: btClient)
+            let request = BTPayPalCheckoutRequest(amount: amount)
+            request.currencyCode = "USD"
+            
+            
+            payPalDriver.tokenizePayPalAccount(with: request) { (tokenizedPayPalAccount, error) in
+                if let tokenizedPayPalAccount = tokenizedPayPalAccount {
+                    print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
+                    
+                    
+                    let email = tokenizedPayPalAccount.email
+                    let firstName = tokenizedPayPalAccount.firstName
+                    let lastName = tokenizedPayPalAccount.lastName
+                    let phone = tokenizedPayPalAccount.phone
+                    
+                    let billingAddress = tokenizedPayPalAccount.billingAddress
+                    let shippingAddress = tokenizedPayPalAccount.shippingAddress
+                    
+                    success(email ?? "")
+                } else if let error = error {
+                    
+                    print(error.localizedDescription)
+                    failure(error)
+                    self.errorMsg.text = error.localizedDescription
+                } else {
+                    
+                    
+                }
+            }
+        }
+    }
+}
+
+//MARK:- Reviews by Sara
 
 
 
@@ -381,5 +475,8 @@ extension detailedNoteViewController {
         }
     }
 }
+
+
+
 
 
