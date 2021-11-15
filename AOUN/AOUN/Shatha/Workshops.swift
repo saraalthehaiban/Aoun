@@ -6,6 +6,18 @@
 //
 
 import Foundation
+
+class PriceUtils {
+    static func usd(fromSAR sar:Decimal) -> Decimal {
+        return sar / K_SAR_TO_USD_CONVERSION_RATE
+    }
+    
+    static func usdString (fromSAR sar : Decimal) -> String {
+        let doubleValue = Double(truncating: PriceUtils.usd(fromSAR: sar) as NSNumber)
+        return String(format: "%.2f", doubleValue)
+    }
+}
+
 struct Workshops {
     let Title : String
     let presenter : String
@@ -16,6 +28,12 @@ struct Workshops {
     var documentId : String?
     let uid:String?
     //there wasn (?)
+    
+    var numberOfAvailableSeats : Int {
+        get {
+            return Int(seat) ?? 0
+        }
+    }
     
     //...
     var priceDecimal : Decimal? {
@@ -30,7 +48,7 @@ struct Workshops {
     var usdPrice: Decimal? {
         get {
             if let pd = self.priceDecimal {
-                return pd / K_SAR_TO_USD_CONVERSION_RATE
+                return PriceUtils.usd(fromSAR: pd)
             }
             return nil
         }

@@ -54,10 +54,9 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
                         
                         let data = doc.data()
                         if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? String, let auth = data["uid"] as? String {
-                            let newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime, uid: auth)
+                            var newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime, uid: auth)
+                            newWorkshop.documentId = doc.documentID
                             self.workshops.append(newWorkshop)
-                         
-                        
                             DispatchQueue.main.async {
                                 self.collection.reloadData()
                             }
@@ -138,7 +137,7 @@ extension viewWorkshopViewController:UICollectionViewDelegateFlowLayout, UIColle
 //    }//end
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard =  UIStoryboard(name: "Resources", bundle: nil)
+        let storyboard =  UIStoryboard(name: "WorkShop", bundle: nil)
        if let vc = storyboard.instantiateViewController(withIdentifier: "si_WorkshopDetailsVC") as? WorkshopDetailsVC {
             vc.workshop = workshops[indexPath.row]
         vc.authID = workshops[indexPath.row].uid ?? ""

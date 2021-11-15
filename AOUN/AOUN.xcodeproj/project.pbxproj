@@ -14,8 +14,13 @@
 		0B549D38273B935700121D77 /* viewWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D37273B935700121D77 /* viewWorkshopViewController.swift */; };
 		0B549D3A273B936500121D77 /* workshopCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D39273B936500121D77 /* workshopCellCollectionViewCell.swift */; };
 		0B549D3C273B936D00121D77 /* workshopCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B549D3B273B936D00121D77 /* workshopCellCollectionViewCell.xib */; };
+		0B549D3E2741422600121D77 /* WorkShop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B549D3D2741422600121D77 /* WorkShop.storyboard */; };
+		0B549D402742468E00121D77 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D3F2742468E00121D77 /* Ticket.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
+		0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */; };
+		0BFE8D08274283CD00A23914 /* TicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BFE8D07274283CD00A23914 /* TicketView.xib */; };
+		0BFE8D0A2742882D00A23914 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFE8D092742882D00A23914 /* TicketView.swift */; };
 		0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3DECEA270B207800C5F6BB /* RCell.xib */; };
 		0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */; };
 		0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */; };
@@ -114,7 +119,12 @@
 		0B549D37273B935700121D77 /* viewWorkshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewWorkshopViewController.swift; sourceTree = "<group>"; };
 		0B549D39273B936500121D77 /* workshopCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = workshopCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B549D3B273B936D00121D77 /* workshopCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = workshopCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		0B549D3D2741422600121D77 /* WorkShop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkShop.storyboard; sourceTree = "<group>"; };
+		0B549D3F2742468E00121D77 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
+		0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketView.swift; sourceTree = "<group>"; };
+		0BFE8D07274283CD00A23914 /* TicketView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketView.xib; sourceTree = "<group>"; };
+		0BFE8D092742882D00A23914 /* TicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
 		0F3DECEA270B207800C5F6BB /* RCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RCell.xib; sourceTree = "<group>"; };
 		0F40BDEC26F54F4900FB83AC /* AOUN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AOUN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F40BDEF26F54F4900FB83AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -292,6 +302,11 @@
 				0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
+				0B549D3D2741422600121D77 /* WorkShop.storyboard */,
+				0B549D3F2742468E00121D77 /* Ticket.swift */,
+				0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */,
+				0BFE8D07274283CD00A23914 /* TicketView.xib */,
+				0BFE8D092742882D00A23914 /* TicketView.swift */,
 			);
 			path = Shatha;
 			sourceTree = "<group>";
@@ -529,12 +544,14 @@
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
 				5264FC76272722150065DA81 /* Community.storyboard in Resources */,
 				0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */,
+				0B549D3E2741422600121D77 /* WorkShop.storyboard in Resources */,
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
 				27712C6D2701E94E00450466 /* resourceCellCollectionViewCell.xib in Resources */,
 				0FC6357727107A56004D7A2A /* Launch Screen.storyboard in Resources */,
 				0FC3ABEA2727FC5F00B43C26 /* ViewProfile.storyboard in Resources */,
 				0FC3ABEC2727FC5F00B43C26 /* ResTableViewCell.xib in Resources */,
 				0FA3B47B2719ED6D005511B1 /* CommunityQuestion.xib in Resources */,
+				0BFE8D08274283CD00A23914 /* TicketView.xib in Resources */,
 				0F502A82270F855300912EF0 /* Resources.storyboard in Resources */,
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
 				0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */,
@@ -699,9 +716,11 @@
 				0F5CDD45272D4931007CD644 /* PushNotificationSupport.swift in Sources */,
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
+				0BFE8D0A2742882D00A23914 /* TicketView.swift in Sources */,
 				0B0E335927304E9E000255F5 /* Workshops.swift in Sources */,
 				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,
 				0F502A78270F77EA00912EF0 /* Constants.swift in Sources */,
+				0B549D402742468E00121D77 /* Ticket.swift in Sources */,
 				0B549D36273B934300121D77 /* postWorkshopViewController.swift in Sources */,
 				27712C6F270346AD00450466 /* resFile.swift in Sources */,
 				523D7D7927253FC2001CF33E /* notification.swift in Sources */,
@@ -723,6 +742,7 @@
 				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
 				0FA3B47327187054005511B1 /* Community.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
+				0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */,
 				523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */,
 				0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,

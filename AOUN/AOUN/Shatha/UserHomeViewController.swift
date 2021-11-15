@@ -11,11 +11,7 @@ import Firebase
 class UserHomeViewController: UIViewController {
 
     
-//    @IBAction func hi(_ sender: UIButton) { if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-//        let vc = appDelegate.viewController(storyBoardname: "Workshop", viewControllerId: "si_WorkshopDetailsVC")
-//        self.present(vc, animated: true, completion: nil)
-//    }
-//    }
+
     @IBAction func profile(_ sender: UIButton) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let vc = appDelegate.viewController(storyBoardname: "ViewProfile", viewControllerId: "ViewViewController")
@@ -31,7 +27,7 @@ class UserHomeViewController: UIViewController {
     @IBOutlet weak var notesLabel: UILabel!
     @IBAction func workshopsButton(_ sender: UIButton) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            let vc = appDelegate.viewController(storyBoardname: "Resources", viewControllerId: "viewWorkshopViewController")
+            let vc = appDelegate.viewController(storyBoardname: "WorkShop", viewControllerId: "viewWorkshopViewController")
             self.present(vc, animated: true, completion: nil)
         }
     }

@@ -11,4 +11,6 @@ struct User : Codable {
     let FirstName : String
     let LastName : String
     let uid : String
+    
+    var documentID : String? = nil
 }
