@@ -395,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePa-Hc-OeJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1230.4347826086957" y="1344.6428571428571"/>
+            <point key="canvasLocation" x="-1239" y="1345"/>
         </scene>
         <!--View Notes View Controller-->
         <scene sceneID="5rp-QZ-yj0">
@@ -711,7 +711,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vdq-Xg-L3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-249.27536231884059" y="1344.6428571428571"/>
+            <point key="canvasLocation" x="-330" y="1345"/>
         </scene>
         <!--Delete Note-->
         <scene sceneID="xwa-iS-fZY">
@@ -920,11 +920,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ce9-qX-03h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="1345"/>
+            <point key="canvasLocation" x="554" y="1345"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UXZ-oN-kF0"/>
+        <segue reference="TrD-Xz-AGi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="26" width="2806" height="2093"/>
