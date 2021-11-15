@@ -61,19 +61,19 @@ class PostReview: UIViewController {
     func isValid () -> Bool {
         var isValid = true
         if self.rating == nil {
-            self.errorLable.text  = "Please add rating!"
+            self.errorLable.text  = "Please fill in a rating"
             isValid = false
         }
     
         if self.reviewNoteTextView.text.count == 0 ||
             self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
             self.reviewNoteTextView.placeHolderColor = .red
-            self.errorLable.text  = "Please add review"
+            self.errorLable.text  = "Please fill in a review"
             isValid = false
         }
         
         if rating == nil && self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
-            self.errorLable.text  = "Enter all field"
+            self.errorLable.text  = "Please fill in all required fields"
             isValid = false
         }
         
