@@ -168,7 +168,6 @@ class detailedNoteViewController: UIViewController{
         self.purchased(note: self.note) { condition in
             self.addReview.isHidden = !condition
             self.buttonLabel.isHidden = !condition
-            
         }
     }
     
@@ -247,7 +246,8 @@ class detailedNoteViewController: UIViewController{
         let alertVC = UIAlertController(title: "Downloaded!", message: "File \"\(self.note.noteLable)\" dowloaded successfully.", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Ok", style: .cancel) { action in
-            self.dismiss(animated: true, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
+            self.loadUserReference()
         }
         alertVC.addAction(action)
         self.present(alertVC, animated: true, completion: nil)
@@ -472,8 +472,21 @@ extension detailedNoteViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PostReview {
             vc.note = note
+            vc.delegate = self
         }
     }
 }
 
 
+extension detailedNoteViewController : PostReviewDelegate {
+    func postReview(_ pr:PostReview, review:Review, posted:Bool) {
+        if posted {
+            self.Reviews.insert(review, at: 0)
+            self.reviews.reloadData()
+            pr.dismiss(animated: true, completion: nil)
+        } else{
+            //Show error
+        }
+        
+    }
+}

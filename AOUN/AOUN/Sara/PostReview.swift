@@ -9,12 +9,17 @@ import UIKit
 import Cosmos
 import Firebase
 
+protocol PostReviewDelegate {
+    func postReview(_ pr:PostReview, review:Review, posted:Bool)
+}
+
 class PostReview: UIViewController {
     @IBOutlet var starsConsmosView: CosmosView!
     @IBOutlet var reviewNoteTextView: RPTTextView!
     @IBOutlet var errorLable: UILabel!
     var rating : Double?
     var note : NoteFile!
+    var delegate : PostReviewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +65,8 @@ class PostReview: UIViewController {
             isValid = false
         }
     
-        if self.reviewNoteTextView.text.count == 0 && self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
+        if self.reviewNoteTextView.text.count == 0 ||
+            self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
             self.reviewNoteTextView.placeHolderColor = .red
             self.errorLable.text  = "Please add review"
             isValid = false
@@ -83,20 +89,34 @@ class PostReview: UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        var data : [String :Any] = [:]
-        data["review"] = self.reviewNoteTextView.text!
-        data["point"] =  self.rating
-        data["nameOfUser"] = appDelegate.thisUser.fullName
-        //"users/\(user?.documentID)"
-        data["user"] = db.document("users/\(appDelegate.thisUser.docID!)")
-        docRef.setData(data) { error in
+        let review = Review(
+            nameOfUser: appDelegate.thisUser.fullName ?? "",
+            review:  self.reviewNoteTextView.text!,
+            point: self.rating ?? 0,
+            user:  db.document("users/\(appDelegate.thisUser.docID!)"))
+        
+//        var data : [String :Any] = [:]
+//        data["review"] = self.reviewNoteTextView.text!
+//        data["point"] =  self.rating
+//        data["nameOfUser"] = appDelegate.thisUser.fullName
+//        //"users/\(user?.documentID)"
+//        data["user"] = db.document("users/\(appDelegate.thisUser.docID!)")
+//        let review = Review(dictionary: data)
+        docRef.setData(review.dictionary) { error in
             if let e = error {
                 print("Error", e.localizedDescription)
+                self.delegate?.postReview(self, review:review, posted: false)
             } else {
-              //TODO: Inform previos class
+                CustomAlert.showAlert(
+                    title: "Review posted",
+                    message: "You have reviewed the note",
+                    inController: self,
+                    with: UIImage(named: "Check"),
+                    cancleTitle: "Ok") {
+                    self.delegate?.postReview(self, review:review, posted: true)
+                }
             }
         }
-        
     }
-    
 }
+    
