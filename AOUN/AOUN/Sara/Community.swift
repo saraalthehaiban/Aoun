@@ -45,8 +45,7 @@ class Community: UIViewController {
     func loadQuestions(){
         questions = []
         self.set(message: "Loading..")
-        db.collection("Questions").getDocuments {
-            querySnapshot, error in
+        db.collection("Questions").order(by: "createDate", descending: true).getDocuments {       querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
             }else {
@@ -59,7 +58,8 @@ class Community: UIViewController {
                             let Body = data["Body"] as? String
                             let Answers = data["answers"] as? [String]
                             let askingUserID = data["User"] as? String
-                            let newQ = Question(title: Title ?? "", body: Body ?? "", answer: Answers ?? [""], askingUserID: askingUserID )
+                            let createDate = data["createDate"] as! Timestamp
+                            let newQ = Question(title: Title ?? "", body: Body ?? "", answer: Answers ?? [""], askingUserID: askingUserID, createDate: createDate )
                             
                             qs.append(newQ)
                             self.ids[Title!] = doc.documentID
@@ -93,6 +93,7 @@ extension Community: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = display.dequeueReusableCell(withIdentifier: "QCell", for: indexPath) as! CommunityQuestion
         cell.QField.text = filtered[indexPath.row].title
+        cell.descriptionLabel.text = filtered[indexPath.row].body
         return cell
     }
 }
@@ -145,7 +146,7 @@ extension Community: UISearchBarDelegate {
     
     func filter (searchText:String?) {
         if let st = searchText, st.count > 0 {
-            filtered = questions.filter { $0.title.range(of: st, options: .caseInsensitive) != nil }
+            filtered = questions.filter { $0.title.range(of: st, options: .caseInsensitive) != nil || $0.body.range(of: st, options: .caseInsensitive) != nil  }
             
         }else{
             filtered = questions
