@@ -485,7 +485,7 @@ extension detailedNoteViewController : PostReviewDelegate {
             self.reviews.reloadData()
             pr.dismiss(animated: true, completion: nil)
         } else{
-            //Show error
+            //Show error? IDK if it will ever show...
         }
         
     }

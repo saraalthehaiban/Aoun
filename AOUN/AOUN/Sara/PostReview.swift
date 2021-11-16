@@ -17,20 +17,16 @@ class PostReview: UIViewController {
     @IBOutlet var starsConsmosView: CosmosView!
     @IBOutlet var reviewNoteTextView: RPTTextView!
     @IBOutlet var errorLable: UILabel!
+    @IBOutlet var revTitle: UILabel!
+    var noteTtile:String!
     var rating : Double?
     var note : NoteFile!
     var delegate : PostReviewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        starsConsmosView.didFinishTouchingCosmos = { rating in
-//            rating = rating
-//        }
-//        if let c = starsConsmosView.didFinishTouchingCosmos {
-//            c(
-//        }
+        noteTtile = note.noteLable
+        revTitle.text?.append(noteTtile)
         self.reviewNoteTextView.characotrLimit = K_DescriptionLimit
         self.reviewNoteTextView.placeHolderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
         self.reviewNoteTextView.placeHolder = "*Review"
