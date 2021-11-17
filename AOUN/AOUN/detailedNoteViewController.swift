@@ -23,6 +23,8 @@ enum DownloadAction : String {
 class detailedNoteViewController: UIViewController{
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
     var braintreeClient: BTAPIClient?
+    var user:QueryDocumentSnapshot?
+
     
    // @IBOutlet var buttonLabel: UILabel!
     @IBOutlet var addReview: UIButton!
@@ -93,8 +95,6 @@ class detailedNoteViewController: UIViewController{
             errorMsg.text = "Download failed"
             return
         }
-        
-        
         
         if priceOfNote > 0 {
             //payment
@@ -210,7 +210,6 @@ extension detailedNoteViewController {
         complition(false)
     }
     
-    var user:QueryDocumentSnapshot?
     func loadUserReference()  {
         guard let userId = Auth.auth().currentUser?.uid else {
             //User is not logged in
@@ -437,40 +436,40 @@ extension detailedNoteViewController : BTThreeDSecureRequestDelegate {
         }
     }
     
-    func startCheckout(amount:String, success: @escaping (String)->Void, failure: @escaping (Error) -> Void) {
-        braintreeClient = BTAPIClient(authorization: authorization)
-        if let btClient = braintreeClient {
-            let payPalDriver = BTPayPalDriver(apiClient: btClient)
-            let request = BTPayPalCheckoutRequest(amount: amount)
-            request.currencyCode = "USD"
-            
-            
-            payPalDriver.tokenizePayPalAccount(with: request) { (tokenizedPayPalAccount, error) in
-                if let tokenizedPayPalAccount = tokenizedPayPalAccount {
-                    print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
-                    
-                    
-                    let email = tokenizedPayPalAccount.email
-                    let firstName = tokenizedPayPalAccount.firstName
-                    let lastName = tokenizedPayPalAccount.lastName
-                    let phone = tokenizedPayPalAccount.phone
-                    
-                    let billingAddress = tokenizedPayPalAccount.billingAddress
-                    let shippingAddress = tokenizedPayPalAccount.shippingAddress
-                    
-                    success(email ?? "")
-                } else if let error = error {
-                    
-                    print(error.localizedDescription)
-                    failure(error)
-                    self.errorMsg.text = error.localizedDescription
-                } else {
-                    
-                    
-                }
-            }
-        }
-    }
+//    func startCheckout(amount:String, success: @escaping (String)->Void, failure: @escaping (Error) -> Void) {
+//        braintreeClient = BTAPIClient(authorization: authorization)
+//        if let btClient = braintreeClient {
+//            let payPalDriver = BTPayPalDriver(apiClient: btClient)
+//            let request = BTPayPalCheckoutRequest(amount: amount)
+//            request.currencyCode = "USD"
+//
+//
+//            payPalDriver.tokenizePayPalAccount(with: request) { (tokenizedPayPalAccount, error) in
+//                if let tokenizedPayPalAccount = tokenizedPayPalAccount {
+//                    print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
+//
+//
+//                    let email = tokenizedPayPalAccount.email
+//                    let firstName = tokenizedPayPalAccount.firstName
+//                    let lastName = tokenizedPayPalAccount.lastName
+//                    let phone = tokenizedPayPalAccount.phone
+//
+//                    let billingAddress = tokenizedPayPalAccount.billingAddress
+//                    let shippingAddress = tokenizedPayPalAccount.shippingAddress
+//
+//                    success(email ?? "")
+//                } else if let error = error {
+//
+//                    print(error.localizedDescription)
+//                    failure(error)
+//                    self.errorMsg.text = error.localizedDescription
+//                } else {
+//
+//
+//                }
+//            }
+//        }
+//    }
 }
 
 //MARK:- Reviews by Sara

@@ -174,71 +174,63 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                 self.createDocument(with : downloadURL)
             }
         }
- 
+        
     }
     
     func createDocument(with noteURL : URL) {
         let url = noteURL.absoluteString
-
-                let db = Firestore.firestore()
-
-                let noteTitle = noteTitleTextbox.text!
-
-                let autherName = autherTextbox.text!
-
-                let description = descriptionTextbox.text!
-
-                let price = priceTextbox.text ?? ""
-
+        
+        let db = Firestore.firestore()
+        
+        let noteTitle = noteTitleTextbox.text!
+        
+        let autherName = autherTextbox.text!
+        
+        let description = descriptionTextbox.text!
+        
+        let price = priceTextbox.text ?? ""
+        
         let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
-
-
-
+        
+        
+        
         let note = NoteFile(id:"doc.documentID", noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url, docID: "")
-
+        
+        
+        db.collection("Notes").document().setData(data) { error in
+            
+            if let e = error {
                 
-                db.collection("Notes").document().setData(data) { error in
-
-                    if let e = error {
-
-                        print(e)
-
-                        self.delegate?.postNote(self, note: note, added: false)
-
-                        return
-
-                    } else {
-
-                        //Show susccess message and go out
-
-                                            let alert = UIAlertController.init(title: "Posted", message: "Your note posted successfully.", preferredStyle: .alert)
-
-                        alert.view.tintColor = .black
-
-                                                    var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
-
-
-                                                            imageView.image = UIImage(named: "Check")
-
-
-                                                    alert.view.addSubview(imageView)
-
-                        let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
-
-                                                self.dismiss(animated: true) {
-
-                                                    //inform main controller t update the information
-
-                                                    self.delegate?.postNote(self, note: note, added: true)
-
-                                                }
-
-                                            }
-
-                                            alert.addAction(cancleA)
-
-                                            self.present(alert, animated: true, completion: nil)
-
+                print(e)
+                
+                self.delegate?.postNote(self, note: note, added: false)
+                
+                return
+                
+            } else {
+                
+                //Show susccess message and go out
+                
+                let alert = UIAlertController.init(title: "Posted", message: "Your note posted successfully.", preferredStyle: .alert)
+                
+                alert.view.tintColor = .black
+                
+                var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
+                
+                
+                imageView.image = UIImage(named: "Check")
+                
+                
+                alert.view.addSubview(imageView)
+                
+                let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
+                    
+                    self.dismiss(animated: true) {
+                        
+                        //inform main controller t update the information
+                        
+                        self.delegate?.postNote(self, note: note, added: true)
+                        
                     }
                     
                 }
@@ -248,9 +240,12 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                 self.present(alert, animated: true, completion: nil)
                 
             }
+            
         }
-        
     }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
