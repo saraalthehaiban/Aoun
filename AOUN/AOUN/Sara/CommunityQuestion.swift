@@ -12,6 +12,7 @@ class CommunityQuestion: UITableViewCell {
     @IBOutlet var IMG: UIImageView!
     @IBOutlet var QBubble: UIView!
     @IBOutlet var QField: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

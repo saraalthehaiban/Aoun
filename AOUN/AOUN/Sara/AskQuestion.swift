@@ -35,7 +35,7 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
     
     func validatedData () -> [String:Any]? {
         self.descError.text = nil
-        var dataDictionary : [String:Any] = ["ID":ID, "answers": [], "Community": ComName, "User": Auth.auth().currentUser?.uid]
+        var dataDictionary : [String:Any] = ["ID":ID, "answers": [], "Community": ComName, "User": Auth.auth().currentUser?.uid, "createDate":Date()]
         
         if let title = titleText.text, title.count > 1 {
             dataDictionary["Title"] = title

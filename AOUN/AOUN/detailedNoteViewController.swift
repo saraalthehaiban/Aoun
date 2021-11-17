@@ -99,12 +99,17 @@ class detailedNoteViewController: UIViewController{
         if priceOfNote > 0 {
             //payment
             self.triggerPurchase(url: url)
-            
         }else{
             download(url: url)
         }
     }
     
+   
+}
+
+
+//MARK:- payment and purchase
+extension detailedNoteViewController {
     func triggerPurchase(url:URL) {
         let title = "Purchase: \(note.noteLable) | SAR\(note.priceDecimal ?? 0) (USD\(note.usdString ?? ""))"
         let activityViewController = UIAlertController(title: title, message: "You will be re-directed to paypal to confirm payment", preferredStyle: .actionSheet)
@@ -120,10 +125,6 @@ class detailedNoteViewController: UIViewController{
     }
     
     func paymentAction(url:URL){
-        //        self.triggerPayPalCheckout()
-        
-        //            self.showDropIn(clientTokenOrTokenizationKey: authorization, url: url) //Metod 2
-        
         self.startCheckout(amount: "\(priceOfNote)") { message in
             self.updatePrice(price: self.note.priceDecimal ?? 0)
             
@@ -136,6 +137,28 @@ class detailedNoteViewController: UIViewController{
                 inController: self,
                 cancleTitle: "Ok") {
                 self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func startCheckout(amount:String, success: @escaping (String)->Void, failure: @escaping (Error) -> Void) {
+        braintreeClient = BTAPIClient(authorization: authorization)
+        if let btClient = braintreeClient {
+            let payPalDriver = BTPayPalDriver(apiClient: btClient)
+            let request = BTPayPalCheckoutRequest(amount: amount)
+            request.currencyCode = "USD"
+            payPalDriver.tokenizePayPalAccount(with: request) { (tokenizedPayPalAccount, error) in
+                if let tokenizedPayPalAccount = tokenizedPayPalAccount {
+                    print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
+                    let email = tokenizedPayPalAccount.email
+                    success(email ?? "")
+                } else if let error = error {
+                    
+                    print(error.localizedDescription)
+                    failure(error)
+                    self.errorMsg.text = error.localizedDescription
+                } else {
+                }
             }
         }
     }

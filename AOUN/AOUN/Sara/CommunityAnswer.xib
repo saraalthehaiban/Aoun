@@ -16,13 +16,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="529" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answer-1" translatesAutoresizingMaskIntoConstraints="NO" id="E8h-q7-ysZ">
-                        <rect key="frame" x="482" y="10" width="40" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="40" id="hDK-Fy-3bE"/>
-                            <constraint firstAttribute="height" constant="40" id="i0v-2z-lbX"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGs-Ov-m5S">
                         <rect key="frame" x="13" y="10" width="41.5" height="106"/>
                         <constraints>
@@ -34,12 +27,9 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="E8h-q7-ysZ" secondAttribute="trailing" constant="7" id="2fa-Zf-kj1"/>
                     <constraint firstAttribute="bottom" secondItem="vGs-Ov-m5S" secondAttribute="bottom" constant="13" id="A99-ad-RIA"/>
                     <constraint firstItem="vGs-Ov-m5S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ql9-iM-Qfs"/>
-                    <constraint firstItem="E8h-q7-ysZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Shd-b8-Nl2"/>
                     <constraint firstItem="vGs-Ov-m5S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="cxu-2v-PJB"/>
-                    <constraint firstItem="E8h-q7-ysZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vGs-Ov-m5S" secondAttribute="trailing" constant="8" id="oh6-kq-UKb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -49,7 +39,4 @@
             <point key="canvasLocation" x="290.57971014492756" y="23.772321428571427"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="answer-1" width="128" height="128"/>
-    </resources>
 </document>

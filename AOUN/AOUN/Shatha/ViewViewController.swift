@@ -9,6 +9,9 @@ import UIKit
 import Firebase
 
 class ViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
+    @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
+    @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
+    
     func delAt(index : IndexPath) {
         self.loadNotes()
         self.loadResources()
@@ -23,7 +26,9 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
             return resources.count
         }else {
             fatalError("Invalid table")
-        }}
+        }
+
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,6 +92,23 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func openNote(_ sender: UIButton) {
+        notesTable.isHidden = false
+        sender.isSelected = !sender.isSelected
+        
+        self.hc_noteTable.constant = (sender.isSelected) ? 160 : 0
+        
+        
+//        openNote.setBackgroundImage(image: UIImage, named: "Chevron down", state: UIControlState)
+       
+    }
+    
+    @IBAction func openRes(_ sender: UIButton) {
+        resTable.isHidden = false
+        sender.isSelected = !sender.isSelected
+        self.hc_resourceTable.constant = (sender.isSelected) ? 160 : 0
+    }
+    
   
     let db = Firestore.firestore()
     @IBOutlet var balanceLable: UILabel!
@@ -126,10 +148,12 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         notesTable.delegate = self
         notesTable.dataSource = self
         loadNotes ()
+        notesTable.isHidden = true
         resTable.register(UINib(nibName:"ResTableViewCell", bundle: nil), forCellReuseIdentifier: "ResTableViewCell")
         resTable.delegate = self
         resTable.dataSource = self
         loadResources()
+        resTable.isHidden = true
 //        getName { [self] (name) in
 //            self.fullName.text = name}
         
