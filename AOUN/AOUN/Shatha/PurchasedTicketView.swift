@@ -55,7 +55,7 @@ class PurchaseTicketView : UIView {
         allowedTickets = self.delegate.allowedTickets(self)
         buyButton.isEnabled = (allowedTickets > 0)
         let purchased = K_MaxAllowedTicket - allowedTickets
-        let message = (allowedTickets < 3) ? "You have already purchased\(purchased) you can now by \(allowedTickets) mpre." :  nil
+        let message = (allowedTickets < 3) ? "You have already purchased\(purchased) you can now buy \(allowedTickets) more." :  nil
         self.purchaseInfoLabel.text = message
         
         self.ticketsPrice = delegate.ticketPrice(self)

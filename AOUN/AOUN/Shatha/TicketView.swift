@@ -31,16 +31,25 @@ class TicketView : UIView {
     @IBOutlet weak var lblPurchaseDate: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     
-    
+
     
     func setUI() {
+        let newdate = workshop.dateTime
+        let tindex = newdate.index(newdate.startIndex, offsetBy: 17)
+        let time = newdate[..<tindex]
+        let newtime = time.suffix(5)
+        let date = newdate.prefix(11)
+        let buyDate = "\(ticket.time.dateValue())"
+        let buydate = buyDate.prefix(11)
         lblBookingID.text = ticket.bookingID
         lblBookedSeat.text = "Booked Seat(s):\(ticket.seats)"
         lblWorkShopTitle.text = ticket.workshopTitle
-        lblWorkShopDate.text = "Workshop Date:\(workshop.dateTime)"
+        lblWorkShopDate.text = "Workshop Date:\(date) Time:\(newtime)"
         lblUserName.text = ticket.user
-        lblPurchaseDate.text = "Purchase Date: \(ticket.time.dateValue())"
-        lblPrice.text = ticket.price
+        lblPurchaseDate.text = "Purchase Date: \(buydate)"
+        lblPrice.text = "Price: \(Int(Double(ticket.price) ?? 1 * 3.75)) SAR"
+        lblBookingID.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+
     }
     
     public func getScreenShot() -> UIImage {
