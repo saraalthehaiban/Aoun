@@ -24,7 +24,7 @@ class detailedNoteViewController: UIViewController{
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
     var braintreeClient: BTAPIClient?
     
-    @IBOutlet var buttonLabel: UILabel!
+   // @IBOutlet var buttonLabel: UILabel!
     @IBOutlet var addReview: UIButton!
     @IBOutlet var noRevs: UILabel!
     @IBOutlet var reviews: UITableView!
@@ -70,7 +70,8 @@ class detailedNoteViewController: UIViewController{
         }
         
         
-        
+        addReview.layer.shadowColor = UIColor.black.cgColor
+        addReview.layer.shadowOpacity = 0.25
         if note.priceDecimal != nil {
             downloadButton.setTitle("Pay & Download", for: .normal)
             priceOfNote = note.priceDecimal ?? 0
@@ -167,7 +168,7 @@ class detailedNoteViewController: UIViewController{
     func updateReviewButton() {
         self.purchased(note: self.note) { condition in
             self.addReview.isHidden = !condition
-            self.buttonLabel.isHidden = !condition
+          //  self.buttonLabel.isHidden = !condition
         }
     }
     
