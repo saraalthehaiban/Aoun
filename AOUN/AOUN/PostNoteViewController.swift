@@ -173,33 +173,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                 self.createDocument(with : downloadURL)
             }
         }
-        
-        
-        
-        /*
-         let uploadTask = notesRef.putFile(from: localFile, metadata: nil) { metadata, error in
-         if let e =  error {
-         print (e)
-         self.error.attributedText = NSAttributedString(string: "File couldn't be uploaded", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
-         return
-         }
-         guard let metadata = metadata else {
-         // Uh-oh, an error occurred!
-         self.error.attributedText = NSAttributedString(string: "File couldn't be uploaded", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
-         return
-         }
-         // Metadata contains file metadata such as size, content-type.
-         //let size = metadata.size
-         // You can also access to download URL after upload.
-         notesRef.downloadURL { (url, error) in
-         guard let downloadURL = url else {
-         // Uh-oh, an error occurred!
-         return
-         }
-         self.createDocument(with : downloadURL)
-         }
-         }
-         uploadTask.resume()*/
+ 
     }
     
     func createDocument(with noteURL : URL) {
@@ -215,8 +189,12 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         
         let price = priceTextbox.text ?? ""
         
-        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
-        
+//        if priceSwitch.isOn {
+            let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
+//        }
+//        else{
+//            let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": "Free", "url":url, "uid":Auth.auth().currentUser?.uid]
+//        }
         
         
         let note = NoteFile(noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url )

@@ -39,6 +39,11 @@ class Community: UIViewController {
         display.delegate = self
         display.dataSource = self
         comName.text = name
+        
+//        addQ.layer.shadowColor = UIColor.black.cgColor
+//        addQ.layer.shadowOpacity = 0.25
+
+        
         loadQuestions()
     }
     
@@ -76,7 +81,8 @@ class Community: UIViewController {
         //a
     }
     
-    @IBAction func addQ(_ sender: Any) {
+    
+    @IBAction func addQ(_ sender: UIButton) {
         if let vc = storyboard?.instantiateViewController(identifier: "AskQuestion") as? AskQuestion {
             vc.ID = ID
             vc.ComName = self.name
