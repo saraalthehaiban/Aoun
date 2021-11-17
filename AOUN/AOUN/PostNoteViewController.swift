@@ -101,7 +101,7 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                 autherTextbox.attributedPlaceholder = NSAttributedString(string: "*Author Name",
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             }
-            if descriptionTextbox.text == ""{
+            if descriptionTextbox.text == "*Description"{
                 descriptionTextbox.text = "*Description"
               descriptionTextbox.textColor = UIColor.red
             }
@@ -114,22 +114,17 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
             
         }
         if noteTitleTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-
              error.text = "Please fill in note title"
-
          }else if autherTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-
              error.text = "Please fill in author name"
-
-         }else if descriptionTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-
+         }else if descriptionTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "*Description"{
              error.text = "Please fill in the description"
-
          }
+        
         if noteTitleTextbox.text == "" &&  autherTextbox.text == "" && descriptionTextbox.text == "*Description"{
             error.text = "Please fill in all missing fields"
         }
-        if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "" {
+        if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "*Description" {
             return}
         
         if  priceSwitch.isOn && priceTextbox.text == "" {
@@ -139,6 +134,23 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         guard let fs = files, fs.count > 0, let localFile = fs.last, noteTitleTextbox.text != "", autherTextbox.text != "" , descriptionTextbox.text != ""
         else {
             error.attributedText = NSAttributedString(string: "Please attach file", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+            return
+        }
+        let editedTitle = noteTitleTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let editedAuthor = autherTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let editedDesc =  descriptionTextbox.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if editedTitle!.count < 4{
+            error.attributedText = NSAttributedString(string: "Note Title must be more than 3 characters.",
+                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            return
+        }else if editedAuthor!.count < 4{
+            error.attributedText = NSAttributedString(string: "Aurhor Name must be more than 3 characters.",
+                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            return
+        }else if editedDesc!.count < 11{
+            error.attributedText = NSAttributedString(string: "Description must be more than 10 characters.",
+                                                    attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
         }
         error.text = ""

@@ -39,6 +39,10 @@ class deleteNote: UIViewController {
         desc.text = note.desc
     
         price.text = note.price!
+        
+        if price.text == "" {
+            price.text = "Free"
+        }
     }//end viewDidLoad
     
     
