@@ -156,15 +156,6 @@
                                     <constraint firstAttribute="height" constant="180" id="p2w-yi-nV7"/>
                                 </constraints>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBY-JU-cgo">
-                                <rect key="frame" x="263" y="135" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="change password"/>
-                                <connections>
-                                    <action selector="changepass:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BYH-0E-ZRJ"/>
-                                    <segue destination="Uhi-gO-YqO" kind="show" id="gG8-5q-ga6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -244,20 +235,25 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ud0-dY-4El">
-                                <rect key="frame" x="43.5" y="371" width="327" height="232"/>
+                                <rect key="frame" x="43.5" y="371" width="327" height="280"/>
                                 <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bFd-Cb-gcA">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JKH-H2-Rgf">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
+                                        <rect key="frame" x="0.0" y="48" width="327" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mkh-ac-Uz8">
-                                        <rect key="frame" x="0.0" y="54" width="327" height="40"/>
+                                        <rect key="frame" x="0.0" y="102" width="327" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMl-ht-BBx">
-                                        <rect key="frame" x="0.0" y="108" width="327" height="70"/>
+                                        <rect key="frame" x="0.0" y="156" width="327" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="327" id="6ge-VJ-pyj"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="O7T-jt-buN"/>
@@ -270,7 +266,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmL-gP-1II">
-                                        <rect key="frame" x="0.0" y="192" width="327" height="40"/>
+                                        <rect key="frame" x="0.0" y="240" width="327" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="iNw-9c-PG2"/>
                                         </constraints>
@@ -290,6 +286,15 @@
                                     <constraint firstItem="Mkh-ac-Uz8" firstAttribute="height" secondItem="JKH-H2-Rgf" secondAttribute="height" id="lac-lf-D6Z"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giT-H5-1sZ">
+                                <rect key="frame" x="146" y="669" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Password"/>
+                                <connections>
+                                    <action selector="changePassword:" destination="E4f-Gj-Abs" eventType="touchUpInside" id="jNf-NV-iF6"/>
+                                    <segue destination="Uhi-gO-YqO" kind="showDetail" id="RAN-o0-NQ8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zOo-x8-CpZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -305,6 +310,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Email" destination="bFd-Cb-gcA" id="GSg-ig-nDH"/>
                         <outlet property="errorLabel" destination="WMl-ht-BBx" id="sJR-rQ-cR5"/>
                         <outlet property="firstNameTextField" destination="JKH-H2-Rgf" id="12X-UH-mha"/>
                         <outlet property="lastNameTextField" destination="Mkh-ac-Uz8" id="LBp-3f-y1A"/>

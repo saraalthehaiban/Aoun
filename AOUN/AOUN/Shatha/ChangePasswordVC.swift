@@ -43,10 +43,11 @@ class ChangePasswordVC: UIViewController {
                     return
                 }
                 
-                CustomAlert.showAlert(title: "Password Updated", message: "Password changed successfully. You will be logged out now, please sign in again.", inController: self, cancleTitle: "Ok") {
-                    try? Auth.auth().signOut()
-                    let appD = UIApplication.shared.delegate as! AppDelegate
-                    appD.setRoot()
+                CustomAlert.showAlert(title: "Password Updated", message: "Password changed successfully.", inController: self, cancleTitle: "Ok")
+                {
+//                    try? Auth.auth().signOut()
+//                    let appD = UIApplication.shared.delegate as! AppDelegate
+//                    appD.setRoot()
                 }
             })
             
@@ -80,12 +81,25 @@ class ChangePasswordVC: UIViewController {
     }
     
     func validatPassword() -> String? {
+        if currentPassword.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" && newPass.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" && rePass.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
+            //            passwordTextField.textColor = .red
+            currentPassword.attributedPlaceholder = NSAttributedString(string: "*Password",
+                                                                       attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            rePass.attributedPlaceholder = NSAttributedString(string: "*Confirm Password",
+                                                              attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            newPass.attributedPlaceholder = NSAttributedString(string: "*Password",
+                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            
+            return "please fill in missing fields"
+            
+        }
         if currentPassword.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
             //            passwordTextField.textColor = .red
             currentPassword.attributedPlaceholder = NSAttributedString(string: "*Password",
                                                                attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return "please enter current password"
         }
+      
         
         if newPass.text?.trimmingCharacters(in:.whitespacesAndNewlines)=="" {
             //            passwordTextField.textColor = .red
@@ -101,7 +115,7 @@ class ChangePasswordVC: UIViewController {
             rePass.attributedPlaceholder = NSAttributedString(string: "*Confirm Password",
                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             
-            return "please fill in missing fields"
+            return "please fill in Confirm Password"
         }
         print("password Check: ", newPass.text, rePass.text)
         if(newPass.text != rePass.text)
