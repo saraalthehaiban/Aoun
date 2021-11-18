@@ -43,6 +43,7 @@ class PurchaseTicketView : UIView {
    
     private var cumulativeCost : Decimal {
         get {
+            print (purchaseTickets, Decimal(purchaseTickets), ticketsPrice)
             return Decimal(purchaseTickets)*ticketsPrice
         }
     }

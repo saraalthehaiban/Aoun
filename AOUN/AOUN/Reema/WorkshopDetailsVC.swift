@@ -56,12 +56,12 @@ class WorkshopDetailsVC: UIViewController {
         timeVal.text = "\(newtime)"
         seatsNum.text = workshop.seat
         price.text = workshop.price + " SAR"
-//        purchaseTicketView.delegate = self
+        purchaseTicketView.delegate = self
         
         // self.bookSupportTextField.inputView = purchaseTicketView
         // Do any additional setup after loading the view.
         
-        //load.
+        //load
         loadUser()
         self.setPriceView()
     }
@@ -106,15 +106,6 @@ class WorkshopDetailsVC: UIViewController {
 extension WorkshopDetailsVC {
     func loadTickets () {
         self.purchaseInformationLable.text = ""
-//        guard let userId = Auth.auth().currentUser?.uid else {
-//            //User is not logged in
-//            return
-//        }
-//        let workshopRef = db.collection("Workshops").document("\(self.workshop.documentId!)")
-        
-        /*let userRef = db.collection("users").document("\(userId)")
-        whereField("user", isEqualTo:userRef)*/
-        
         db.collection("Tickets").whereField("workshop", isEqualTo: self.workshop.documentId!).getDocuments { querySnapshot, error in
             if let e = error {
                 //TODO: Error Handlings
@@ -131,10 +122,6 @@ extension WorkshopDetailsVC {
             }
         }
     }
-    
-//    func updateMyTickets () {
-//        self.myTickets =
-//    }
     
     func loadUser () {
         guard let userId = Auth.auth().currentUser?.uid else {
@@ -155,8 +142,26 @@ extension WorkshopDetailsVC {
     }
     
     //Update availability messsage
+    func remainigSeatCount(tickets:[Ticket], workShop:Workshops)->Int {
+        let noas = workshop.numberOfAvailableSeats
+        var seatCount = 0
+        for t in tickets {
+            seatCount += t.seats
+        }
+        return noas - seatCount
+    }
+    
+    func purchasedSeat(myTickets:[Ticket]) -> Int {
+        var msc = 0
+        for t in myTickets {
+            msc += t.seats
+        }
+        return msc
+    }
+    
     func checkAvailability (tickets : [Ticket]) {
-        if tickets.count >= self.workshop.numberOfAvailableSeats {
+        self.tickets = tickets
+        if (remainigSeatCount(tickets: tickets, workShop: self.workshop) == 0) {
             bookButton.setTitle("Sold Out", for: .normal)
             bookButton.isEnabled = false
             bookButton.setTitleColor(.red, for: .normal)
@@ -168,9 +173,10 @@ extension WorkshopDetailsVC {
             return ticket.user == user?.documentID
         }
         
-        let m = "You have already purchased \(self.myTickets.count) seats for this workshop."
+        let purchasedSeats = purchasedSeat(myTickets: self.myTickets)
+        let m = "You have already purchased \(purchasedSeats) seats for this workshop."
         self.updateAvailabilityMsessage(message: m)
-        if self.myTickets.count == K_MaxAllowedTicket {
+        if purchasedSeats == K_MaxAllowedTicket {
             bookButton.setTitle("Reached Limit", for: .normal)
             bookButton.isEnabled = false
             bookButton.setTitleColor(.red, for: .normal)
@@ -184,9 +190,10 @@ extension WorkshopDetailsVC {
     }
     
     func triggerPurchase(forTickets ticketCount:Int, andCost cost : Decimal) {
-        let finalCost = Decimal(ticketCount) * cost
+        //let finalCost = Decimal(ticketCount) * cost
+        let finalCost = cost
         
-        let title = "Purchase: \(workshop.Title) | SAR\(finalCost) (USD\(PriceUtils.usdString(fromSAR:finalCost))"
+        let title = "Purchase: \(workshop.Title) | SAR\(finalCost) (USD\(PriceUtils.usdString(fromSAR:finalCost)))"
         let activityViewController = UIAlertController(title: title, message: "You will be re-directed to paypal to confirm payment", preferredStyle: .actionSheet)
         
         let purchaseAction = UIAlertAction(title: "Purchase", style: .default) { action in
@@ -262,8 +269,9 @@ extension WorkshopDetailsVC {
         ticketView.ticket = ticket
         ticketView.workshop = self.workshop
         ticketView.setUI()
-        let image = ticketView.getScreenShot()
-        self.showFileShareActivity(image: image)
+        if let image = ticketView.getScreenShot() {
+            self.showFileShareActivity(image: image)
+        }
     }
     
     func showFileShareActivity (image:UIImage) {
@@ -272,6 +280,8 @@ extension WorkshopDetailsVC {
             if !completed {
                 // User canceled
                 return
+            }else{
+                self.dismiss(animated: true, completion: nil)
             }
         }
         self.present(vcActivity, animated: true, completion: nil)
@@ -300,7 +310,7 @@ extension WorkshopDetailsVC : PurchaseTicketViewDelegate {
         view.isHidden = true
     }
     func allowedTickets(_ View:PurchaseTicketView) -> Int {
-        return K_MaxAllowedTicket - self.tickets.count
+        return K_MaxAllowedTicket - purchasedSeat(myTickets: self.myTickets)
     }
     func ticketPrice(_ View:PurchaseTicketView) -> Decimal {
         return self.workshop.priceDecimal ?? 0.0

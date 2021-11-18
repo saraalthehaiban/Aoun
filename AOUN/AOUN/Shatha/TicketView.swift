@@ -45,17 +45,41 @@ class TicketView : UIView {
         lblBookedSeat.text = "Booked Seat(s):\(ticket.seats)"
         lblWorkShopTitle.text = ticket.workshopTitle
         lblWorkShopDate.text = "Workshop Date:\(date) Time:\(newtime)"
-        lblUserName.text = ticket.user
+        lblUserName.text = ticket.buyerName
         lblPurchaseDate.text = "Purchase Date: \(buydate)"
         lblPrice.text = "Price: \(Int(Double(ticket.price) ?? 1 * 3.75)) SAR"
         lblBookingID.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
 
     }
     
-    public func getScreenShot() -> UIImage {
-        return UIGraphicsImageRenderer(size: bounds.size).image { _ in
-            drawHierarchy(in: UIScreen.main.bounds, afterScreenUpdates:true)
-        }
+    public func getScreenShot() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+
+        // old style: layer.renderInContext(UIGraphicsGetCurrentContext())
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+//        return UIGraphicsImageRenderer(size: bounds.size).image { _ in
+//            drawHierarchy(in: UIScreen.main.bounds, afterScreenUpdates:true)
+//        }
     }
+    
+//    extension UIView {
+//
+//        func pb_takeSnapshot() -> UIImage {
+//            UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.mainScreen().scale)
+//
+//            drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+//
+//            // old style: layer.renderInContext(UIGraphicsGetCurrentContext())
+//
+//            let image = UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
+//            return image
+//        }
+//    }
 }
 

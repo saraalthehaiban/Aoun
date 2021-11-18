@@ -51,6 +51,7 @@
 		0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */; };
 		0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B488272719C5005511B1 /* AOUNExtensions.swift */; };
 		0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */; };
+		0FA60E092746FAFA003180F8 /* PurchaseTicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */; };
 		0FBEF4292746E70300AF4D67 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */; };
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
@@ -170,6 +171,7 @@
 		0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityAnswer.xib; sourceTree = "<group>"; };
 		0FA3B488272719C5005511B1 /* AOUNExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOUNExtensions.swift; sourceTree = "<group>"; };
 		0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestion.swift; sourceTree = "<group>"; };
+		0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseTicketView.xib; sourceTree = "<group>"; };
 		0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
 				0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */,
 				0BFE8D092742882D00A23914 /* TicketView.swift */,
+				0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */,
 			);
 			path = Shatha;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				0FC920BC2734399D00996757 /* ReviewCell.xib in Resources */,
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
 				5264FC76272722150065DA81 /* Community.storyboard in Resources */,
+				0FA60E092746FAFA003180F8 /* PurchaseTicketView.xib in Resources */,
 				0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */,
 				0B549D3E2741422600121D77 /* WorkShop.storyboard in Resources */,
 				0F3DECEB270B207800C5F6BB /* RCell.xib in Resources */,
