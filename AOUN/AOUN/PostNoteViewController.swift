@@ -316,7 +316,12 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     }
     
     @objc func stateChanged(switchState: UISwitch) {
-        priceTextbox.isHidden = !switchState.isOn
+        if switchState.isOn {
+            priceTextbox.isHidden = false
+            priceTextbox.text = ""
+        }else{
+            priceTextbox.isHidden = true
+        }
     }
 }
 

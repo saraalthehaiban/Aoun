@@ -878,7 +878,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VY2-NY-Gt1">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VY2-NY-Gt1" customClass="RPTTextView" customModule="AOUN" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="327" height="90"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -998,7 +998,7 @@
                     <navigationItem key="navigationItem" id="b0z-2M-6vG"/>
                     <connections>
                         <outlet property="autherTextbox" destination="H9n-mg-qA3" id="v32-M1-Ar2"/>
-                        <outlet property="descriptionTextbox" destination="VY2-NY-Gt1" id="eA7-sN-TsX"/>
+                        <outlet property="descriptionTextbox" destination="VY2-NY-Gt1" id="uS9-Le-qkh"/>
                         <outlet property="error" destination="ua8-jq-i0c" id="E84-aR-K2o"/>
                         <outlet property="fileMsg" destination="or1-eg-DLM" id="gmr-My-O0Q"/>
                         <outlet property="noteTitleTextbox" destination="bpv-qh-B1N" id="Qgk-Le-Sfp"/>
