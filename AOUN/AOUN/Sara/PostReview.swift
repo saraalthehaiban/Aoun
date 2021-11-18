@@ -9,23 +9,24 @@ import UIKit
 import Cosmos
 import Firebase
 
+protocol PostReviewDelegate {
+    func postReview(_ pr:PostReview, review:Review, posted:Bool)
+}
+
 class PostReview: UIViewController {
     @IBOutlet var starsConsmosView: CosmosView!
     @IBOutlet var reviewNoteTextView: RPTTextView!
     @IBOutlet var errorLable: UILabel!
+    @IBOutlet var revTitle: UILabel!
+    var noteTtile:String!
     var rating : Double?
     var note : NoteFile!
+    var delegate : PostReviewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        starsConsmosView.didFinishTouchingCosmos = { rating in
-//            rating = rating
-//        }
-//        if let c = starsConsmosView.didFinishTouchingCosmos {
-//            c(
-//        }
+        noteTtile = note.noteLable
+        revTitle.text?.append(noteTtile)
         self.reviewNoteTextView.characotrLimit = K_DescriptionLimit
         self.reviewNoteTextView.placeHolderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
         self.reviewNoteTextView.placeHolder = "*Review"
@@ -56,18 +57,19 @@ class PostReview: UIViewController {
     func isValid () -> Bool {
         var isValid = true
         if self.rating == nil {
-            self.errorLable.text  = "Please add rating!"
+            self.errorLable.text  = "Please fill in a rating"
             isValid = false
         }
     
-        if self.reviewNoteTextView.text.count == 0 && self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
+        if self.reviewNoteTextView.text.count == 0 ||
+            self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
             self.reviewNoteTextView.placeHolderColor = .red
-            self.errorLable.text  = "Please add review"
+            self.errorLable.text  = "Please fill in a review"
             isValid = false
         }
         
         if rating == nil && self.reviewNoteTextView.text == self.reviewNoteTextView.placeHolder {
-            self.errorLable.text  = "Enter all field"
+            self.errorLable.text  = "Please fill in all required fields"
             isValid = false
         }
         
@@ -83,20 +85,34 @@ class PostReview: UIViewController {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        var data : [String :Any] = [:]
-        data["review"] = self.reviewNoteTextView.text!
-        data["point"] =  self.rating
-        data["nameOfUser"] = appDelegate.thisUser.fullName
-        //"users/\(user?.documentID)"
-        data["user"] = db.document("users/\(appDelegate.thisUser.docID!)")
-        docRef.setData(data) { error in
+        let review = Review(
+            nameOfUser: appDelegate.thisUser.fullName ?? "",
+            review:  self.reviewNoteTextView.text!,
+            point: self.rating ?? 0,
+            user:  db.document("users/\(appDelegate.thisUser.docID!)"))
+        
+//        var data : [String :Any] = [:]
+//        data["review"] = self.reviewNoteTextView.text!
+//        data["point"] =  self.rating
+//        data["nameOfUser"] = appDelegate.thisUser.fullName
+//        //"users/\(user?.documentID)"
+//        data["user"] = db.document("users/\(appDelegate.thisUser.docID!)")
+//        let review = Review(dictionary: data)
+        docRef.setData(review.dictionary) { error in
             if let e = error {
                 print("Error", e.localizedDescription)
+                self.delegate?.postReview(self, review:review, posted: false)
             } else {
-              //TODO: Inform previos class
+                CustomAlert.showAlert(
+                    title: "Review posted",
+                    message: "You have reviewed the note",
+                    inController: self,
+                    with: UIImage(named: "Check"),
+                    cancleTitle: "Ok") {
+                    self.delegate?.postReview(self, review:review, posted: true)
+                }
             }
         }
-        
     }
-    
 }
+    

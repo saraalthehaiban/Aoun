@@ -21,4 +21,11 @@ struct User : Codable {
             return fullName.trimmingCharacters(in: .whitespacesAndNewlines)
         }
     }
+    
+    var displayName : String {
+        get {
+            let name = "\(FirstName) \(LastName)"
+            return name.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+    }
 }

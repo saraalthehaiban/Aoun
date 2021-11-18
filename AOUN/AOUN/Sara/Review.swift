@@ -13,4 +13,24 @@ struct Review{
     let review: String //body
     let point: Double //star rating
     let user : DocumentReference
+    
+    var dictionary : [String : Any] {
+        return [
+            "nameOfUser":nameOfUser,
+            "review":review,
+            "point":point,
+            "user" :user
+        ]
+    }
 }
+
+extension Review {
+    init?(dictionary:[String:Any]) {
+        guard let review = dictionary["review"] as? String,
+              let point =  dictionary["point"] as? Double,
+              let nameOfUser =  dictionary["nameOfUser"] as? String,
+              let user = dictionary["user"] as? DocumentReference else {return nil}
+        self.init(nameOfUser: nameOfUser, review: review, point: point, user: user)
+    }
+}
+

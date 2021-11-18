@@ -363,14 +363,14 @@ PODS:
     - Braintree/Card
   - Braintree/Venmo (5.5.0):
     - Braintree/Core
-  - BraintreeDropIn (9.2.0):
-    - Braintree/ApplePay (>= 5.4.2, ~> 5.4)
-    - Braintree/Card (>= 5.4.2, ~> 5.4)
-    - Braintree/Core (>= 5.4.2, ~> 5.4)
-    - Braintree/PayPal (>= 5.4.2, ~> 5.4)
-    - Braintree/ThreeDSecure (>= 5.4.2, ~> 5.4)
-    - Braintree/UnionPay (>= 5.4.2, ~> 5.4)
-    - Braintree/Venmo (>= 5.4.2, ~> 5.4)
+  - BraintreeDropIn (9.3.0):
+    - Braintree/ApplePay (~> 5.5)
+    - Braintree/Card (~> 5.5)
+    - Braintree/Core (~> 5.5)
+    - Braintree/PayPal (~> 5.5)
+    - Braintree/ThreeDSecure (~> 5.5)
+    - Braintree/UnionPay (~> 5.5)
+    - Braintree/Venmo (~> 5.5)
   - Cosmos (23.0.0)
   - Firebase (8.9.1):
     - Firebase/Core (= 8.9.1)
@@ -523,8 +523,13 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.7.0)
-  - IQKeyboardManagerSwift (6.5.7)
+  - InputBarAccessoryView (5.4.0):
+    - InputBarAccessoryView/Core (= 5.4.0)
+  - InputBarAccessoryView/Core (5.4.0)
+  - IQKeyboardManagerSwift (6.5.9)
   - leveldb-library (1.22.1)
+  - MessageKit (3.7.0):
+    - InputBarAccessoryView (~> 5.4.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -543,6 +548,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - IQKeyboardManagerSwift (~> 6.5)
+  - MessageKit
   - PayPalCheckout
 
 SPEC REPOS:
@@ -567,8 +573,10 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - InputBarAccessoryView
     - IQKeyboardManagerSwift
     - leveldb-library
+    - MessageKit
     - nanopb
     - PayPalCheckout
     - PromisesObjC
@@ -577,7 +585,7 @@ SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   Braintree: acd5dd18b4aff8858346d6b6f6f3b5bc059332fb
-  BraintreeDropIn: d9c1c1b01f3f15a7a1c32ff33c9e8ed22b85357a
+  BraintreeDropIn: ed7292064dca8738cfbb8445c6984f144328ffa9
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Firebase: fb5114cd2bf96e2ff7bcb01d0d9a156cf5fd2f07
   FirebaseAnalytics: 4ab446ce08a3fe52e8a4303dd997cf26276bf968
@@ -594,12 +602,14 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
-  IQKeyboardManagerSwift: c742184c72b0b3bbb902cc6cdcf4ecda91d3b3e0
+  InputBarAccessoryView: 74d471ab1fa1736806be50328df79257e52865a9
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  MessageKit: 8e76dd8d65ad44b49e1651c673497146416461e9
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PayPalCheckout: 0efede8f650dcfcb80d78a45ccd16b4d3ea8037c
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 650eeb8afb832cbbd0515b0f3887ab56ce77749e
+PODFILE CHECKSUM: a22e512d3a72475722e67fea4484d609aad511c4
 
 COCOAPODS: 1.11.2

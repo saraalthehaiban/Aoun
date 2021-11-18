@@ -17,7 +17,8 @@ class DownloadManager {
         storageRef.getData(maxSize: 12 * 1024 * 1024) { data, error in
             if let e = error {
                 //TODO: Show and alert of error
-                print( "Download Error: ", e)
+                print( "Download Error: ", e.localizedDescription)
+                completion(false, nil)
             } else if let d = data {
                 
                 completion(true, d)
