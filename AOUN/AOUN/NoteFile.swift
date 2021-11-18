@@ -4,8 +4,8 @@
 //
 //  Created by Rasha on 28/09/2021.
 //
-
 import Foundation
+import Firebase
 
 let K_SAR_TO_USD_CONVERSION_RATE : Decimal = 3.75
 struct NoteFile {
@@ -18,6 +18,8 @@ struct NoteFile {
     var documentId : String?
     var userId:String?
     var docID: String
+    var createDate: Timestamp
+    
     //...
     var priceDecimal : Decimal? {
         get {

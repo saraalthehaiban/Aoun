@@ -13,7 +13,6 @@ struct resFile {
     let publisher : String
     let desc : String
     let urlString : String
-    
     var documentId : String?
     var url : URL? {
         get {

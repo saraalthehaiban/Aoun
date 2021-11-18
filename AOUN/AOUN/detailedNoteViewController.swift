@@ -4,7 +4,6 @@
 //
 //  Created by Rasha on 28/09/2021.
 //
-
 import UIKit
 
 import Braintree
@@ -19,12 +18,9 @@ enum DownloadAction : String {
 }
 
 //sb-ew5ol8313965@business.example.com
-
 class detailedNoteViewController: UIViewController{
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
     var braintreeClient: BTAPIClient?
-    var user:QueryDocumentSnapshot?
-
     
    // @IBOutlet var buttonLabel: UILabel!
     @IBOutlet var addReview: UIButton!
@@ -71,13 +67,16 @@ class detailedNoteViewController: UIViewController{
             price.textColor = .systemGreen
         }
         
-        
         addReview.layer.shadowColor = UIColor.black.cgColor
         addReview.layer.shadowOpacity = 0.25
+        print ("Condition Check:", Auth.auth().currentUser?.uid,  note.userId, (Auth.auth().currentUser?.uid == note.userId))
+        downloadButton.isHidden = (Auth.auth().currentUser?.uid == note.userId)
+        
         if note.priceDecimal != nil {
             downloadButton.setTitle("Pay & Download", for: .normal)
             priceOfNote = note.priceDecimal ?? 0
         }
+        self.loadReviews()
         self.loadUserReference()
     }
     
@@ -96,20 +95,17 @@ class detailedNoteViewController: UIViewController{
             return
         }
         
+        
+        
         if priceOfNote > 0 {
             //payment
             self.triggerPurchase(url: url)
+            
         }else{
             download(url: url)
         }
     }
     
-   
-}
-
-
-//MARK:- payment and purchase
-extension detailedNoteViewController {
     func triggerPurchase(url:URL) {
         let title = "Purchase: \(note.noteLable) | SAR\(note.priceDecimal ?? 0) (USD\(note.usdString ?? ""))"
         let activityViewController = UIAlertController(title: title, message: "You will be re-directed to paypal to confirm payment", preferredStyle: .actionSheet)
@@ -125,6 +121,10 @@ extension detailedNoteViewController {
     }
     
     func paymentAction(url:URL){
+        //        self.triggerPayPalCheckout()
+        
+        //            self.showDropIn(clientTokenOrTokenizationKey: authorization, url: url) //Metod 2
+        
         self.startCheckout(amount: "\(priceOfNote)") { message in
             self.updatePrice(price: self.note.priceDecimal ?? 0)
             
@@ -137,28 +137,6 @@ extension detailedNoteViewController {
                 inController: self,
                 cancleTitle: "Ok") {
                 self.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-    
-    func startCheckout(amount:String, success: @escaping (String)->Void, failure: @escaping (Error) -> Void) {
-        braintreeClient = BTAPIClient(authorization: authorization)
-        if let btClient = braintreeClient {
-            let payPalDriver = BTPayPalDriver(apiClient: btClient)
-            let request = BTPayPalCheckoutRequest(amount: amount)
-            request.currencyCode = "USD"
-            payPalDriver.tokenizePayPalAccount(with: request) { (tokenizedPayPalAccount, error) in
-                if let tokenizedPayPalAccount = tokenizedPayPalAccount {
-                    print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
-                    let email = tokenizedPayPalAccount.email
-                    success(email ?? "")
-                } else if let error = error {
-                    
-                    print(error.localizedDescription)
-                    failure(error)
-                    self.errorMsg.text = error.localizedDescription
-                } else {
-                }
             }
         }
     }
@@ -210,6 +188,7 @@ extension detailedNoteViewController {
         complition(false)
     }
     
+    var user:QueryDocumentSnapshot?
     func loadUserReference()  {
         guard let userId = Auth.auth().currentUser?.uid else {
             //User is not logged in
@@ -356,25 +335,6 @@ extension detailedNoteViewController {
         self.performSegue(withIdentifier: "si_reviewToAddReview", sender: note)
     }
     
-    @IBAction func autherNameClicked(_ sender: Any) {
-        let db = Firestore.firestore()
-        db.collection("users").whereField("uid", isEqualTo: self.authID).getDocuments { (querySnapshot, error) in
-            if let error = error {
-                //Display Error
-                print(error)
-            } else {
-                if let userData = querySnapshot?.documents.last {
-                    let firstname = userData["FirstName"] as? String ?? ""
-                    let lastName = userData["LastName"] as? String ?? ""
-                    let fullName = firstname + ((lastName.count > 0) ? " \(lastName)" : "")
-                    let user = User(FirstName: firstname, LastName: lastName, uid: self.authID)
-                    DispatchQueue.main.async {
-                        OtherUserProfile.present(with: user, on: self)
-                    }
-                }
-            }
-        }
-    }
 }
 
 
@@ -455,44 +415,43 @@ extension detailedNoteViewController : BTThreeDSecureRequestDelegate {
         }
     }
     
-//    func startCheckout(amount:String, success: @escaping (String)->Void, failure: @escaping (Error) -> Void) {
-//        braintreeClient = BTAPIClient(authorization: authorization)
-//        if let btClient = braintreeClient {
-//            let payPalDriver = BTPayPalDriver(apiClient: btClient)
-//            let request = BTPayPalCheckoutRequest(amount: amount)
-//            request.currencyCode = "USD"
-//
-//
-//            payPalDriver.tokenizePayPalAccount(with: request) { (tokenizedPayPalAccount, error) in
-//                if let tokenizedPayPalAccount = tokenizedPayPalAccount {
-//                    print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
-//
-//
-//                    let email = tokenizedPayPalAccount.email
-//                    let firstName = tokenizedPayPalAccount.firstName
-//                    let lastName = tokenizedPayPalAccount.lastName
-//                    let phone = tokenizedPayPalAccount.phone
-//
-//                    let billingAddress = tokenizedPayPalAccount.billingAddress
-//                    let shippingAddress = tokenizedPayPalAccount.shippingAddress
-//
-//                    success(email ?? "")
-//                } else if let error = error {
-//
-//                    print(error.localizedDescription)
-//                    failure(error)
-//                    self.errorMsg.text = error.localizedDescription
-//                } else {
-//
-//
-//                }
-//            }
-//        }
-//    }
+    func startCheckout(amount:String, success: @escaping (String)->Void, failure: @escaping (Error) -> Void) {
+        braintreeClient = BTAPIClient(authorization: authorization)
+        if let btClient = braintreeClient {
+            let payPalDriver = BTPayPalDriver(apiClient: btClient)
+            let request = BTPayPalCheckoutRequest(amount: amount)
+            request.currencyCode = "USD"
+            
+            
+            payPalDriver.tokenizePayPalAccount(with: request) { (tokenizedPayPalAccount, error) in
+                if let tokenizedPayPalAccount = tokenizedPayPalAccount {
+                    print("Got a nonce: \(tokenizedPayPalAccount.nonce)")
+                    
+                    
+                    let email = tokenizedPayPalAccount.email
+                    let firstName = tokenizedPayPalAccount.firstName
+                    let lastName = tokenizedPayPalAccount.lastName
+                    let phone = tokenizedPayPalAccount.phone
+                    
+                    let billingAddress = tokenizedPayPalAccount.billingAddress
+                    let shippingAddress = tokenizedPayPalAccount.shippingAddress
+                    
+                    success(email ?? "")
+                } else if let error = error {
+                    
+                    print(error.localizedDescription)
+                    failure(error)
+                    self.errorMsg.text = error.localizedDescription
+                } else {
+                    
+                    
+                }
+            }
+        }
+    }
 }
 
 //MARK:- Reviews by Sara
-
 
 
 extension detailedNoteViewController: UITableViewDataSource, UITableViewDelegate{

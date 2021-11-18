@@ -158,7 +158,7 @@ extension Community: UISearchBarDelegate {
             filtered = questions
         }
         
-        self.set(message: (filtered.count == 0) ? "No records" : nil)
+        self.set(message: (filtered.count == 0) ? "No results." : nil)
     }
     
     func set(message:String?) {

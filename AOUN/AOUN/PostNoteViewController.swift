@@ -56,6 +56,10 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        priceTextbox.delegate = self
+    }
+    
     var documentFileData : Data!
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard controller.documentPickerMode == .open, let url = urls.last, url.startAccessingSecurityScopedResource() else {return}
@@ -201,12 +205,11 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         let description = descriptionTextbox.text!
         
         let price = priceTextbox.text ?? ""
+        let createDate = Timestamp(date: Date())
         
-        let data = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid]
+        let data : [String : Any] = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid, "createDate":createDate]
         
-        
-        
-        let note = NoteFile(id:"doc.documentID", noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url, docID: "")
+        let note = NoteFile(id:"doc.documentID", noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url, docID: "", createDate:createDate)
         
         
         db.collection("Notes").document().setData(data) { error in
@@ -291,7 +294,11 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == priceTextbox {
-            guard let text = textField.text, let textRange = Range(range, in:text) else  {
+            guard let text = textField.text else { return false }
+            if text.count == 0 && string == "0" {
+                return false
+            }
+            guard let textRange = Range(range, in:text) else  {
                 return true
             }
             let updatedText = text.replacingCharacters(in: textRange, with: string)

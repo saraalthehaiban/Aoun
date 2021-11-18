@@ -4,7 +4,6 @@
 //
 //  Created by Rasha on 19/09/2021.
 //
-
 import UIKit
 import FirebaseStorage
 import Firebase
@@ -54,8 +53,9 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
                 if let snapshotDocuments = querySnapshot?.documents{
                     for doc in snapshotDocuments {
                         let data = doc.data()
-                        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String, let docId = doc.documentID as? String{
-                            let newNote = NoteFile(id:doc.documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId)
+                        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String , let createDate = data["createDate"] as? Timestamp{
+                            let docId = doc.documentID
+                            let newNote = NoteFile(id:doc.documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId, createDate:createDate)
                             self.notes.append(newNote)
                             DispatchQueue.main.async {
                                 self.collection.reloadData()
@@ -89,7 +89,6 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
         self.collection.reloadData()
     }
 }//end class
-
 //mark:-
 extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
