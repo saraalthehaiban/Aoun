@@ -4,6 +4,7 @@
 //
 //  Created by Rasha on 19/09/2021.
 //
+
 import UIKit
 import FirebaseStorage
 import Firebase
@@ -17,11 +18,21 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
     //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var post: UIButton!
     
-    var notes:[NoteFile] = []
+    var notes:[NoteFile] = []{
+        didSet {
+            self.filtered = notes
+        }
+    }
     let db = Firestore.firestore()
+    
     @IBOutlet weak var searchBar: UISearchBar!
-    var searchActive : Bool = false
-    var filtered:[NoteFile] = []
+    @IBOutlet weak var messageLabel: UILabel!
+    //  var searchActive : Bool = false
+    var filtered:[NoteFile] = []{
+        didSet {
+            self.collection.reloadData()
+        }
+    }
     
     @IBOutlet weak var delete: UIButton!
     override func viewDidLoad() {
@@ -57,10 +68,11 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
                             let docId = doc.documentID
                             let newNote = NoteFile(id:doc.documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId, createDate:createDate)
                             self.notes.append(newNote)
-                            DispatchQueue.main.async {
-                                self.collection.reloadData()
-                            }
                         }
+                    }
+                    DispatchQueue.main.async {
+                        self.set(message:(self.notes.count == 0) ? "No notes yet." : nil)
+                        self.collection.reloadData()
                     }
                 }
             }
@@ -68,27 +80,35 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
         //self.activityIndicator.stopAnimating()
     }//end loadNotes
     
-    //search
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
+    func set(message:String? = nil) {
+        self.messageLabel.text = message
+//        if let m = message, m.count > 0 {
+//            self.messageLabel.text = m
+//            self.messageLabel.isHidden = false
+//        }else {
+//            self.messageLabel.isHidden = false
+//        }
+    }//end set
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
+    //search
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filtered = notes.filter { $0.noteLable.localizedCaseInsensitiveContains(searchText) }
-        if(filtered.count == 0){
-            searchActive = false;
+        self.filter(searchText: searchText)
+    }
+    
+    func filter(searchText:String?) {
+        if let s = searchText, s.count > 0 {
+            filtered = notes.filter { $0.noteLable.localizedCaseInsensitiveContains(s) }
         } else {
-            searchActive = true;
+            filtered = notes
         }
         
-        self.collection.reloadData()
+        set(message:(filtered.count == 0) ? "No results." : nil)
     }
 }//end class
+
 //mark:-
 extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -97,35 +117,37 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(searchActive) {
-            return filtered.count
-        } else {
-            return notes.count
-        }
-    }
+        self.filtered.count
+
+//        if(searchActive) {
+//               return filtered.count
+//           } else {
+//        return resources.count
+//           }
+    }//end count
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NoteCellCollectionViewCell
-        
-        if(searchActive) {
-            cell.noteLable.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].noteLable : ""
-        } else {
-            cell.noteLable.text = notes[indexPath.row].noteLable
-        }
+        cell.noteLable.text = filtered[indexPath.row].noteLable
+
+//        if(searchActive) {
+//            cell.noteLable.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].noteLable : ""
+//        } else {
+//        cell.noteLable.text = notes[indexPath.row].noteLable
+//        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //    let destinationVC = detailedNoteViewController()
+    //    let destinationVC = detailedNoteViewController()
         
-        //   self.performSegue(withIdentifier: "si_noteListToDetail", sender: indexPath)
+     //   self.performSegue(withIdentifier: "si_noteListToDetail", sender: indexPath)
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
-            vc.note = notes[indexPath.row]
-            vc.authID = notes[indexPath.row].userId ?? ""
-            vc.docID = notes[indexPath.row].docID
+       if let vc = storyboard.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
+            vc.note = filtered[indexPath.row]
+        vc.authID = filtered[indexPath.row].userId ?? ""
             self.present(vc, animated: true, completion: nil)
             
         }
@@ -140,12 +162,14 @@ extension ViewNotesViewController  {
         if segue.identifier == "si_viewNoteToPost", let vc = segue.destination as? PostNoteViewController {
             vc.delegate = self
         } else if segue.identifier == "si_noteListToDetail", let vc = segue.destination as? detailedNoteViewController, let indexPath = sender as? IndexPath {
-            if searchActive && filtered.count != 0{
-                vc.note = filtered[indexPath.item]
-            } else {
-                vc.note = notes[indexPath.row]
-            }
-        }
+             vc.note = filtered[indexPath.item]
+
+//            if searchActive && filtered.count != 0{
+//                vc.note = filtered[indexPath.item]
+//            } else {
+//            vc.note = notes[indexPath.row]
+//            }
+                    }
     }
 }
 

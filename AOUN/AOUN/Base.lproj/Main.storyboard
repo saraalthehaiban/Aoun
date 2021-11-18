@@ -295,6 +295,12 @@
                                             <outlet property="delegate" destination="0gO-lz-zIt" id="bVT-N4-Tgp"/>
                                         </connections>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRO-KZ-hIu">
+                                        <rect key="frame" x="209" y="437" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mXZ-6L-aWh">
                                         <rect key="frame" x="0.0" y="307" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -311,6 +317,7 @@
                                     <constraint firstItem="SOu-Qu-ToD" firstAttribute="top" secondItem="coj-VW-dDC" secondAttribute="top" constant="216" id="Im8-0Y-eT5"/>
                                     <constraint firstItem="hsR-VR-kBp" firstAttribute="top" secondItem="om0-wF-dRI" secondAttribute="top" constant="-127" id="JEb-tu-Azt"/>
                                     <constraint firstItem="SOu-Qu-ToD" firstAttribute="top" secondItem="w7H-ds-oh3" secondAttribute="bottom" constant="-58" id="O5D-Ep-YAT"/>
+                                    <constraint firstItem="iRO-KZ-hIu" firstAttribute="centerX" secondItem="c25-gw-49L" secondAttribute="centerX" constant="2" id="Rq2-OO-D7R"/>
                                     <constraint firstItem="c25-gw-49L" firstAttribute="trailing" secondItem="6zv-zG-lev" secondAttribute="trailing" constant="137" id="S43-Dl-gzu"/>
                                     <constraint firstItem="coj-VW-dDC" firstAttribute="trailing" secondItem="XCj-mE-z4C" secondAttribute="trailing" constant="191.5" id="ap4-iq-pZk"/>
                                     <constraint firstItem="6zv-zG-lev" firstAttribute="bottom" secondItem="coj-VW-dDC" secondAttribute="bottom" constant="-53" id="dDG-Pm-tWM"/>
@@ -320,6 +327,7 @@
                                     <constraint firstItem="XCj-mE-z4C" firstAttribute="leading" secondItem="coj-VW-dDC" secondAttribute="leading" constant="191.5" id="k50-Wi-g1b"/>
                                     <constraint firstItem="SOu-Qu-ToD" firstAttribute="top" secondItem="XCj-mE-z4C" secondAttribute="bottom" constant="147.5" id="kLe-s9-P3v"/>
                                     <constraint firstItem="c25-gw-49L" firstAttribute="top" secondItem="SOu-Qu-ToD" secondAttribute="bottom" constant="26" id="kOM-a4-wii"/>
+                                    <constraint firstItem="iRO-KZ-hIu" firstAttribute="top" secondItem="c25-gw-49L" secondAttribute="top" constant="69" id="kTD-WR-mLy"/>
                                     <constraint firstItem="coj-VW-dDC" firstAttribute="trailing" secondItem="c25-gw-49L" secondAttribute="trailing" constant="33" id="ngi-PN-O7k"/>
                                     <constraint firstItem="6zv-zG-lev" firstAttribute="leading" secondItem="coj-VW-dDC" secondAttribute="leading" constant="170" id="p82-0y-pYL"/>
                                     <constraint firstItem="coj-VW-dDC" firstAttribute="trailing" secondItem="SOu-Qu-ToD" secondAttribute="trailing" constant="123" id="rag-4L-hh2"/>
@@ -336,6 +344,7 @@
                     <connections>
                         <outlet property="addNoteButton" destination="6zv-zG-lev" id="yqz-Ba-Qn7"/>
                         <outlet property="collection" destination="c25-gw-49L" id="t8P-VW-dIY"/>
+                        <outlet property="messageLabel" destination="iRO-KZ-hIu" id="PCo-gO-hzQ"/>
                         <outlet property="post" destination="6zv-zG-lev" id="IjZ-pw-2XD"/>
                         <outlet property="searchBar" destination="mXZ-6L-aWh" id="TTi-6K-P5k"/>
                         <outlet property="titleLable" destination="SOu-Qu-ToD" id="EWb-Ul-uQ1"/>

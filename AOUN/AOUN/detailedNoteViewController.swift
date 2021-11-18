@@ -264,7 +264,7 @@ class detailedNoteViewController: UIViewController{
     func loadReviews(){
         self.set(message: "Loading..")
         Reviews = []
-        colRef = Firestore.firestore().collection("Notes").document(docID).collection("reviews")
+        colRef = Firestore.firestore().collection("Notes").document(note.id).collection("reviews")
         colRef.getDocuments() { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
