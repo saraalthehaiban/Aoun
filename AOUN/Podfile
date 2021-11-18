@@ -27,4 +27,6 @@ target 'AOUN' do
   pod 'BraintreeDropIn'
   pod 'PayPalCheckout'
   pod 'Cosmos', '~> 23.0'
+  
+  pod 'MessageKit'
  end

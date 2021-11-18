@@ -356,6 +356,25 @@ extension detailedNoteViewController {
         self.performSegue(withIdentifier: "si_reviewToAddReview", sender: note)
     }
     
+    @IBAction func autherNameClicked(_ sender: Any) {
+        let db = Firestore.firestore()
+        db.collection("users").whereField("uid", isEqualTo: self.authID).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                //Display Error
+                print(error)
+            } else {
+                if let userData = querySnapshot?.documents.last {
+                    let firstname = userData["FirstName"] as? String ?? ""
+                    let lastName = userData["LastName"] as? String ?? ""
+                    let fullName = firstname + ((lastName.count > 0) ? " \(lastName)" : "")
+                    let user = User(FirstName: firstname, LastName: lastName, uid: self.authID)
+                    DispatchQueue.main.async {
+                        OtherUserProfile.present(with: user, on: self)
+                    }
+                }
+            }
+        }
+    }
 }
 
 

@@ -125,11 +125,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let user = querySnapshot?.documents.first
                 let earned : Double = ((user?.data()["earned"] as? Double)) ?? 0
                 self.balanceLable.text = String(earned) + " SAR"
-               
-            
             }
         }
-        
     }
     
     
@@ -144,6 +141,12 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+  
+        initialize()
+        
+        callBalance()
+    }
+    func initialize () {
         notesTable.register(UINib(nibName:"notesTableViewCell", bundle: nil), forCellReuseIdentifier: "notesTableViewCell")
         notesTable.delegate = self
         notesTable.dataSource = self
@@ -163,7 +166,6 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         //        saveButton.e  = true
         getName { [self] (name) in
             self.fullName.text = name}
-        callBalance()
     }
     
     func loadNotes (){
@@ -308,9 +310,6 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
     }//end of getEmail
-    
-    
-    
     
 }
 
