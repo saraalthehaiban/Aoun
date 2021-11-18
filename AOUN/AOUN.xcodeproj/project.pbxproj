@@ -51,6 +51,7 @@
 		0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */; };
 		0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B488272719C5005511B1 /* AOUNExtensions.swift */; };
 		0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */; };
+		0FBEF4292746E70300AF4D67 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */; };
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
 		0FC21B7F26F8D72A00B83B0E /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */; };
@@ -169,6 +170,7 @@
 		0FA3B485271B16B7005511B1 /* CommunityAnswer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityAnswer.xib; sourceTree = "<group>"; };
 		0FA3B488272719C5005511B1 /* AOUNExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOUNExtensions.swift; sourceTree = "<group>"; };
 		0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestion.swift; sourceTree = "<group>"; };
+		0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0FC21B7D26F8D72A00B83B0E /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
+				0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */,
 				0F7D3ED227465F9400CC5453 /* Workshops.swift */,
 				0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */,
 				0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */,
@@ -775,6 +778,7 @@
 				0F410B83274667070059E145 /* workshopCellCollectionViewCell.swift in Sources */,
 				0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
+				0FBEF4292746E70300AF4D67 /* ChangePasswordVC.swift in Sources */,
 				0F7D3ED62746604700CC5453 /* WorkshopDetailsVC.swift in Sources */,
 				0FC920BE273439B000996757 /* Review.swift in Sources */,
 				0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */,

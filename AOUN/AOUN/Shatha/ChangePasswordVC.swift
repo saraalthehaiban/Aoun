@@ -129,7 +129,7 @@ class ChangePasswordVC: UIViewController {
         {
             return "Please make sure your password is at least 8 characters, contains special character and a number."
         }
-        return nil 
+        return nil
     }
     
     func getEmail(completion: @escaping((String?) -> ())) {

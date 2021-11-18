@@ -11,7 +11,7 @@ import UIKit
 class OtherUserProfile : ViewViewController {
     
     override func viewDidLoad() {
-        self.initialize()
+        //self.initialize()
     }
     
     class func present(with user:User, on viewController : UIViewController) {
