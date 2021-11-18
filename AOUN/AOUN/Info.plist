@@ -28,6 +28,8 @@
 	<string>Bluetooth access is required in order to connect to supported card readers.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location access is required in order to accept payments.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>To save the tickets to your gallery.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
