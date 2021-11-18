@@ -19,6 +19,9 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var Email: UITextField!
+    @IBAction func changePassword(_ sender: UIButton) {
+    }
     var user : User!
     
 
@@ -37,6 +40,9 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
         errorLabel.alpha=0
         self.firstNameTextField.text = self.user.FirstName
         self.lastNameTextField.text = self.user.LastName
+        getEmail { [self] (uEmail) in
+            self.Email.text = uEmail
+        }
     }
     
     func validateFields() -> String? {
@@ -65,8 +71,19 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
                                                                          attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             error = "Please fill in last name"
         }
+        if Email.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        {
+            Email.attributedPlaceholder = NSAttributedString(string: "*Email",
+                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+            error = "Please fill in the email"
+        }
+        let cleanedEmail = Email.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+        if Utilities.isValidEmail(cleanedEmail) == false {
+            return "Invalid email format, please follow xxx@domain.com"
+        }
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" &&
-            lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+            lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" &&
+            Email.text?.trimmingCharacters(in:.whitespacesAndNewlines)==""
     { error = "Please fill in all missing fields"
         }
         if error == " "
@@ -85,12 +102,21 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
             //create cleaned ref
             let firstName = firstNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
             let lastName =  lastNameTextField.text!.trimmingCharacters(in:.whitespacesAndNewlines)
+            let newEmail = Email.text!.trimmingCharacters(in:.whitespacesAndNewlines)
             let db = Firestore.firestore()
             guard let userId = Auth.auth().currentUser?.uid else {
                 //User is not logged in
                 return
             }
-            
+
+            Auth.auth().currentUser?.updateEmail(to: newEmail)  { error in
+                   if let error = error {
+                       print(error)
+                   } else {
+                       print("CHANGED")
+                    
+                   }
+               }
             let updateData = ["LastName":lastName, "FirstName":firstName]
             db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
                 if let err = error {
@@ -157,6 +183,14 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
     }
+    func getEmail(completion: @escaping((String) -> ())) {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let theEmail = user.email ?? ""
+            completion(theEmail)
+        }
+        
+    }//end of getEmail
 //    func textField1(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //        let minLength = 3
 //        let currentString: NSString = (textField.text ?? "") as NSString

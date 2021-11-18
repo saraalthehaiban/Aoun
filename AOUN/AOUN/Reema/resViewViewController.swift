@@ -46,6 +46,8 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
     }
     
     func loadResources(){
+        // ********* add it to notes *******
+        self.set(message: "Loading..")
         db.collection("Resources").getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
