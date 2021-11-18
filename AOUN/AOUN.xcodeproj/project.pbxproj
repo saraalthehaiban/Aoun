@@ -7,13 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0E335727304C5A000255F5 /* WorkshopDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E335627304C5A000255F5 /* WorkshopDetailsVC.swift */; };
 		0B0E335927304E9E000255F5 /* Workshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E335827304E9E000255F5 /* Workshops.swift */; };
-		0B0ED52B2736AE44001FAB89 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ED52A2736AE44001FAB89 /* ChangePasswordVC.swift */; };
 		0B549D36273B934300121D77 /* postWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D35273B934300121D77 /* postWorkshopViewController.swift */; };
-		0B549D38273B935700121D77 /* viewWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D37273B935700121D77 /* viewWorkshopViewController.swift */; };
-		0B549D3A273B936500121D77 /* workshopCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D39273B936500121D77 /* workshopCellCollectionViewCell.swift */; };
-		0B549D3C273B936D00121D77 /* workshopCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B549D3B273B936D00121D77 /* workshopCellCollectionViewCell.xib */; };
 		0B549D3E2741422600121D77 /* WorkShop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B549D3D2741422600121D77 /* WorkShop.storyboard */; };
 		0B549D402742468E00121D77 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D3F2742468E00121D77 /* Ticket.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
@@ -41,6 +36,9 @@
 		0F6EAE1C272B0EE70060997F /* CustomAlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */; };
 		0F6EAE1E272C2B570060997F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6EAE1D272C2B570060997F /* Assets.xcassets */; };
 		0F7D3ECF2746563300CC5453 /* OtherUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3ECE2746563300CC5453 /* OtherUserProfile.swift */; };
+		0F7D3ED327465F9400CC5453 /* Workshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3ED227465F9400CC5453 /* Workshops.swift */; };
+		0F7D3ED62746604700CC5453 /* WorkshopDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3ED42746604700CC5453 /* WorkshopDetailsVC.swift */; };
+		0F7D3ED72746604700CC5453 /* viewWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3ED52746604700CC5453 /* viewWorkshopViewController.swift */; };
 		0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B47027186786005511B1 /* CommunityHome.storyboard */; };
 		0FA3B47327187054005511B1 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47227187054005511B1 /* Community.swift */; };
 		0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B474271870A1005511B1 /* AskQuestion.swift */; };
@@ -120,13 +118,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B0E335627304C5A000255F5 /* WorkshopDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopDetailsVC.swift; sourceTree = "<group>"; };
 		0B0E335827304E9E000255F5 /* Workshops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshops.swift; sourceTree = "<group>"; };
-		0B0ED52A2736AE44001FAB89 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		0B549D35273B934300121D77 /* postWorkshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postWorkshopViewController.swift; sourceTree = "<group>"; };
-		0B549D37273B935700121D77 /* viewWorkshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewWorkshopViewController.swift; sourceTree = "<group>"; };
-		0B549D39273B936500121D77 /* workshopCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = workshopCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		0B549D3B273B936D00121D77 /* workshopCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = workshopCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		0B549D3D2741422600121D77 /* WorkShop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkShop.storyboard; sourceTree = "<group>"; };
 		0B549D3F2742468E00121D77 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +153,9 @@
 		0F6EAE1B272B0EE70060997F /* CustomAlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertMessage.swift; sourceTree = "<group>"; };
 		0F6EAE1D272C2B570060997F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F7D3ECE2746563300CC5453 /* OtherUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfile.swift; sourceTree = "<group>"; };
+		0F7D3ED227465F9400CC5453 /* Workshops.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workshops.swift; sourceTree = "<group>"; };
+		0F7D3ED42746604700CC5453 /* WorkshopDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopDetailsVC.swift; sourceTree = "<group>"; };
+		0F7D3ED52746604700CC5453 /* viewWorkshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewWorkshopViewController.swift; sourceTree = "<group>"; };
 		0FA3B47027186786005511B1 /* CommunityHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunityHome.storyboard; sourceTree = "<group>"; };
 		0FA3B47227187054005511B1 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		0FA3B474271870A1005511B1 /* AskQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestion.swift; sourceTree = "<group>"; };
@@ -259,6 +255,8 @@
 		0F3DECEC270C995F00C5F6BB /* Reema */ = {
 			isa = PBXGroup;
 			children = (
+				0F7D3ED52746604700CC5453 /* viewWorkshopViewController.swift */,
+				0F7D3ED42746604700CC5453 /* WorkshopDetailsVC.swift */,
 				0F5CDD46272D8DC1007CD644 /* deleteResViewController.swift */,
 				27712C6E270346AD00450466 /* resFile.swift */,
 				27712C6B2701E94E00450466 /* resourceCellCollectionViewCell.xib */,
@@ -305,6 +303,7 @@
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
+				0F7D3ED227465F9400CC5453 /* Workshops.swift */,
 				0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */,
 				0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */,
 				0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */,
@@ -334,6 +333,7 @@
 				0F40BDED26F54F4900FB83AC /* Products */,
 				4644E3BCA9AE27FF9518000A /* Pods */,
 				F634AD08338E422328CFFB3C /* Frameworks */,
+				0F7D3ED127465F1300CC5453 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -385,6 +385,15 @@
 				0F40BE1326F54F4A00FB83AC /* Info.plist */,
 			);
 			path = AOUNUITests;
+			sourceTree = "<group>";
+		};
+		0F7D3ED127465F1300CC5453 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0B0E335827304E9E000255F5 /* Workshops.swift */,
+				0B549D35273B934300121D77 /* postWorkshopViewController.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		0FC63566270F8D5C004D7A2A /* Rasha */ = {
@@ -765,10 +774,12 @@
 				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
 				0FA3B47327187054005511B1 /* Community.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
+				0F7D3ED72746604700CC5453 /* viewWorkshopViewController.swift in Sources */,
 				0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */,
 				523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */,
 				0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
+				0F7D3ED62746604700CC5453 /* WorkshopDetailsVC.swift in Sources */,
 				0FC920BE273439B000996757 /* Review.swift in Sources */,
 				0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */,
 				0FC920C8273FE5BD00996757 /* PostReview.swift in Sources */,
@@ -776,6 +787,7 @@
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
 				0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */,
+				0F7D3ED327465F9400CC5453 /* Workshops.swift in Sources */,
 				276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */,
 				27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */,
 				0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */,
