@@ -1007,7 +1007,6 @@
                             <constraint firstItem="Sf8-Hl-2WU" firstAttribute="top" secondItem="UUV-5D-WrP" secondAttribute="bottom" constant="171.5" id="wrI-b7-Req"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="M2Z-ri-Yey"/>
                     <connections>
                         <outlet property="errorLable" destination="HXA-Hj-g0a" id="wAP-dK-juP"/>
                         <outlet property="revTitle" destination="Sf8-Hl-2WU" id="Cnm-NL-MPh"/>
@@ -1016,6 +1015,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWI-kG-gK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationItem id="M2Z-ri-Yey"/>
             </objects>
             <point key="canvasLocation" x="1244.9275362318842" y="1344.6428571428571"/>
         </scene>
