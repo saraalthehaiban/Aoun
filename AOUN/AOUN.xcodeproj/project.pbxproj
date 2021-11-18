@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0E335927304E9E000255F5 /* Workshops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0E335827304E9E000255F5 /* Workshops.swift */; };
-		0B549D36273B934300121D77 /* postWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D35273B934300121D77 /* postWorkshopViewController.swift */; };
 		0B549D3E2741422600121D77 /* WorkShop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B549D3D2741422600121D77 /* WorkShop.storyboard */; };
 		0B549D402742468E00121D77 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D3F2742468E00121D77 /* Ticket.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
@@ -21,6 +19,9 @@
 		0F40BDF226F54F4900FB83AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BDF126F54F4900FB83AC /* SceneDelegate.swift */; };
 		0F40BE0726F54F4A00FB83AC /* AOUNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BE0626F54F4A00FB83AC /* AOUNTests.swift */; };
 		0F40BE1226F54F4A00FB83AC /* AOUNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40BE1126F54F4A00FB83AC /* AOUNUITests.swift */; };
+		0F410B83274667070059E145 /* workshopCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F410B7F274667070059E145 /* workshopCellCollectionViewCell.swift */; };
+		0F410B84274667070059E145 /* workshopCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F410B80274667070059E145 /* workshopCellCollectionViewCell.xib */; };
+		0F410B85274667070059E145 /* postWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F410B81274667070059E145 /* postWorkshopViewController.swift */; };
 		0F502A71270F772000912EF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F40BDF526F54F4900FB83AC /* Main.storyboard */; };
 		0F502A77270F77EA00912EF0 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F502A72270F77EA00912EF0 /* ForgotPassViewController.swift */; };
 		0F502A78270F77EA00912EF0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F502A73270F77EA00912EF0 /* Constants.swift */; };
@@ -118,8 +119,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B0E335827304E9E000255F5 /* Workshops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshops.swift; sourceTree = "<group>"; };
-		0B549D35273B934300121D77 /* postWorkshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postWorkshopViewController.swift; sourceTree = "<group>"; };
 		0B549D3D2741422600121D77 /* WorkShop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkShop.storyboard; sourceTree = "<group>"; };
 		0B549D3F2742468E00121D77 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +137,9 @@
 		0F40BE0D26F54F4A00FB83AC /* AOUNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AOUNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F40BE1126F54F4A00FB83AC /* AOUNUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOUNUITests.swift; sourceTree = "<group>"; };
 		0F40BE1326F54F4A00FB83AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F410B7F274667070059E145 /* workshopCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = workshopCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		0F410B80274667070059E145 /* workshopCellCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = workshopCellCollectionViewCell.xib; sourceTree = "<group>"; };
+		0F410B81274667070059E145 /* postWorkshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postWorkshopViewController.swift; sourceTree = "<group>"; };
 		0F502A72270F77EA00912EF0 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		0F502A73270F77EA00912EF0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0F502A74270F77EA00912EF0 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -255,6 +257,9 @@
 		0F3DECEC270C995F00C5F6BB /* Reema */ = {
 			isa = PBXGroup;
 			children = (
+				0F410B81274667070059E145 /* postWorkshopViewController.swift */,
+				0F410B7F274667070059E145 /* workshopCellCollectionViewCell.swift */,
+				0F410B80274667070059E145 /* workshopCellCollectionViewCell.xib */,
 				0F7D3ED52746604700CC5453 /* viewWorkshopViewController.swift */,
 				0F7D3ED42746604700CC5453 /* WorkshopDetailsVC.swift */,
 				0F5CDD46272D8DC1007CD644 /* deleteResViewController.swift */,
@@ -333,7 +338,6 @@
 				0F40BDED26F54F4900FB83AC /* Products */,
 				4644E3BCA9AE27FF9518000A /* Pods */,
 				F634AD08338E422328CFFB3C /* Frameworks */,
-				0F7D3ED127465F1300CC5453 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -385,15 +389,6 @@
 				0F40BE1326F54F4A00FB83AC /* Info.plist */,
 			);
 			path = AOUNUITests;
-			sourceTree = "<group>";
-		};
-		0F7D3ED127465F1300CC5453 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				0B0E335827304E9E000255F5 /* Workshops.swift */,
-				0B549D35273B934300121D77 /* postWorkshopViewController.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		0FC63566270F8D5C004D7A2A /* Rasha */ = {
@@ -584,6 +579,7 @@
 				0F502A7D270F7D6500912EF0 /* Profile.storyboard in Resources */,
 				0FA3B487271B16B7005511B1 /* CommunityAnswer.xib in Resources */,
 				0F6EAE1E272C2B570060997F /* Assets.xcassets in Resources */,
+				0F410B84274667070059E145 /* workshopCellCollectionViewCell.xib in Resources */,
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
 				0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */,
 				0FC3ABEB2727FC5F00B43C26 /* notesTableViewCell.xib in Resources */,
@@ -739,15 +735,14 @@
 				0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */,
 				271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */,
 				0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */,
+				0F410B85274667070059E145 /* postWorkshopViewController.swift in Sources */,
 				0F5CDD45272D4931007CD644 /* PushNotificationSupport.swift in Sources */,
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				0BFE8D0A2742882D00A23914 /* TicketView.swift in Sources */,
-				0B0E335927304E9E000255F5 /* Workshops.swift in Sources */,
 				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,
 				0F502A78270F77EA00912EF0 /* Constants.swift in Sources */,
 				0B549D402742468E00121D77 /* Ticket.swift in Sources */,
-				0B549D36273B934300121D77 /* postWorkshopViewController.swift in Sources */,
 				27712C6F270346AD00450466 /* resFile.swift in Sources */,
 				0FC920BB2734399D00996757 /* ReviewCell.swift in Sources */,
 				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,
@@ -777,6 +772,7 @@
 				0F7D3ED72746604700CC5453 /* viewWorkshopViewController.swift in Sources */,
 				0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */,
 				523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */,
+				0F410B83274667070059E145 /* workshopCellCollectionViewCell.swift in Sources */,
 				0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
 				0F7D3ED62746604700CC5453 /* WorkshopDetailsVC.swift in Sources */,

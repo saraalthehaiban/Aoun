@@ -148,7 +148,7 @@ extension WorkshopDetailsVC {
             } else {
                 guard let docRef = querySnapshot?.documents, let user = docRef.first?.data() else {return}
                 self.user = User(FirstName: user["FirstName"] as! String, LastName: user["LastName"] as! String, uid: userId)
-                self.user?.documentID = docRef.first?.documentID
+                self.user?.docID = docRef.first?.documentID
                 self.loadTickets()
             }
         }

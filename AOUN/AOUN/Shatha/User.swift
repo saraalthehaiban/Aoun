@@ -15,6 +15,12 @@ struct User : Codable {
     //
     var docID : String?
     
+    var documentID : String? {
+        get {
+            return docID
+        }
+    }
+    
     var fullName : String? {
         get {
             let fullName = "\(FirstName) \(LastName)"
