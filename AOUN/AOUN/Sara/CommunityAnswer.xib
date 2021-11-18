@@ -26,10 +26,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.72156864399999998" green="0.83529412749999998" blue="0.9529411793" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="vGs-Ov-m5S" secondAttribute="bottom" constant="13" id="A99-ad-RIA"/>
                     <constraint firstItem="vGs-Ov-m5S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ql9-iM-Qfs"/>
                     <constraint firstItem="vGs-Ov-m5S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="cxu-2v-PJB"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vGs-Ov-m5S" secondAttribute="trailing" constant="16" id="m1Y-C2-Nk1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -30,6 +30,7 @@ class QuestionDetail: UIViewController {
 
     @IBOutlet weak var btn_userName: UIButton!
 
+    @IBOutlet var addAnswerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         AnsTable.delegate = self
@@ -44,6 +45,9 @@ class QuestionDetail: UIViewController {
         self.loadUserData { error, fullName in
             self.btn_userName.setTitle(fullName, for: .normal)
         }
+
+        addAnswerButton.layer.shadowColor = UIColor.black.cgColor
+        addAnswerButton.layer.shadowOpacity = 0.25
 
         // Do any additional setup after loading the view.
     }

@@ -18,6 +18,7 @@ class Community: UIViewController {
     @IBOutlet var display: UITableView!
     var titleX : String = ""
     
+    @IBOutlet var addQuestion: UIButton!
     //SearchBar
     @IBOutlet weak var searchBarQ: UISearchBar!
     var searchActive : Bool = false
@@ -40,8 +41,11 @@ class Community: UIViewController {
         display.dataSource = self
         comName.text = name
         
-//        addQ.layer.shadowColor = UIColor.black.cgColor
-//        addQ.layer.shadowOpacity = 0.25
+        addQuestion.layer.shadowColor = UIColor.black.cgColor
+        addQuestion.layer.shadowOpacity = 0.25
+        addQuestion.layer.shadowOffset = CGSize(width: 4, height: 4)
+        
+        
 
         
         loadQuestions()
