@@ -140,16 +140,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSv-39-I4q">
-                                <rect key="frame" x="339" y="290" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="pencil" catalog="system" symbolScale="large" renderingMode="original"/>
-                                </state>
-                                <connections>
-                                    <action selector="editButton:" destination="NxE-Xc-kaf" eventType="touchUpInside" id="4jk-US-fSC"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="yFc-b4-8YF">
                                 <rect key="frame" x="-117" y="-90" width="775" height="444"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -279,6 +269,18 @@
                                     <constraint firstAttribute="height" constant="180" id="yyD-1G-o6W"/>
                                 </constraints>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSv-39-I4q">
+                                <rect key="frame" x="244.5" y="44" width="108.5" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hO2-ww-zCo"/>
+                                </constraints>
+                                <state key="normal" title="Edit Profile">
+                                    <imageReference key="image" image="pencil" catalog="system" symbolScale="large" renderingMode="original"/>
+                                </state>
+                                <connections>
+                                    <action selector="editButton:" destination="NxE-Xc-kaf" eventType="touchUpInside" id="4jk-US-fSC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e1s-eb-Oxj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -286,6 +288,7 @@
                             <constraint firstItem="aCO-VR-TFX" firstAttribute="top" secondItem="CqX-8o-aHJ" secondAttribute="bottom" constant="3.5" id="0TG-7E-HPq"/>
                             <constraint firstItem="AJI-ui-cEE" firstAttribute="leading" secondItem="kBX-as-ETz" secondAttribute="trailing" constant="6.5" id="1LJ-3f-Nv7"/>
                             <constraint firstItem="iD6-TH-UNt" firstAttribute="centerX" secondItem="ScA-K9-G81" secondAttribute="centerX" id="1fm-2t-pBZ"/>
+                            <constraint firstItem="JSv-39-I4q" firstAttribute="top" secondItem="e1s-eb-Oxj" secondAttribute="top" id="4No-1U-pee"/>
                             <constraint firstItem="eKp-ed-eNw" firstAttribute="top" secondItem="9d8-0a-Y93" secondAttribute="bottom" id="5Kl-de-CQn"/>
                             <constraint firstItem="AJI-ui-cEE" firstAttribute="centerY" secondItem="kBX-as-ETz" secondAttribute="centerY" id="EVq-3C-QtB"/>
                             <constraint firstItem="CqX-8o-aHJ" firstAttribute="top" secondItem="XUr-K2-6GV" secondAttribute="bottom" constant="4" id="GUJ-XM-SRd"/>
@@ -302,6 +305,8 @@
                             <constraint firstItem="iD6-TH-UNt" firstAttribute="top" secondItem="ScA-K9-G81" secondAttribute="top" constant="32" id="b9L-Zu-aNh"/>
                             <constraint firstItem="xzy-64-mc5" firstAttribute="top" secondItem="xTA-6f-bIm" secondAttribute="bottom" constant="8" symbolic="YES" id="bSj-Xx-goL"/>
                             <constraint firstItem="e1s-eb-Oxj" firstAttribute="trailing" secondItem="xzy-64-mc5" secondAttribute="trailing" constant="29" id="bf2-TH-TVF"/>
+                            <constraint firstItem="JSv-39-I4q" firstAttribute="centerY" secondItem="ffz-3H-IHE" secondAttribute="centerY" id="cys-g9-Rm2"/>
+                            <constraint firstItem="ffz-3H-IHE" firstAttribute="leading" secondItem="JSv-39-I4q" secondAttribute="trailing" constant="8" symbolic="YES" id="elt-J9-yQZ"/>
                             <constraint firstItem="kBX-as-ETz" firstAttribute="top" secondItem="aCO-VR-TFX" secondAttribute="bottom" constant="9" id="ial-Gu-mOs"/>
                             <constraint firstItem="frx-LY-0Dr" firstAttribute="leading" secondItem="e1s-eb-Oxj" secondAttribute="leading" constant="24" id="jl5-9W-T3e"/>
                             <constraint firstItem="bNE-yI-9Hr" firstAttribute="leading" secondItem="e1s-eb-Oxj" secondAttribute="leading" constant="24" id="k2B-aV-mNM"/>

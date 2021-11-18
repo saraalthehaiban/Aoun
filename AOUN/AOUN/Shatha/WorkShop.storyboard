@@ -258,8 +258,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWq-aY-uXT">
-                                <rect key="frame" x="186" y="510" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWq-aY-uXT">
+                                <rect key="frame" x="207" y="510" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -543,7 +543,7 @@
                         <outlet property="price" destination="cda-dS-8TP" id="efE-S4-iqd"/>
                         <outlet property="priceLable" destination="feW-ic-FDf" id="xUX-2Z-4gr"/>
                         <outlet property="purchaseInformationLable" destination="q8l-42-8Yw" id="s07-hh-0mv"/>
-                        <outlet property="purchaseTicketView" destination="mXP-mf-AG7" id="dq4-GF-tZa"/>
+                        <outlet property="purchaseTicketView" destination="mXP-mf-AG7" id="Ndg-N4-jTL"/>
                         <outlet property="seatLable" destination="4dy-va-oKy" id="sdw-hh-4a6"/>
                         <outlet property="seatsNum" destination="c9C-6s-aUH" id="I3u-c7-Jjx"/>
                         <outlet property="timeVal" destination="vWJ-bi-gfT" id="T4A-8C-cRe"/>

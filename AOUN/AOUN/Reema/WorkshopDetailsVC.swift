@@ -56,12 +56,12 @@ class WorkshopDetailsVC: UIViewController {
         timeVal.text = "\(newtime)"
         seatsNum.text = workshop.seat
         price.text = workshop.price + " SAR"
-        purchaseTicketView.delegate = self
+//        purchaseTicketView.delegate = self
         
         // self.bookSupportTextField.inputView = purchaseTicketView
         // Do any additional setup after loading the view.
         
-        //load
+        //load.
         loadUser()
         self.setPriceView()
     }

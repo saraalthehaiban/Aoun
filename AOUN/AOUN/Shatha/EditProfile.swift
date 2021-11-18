@@ -31,8 +31,6 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
         lastNameTextField.delegate = self
         // Do any additional setup after loading the view.
         setUpElements()
-        
-        
     }
     
     
@@ -109,14 +107,20 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
                 return
             }
 
+//            if let currentUser = Auth.auth().currentUser {
+//                let c = AuthCredential(currentUser)
+//                currentUser.reauthenticate(with: <#T##AuthCredential#>) { <#AuthDataResult?#>, <#Error?#> in
+//                    <#code#>
+//                }
+//            }
             Auth.auth().currentUser?.updateEmail(to: newEmail)  { error in
-                   if let error = error {
-                       print(error)
-                   } else {
-                       print("CHANGED")
-                    
-                   }
-               }
+                if let error = error {
+                    print("Email update error:", error.localizedDescription)
+                } else {
+                    print("CHANGED")
+                }
+            }
+            
             let updateData = ["LastName":lastName, "FirstName":firstName]
             db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
                 if let err = error {

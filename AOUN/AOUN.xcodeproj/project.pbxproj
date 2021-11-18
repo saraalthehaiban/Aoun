@@ -310,23 +310,23 @@
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
-				0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */,
+				0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */,
+				0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */,
+				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
+				0B549D3D2741422600121D77 /* WorkShop.storyboard */,
+				0BFE8D07274283CD00A23914 /* TicketView.xib */,
 				0F7D3ED227465F9400CC5453 /* Workshops.swift */,
+				0FC3ABDE2727FC5F00B43C26 /* User.swift */,
+				0B549D3F2742468E00121D77 /* Ticket.swift */,
+				0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */,
 				0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */,
 				0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */,
 				0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */,
-				0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */,
 				0FC3ABDF2727FC5F00B43C26 /* ResTableViewCell.swift */,
-				0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */,
-				0FC3ABDE2727FC5F00B43C26 /* User.swift */,
-				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
 				0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
-				0B549D3D2741422600121D77 /* WorkShop.storyboard */,
-				0B549D3F2742468E00121D77 /* Ticket.swift */,
 				0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */,
-				0BFE8D07274283CD00A23914 /* TicketView.xib */,
 				0BFE8D092742882D00A23914 /* TicketView.swift */,
 			);
 			path = Shatha;
