@@ -26,20 +26,20 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
     let db = Firestore.firestore()
     
     @IBOutlet weak var searchBar: UISearchBar!
-   // var searchActive : Bool = false
+    // var searchActive : Bool = false
     var filtered:[resFile] = []{
         didSet {
             self.collection.reloadData()
         }
     }
-
-      override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         post.layer.shadowColor = UIColor.black.cgColor
         post.layer.shadowOpacity = 0.25
-
+        
         let nipCell = UINib(nibName: "resourceCellCollectionViewCell", bundle: nil)
-     
+        
         //
         collection.delegate = self
         collection.dataSource = self
@@ -48,7 +48,7 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
         ///
         
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")
-    
+        
         loadResources()
     }
     
@@ -81,12 +81,12 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
     
     func set(message:String? = nil) {
         self.messageLabel.text = message
-//        if let m = message, m.count > 0 {
-//            self.messageLabel.text = m
-//            self.messageLabel.isHidden = false
-//        }else {
-//            self.messageLabel.isHidden = false
-//        }
+        //        if let m = message, m.count > 0 {
+        //            self.messageLabel.text = m
+        //            self.messageLabel.isHidden = false
+        //        }else {
+        //            self.messageLabel.isHidden = false
+        //        }
     }//end set
     
     //search
@@ -109,8 +109,6 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
     }
 }//end of class
 
-
-
 extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -121,23 +119,23 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.filtered.count
-
-//        if(searchActive) {
-//               return filtered.count
-//           } else {
-//        return resources.count
-//           }
+        
+        //        if(searchActive) {
+        //               return filtered.count
+        //           } else {
+        //        return resources.count
+        //           }
     }//end count
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            
+        
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
         cell.name.text = filtered[indexPath.row].name
         
-//        if(searchActive) {
-//            cell.name.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].name : ""
-//        } else {
-//        cell.name.text = resources[indexPath.row].name
-//        }
+        //        if(searchActive) {
+        //            cell.name.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].name : ""
+        //        } else {
+        //        cell.name.text = resources[indexPath.row].name
+        //        }
         return cell
     }//end cell
     
@@ -145,6 +143,7 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
         self.performSegue(withIdentifier: "si_resourceListToDetail", sender: indexPath)
     }//end
 }//extention
+
 //MARK:- Add Work
 extension resViewViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -153,15 +152,16 @@ extension resViewViewController {
         } else if segue.identifier == "si_resourceListToDetail",
                   let vc = segue.destination as? detailedResViewController, let indexPath = sender as? IndexPath {
             vc.resource = filtered[indexPath.item]
-
-//            if searchActive && filtered.count != 0 {
-//                vc.resource = filtered[indexPath.item]
-//            } else {
-//            vc.resource = resources[indexPath.row]
-//            }
+            
+            //            if searchActive && filtered.count != 0 {
+            //                vc.resource = filtered[indexPath.item]
+            //            } else {
+            //            vc.resource = resources[indexPath.row]
+            //            }
         }
     }//path for collectionView
 }//extention
+
 extension resViewViewController: resPostViewControllerDelegate {
     func resPost(_ vc: resPostViewController, resource: resFile?, added: Bool){
         vc.dismiss(animated: true) {
