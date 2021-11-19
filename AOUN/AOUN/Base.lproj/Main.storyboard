@@ -564,6 +564,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gIO-oa-wNO"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Post" backgroundImage="Simplebuttons-2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -794,20 +795,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMH-bn-snJ">
-                                <rect key="frame" x="47" y="795" width="327" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="c6G-UO-23J"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Delete" backgroundImage="Simple Copy1">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" systemColor="systemPinkColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteNote:" destination="pO5-sY-3hC" eventType="touchUpInside" id="mwV-IW-waY"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="26" translatesAutoresizingMaskIntoConstraints="NO" id="4cL-Dr-2bU">
                                 <rect key="frame" x="20" y="0.0" width="200" height="274"/>
                             </imageView>
@@ -820,6 +807,20 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMH-bn-snJ">
+                                <rect key="frame" x="45" y="789" width="327" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="c6G-UO-23J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Delete" backgroundImage="Simple Copy1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" systemColor="systemPinkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteNote:" destination="pO5-sY-3hC" eventType="touchUpInside" id="mwV-IW-waY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="smy-J5-GXk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -831,7 +832,7 @@
                             <constraint firstItem="4cL-Dr-2bU" firstAttribute="width" secondItem="4cL-Dr-2bU" secondAttribute="height" multiplier="100:137" id="7Wu-KP-HQ9"/>
                             <constraint firstItem="smy-J5-GXk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q94-yN-a5I" secondAttribute="trailing" id="7dp-hU-dlQ"/>
                             <constraint firstItem="smy-J5-GXk" firstAttribute="trailing" secondItem="u0E-f8-U5c" secondAttribute="trailing" constant="119" id="Ano-fZ-dz7"/>
-                            <constraint firstItem="smy-J5-GXk" firstAttribute="trailing" secondItem="IMH-bn-snJ" secondAttribute="trailing" constant="40" id="BBP-ep-hla"/>
+                            <constraint firstItem="smy-J5-GXk" firstAttribute="trailing" secondItem="IMH-bn-snJ" secondAttribute="trailing" constant="42" id="BBP-ep-hla"/>
                             <constraint firstItem="smy-J5-GXk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aZB-Vm-92O" secondAttribute="trailing" symbolic="YES" id="F1b-zK-t90"/>
                             <constraint firstItem="GQR-ND-YRo" firstAttribute="leading" secondItem="mvH-nU-eUo" secondAttribute="leading" id="HQ6-2H-XVc"/>
                             <constraint firstItem="0X7-oQ-2gi" firstAttribute="top" secondItem="AYc-4q-d7Y" secondAttribute="top" constant="-102" id="Ime-dX-v4k"/>
@@ -844,7 +845,7 @@
                             <constraint firstItem="nq6-nQ-vng" firstAttribute="centerX" secondItem="AYc-4q-d7Y" secondAttribute="centerX" id="SGe-5f-oOK"/>
                             <constraint firstItem="smy-J5-GXk" firstAttribute="bottom" secondItem="nq6-nQ-vng" secondAttribute="bottom" constant="81" id="V0G-Zs-NqE"/>
                             <constraint firstItem="4cL-Dr-2bU" firstAttribute="top" secondItem="AYc-4q-d7Y" secondAttribute="top" id="Xt9-mz-v0e"/>
-                            <constraint firstItem="IMH-bn-snJ" firstAttribute="top" secondItem="nq6-nQ-vng" secondAttribute="bottom" constant="14" id="aNc-qc-sVU"/>
+                            <constraint firstItem="IMH-bn-snJ" firstAttribute="top" secondItem="nq6-nQ-vng" secondAttribute="bottom" constant="8" id="aNc-qc-sVU"/>
                             <constraint firstItem="0SA-nh-6Hy" firstAttribute="leading" secondItem="smy-J5-GXk" secondAttribute="leading" constant="32" id="bcz-p2-SLK"/>
                             <constraint firstItem="BXs-nq-ID0" firstAttribute="leading" secondItem="smy-J5-GXk" secondAttribute="leading" constant="73" id="d0x-SJ-3Ox"/>
                             <constraint firstItem="nq6-nQ-vng" firstAttribute="centerX" secondItem="cBm-ix-y7V" secondAttribute="centerX" id="dmY-Ck-kGu"/>
@@ -859,7 +860,7 @@
                             <constraint firstItem="aQf-zr-SpL" firstAttribute="leading" secondItem="smy-J5-GXk" secondAttribute="leading" constant="191.5" id="tvw-qN-Cgd"/>
                             <constraint firstItem="p7b-TI-JwP" firstAttribute="top" secondItem="mvH-nU-eUo" secondAttribute="bottom" constant="11" id="uSH-cr-6NS"/>
                             <constraint firstItem="smy-J5-GXk" firstAttribute="trailing" secondItem="0SA-nh-6Hy" secondAttribute="trailing" constant="20" id="viw-1P-gPe"/>
-                            <constraint firstItem="IMH-bn-snJ" firstAttribute="leading" secondItem="smy-J5-GXk" secondAttribute="leading" constant="47" id="xWT-lO-OPM"/>
+                            <constraint firstItem="IMH-bn-snJ" firstAttribute="leading" secondItem="smy-J5-GXk" secondAttribute="leading" constant="45" id="xWT-lO-OPM"/>
                             <constraint firstItem="0X7-oQ-2gi" firstAttribute="leading" secondItem="AYc-4q-d7Y" secondAttribute="leading" constant="-133" id="xeZ-9g-pvA"/>
                             <constraint firstItem="smy-J5-GXk" firstAttribute="trailing" secondItem="p7b-TI-JwP" secondAttribute="trailing" constant="12" id="yD6-eM-SFK"/>
                             <constraint firstItem="q94-yN-a5I" firstAttribute="top" secondItem="p7b-TI-JwP" secondAttribute="bottom" constant="10" id="zmm-gt-Yw5"/>
@@ -1067,14 +1068,14 @@
         <image name="8156711" width="512" height="512"/>
         <image name="Communities" width="492" height="492"/>
         <image name="Notes" width="492" height="492"/>
-        <image name="Rectangle" width="327" height="50"/>
-        <image name="Simple Copy1" width="657" height="150"/>
+        <image name="Rectangle" width="1005" height="177"/>
+        <image name="Simple Copy1" width="1005" height="174"/>
         <image name="Simplebuttons-2" width="981" height="150"/>
         <image name="add" width="399" height="393"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="resources" width="492" height="492"/>
-        <image name="submit" width="981" height="150"/>
+        <image name="submit" width="1005" height="174"/>
         <image name="user" width="1005" height="684"/>
         <image name="waves" width="750" height="750"/>
         <image name="workshops" width="492" height="492"/>
