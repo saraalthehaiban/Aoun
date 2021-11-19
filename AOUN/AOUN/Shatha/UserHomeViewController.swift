@@ -9,6 +9,13 @@ import UIKit
 import Firebase
 
 class UserHomeViewController: UIViewController {
+    @IBAction func chat(_ sender: UIButton) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let vc = appDelegate.viewController(storyBoardname: "Chat", viewControllerId: "sbi_VCChatRoster")
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func profile(_ sender: UIButton) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let vc = appDelegate.viewController(storyBoardname: "ViewProfile", viewControllerId: "ViewViewController")

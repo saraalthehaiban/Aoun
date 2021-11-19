@@ -52,6 +52,7 @@
 		0FA3B489272719C5005511B1 /* AOUNExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B488272719C5005511B1 /* AOUNExtensions.swift */; };
 		0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */; };
 		0FA60E092746FAFA003180F8 /* PurchaseTicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */; };
+		0FA60E0B2747187F003180F8 /* CharRoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA60E0A2747187F003180F8 /* CharRoster.swift */; };
 		0FBEF4292746E70300AF4D67 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */; };
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
@@ -172,6 +173,7 @@
 		0FA3B488272719C5005511B1 /* AOUNExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AOUNExtensions.swift; sourceTree = "<group>"; };
 		0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestion.swift; sourceTree = "<group>"; };
 		0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseTicketView.xib; sourceTree = "<group>"; };
+		0FA60E0A2747187F003180F8 /* CharRoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharRoster.swift; sourceTree = "<group>"; };
 		0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				0F502A75270F77EA00912EF0 /* Auth.storyboard */,
 				0F502A7C270F7D6500912EF0 /* Profile.storyboard */,
 				2B5E3F6B2744377C000A58F0 /* Chat.swift */,
+				0FA60E0A2747187F003180F8 /* CharRoster.swift */,
 				2B5E3F792744377E000A58F0 /* Notificationcode.swift */,
 				0F502A73270F77EA00912EF0 /* Constants.swift */,
 				52C97410271F7B7A00EEACBD /* community.swift */,
@@ -765,6 +768,7 @@
 				0F40BDF026F54F4900FB83AC /* AppDelegate.swift in Sources */,
 				27712C7127034CB200450466 /* detailedResViewController.swift in Sources */,
 				2792FB2C26F66EAA00366961 /* resViewViewController.swift in Sources */,
+				0FA60E0B2747187F003180F8 /* CharRoster.swift in Sources */,
 				0FC6356A270F8D7B004D7A2A /* PostNoteViewController.swift in Sources */,
 				0F6EAE1A272AE61D0060997F /* RPTTextView.swift in Sources */,
 				2B5E3F7A2744377E000A58F0 /* Chat.swift in Sources */,
