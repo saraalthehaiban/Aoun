@@ -440,7 +440,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="FkI-IE-abq">
-                                <rect key="frame" x="-117" y="-90" width="775" height="444"/>
+                                <rect key="frame" x="-177" y="-101" width="830" height="461"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="12" translatesAutoresizingMaskIntoConstraints="NO" id="N06-sJ-Nnu">
@@ -462,8 +462,8 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="73R-Va-QSK">
-                                <rect key="frame" x="198" y="37" width="18.5" height="10.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="73R-Va-QSK">
+                                <rect key="frame" x="198" y="37" width="31" height="27"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your balance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VtU-Oj-uU1">
@@ -574,7 +574,7 @@
                             <constraint firstItem="tWw-KM-ciM" firstAttribute="leading" secondItem="R0m-Fg-7sS" secondAttribute="leading" constant="24" id="11g-lg-7sF"/>
                             <constraint firstItem="73R-Va-QSK" firstAttribute="top" secondItem="7SG-TP-gS9" secondAttribute="top" constant="32" id="1u2-fK-FcH"/>
                             <constraint firstItem="6cV-ms-pcC" firstAttribute="top" secondItem="N06-sJ-Nnu" secondAttribute="bottom" constant="4" id="5rW-7G-NYn"/>
-                            <constraint firstItem="73R-Va-QSK" firstAttribute="centerX" secondItem="7SG-TP-gS9" secondAttribute="centerX" id="65M-fA-wbt"/>
+                            <constraint firstItem="73R-Va-QSK" firstAttribute="centerX" secondItem="7SG-TP-gS9" secondAttribute="centerX" constant="6.5" id="65M-fA-wbt"/>
                             <constraint firstItem="kQN-m9-tVl" firstAttribute="top" secondItem="VtU-Oj-uU1" secondAttribute="bottom" constant="2.5" id="816-VT-8wD"/>
                             <constraint firstItem="6cV-ms-pcC" firstAttribute="leading" secondItem="R0m-Fg-7sS" secondAttribute="leading" constant="24" id="8D1-Gj-tk0"/>
                             <constraint firstItem="N06-sJ-Nnu" firstAttribute="top" secondItem="R0m-Fg-7sS" secondAttribute="top" constant="64" id="Bx0-6N-BOr"/>

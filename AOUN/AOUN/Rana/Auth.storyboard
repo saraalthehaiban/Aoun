@@ -428,7 +428,7 @@
     </scenes>
     <resources>
         <image name="(وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ)" width="750" height="750"/>
-        <image name="Rectangle" width="327" height="50"/>
+        <image name="Rectangle" width="1005" height="177"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="main" width="500" height="500"/>
         <image name="waves" width="750" height="750"/>

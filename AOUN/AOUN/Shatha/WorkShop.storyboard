@@ -633,10 +633,10 @@
     </scenes>
     <resources>
         <image name="25" width="2394" height="2216"/>
-        <image name="Rectangle" width="327" height="50"/>
+        <image name="Rectangle" width="1005" height="177"/>
         <image name="add" width="399" height="393"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <image name="submit" width="981" height="150"/>
+        <image name="submit" width="1005" height="174"/>
         <image name="waves" width="750" height="750"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
