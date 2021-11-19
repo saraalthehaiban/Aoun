@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question-mark" translatesAutoresizingMaskIntoConstraints="NO" id="665-w3-Cnq">
-                        <rect key="frame" x="370" y="20" width="56" height="55"/>
+                        <rect key="frame" x="370" y="14" width="56" height="55"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="55" id="We0-Vf-uKk"/>
                             <constraint firstAttribute="width" constant="56" id="ff7-jd-Cbs"/>
@@ -46,16 +46,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfX-up-Sbs">
+                        <rect key="frame" x="395" y="72" width="31" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                 <constraints>
                     <constraint firstItem="665-w3-Cnq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hj0-Yd-Qyp" secondAttribute="trailing" constant="8" id="4Mt-CL-Vdb"/>
                     <constraint firstAttribute="trailing" secondItem="665-w3-Cnq" secondAttribute="trailing" constant="14" id="8LB-wf-KpK"/>
                     <constraint firstItem="665-w3-Cnq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O7o-hy-aTb" secondAttribute="trailing" constant="8" id="Cco-WG-3wX"/>
-                    <constraint firstItem="665-w3-Cnq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="DuX-Xd-PRG"/>
+                    <constraint firstItem="JfX-up-Sbs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="665-w3-Cnq" secondAttribute="bottom" constant="3" id="ChU-zh-qIj"/>
+                    <constraint firstItem="665-w3-Cnq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="DuX-Xd-PRG"/>
+                    <constraint firstAttribute="bottom" secondItem="JfX-up-Sbs" secondAttribute="bottom" constant="6" id="E66-a9-QRu"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="665-w3-Cnq" secondAttribute="bottom" constant="8" id="Ehc-O2-Lvf"/>
                     <constraint firstItem="peR-sH-L6K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="N8g-zw-e18"/>
                     <constraint firstItem="O7o-hy-aTb" firstAttribute="leading" secondItem="peR-sH-L6K" secondAttribute="trailing" constant="8" symbolic="YES" id="NsR-4g-Wt2"/>
+                    <constraint firstAttribute="trailing" secondItem="JfX-up-Sbs" secondAttribute="trailing" constant="14" id="VO3-nf-WOx"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hj0-Yd-Qyp" secondAttribute="bottom" constant="8" id="elU-WT-sCK"/>
                     <constraint firstItem="hj0-Yd-Qyp" firstAttribute="leading" secondItem="peR-sH-L6K" secondAttribute="trailing" constant="8" symbolic="YES" id="i40-EF-LFK"/>
                     <constraint firstItem="hj0-Yd-Qyp" firstAttribute="top" secondItem="O7o-hy-aTb" secondAttribute="bottom" constant="1.5" id="jlr-sg-R8L"/>
@@ -68,6 +77,7 @@
             <connections>
                 <outlet property="IMG" destination="665-w3-Cnq" id="jYB-gB-7uj"/>
                 <outlet property="QField" destination="O7o-hy-aTb" id="icz-Wm-REK"/>
+                <outlet property="dateLabel" destination="JfX-up-Sbs" id="RQp-a5-Mcb"/>
                 <outlet property="descriptionLabel" destination="hj0-Yd-Qyp" id="IyE-eN-DJm"/>
             </connections>
             <point key="canvasLocation" x="14.492753623188406" y="0.33482142857142855"/>

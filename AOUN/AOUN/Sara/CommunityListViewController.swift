@@ -102,8 +102,10 @@ extension Community: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = display.dequeueReusableCell(withIdentifier: "QCell", for: indexPath) as! CommunityQuestion
-        cell.QField.text = filtered[indexPath.row].title
-        cell.descriptionLabel.text = filtered[indexPath.row].body
+        let q = filtered[indexPath.row]
+        cell.QField.text = q.title
+        cell.descriptionLabel.text = q.body
+        cell.dateLabel.text = q.createDate.dateValue().displayString()
         return cell
     }
 }
