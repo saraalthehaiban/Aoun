@@ -250,7 +250,7 @@
     </scenes>
     <resources>
         <image name="21" width="2777" height="2158"/>
-        <image name="Rectangle" width="327" height="50"/>
+        <image name="Rectangle" width="1005" height="177"/>
         <image name="Screen_Shot_1443-03-19_at_6.10.40_PM-removebg-preview" width="399" height="393"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="waves" width="750" height="750"/>

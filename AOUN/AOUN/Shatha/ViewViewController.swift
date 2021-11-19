@@ -12,30 +12,31 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
     var K_TableHeights :  CGFloat = 0.0
+    var user : User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        callBalance()
+    }
+    
+    func initialize () {
         self.K_TableHeights = (UIScreen.main.bounds.size.height - 532   ) / 2
         notesTable.register(UINib(nibName:"notesTableViewCell", bundle: nil), forCellReuseIdentifier: "notesTableViewCell")
         notesTable.delegate = self
         notesTable.dataSource = self
-        loadNotes ()
+        
         notesTable.isHidden = true
         resTable.register(UINib(nibName:"ResTableViewCell", bundle: nil), forCellReuseIdentifier: "ResTableViewCell")
         resTable.delegate = self
         resTable.dataSource = self
-        loadResources()
         resTable.isHidden = true
-//        getName { [self] (name) in
-//            self.fullName.text = name}
         
         getEmail { [self] (uEmail) in
             self.email.text = uEmail
         }
-        //        saveButton.e  = true
         getName { [self] (name) in
-            self.fullName.text = name}
-        callBalance()
+            self.fullName.text = name
+        }
         
         self.hc_noteTable.constant = 0
         self.hc_resourceTable.constant = 0
@@ -43,8 +44,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func delAt(index : IndexPath) {
-        self.loadNotes()
-        self.loadResources()
+
     }
     
     
@@ -93,10 +93,10 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 appD.setRoot()
             }
             catch let signoutError {
-              
+                
                 print(signoutError)
-               
-                }
+                
+            }
         }
         alert.addAction(da)
         
@@ -116,7 +116,6 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var notesTable: UITableView!
     @IBOutlet weak var resTable: UITableView!
     @IBOutlet weak var email: UILabel!
-    var user : User!
     
     @IBAction func editButton(_ sender: UIButton) {
         performSegue(withIdentifier: "si_profileToEdit", sender: self.user)
@@ -135,7 +134,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.hc_resourceTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
     
-  
+    
     let db = Firestore.firestore()
     @IBOutlet var balanceLable: UILabel!
     
@@ -151,8 +150,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let user = querySnapshot?.documents.first
                 let earned : Double = ((user?.data()["earned"] as? Double)) ?? 0
                 self.balanceLable.text = String(earned) + " SAR"
-               
-            
+                
+                
             }
         }
         
@@ -166,14 +165,10 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     fileprivate var selectedRow: Int?
     
-
-    func loadNotes (){
+    
+    func loadNotes (user:User){
         notes = []
-        guard let thisUserId = Auth.auth().currentUser?.uid else {
-            return
-        }
-        let query : Query = db.collection("Notes").whereField("uid", isEqualTo: thisUserId)
-        //        query.collection("Notes").getDocuments { querySnapshot, error in
+        let query : Query = db.collection("Notes").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
             self.notesTable.tableHeaderView = nil
             guard let ds = snapShot, !ds.isEmpty else {
@@ -204,15 +199,9 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }// end of load note
     
-    func loadResources(){
-        
+    func loadResources(user:User){
         resources = []
-        
-        guard let thisUserId = Auth.auth().currentUser?.uid else {
-            return
-        }
-        let query : Query = db.collection("Resources").whereField("uid", isEqualTo: thisUserId)
-        
+        let query : Query = db.collection("Resources").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
                                 
                                 guard let ds = snapShot, !ds.isEmpty else {
@@ -249,8 +238,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView === resTable {
             selectedRow = indexPath.row
-//            let storyboard = UIStoryboard(name: "CommunityHome", bundle: nil)
-//            if let vc = storyboard.instantiateViewController(identifier: "Community") as? Community{
+            //            let storyboard = UIStoryboard(name: "CommunityHome", bundle: nil)
+            //            if let vc = storyboard.instantiateViewController(identifier: "Community") as? Community{
             let storyboard = UIStoryboard(name: "Resources", bundle: nil)
             if let vc = storyboard.instantiateViewController(identifier: "deleteResViewController") as? deleteResViewController {
                 let  res = resources[indexPath.row]
@@ -271,15 +260,13 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.present(vc, animated: true, completion: nil)
             }
         }
-       
+        
     }//function to view note details
     
     func getName(completion: @escaping((String) -> ())) {
         guard let thisUserId = Auth.auth().currentUser?.uid else {
             return
         }
-        //let docRefernce = db.collection("users").document(thisUserId)
-        
         let query : Query = db.collection("users").whereField("uid", isEqualTo: thisUserId)
         
         query.getDocuments ( completion:  {(snapShot, errror) in
@@ -294,6 +281,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let fullName = firstname + ((lastName.count > 0) ? " \(lastName)" : "")
                 let user = User(FirstName: firstname, LastName: lastName, uid: thisUserId)
                 self.user = user
+                self.loadNotes(user: user)
+                self.loadResources(user:user)
                 completion(fullName)
             }
         })

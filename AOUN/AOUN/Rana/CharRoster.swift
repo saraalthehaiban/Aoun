@@ -22,7 +22,8 @@ class UserCell : UITableViewCell {
 }
 
 
-class VCChatRoster : UITableViewController {
+class VCChatRoster : UIViewController {
+    @IBOutlet var tableView: UITableView!
     let db = Firestore.firestore()
     var chats : [Chat] = [] {
         didSet {
@@ -59,29 +60,38 @@ class VCChatRoster : UITableViewController {
 }
 
 
-extension VCChatRoster {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension VCChatRoster:UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.chats.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ci_chatUser") as? UserCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell : UserCell!
+        if let c = tableView.dequeueReusableCell(withIdentifier: "ci_chatUser") as? UserCell {
+            cell = c
+        }else {
+            cell = UserCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "ci_chatUser")
+            cell.accessoryType = .disclosureIndicator
+        }
         let c = chats[indexPath.row]
         c.loadOtherUser { user in
             cell?.user = user
         }
         
-        return cell ?? UITableViewCell()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell  = tableView.cellForRow(at: indexPath) as! UserCell
+        self.performSegue(withIdentifier: "si_rosterToChat", sender: cell)
     }
 }
-
-
 
 ///navigate
 extension VCChatRoster {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let s = sender as? UserCell, let vc = segue.destination as? ChatViewController, s.user != nil  {
-            vc.otherUser = s.user
+        if let s = sender as? UserCell, let vc = segue.destination as? ChatViewController, let user = s.user {
+            vc.otherUser = user
         }
     }
 }

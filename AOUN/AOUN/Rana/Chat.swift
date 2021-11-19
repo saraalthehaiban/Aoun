@@ -95,13 +95,9 @@ extension Message: MessageType {
 
 //MARK: -
 class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
-    
-    
     var currentUser = Auth.auth().currentUser!
     var otherUser : User!
-    
     private var docReference: DocumentReference?
-    
     var messages: [Message] = []
     
     override func viewDidLoad() {
@@ -122,6 +118,13 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         messagesCollectionView.messagesDisplayDelegate = self
         
         loadChat()
+        
+        
+        if var mcl = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+            mcl.textMessageSizeCalculator.outgoingAvatarSize = .zero
+            mcl.textMessageSizeCalculator.incomingAvatarSize = .zero
+            
+        }
         
     }
     
@@ -148,7 +151,7 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         
         //Fetch all the chats which has current user in it
         let db = Firestore.firestore().collection("Chats")
-            .whereField("users", arrayContains: Auth.auth().currentUser?.uid ?? "Not Found User 1")
+            .whereField("users", arrayContains: currentUser.uid)
         
         
         db.getDocuments { (chatQuerySnap, error) in
@@ -173,7 +176,7 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
                         
                         let chat = Chat(dictionary: doc.data())
                         //Get the chat which has user2 id
-                        if ((chat?.users.contains(self.otherUser.uid)) != nil) {
+                        if ((chat!.users.contains(self.otherUser.uid))) {
                             
                             self.docReference = doc.reference
                             //fetch it's thread collection
@@ -285,9 +288,10 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         return .zero
     }
     
+    
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        return NSAttributedString(string: "\(self.messages[indexPath.row].sentDate)", attributes: [.font : UIFont.preferredFont(forTextStyle: .caption1),
-                                                                                                   .foregroundColor: UIColor.blue])
+        return NSAttributedString(string: "\(self.messages[indexPath.row].sentDate.displayString())", attributes: [.font : UIFont.preferredFont(forTextStyle: .caption1),
+                                                                                                   .foregroundColor: UIColor.lightGray])
     }
 //    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
 //      
@@ -301,6 +305,6 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
     
     // MARK: - MessagesDisplayDelegate
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .blue: .lightGray
+        return isFromCurrentSender(message: message) ? #colorLiteral(red: 0.1039655283, green: 0.40598014, blue: 0.8277289271, alpha: 1) : #colorLiteral(red: 0.6924675703, green: 0.8397012353, blue: 0.9650663733, alpha: 1)
     }
 }
