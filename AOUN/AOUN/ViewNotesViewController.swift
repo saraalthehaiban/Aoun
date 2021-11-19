@@ -58,7 +58,7 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
     
     func loadNotes(){
         self.set(message: "Loading..")
-        db.collection("Notes").getDocuments { querySnapshot, error in
+        db.collection("Notes").order(by: "createDate", descending: true).getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
             }else {

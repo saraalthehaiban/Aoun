@@ -41,7 +41,7 @@
 		0F7D3ED62746604700CC5453 /* WorkshopDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3ED42746604700CC5453 /* WorkshopDetailsVC.swift */; };
 		0F7D3ED72746604700CC5453 /* viewWorkshopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7D3ED52746604700CC5453 /* viewWorkshopViewController.swift */; };
 		0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B47027186786005511B1 /* CommunityHome.storyboard */; };
-		0FA3B47327187054005511B1 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47227187054005511B1 /* Community.swift */; };
+		0FA3B47327187054005511B1 /* CommunityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B47227187054005511B1 /* CommunityListViewController.swift */; };
 		0FA3B475271870A1005511B1 /* AskQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B474271870A1005511B1 /* AskQuestion.swift */; };
 		0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */; };
 		0FA3B47B2719ED6D005511B1 /* CommunityQuestion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */; };
@@ -163,7 +163,7 @@
 		0F7D3ED42746604700CC5453 /* WorkshopDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkshopDetailsVC.swift; sourceTree = "<group>"; };
 		0F7D3ED52746604700CC5453 /* viewWorkshopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewWorkshopViewController.swift; sourceTree = "<group>"; };
 		0FA3B47027186786005511B1 /* CommunityHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommunityHome.storyboard; sourceTree = "<group>"; };
-		0FA3B47227187054005511B1 /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
+		0FA3B47227187054005511B1 /* CommunityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListViewController.swift; sourceTree = "<group>"; };
 		0FA3B474271870A1005511B1 /* AskQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskQuestion.swift; sourceTree = "<group>"; };
 		0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityQuestion.swift; sourceTree = "<group>"; };
 		0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityQuestion.xib; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 				0F3DECEA270B207800C5F6BB /* RCell.xib */,
 				0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */,
 				0FA3B47027186786005511B1 /* CommunityHome.storyboard */,
-				0FA3B47227187054005511B1 /* Community.swift */,
+				0FA3B47227187054005511B1 /* CommunityListViewController.swift */,
 				0FA3B474271870A1005511B1 /* AskQuestion.swift */,
 				0FA3B4782719ED6D005511B1 /* CommunityQuestion.swift */,
 				0FA3B4792719ED6D005511B1 /* CommunityQuestion.xib */,
@@ -781,7 +781,7 @@
 				0FA3B47F271A11A1005511B1 /* QuestionDetail.swift in Sources */,
 				0F502A7B270F77EA00912EF0 /* SignoutViewController.swift in Sources */,
 				0FC63570270F8EA7004D7A2A /* NoteCellCollectionViewCell.swift in Sources */,
-				0FA3B47327187054005511B1 /* Community.swift in Sources */,
+				0FA3B47327187054005511B1 /* CommunityListViewController.swift in Sources */,
 				52D00D3226F6915C009E3394 /* LoginViewController.swift in Sources */,
 				0F7D3ED72746604700CC5453 /* viewWorkshopViewController.swift in Sources */,
 				0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */,

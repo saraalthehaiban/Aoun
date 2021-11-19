@@ -55,7 +55,7 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
     
     func loadWorkshops(){
         self.set(message: "Loading..")
-        db.collection("Workshops").getDocuments { querySnapshot, error in
+        db.collection("Workshops").order(by: "dateTime", descending: true).getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
             }
