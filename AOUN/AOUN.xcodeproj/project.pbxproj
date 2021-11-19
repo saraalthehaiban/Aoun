@@ -53,6 +53,7 @@
 		0FA3B48D27276C30005511B1 /* AnswerQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */; };
 		0FA60E092746FAFA003180F8 /* PurchaseTicketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */; };
 		0FA60E0B2747187F003180F8 /* CharRoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA60E0A2747187F003180F8 /* CharRoster.swift */; };
+		0FA60E0D27484AA8003180F8 /* UIView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA60E0C27484AA8003180F8 /* UIView+Utility.swift */; };
 		0FBEF4292746E70300AF4D67 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */; };
 		0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7926F6610100B83B0E /* AdminDashboard.swift */; };
 		0FC21B7C26F66ED100B83B0E /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC21B7B26F66ED100B83B0E /* Request.swift */; };
@@ -174,6 +175,7 @@
 		0FA3B48C27276C30005511B1 /* AnswerQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestion.swift; sourceTree = "<group>"; };
 		0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseTicketView.xib; sourceTree = "<group>"; };
 		0FA60E0A2747187F003180F8 /* CharRoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharRoster.swift; sourceTree = "<group>"; };
+		0FA60E0C27484AA8003180F8 /* UIView+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utility.swift"; sourceTree = "<group>"; };
 		0FBEF4282746E70300AF4D67 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		0FC21B7926F6610100B83B0E /* AdminDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboard.swift; sourceTree = "<group>"; };
 		0FC21B7B26F66ED100B83B0E /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				0F3DECEC270C995F00C5F6BB /* Reema */,
 				0F3DECED270C99A800C5F6BB /* Sara */,
 				0F3DECEF270C9A0900C5F6BB /* Shatha */,
+				0FA60E0C27484AA8003180F8 /* UIView+Utility.swift */,
 			);
 			path = AOUN;
 			sourceTree = "<group>";
@@ -785,6 +788,7 @@
 				523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */,
 				0F410B83274667070059E145 /* workshopCellCollectionViewCell.swift in Sources */,
 				0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */,
+				0FA60E0D27484AA8003180F8 /* UIView+Utility.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
 				0FBEF4292746E70300AF4D67 /* ChangePasswordVC.swift in Sources */,
 				0F7D3ED62746604700CC5453 /* WorkshopDetailsVC.swift in Sources */,
