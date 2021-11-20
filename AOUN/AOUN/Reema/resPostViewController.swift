@@ -252,8 +252,9 @@ class resPostViewController: UIViewController, UIDocumentPickerDelegate, UITextV
         let author = authorV.text!
         let pub = publisherV.text!
         let desc = descV.text ?? ""
-        let data = ["ResName": res, "authorName": author, "pubName":pub, "desc":desc, "url":url, "uid":Auth.auth().currentUser?.uid]
-        let resource = resFile(name: res, author: author, publisher: pub, desc: desc, urlString: url)
+        let createDate = Timestamp(date: Date())
+        let data = ["ResName": res, "authorName": author, "pubName":pub, "desc":desc, "url":url, "uid":Auth.auth().currentUser?.uid, "createDate":createDate] as [String : Any]
+        let resource = resFile(name: res, author: author, publisher: pub, desc: desc, urlString: url, createDate:createDate)
         
         db.collection("Resources").document().setData(data) { error in
             if let e = error {

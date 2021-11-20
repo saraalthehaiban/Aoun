@@ -7,6 +7,7 @@
 
 
 import Foundation
+import Firebase
 struct resFile {
     let name : String
     let author : String
@@ -14,6 +15,7 @@ struct resFile {
     let desc : String
     let urlString : String
     var documentId : String?
+    var createDate: Timestamp
     var url : URL? {
         get {
             return URL (string: urlString)
