@@ -71,7 +71,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WS001" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOU-C6-6hO">
-                    <rect key="frame" x="1321" y="287" width="154" height="58"/>
+                    <rect key="frame" x="1209" y="287" width="296" height="58"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="48"/>
                     <nil key="textColor"/>
@@ -119,7 +119,7 @@
                 <outlet property="lblWorkShopDate" destination="tMU-6q-o0g" id="ogl-Pg-Lv5"/>
                 <outlet property="lblWorkShopTitle" destination="D2F-5g-bgQ" id="05f-jm-ih3"/>
             </connections>
-            <point key="canvasLocation" x="-480" y="-277"/>
+            <point key="canvasLocation" x="-480.43478260869568" y="-277.56696428571428"/>
         </view>
     </objects>
     <resources>
