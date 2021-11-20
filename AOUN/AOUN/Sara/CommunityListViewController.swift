@@ -44,10 +44,6 @@ class Community: UIViewController {
         addQuestion.layer.shadowColor = UIColor.black.cgColor
         addQuestion.layer.shadowOpacity = 0.25
         addQuestion.layer.shadowOffset = CGSize(width: 4, height: 4)
-        
-        
-
-        
         loadQuestions()
     }
     
@@ -68,7 +64,7 @@ class Community: UIViewController {
                             let Answers = data["answers"] as? [String]
                             let askingUserID = data["User"] as? String
                             let createDate = data["createDate"] as! Timestamp
-                            let newQ = Question(title: Title ?? "", body: Body ?? "", answer: Answers ?? [""], askingUserID: askingUserID, createDate: createDate )
+                            let newQ = Question(documentId:doc.documentID, title: Title ?? "", body: Body ?? "", answer: Answers ?? [""], askingUserID: askingUserID, createDate: createDate )
                             
                             qs.append(newQ)
                             self.ids[Title!] = doc.documentID
@@ -95,6 +91,7 @@ class Community: UIViewController {
         }
     }
 }
+
 extension Community: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filtered.count
@@ -116,7 +113,7 @@ extension Community: UITableViewDelegate{
         if let vc = storyboard?.instantiateViewController(identifier: "QuestionDetails") as? QuestionDetail{
             vc.QV = filtered[selectedRow].title
             vc.BV = filtered[selectedRow].body
-            vc.answers = filtered[selectedRow].answer
+            //vc.answers = filtered[selectedRow].answer
             let cell = tableView.cellForRow(at: indexPath) as! CommunityQuestion
             titleX = cell.QField.text ?? "NIL"
             vc.docID = ids[titleX] ?? "NIL"

@@ -172,3 +172,15 @@ class AskQuestion: UIViewController, UITextViewDelegate { //[1] Pleaceholder: UI
     }
 }
 
+extension AskQuestion : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let text = textField.text ?? ""
+        guard let textRange = Range(range, in:text) else  {
+            return true
+        }
+        let updatedText = text.replacingCharacters(in: textRange, with: string)
+        if updatedText.count > 150 {return false}
+        
+        return true
+    }
+}

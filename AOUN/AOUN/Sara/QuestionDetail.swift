@@ -24,9 +24,14 @@ class QuestionDetail: UIViewController {
     var comID : String = ""
     var QV : String = ""
     var BV : String = ""
-    var answers: [String] = []
+    var answers: [Answer] = [] {
+        didSet {
+            self.AnsTable.reloadData()
+        }
+    }
     var ans : [String] = []
     var question : Question!
+    var askingUser : User!
 
     @IBOutlet weak var btn_userName: UIButton!
 
@@ -40,7 +45,6 @@ class QuestionDetail: UIViewController {
         Qbody.text = BV
         loadAnswers()
         check()
-        print("before: ", answers)
 
         self.loadUserData { error, fullName in
             self.btn_userName.setTitle(fullName, for: .normal)
@@ -52,47 +56,33 @@ class QuestionDetail: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
     @IBAction func buttonUserNameTouched(_ sender: Any) {
-        let db = Firestore.firestore()
         OtherUserProfile.present(with: self.askingUser, on: self)
     }
     
     func loadAnswers(){
         //answers = []
-            db.collection("Questions").getDocuments{
-            querySnapshot, error in
-                       if let e = error {
-                           print("There was an issue retreving data from fireStore. \(e)")
-                       }else {
-                           if let snapshotDocuments = querySnapshot?.documents{
-                               for doc in snapshotDocuments{
-                                let data =  doc.data()
-                                if doc.documentID as? String == self.docID {
-                                    if data["answers"] != nil{
-                                        self.answers = data["answers"] as! [String]
-                                    }
-                                    else{
-                                        break
-                                    }
-
-                                   // print(Answers)
-                                    //self.answers = Answers
-                                }
-                               }
-
-                            DispatchQueue.main.async {
-                                self.AnsTable.reloadData()
-                            }
-
-                           } //hard coded, get from transition var = ID
-
-                       }
-
+        db.collection("Questions").document(self.question.documentId).collection("answers").order(by: "createDate", descending: true).getDocuments { querySnaphot, error in
+            if let e = error {
+                print ("Error: ", e)
+            } else {
+                guard let documents = querySnaphot?.documents else {return}
+                var answers : [Answer] = []
+                for document in documents {
+                    let data = document.data()
+                    if let answer = Answer(dictionary: data) {
+                        answers.append(answer)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.answers = answers
+                    self.check()
+                }
             }
-
+        }
     }
-    func check(){
+    
+    func check() {
         delegate?.update()
         delegate?.ID(index: 0)
         if answers.count == 0{
@@ -102,10 +92,9 @@ class QuestionDetail: UIViewController {
             empty.isHidden = true
             empty.removeFromSuperview()
         }
-
     }
 
-    var askingUser : User!
+    
     func loadUserData(_ completion : @escaping(Error?, String?)->Void) {
         
         db.collection("users").whereField("uid", isEqualTo: question.askingUserID!).getDocuments { (querySnapshot, error) in
@@ -120,7 +109,7 @@ class QuestionDetail: UIViewController {
                     //completion(Error(), nil)
                     return
                 }
-
+                
                 if let userData = ds.documents.last {
                     let firstname = userData["FirstName"] as? String ?? ""
                     let lastName = userData["LastName"] as? String ?? ""
@@ -155,7 +144,7 @@ class QuestionDetail: UIViewController {
         if let vc = storyboard?.instantiateViewController(identifier: "AnswerQuestion") as? AnswerQuestion {
             vc.bd = BV
             vc.ID = docID
-            vc.answers = answers
+            //vc.answers = answers
             vc.delegate = self
             vc.question = self.question
             self.present(vc, animated: true, completion: nil)
@@ -170,30 +159,21 @@ class QuestionDetail: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-
-    @IBAction func userNameButtonTouched(_ sender: Any) {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            let viewController = appDelegate.viewController(storyBoardname: "ViewProfile", viewControllerId: "ViewViewController")
-            self.present(viewController, animated: true, completion: nil)
-        }
-    }
-
 }
+
 extension QuestionDetail: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = AnsTable.dequeueReusableCell(withIdentifier: "ACell", for: indexPath) as! CommunityAnswer
-        cell.body.text = answers[indexPath.row]
-        //hot fix
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ACell", for: indexPath) as! CommunityAnswer
+        cell.answer = answers[indexPath.row]
+        cell.delegate = self
         return cell
     }
-
-
 }
+
 extension QuestionDetail: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let selectedRow = indexPath.row
@@ -207,13 +187,29 @@ extension QuestionDetail: UITableViewDelegate{
 }
 
 extension QuestionDetail: AnswerQuestionDelegate{
+    func answer(_ vc : AnswerQuestion, added:Answer?, successfully:Bool) {
+        guard let a = added, successfully == true else {return}
+        self.answers.insert(a, at: 0)
+    }
+
     func update(ans : String){
-        //  loadAnswers()
-        print("after: ", answers)
-        answers.append(ans)
-        print("after: ", answers)
-        check()
-        // print(self.answers)
-        AnsTable.reloadData()
+//        //  loadAnswers()
+//        print("after: ", answers)
+//        answers.append(ans)
+//        print("after: ", answers)
+//        check()
+//        // print(self.answers)
+//        AnsTable.reloadData()
+    }
+}
+
+extension QuestionDetail : CommunityAnswerDelegate {
+    func community(_ cell: CommunityAnswer, tappedUserFor answer:Answer) {
+        db.collection("users").document(answer.user).getDocument { documentReference, error in
+            if let u = documentReference?.data(), var user = User(dictionary: u) {
+                user.docID = documentReference?.documentID
+                OtherUserProfile.present(with: user, on: self)
+            }
+        }
     }
 }

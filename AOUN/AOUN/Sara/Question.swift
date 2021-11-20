@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 struct Question{
+    let documentId : String
     let title: String //title of question
     let body: String //body of question
     let answer: [String] //Array of answers

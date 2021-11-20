@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 
 class UserHomeViewController: UIViewController {
+    @IBOutlet var titleLabel: UILabel!
     @IBAction func chat(_ sender: UIButton) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let vc = appDelegate.viewController(storyBoardname: "Chat", viewControllerId: "sbi_VCChatRoster")
@@ -53,11 +54,26 @@ class UserHomeViewController: UIViewController {
     @IBOutlet weak var CommunitiesLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-
         // Do any additional setup after loading the view.
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(userDataLoaded), name: NSNotification.Name(rawValue: "UserLoaded"), object: nil)
+        
     }
-   
+    
+    @objc func userDataLoaded (_ notification:Notification) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let user = appDelegate.thisUser {
+            self.titleLabel.text = "Hello, \(user.FirstName)!"
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let user = appDelegate.thisUser {
+            self.titleLabel.text = "Hello, \(user.FirstName)!"
+        }
+    }
+
        
         
      

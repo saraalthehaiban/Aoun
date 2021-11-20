@@ -283,6 +283,10 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let fullName = firstname + ((lastName.count > 0) ? " \(lastName)" : "")
                 let user = User(FirstName: firstname, LastName: lastName, uid: thisUserId)
                 self.user = user
+                self.user.docID = userData.documentID
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate, appDelegate.thisUser != nil {
+                    appDelegate.thisUser = self.user
+                }
                 self.loadNotes(user: user)
                 self.loadResources(user:user)
                 completion(fullName)

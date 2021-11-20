@@ -10,7 +10,7 @@ import Firebase
 
 
 protocol AnswerQuestionDelegate {
-    func update(ans : String)
+    func answer(_ vc : AnswerQuestion, added:Answer?, successfully:Bool)
 }
 
 class AnswerQuestion: UIViewController, UITextViewDelegate {
@@ -24,8 +24,8 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
     @IBOutlet var body: UITextView!
     var bd: String = ""
     var answers: [String] = []
-    
     var question : Question!
+    var me : User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,42 +35,39 @@ class AnswerQuestion: UIViewController, UITextViewDelegate {
         self.desc.layer.cornerRadius = 8;// runtime
         self.desc.placeHolder = "*Description"
         self.desc.placeHolderColor = #colorLiteral(red: 0.7685510516, green: 0.7686814666, blue: 0.7771411538, alpha: 1)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let user = appDelegate.thisUser {
+            self.me = user
+        }
     }
     
     func validatedData () -> [String:Any]? {
         self.descError.text = nil
-        var message : String = ""
-        ans = desc.text
-        answers.append(ans)
-        var dataDictionary : [String:Any] = ["answers" : answers]
-        
-        if let description = desc.text, description != "*Description", description.count != 0 {
-            dataDictionary["answers"] = answers
+        if let description = desc.text, description !=
+            desc.placeHolder, description.count != 0 {
+            var dataDictionary : [String:Any] = [:]
+            dataDictionary["answer"] = desc.text
+            dataDictionary["createDate"] = Timestamp(date: Date())
+            dataDictionary["user"] = self.me.documentID
+            dataDictionary["username"] = self.me.displayName
+            return dataDictionary
         }else{
             desc.placeHolderColor = .red
-            message += "Please fill in description"//TODO: Check and update message
-        }
-        if message.count > 0 {
-            self.descError.text = message
+            self.descError.text = "Please add in answer."
             return nil
-        }else if message.count > 26{
-            message = "Please enter all required fields"
         }
-        
-        return dataDictionary
     }
     
     @IBAction func post(_ sender: Any) {
-        guard let answersDic = self.validatedData() else {
+        guard let answersDictionary = self.validatedData() else {
             return
         }
         
-        db.collection("Questions").document(ID).updateData(answersDic) { error in
+        db.collection("Questions").document(ID).collection("answers").addDocument(data: answersDictionary) { error in
             if let error = error {
                 print (error)
+                self.delegate?.answer(self, added: Answer(dictionary: answersDictionary), successfully: false)
             }else {
-                self.delegate?.update(ans: self.ans)
-                //imageView.image =
+                self.delegate?.answer(self, added: Answer(dictionary: answersDictionary), successfully: true)
                 self.triggerNotification()
                 CustomAlert.showAlert(
                     title: "Answer Posted",

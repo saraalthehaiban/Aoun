@@ -7,14 +7,12 @@
 
 import Foundation
 
-struct User : Codable {
-    let FirstName : String
-    let LastName : String
-    let uid : String
+struct User  {
+    var FirstName : String,
+        LastName : String,
+        uid : String
     
-    //
     var docID : String?
-    
     var documentID : String? {
         get {
             return docID
@@ -34,4 +32,27 @@ struct User : Codable {
             return name.trimmingCharacters(in: .whitespacesAndNewlines)
         }
     }
+    var dictionary : [String:Any] {
+        get {
+            return [
+                "FirstName" : FirstName,
+                "LastName" : LastName,
+                "uid" : uid,
+            ]
+        }
+    }
 }
+
+extension User {
+    init?(dictionary:[String: Any]) {
+        guard let FirstName  = dictionary["FirstName"] as? String,
+              let LastName  = dictionary["LastName"] as? String,
+              let uid = dictionary["uid"] as? String
+        else {
+            return nil
+        }
+        
+        self.init(FirstName: FirstName, LastName: LastName, uid: uid)
+    }
+}
+

@@ -15,7 +15,11 @@ import PayPalCheckout
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var thisUser : User!
+    var thisUser : User! {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserLoaded"), object: nil, userInfo: nil)//trigger local notification will use it later
+        }
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

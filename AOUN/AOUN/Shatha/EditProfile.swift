@@ -107,12 +107,6 @@ class VCEditProfile : UIViewController, UITextFieldDelegate {
                 return
             }
 
-//            if let currentUser = Auth.auth().currentUser {
-//                let c = AuthCredential(currentUser)
-//                currentUser.reauthenticate(with: <#T##AuthCredential#>) { <#AuthDataResult?#>, <#Error?#> in
-//                    <#code#>
-//                }
-//            }
             Auth.auth().currentUser?.updateEmail(to: newEmail)  { error in
                 if let error = error {
                     print("Email update error:", error.localizedDescription)

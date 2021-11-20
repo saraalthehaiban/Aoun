@@ -409,7 +409,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p08-sm-MtR">
-                                <rect key="frame" x="32" y="714" width="327" height="50"/>
+                                <rect key="frame" x="43" y="714" width="327" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XQN-Wt-PIG"/>
                                 </constraints>
@@ -422,9 +422,9 @@
                                     <action selector="bookSeat:" destination="tEH-8r-vxd" eventType="touchUpInside" id="p0E-jx-IJY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*The limit is 3 seats for each user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ct-Qs-nd7">
-                                <rect key="frame" x="42" y="772" width="311" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ct-Qs-nd7">
+                                <rect key="frame" x="52" y="772" width="311" height="43"/>
+                                <string key="text">*The limit is 3 seats for each user*The limit is 3 seats for each user*The limit is 3 seats for each user*The limit is 3 seats for each user*The limit is 3 seats for each user</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -475,25 +475,28 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Gi1-Tu-ZDv" firstAttribute="top" secondItem="tVB-gf-d33" secondAttribute="bottom" constant="11" id="097-JZ-uYj"/>
-                            <constraint firstItem="p08-sm-MtR" firstAttribute="leading" secondItem="lG8-wX-wlH" secondAttribute="leading" constant="32" id="192-yg-hRR"/>
+                            <constraint firstItem="p08-sm-MtR" firstAttribute="leading" secondItem="lG8-wX-wlH" secondAttribute="leading" constant="43" id="192-yg-hRR"/>
                             <constraint firstItem="enQ-aS-FZg" firstAttribute="leading" secondItem="lG8-wX-wlH" secondAttribute="leading" constant="24" id="6ml-uW-2iT"/>
                             <constraint firstItem="9F5-5s-2W7" firstAttribute="top" secondItem="EWd-bZ-YcQ" secondAttribute="bottom" constant="47" id="Cdd-km-GfA"/>
                             <constraint firstItem="EWd-bZ-YcQ" firstAttribute="top" secondItem="bzY-Y9-sco" secondAttribute="bottom" constant="28.5" id="DD7-Ki-giM"/>
                             <constraint firstItem="Qke-hr-Peh" firstAttribute="centerY" secondItem="tVB-gf-d33" secondAttribute="centerY" id="FRh-J9-OL1"/>
                             <constraint firstItem="EWd-bZ-YcQ" firstAttribute="leading" secondItem="fvh-DG-iEE" secondAttribute="leading" constant="-15" id="H28-1E-XnW"/>
                             <constraint firstItem="QE8-cQ-WIn" firstAttribute="leading" secondItem="lG8-wX-wlH" secondAttribute="leading" constant="24" id="Hjl-Eg-gTn"/>
+                            <constraint firstItem="lG8-wX-wlH" firstAttribute="trailing" secondItem="5ct-Qs-nd7" secondAttribute="trailing" constant="51" id="HpE-8l-j9H"/>
                             <constraint firstItem="Qke-hr-Peh" firstAttribute="leading" secondItem="tVB-gf-d33" secondAttribute="trailing" constant="10" id="JNJ-ML-92P"/>
                             <constraint firstItem="cg8-Tc-mbI" firstAttribute="centerY" secondItem="Gi1-Tu-ZDv" secondAttribute="centerY" id="Lbi-kz-WDd"/>
                             <constraint firstItem="lG8-wX-wlH" firstAttribute="trailing" secondItem="mzN-1e-Spc" secondAttribute="trailing" constant="55" id="Mq3-7b-0pm"/>
-                            <constraint firstItem="lG8-wX-wlH" firstAttribute="trailing" secondItem="p08-sm-MtR" secondAttribute="trailing" constant="55" id="NS5-0p-aoQ"/>
+                            <constraint firstItem="lG8-wX-wlH" firstAttribute="trailing" secondItem="p08-sm-MtR" secondAttribute="trailing" constant="44" id="NS5-0p-aoQ"/>
                             <constraint firstItem="enQ-aS-FZg" firstAttribute="top" secondItem="9F5-5s-2W7" secondAttribute="bottom" constant="41" id="R0I-dv-ZsL"/>
                             <constraint firstItem="QE8-cQ-WIn" firstAttribute="top" secondItem="Gi1-Tu-ZDv" secondAttribute="bottom" constant="17" id="SLG-jO-AeZ"/>
                             <constraint firstItem="mzN-1e-Spc" firstAttribute="top" secondItem="WLG-8P-WJD" secondAttribute="bottom" constant="8" symbolic="YES" id="TNv-A2-QjH"/>
                             <constraint firstItem="9F5-5s-2W7" firstAttribute="leading" secondItem="lG8-wX-wlH" secondAttribute="leading" constant="23" id="TcF-WF-nTy"/>
                             <constraint firstItem="cg8-Tc-mbI" firstAttribute="leading" secondItem="Gi1-Tu-ZDv" secondAttribute="trailing" constant="7.5" id="UIn-dX-RNE"/>
                             <constraint firstItem="bzY-Y9-sco" firstAttribute="top" secondItem="lG8-wX-wlH" secondAttribute="top" constant="27" id="Vkb-m2-zcH"/>
+                            <constraint firstItem="5ct-Qs-nd7" firstAttribute="leading" secondItem="lG8-wX-wlH" secondAttribute="leading" constant="52" id="Wwk-iu-auU"/>
                             <constraint firstItem="tVB-gf-d33" firstAttribute="leading" secondItem="lG8-wX-wlH" secondAttribute="leading" constant="24" id="ahQ-N2-C2n"/>
                             <constraint firstItem="HYv-HO-39d" firstAttribute="top" secondItem="QE8-cQ-WIn" secondAttribute="bottom" constant="13" id="dUO-zA-HNg"/>
+                            <constraint firstItem="5ct-Qs-nd7" firstAttribute="top" secondItem="p08-sm-MtR" secondAttribute="bottom" constant="8" symbolic="YES" id="eZb-sr-vOy"/>
                             <constraint firstItem="lG8-wX-wlH" firstAttribute="trailing" secondItem="HYv-HO-39d" secondAttribute="trailing" constant="52" id="h1G-9X-CaU"/>
                             <constraint firstItem="WLG-8P-WJD" firstAttribute="leading" secondItem="lG8-wX-wlH" secondAttribute="leading" constant="24" id="hae-l0-ws3"/>
                             <constraint firstItem="tVB-gf-d33" firstAttribute="top" secondItem="WLG-8P-WJD" secondAttribute="bottom" constant="51" id="kOV-w4-lyT"/>
