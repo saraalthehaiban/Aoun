@@ -13,6 +13,16 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
     var K_TableHeights :  CGFloat = 0.0
     var user : User!
+    @IBAction func changepass(_ sender: UIButton) {
+    }
+    @IBOutlet weak var waves: UIImageView!
+    @IBOutlet weak var picture: UIImageView!
+    @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var myNotes: UILabel!
+    @IBOutlet weak var myRes: UILabel!
+    @IBOutlet weak var notesTable: UITableView!
+    @IBOutlet weak var resTable: UITableView!
+    @IBOutlet weak var email: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +44,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         resTable.isHidden = true
         
         getEmail { [self] (uEmail) in
-            self.email.text = uEmail
+            self.email?.text = uEmail
         }
         getName { [self] (name) in
             self.fullName.text = name
@@ -108,16 +118,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func changepass(_ sender: UIButton) {
-    }
-    @IBOutlet weak var waves: UIImageView!
-    @IBOutlet weak var picture: UIImageView!
-    @IBOutlet weak var fullName: UILabel!
-    @IBOutlet weak var myNotes: UILabel!
-    @IBOutlet weak var myRes: UILabel!
-    @IBOutlet weak var notesTable: UITableView!
-    @IBOutlet weak var resTable: UITableView!
-    @IBOutlet weak var email: UILabel!
+   
     
     @IBAction func editButton(_ sender: UIButton) {
         performSegue(withIdentifier: "si_profileToEdit", sender: self.user)
@@ -306,6 +307,23 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
     }//end of getEmail
     
     
+    @IBAction func actionButtonTouched(_ sender: Any) {
+        let activityViewController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let purchaseAction = UIAlertAction(title: "Edit Profile", style: .default) { action in
+            self.editButton(UIButton())
+        }
+        activityViewController.addAction(purchaseAction)
+
+        let logOutAction = UIAlertAction(title: "Sign out", style: .destructive) { action in
+            self.logout(UIButton())
+        }
+        activityViewController.addAction(logOutAction)
+        
+        let cancleAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        activityViewController.addAction(cancleAction)
+        self.present(activityViewController, animated: true, completion: nil)
+    }
     
     
 }

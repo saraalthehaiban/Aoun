@@ -54,7 +54,6 @@ class detailedNoteViewController: UIViewController{
         reviews.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "RevCell")
         reviews.delegate = self
         reviews.dataSource = self
-        loadReviews()
         //end table set up
         noteTitle.text = note.noteLable
         authorName.text = note.autherName

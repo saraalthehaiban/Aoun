@@ -110,6 +110,7 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         scrollsToLastItemOnKeyboardBeginsEditing = true
         
         messageInputBar.inputTextView.tintColor = .systemBlue
+        messageInputBar.inputTextView.delegate = self
         messageInputBar.sendButton.setTitleColor(.systemTeal, for: .normal)
         
         messageInputBar.delegate = self
@@ -119,13 +120,10 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         
         loadChat()
         
-        
-        if var mcl = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+        if let mcl = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             mcl.textMessageSizeCalculator.outgoingAvatarSize = .zero
             mcl.textMessageSizeCalculator.incomingAvatarSize = .zero
-            
         }
-        
     }
     
     // MARK: - Custom messages handlers
@@ -306,5 +304,18 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
     // MARK: - MessagesDisplayDelegate
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? #colorLiteral(red: 0.1039655283, green: 0.40598014, blue: 0.8277289271, alpha: 1) : #colorLiteral(red: 0.6924675703, green: 0.8397012353, blue: 0.9650663733, alpha: 1)
+    }
+}
+
+
+extension  ChatViewController:  UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        var updatedText = textView.text ?? ""
+        if let textRange = Range(range, in:updatedText) {
+            updatedText = updatedText.replacingCharacters(in: textRange, with: text)
+        }
+        if updatedText.count > 240 {return false}
+        
+        return true
     }
 }
