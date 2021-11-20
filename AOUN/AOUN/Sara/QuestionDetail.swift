@@ -190,6 +190,7 @@ extension QuestionDetail: AnswerQuestionDelegate{
     func answer(_ vc : AnswerQuestion, added:Answer?, successfully:Bool) {
         guard let a = added, successfully == true else {return}
         self.answers.insert(a, at: 0)
+        self.check()
     }
 
     func update(ans : String){
