@@ -63,8 +63,8 @@ class resViewViewController: UIViewController, UISearchBarDelegate, UISearchDisp
                     for doc in snapshotDocuments{
                         
                         let data = doc.data()
-                        if let rName = data["ResName"] as? String, let aName  = data["authorName"] as? String, let pName = data["pubName"] as? String, let desc = data["desc"] as? String, let urlName = data["url"] as? String {
-                            let newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName)
+                        if let rName = data["ResName"] as? String, let aName  = data["authorName"] as? String, let pName = data["pubName"] as? String, let desc = data["desc"] as? String, let urlName = data["url"] as? String , let createDate = data["createDate"] as? Timestamp {
+                            let newRes = resFile(name: rName, author: aName, publisher: pName, desc: desc, urlString: urlName, createDate:createDate)
                             self.resources.append(newRes)
                         }
                     }
