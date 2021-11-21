@@ -26,9 +26,9 @@
             filePath = "AOUN/Reema/WorkshopDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "purchase(_:buyTickets:forCost:)"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "bookingID(workshop:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,10 +42,10 @@
             filePath = "AOUN/Reema/WorkshopDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
-            landmarkName = "purchase(_:cancledByUser:message:)"
-            landmarkType = "7">
+            startingLineNumber = "324"
+            endingLineNumber = "324"
+            landmarkName = "WorkshopDetailsVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,10 +58,10 @@
             filePath = "AOUN/Reema/WorkshopDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
-            landmarkName = "ticketPrice(_:)"
-            landmarkType = "7">
+            startingLineNumber = "331"
+            endingLineNumber = "331"
+            landmarkName = "WorkshopDetailsVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,10 +106,10 @@
             filePath = "AOUN/Reema/WorkshopDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "bookingID(workshop:)"
-            landmarkType = "7">
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "WorkshopDetailsVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,8 +122,8 @@
             filePath = "AOUN/Reema/WorkshopDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "emailTicketDetail(ticket:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,8 +138,8 @@
             filePath = "AOUN/Reema/WorkshopDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "checkAvailability(tickets:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,9 +186,9 @@
             filePath = "AOUN/Reema/WorkshopDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
-            landmarkName = "allowedTickets(_:)"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
+            landmarkName = "purchase(_:buyTickets:forCost:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -202,9 +202,9 @@
             filePath = "AOUN/Reema/WorkshopDetailsVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "updateAvailabilityMsessage(message:)"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "checkAvailability(tickets:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

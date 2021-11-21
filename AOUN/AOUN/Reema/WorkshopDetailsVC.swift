@@ -12,6 +12,10 @@ import PayPalCheckout
 import Firebase
 
 
+import Foundation
+
+
+
 let K_MaxAllowedTicket = 3
 
 class WorkshopDetailsVC: UIViewController {
@@ -168,6 +172,27 @@ extension WorkshopDetailsVC {
             bookButton.layer.cornerRadius = 8
             bookButton.layer.masksToBounds = true
         }
+        
+        let end = "\(Date())"
+        let start = "\(workshop.dateTime)"
+        if start < end {
+            bookButton.setTitle("out of date", for: .normal)
+            bookButton.isEnabled = false
+            bookButton.setTitleColor(.red, for: .normal)
+            bookButton.layer.cornerRadius = 8
+            bookButton.layer.masksToBounds = true
+        }
+
+        
+        
+   //  let   eDate = workshop.dateTime.earlierDate(Date())
+//        if ( dateFormatter < today ) {
+//            bookButton.setTitle("out of date", for: .normal)
+//            bookButton.isEnabled = false
+//            bookButton.setTitleColor(.red, for: .normal)
+//            bookButton.layer.cornerRadius = 8
+//            bookButton.layer.masksToBounds = true
+//        }
         
         self.myTickets = self.tickets.filter { (ticket:Ticket) -> Bool in
             return ticket.user == user?.documentID
