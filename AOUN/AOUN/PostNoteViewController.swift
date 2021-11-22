@@ -131,8 +131,9 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         if noteTitleTextbox.text == "" ||  autherTextbox.text == "" || descriptionTextbox.text == "*Description" {
             return}
         
-        if  priceSwitch.isOn && priceTextbox.text == "" {
+        if  priceSwitch.isOn && (priceTextbox.text == nil || priceTextbox.text?.count == 0) {
             error.text = "Please fill in the price"
+            return
         }
         
         guard let fs = files, fs.count > 0, let localFile = fs.last, noteTitleTextbox.text != "", autherTextbox.text != "" , descriptionTextbox.text != ""
@@ -206,19 +207,15 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
         
         let price = priceTextbox.text ?? ""
         let createDate = Timestamp(date: Date())
-        
-        let data : [String : Any] = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":Auth.auth().currentUser?.uid, "createDate":createDate]
-        
-        let note = NoteFile(id:"doc.documentID", noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url, docID: "", createDate:createDate)
-        
-        
+        guard let userId = Auth.auth().currentUser?.uid else {return}
+        let data : [String : Any] = ["noteTitle": noteTitle, "autherName": autherName, "briefDescription": description, "price": price, "url":url, "uid":userId, "createDate":createDate]
         db.collection("Notes").document().setData(data) { error in
             
             if let e = error {
                 
                 print(e)
                 
-                self.delegate?.postNote(self, note: note, added: false)
+                self.delegate?.postNote(self, note: nil, added: false)
                 
                 return
                 
@@ -227,15 +224,9 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                 //Show susccess message and go out
                 
                 let alert = UIAlertController.init(title: "Posted", message: "Your note posted successfully.", preferredStyle: .alert)
-                
                 alert.view.tintColor = .black
-                
                 var imageView = UIImageView(frame: CGRect(x: 125, y: 60, width: 20, height: 20))
-                
-                
                 imageView.image = UIImage(named: "Check")
-                
-                
                 alert.view.addSubview(imageView)
                 
                 let cancleA = UIAlertAction(title: "Ok", style: .cancel) { action in
@@ -243,8 +234,9 @@ class PostNoteViewController: UIViewController, UIDocumentPickerDelegate, UIText
                     self.dismiss(animated: true) {
                         
                         //inform main controller t update the information
-                        
-                        self.delegate?.postNote(self, note: note, added: true)
+//                        let note = NoteFile(id:doc.documentID, noteLable: noteTitle, autherName: autherName, desc: description, price: price, urlString: url, docID: "", createDate:createDate, user)
+//                        note.userId = userId
+                        self.delegate?.postNote(self, note: nil, added: true)
                         
                     }
                     

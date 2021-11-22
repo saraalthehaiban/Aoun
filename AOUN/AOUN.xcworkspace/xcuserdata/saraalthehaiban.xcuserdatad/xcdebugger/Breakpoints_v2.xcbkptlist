@@ -112,5 +112,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E623CC0D-BCDD-4F71-853D-D77391A4C232"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AOUN/ViewNotesViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "postNote(_:note:added:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E623CC0D-BCDD-4F71-853D-D77391A4C232 - 32ffbfdc07ec2453"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AOUN.ViewNotesViewController.postNote(_: AOUN.PostNoteViewController, note: Swift.Optional&lt;AOUN.NoteFile&gt;, added: Swift.Bool) -&gt; ()"
+                  moduleName = "AOUN"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/ViewNotesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "E623CC0D-BCDD-4F71-853D-D77391A4C232 - d3ae4713a7f0fb41"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in AOUN.ViewNotesViewController.postNote(_: AOUN.PostNoteViewController, note: Swift.Optional&lt;AOUN.NoteFile&gt;, added: Swift.Bool) -&gt; ()"
+                  moduleName = "AOUN"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saraalthehaiban/Desktop/GitHub/SWE444/AOUN/AOUN/ViewNotesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

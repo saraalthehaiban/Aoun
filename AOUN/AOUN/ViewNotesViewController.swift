@@ -63,17 +63,19 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
                 print("There was an issue retreving data from fireStore. \(e)")
             }else {
                 if let snapshotDocuments = querySnapshot?.documents{
+                    var lnotes : [NoteFile]=[]
                     for doc in snapshotDocuments {
                         let data = doc.data()
                         if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String , let createDate = data["createDate"] as? Timestamp{
                             let docId = doc.documentID
                             let newNote = NoteFile(id:doc.documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId, createDate:createDate)
-                            self.notes.append(newNote)
+                            lnotes.append(newNote)
                         }
                     }
                     DispatchQueue.main.async {
+                        self.notes = lnotes
                         self.set(message:(self.notes.count == 0) ? "No notes yet." : nil)
-                        self.collection.reloadData()
+                        
                     }
                 }
             }
@@ -177,9 +179,10 @@ extension ViewNotesViewController  {
 extension ViewNotesViewController : PostNoteViewControllerDelegate  {
     func postNote (_ vc: PostNoteViewController, note:NoteFile?, added:Bool) {
         vc.dismiss(animated: true) {
-            if added, let n = note {
-                self.notes.append(n)
-                self.collection.reloadData()
+            if added {
+                //self.notes.append(n)
+                //self.collection.reloadData()
+                self.loadNotes()
             }
         }
     }
