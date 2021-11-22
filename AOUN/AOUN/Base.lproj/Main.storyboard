@@ -474,11 +474,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRF-MS-HGn">
-                                <rect key="frame" x="16" y="223" width="57" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="471-vg-ebl" userLabel="AutherName">
+                                <rect key="frame" x="15" y="219" width="59" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="userNameTouched:" destination="ct2-Jt-vaj" eventType="touchUpInside" id="Cum-lE-PRb"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPb-U7-pV8" userLabel="Underline">
+                                <rect key="frame" x="14.5" y="252" width="60" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="iX6-Eh-gRV"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKF-WW-YIl">
                                 <rect key="frame" x="92" y="443" width="230" height="40"/>
                                 <constraints>
@@ -522,7 +534,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKF-mc-tad">
                                 <rect key="frame" x="207" y="676" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -541,12 +553,13 @@
                             <constraint firstAttribute="trailing" secondItem="qTK-WU-PWk" secondAttribute="trailing" constant="206" id="IBN-cG-Uoa"/>
                             <constraint firstItem="YN9-3N-3LX" firstAttribute="centerX" secondItem="wAX-9z-qTS" secondAttribute="centerX" constant="-5.5" id="OaL-lr-VGP"/>
                             <constraint firstItem="GKF-WW-YIl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I8d-eK-aez" secondAttribute="bottom" constant="8" id="SvQ-AZ-Vi4"/>
-                            <constraint firstItem="xRF-MS-HGn" firstAttribute="top" secondItem="nt0-v6-oEt" secondAttribute="bottom" constant="20" id="Svk-cf-ys4"/>
+                            <constraint firstItem="CPb-U7-pV8" firstAttribute="centerX" secondItem="471-vg-ebl" secondAttribute="centerX" id="TYh-0U-WH9"/>
+                            <constraint firstItem="471-vg-ebl" firstAttribute="top" secondItem="nt0-v6-oEt" secondAttribute="bottom" constant="16" id="UPr-dL-O7s"/>
                             <constraint firstItem="GKF-WW-YIl" firstAttribute="top" secondItem="qTK-WU-PWk" secondAttribute="bottom" constant="12" id="Xin-XT-CnS"/>
                             <constraint firstItem="qTK-WU-PWk" firstAttribute="leading" secondItem="wAX-9z-qTS" secondAttribute="leading" constant="208" id="YWn-SM-1Eq"/>
                             <constraint firstItem="zkJ-KE-qOh" firstAttribute="trailing" secondItem="iJL-Jf-hVP" secondAttribute="trailing" id="aNz-Lp-tgG"/>
+                            <constraint firstItem="CPb-U7-pV8" firstAttribute="top" secondItem="471-vg-ebl" secondAttribute="bottom" constant="-1" id="bNL-kA-jji"/>
                             <constraint firstItem="qtm-yy-CF9" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="16" id="bqW-mk-zkg"/>
-                            <constraint firstItem="IMY-lk-dNs" firstAttribute="top" secondItem="xRF-MS-HGn" secondAttribute="bottom" constant="14" id="fIN-47-GSk"/>
                             <constraint firstAttribute="bottom" secondItem="1yL-xg-kH2" secondAttribute="bottom" constant="32" id="fJd-Da-V1l"/>
                             <constraint firstItem="IMY-lk-dNs" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="16" id="gnZ-Q4-081"/>
                             <constraint firstItem="nt0-v6-oEt" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="16" id="hh3-MA-v6w"/>
@@ -555,19 +568,21 @@
                             <constraint firstItem="qtm-yy-CF9" firstAttribute="top" secondItem="GKF-WW-YIl" secondAttribute="bottom" constant="7" id="nCP-En-Q6m"/>
                             <constraint firstItem="YN9-3N-3LX" firstAttribute="top" secondItem="iJL-Jf-hVP" secondAttribute="top" constant="27" id="ocm-Nh-SRC"/>
                             <constraint firstItem="nt0-v6-oEt" firstAttribute="top" secondItem="wlk-ol-8aF" secondAttribute="bottom" constant="15" id="oza-48-tqT"/>
-                            <constraint firstItem="xRF-MS-HGn" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="16" id="qbc-cA-PhO"/>
+                            <constraint firstItem="CPb-U7-pV8" firstAttribute="width" secondItem="471-vg-ebl" secondAttribute="width" multiplier="1.01695" id="pkt-tM-xtT"/>
                             <constraint firstItem="wlk-ol-8aF" firstAttribute="top" secondItem="iJL-Jf-hVP" secondAttribute="top" constant="51" id="sVe-3s-3jA"/>
                             <constraint firstItem="iJL-Jf-hVP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I8d-eK-aez" secondAttribute="trailing" constant="16" id="uN5-Wb-n91"/>
                             <constraint firstItem="kPV-IF-Q7P" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="16" id="vvW-so-fNz"/>
                             <constraint firstItem="I8d-eK-aez" firstAttribute="leading" secondItem="wAX-9z-qTS" secondAttribute="leading" constant="16" id="wbl-pW-GsH"/>
                             <constraint firstItem="zkJ-KE-qOh" firstAttribute="top" secondItem="qtm-yy-CF9" secondAttribute="bottom" constant="8" symbolic="YES" id="wsJ-6L-qpY"/>
                             <constraint firstItem="LaK-Pq-P9O" firstAttribute="top" secondItem="IMY-lk-dNs" secondAttribute="bottom" constant="8" id="yTo-B6-nSr"/>
+                            <constraint firstItem="471-vg-ebl" firstAttribute="leading" secondItem="iJL-Jf-hVP" secondAttribute="leading" constant="15" id="yXt-s4-ctg"/>
+                            <constraint firstItem="IMY-lk-dNs" firstAttribute="top" secondItem="471-vg-ebl" secondAttribute="bottom" constant="6" id="yaU-Op-PlC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="31Y-Kv-4kL"/>
                     <connections>
                         <outlet property="addReview" destination="1yL-xg-kH2" id="NK3-5s-46M"/>
-                        <outlet property="authorName" destination="xRF-MS-HGn" id="Igv-zC-hCv"/>
+                        <outlet property="autherNameButton" destination="471-vg-ebl" id="0aW-4w-ybV"/>
                         <outlet property="desc" destination="I8d-eK-aez" id="VyW-RL-QcF"/>
                         <outlet property="downloadButton" destination="GKF-WW-YIl" id="uI1-o8-jOy"/>
                         <outlet property="errorMsg" destination="qTK-WU-PWk" id="Chs-n4-NZ0"/>
@@ -575,12 +590,13 @@
                         <outlet property="noteTitle" destination="nt0-v6-oEt" id="Sfy-5H-b4r"/>
                         <outlet property="price" destination="LaK-Pq-P9O" id="Wz9-2z-x4k"/>
                         <outlet property="reviews" destination="zkJ-KE-qOh" id="qMP-z9-sFp"/>
+                        <outlet property="underlineView" destination="CPb-U7-pV8" id="Idl-MT-5V4"/>
                         <segue destination="27O-eJ-6bl" kind="presentation" identifier="si_reviewToAddReview" id="Knd-lh-BVa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vdq-Xg-L3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-387" y="1339"/>
+            <point key="canvasLocation" x="-388.40579710144931" y="1338.6160714285713"/>
         </scene>
         <!--Post Review-->
         <scene sceneID="KEc-4r-wSv">
@@ -1130,6 +1146,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
