@@ -36,6 +36,7 @@ class detailedNoteViewController: UIViewController{
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var errorMsg: UILabel!
     @IBOutlet weak var downloadButton: UIButton!
+    @IBOutlet var autherNameButton: UIButton!
     
     var docID: String = ""
     var note : NoteFile!
@@ -48,6 +49,7 @@ class detailedNoteViewController: UIViewController{
     var colRef: CollectionReference!
     var docRef: DocumentReference!
     var rating: CosmosView!
+    @IBOutlet var underlineView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         //start table set up
@@ -56,7 +58,8 @@ class detailedNoteViewController: UIViewController{
         reviews.dataSource = self
         //end table set up
         noteTitle.text = note.noteLable
-        authorName.text = note.autherName
+//        authorName.text = note.autherName
+        autherNameButton.setTitle(note.autherName, for: .normal)
         desc.text = note.desc
         price.text = "\(note.price ?? "")"
         if price.text != ""{
@@ -69,7 +72,12 @@ class detailedNoteViewController: UIViewController{
         addReview.layer.shadowColor = UIColor.black.cgColor
         addReview.layer.shadowOpacity = 0.25
         print ("Condition Check:", Auth.auth().currentUser?.uid,  note.userId, (Auth.auth().currentUser?.uid == note.userId))
-        downloadButton.isHidden = (Auth.auth().currentUser?.uid == note.userId)
+        if (Auth.auth().currentUser?.uid == note.userId) {
+            downloadButton.isHidden = true
+            autherNameButton.setTitleColor(.black, for: .normal)
+            autherNameButton.isUserInteractionEnabled = false
+            underlineView.isHidden = true
+        }
         
         if note.priceDecimal != nil {
             downloadButton.setTitle("Pay & Download", for: .normal)
@@ -334,6 +342,19 @@ class detailedNoteViewController: UIViewController{
         self.performSegue(withIdentifier: "si_reviewToAddReview", sender: note)
     }
     
+    @IBAction func userNameTouched(_ sender: Any) {
+        db.collection("users").whereField("uid", isEqualTo: note.userId).getDocuments { querySnapshot, error in
+            if let e = error {
+                print ("Error:", e)
+                return
+            }
+            if let u = querySnapshot?.documents.first, var user = User(dictionary: u.data()) {
+                
+                user.docID = u.documentID
+                OtherUserProfile.present(with: user, on: self)
+            }
+        }
+    }
 }
 
 
