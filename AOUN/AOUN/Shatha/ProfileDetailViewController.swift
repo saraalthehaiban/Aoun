@@ -60,6 +60,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     
+    //TODO: This functions have no use as of now
     func delAt(index : IndexPath) {
 
     }
