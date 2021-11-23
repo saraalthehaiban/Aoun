@@ -11,6 +11,12 @@ import Firebase
 class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
     @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
+    @IBOutlet weak var hc_workshopTable: NSLayoutConstraint!
+    
+    @IBOutlet weak var noteToggleButton: UIButton!
+    @IBOutlet weak var resourceToggleButton: UIButton!
+    @IBOutlet weak var workshopToggleButton: UIButton!
+    
     var K_TableHeights :  CGFloat = 0.0
     var user : User!
     @IBAction func changepass(_ sender: UIButton) {
@@ -49,9 +55,8 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         getName { [self] (name) in
             self.fullName.text = name
         }
-        
-        self.hc_noteTable.constant = 0
-        self.hc_resourceTable.constant = 0
+
+        collapsAllTable(nil)
     }
     
     
@@ -125,18 +130,37 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    func collapsAllTable (_ sender:UIButton?) {
+        let state = sender?.isSelected
+        noteToggleButton.isSelected = false
+        resourceToggleButton.isSelected = false
+        workshopToggleButton.isSelected = false
+        sender?.isSelected = state ?? false
+        self.hc_noteTable.constant = 0
+        self.hc_resourceTable.constant = 0
+        self.hc_workshopTable.constant = 0
+    }
+    
     @IBAction func openNote(_ sender: UIButton) {
+        collapsAllTable(sender)
         notesTable.isHidden = false
         sender.isSelected = !sender.isSelected
         self.hc_noteTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
     
     @IBAction func openRes(_ sender: UIButton) {
+        collapsAllTable(sender)
         resTable.isHidden = false
         sender.isSelected = !sender.isSelected
         self.hc_resourceTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
     
+    @IBAction func openWorkshop(_ sender: UIButton) {
+        collapsAllTable(sender)
+        resTable.isHidden = false
+        sender.isSelected = !sender.isSelected
+        self.hc_workshopTable.constant = (sender.isSelected) ? K_TableHeights : 0
+    }
     
     let db = Firestore.firestore()
     @IBOutlet var balanceLable: UILabel!
