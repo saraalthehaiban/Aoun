@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View View Controller-->
+        <!--Profile Detail View Controller-->
         <scene sceneID="Yox-KV-72N">
             <objects>
-                <viewController storyboardIdentifier="ViewViewController" id="NxE-Xc-kaf" customClass="ViewViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewViewController" id="NxE-Xc-kaf" customClass="ProfileDetailViewController" customModule="AOUN" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ScA-K9-G81">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

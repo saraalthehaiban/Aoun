@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
+class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
     @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
     var K_TableHeights :  CGFloat = 0.0
@@ -329,7 +329,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 //MARK: - Navigation
-extension ViewViewController : VCEditProfileDelegate {
+extension ProfileDetailViewController : VCEditProfileDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? VCEditProfile {
             vc.user = self.user

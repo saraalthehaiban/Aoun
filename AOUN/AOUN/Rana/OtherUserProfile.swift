@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class OtherUserProfile : ViewViewController {
+class OtherUserProfile : ProfileDetailViewController {
     
     override func viewDidLoad() {
         self.initialize()
