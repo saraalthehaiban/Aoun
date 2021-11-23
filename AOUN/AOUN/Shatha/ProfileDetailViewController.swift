@@ -30,6 +30,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var resTable: UITableView!
     @IBOutlet weak var email: UILabel?
     
+    @IBOutlet weak var workshopTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         callBalance()
@@ -49,6 +50,11 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         resTable.dataSource = self
         resTable.isHidden = true
         
+        workshopTable.register(UINib(nibName:"WorkshopTableViewCell", bundle: nil), forCellReuseIdentifier: "WorkshopTableViewCell")
+        workshopTable.delegate = self
+        workshopTable.dataSource = self
+        workshopTable.isHidden = true
+        
         getEmail { [self] (uEmail) in
             self.email?.text = uEmail
         }
@@ -60,6 +66,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     
+    //TODO: This functions have no use as of now
     func delAt(index : IndexPath) {
 
     }
@@ -71,6 +78,8 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         }
         else if tableView === resTable {
             return resources.count
+        } else if tableView === workshopTable {
+            return workshop.count
         }else {
             fatalError("Invalid table")
         }
@@ -90,7 +99,12 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
             cell.contentView.isUserInteractionEnabled = false
             cell.resTitle.text = resources[indexPath.row].name
             return cell
-        } else {
+        } else if tableView === workshopTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WorkshopTableViewCell", for: indexPath) as! WorkshopTableViewCell
+            cell.contentView.isUserInteractionEnabled = false
+            cell.workshopName.text = workshop[indexPath.row].Title
+            return cell
+        }else {
             fatalError("Invalid table")
         }
         
@@ -187,6 +201,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     var notes: [NoteFile] = []
     var resources:[resFile] = []
+    var workshop:[Workshops] = []
     var empty =  "No notes"
     
     
@@ -260,13 +275,44 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
     }// end of loadResources
     
+    func loadWorkshops(user:User){
+        resources = []
+        let query : Query = db.collection("Workshops").whereField("uid", isEqualTo: user.uid)
+        query.getDocuments ( completion:  {(snapShot, errror) in
+                                
+                                guard let ds = snapShot, !ds.isEmpty else {
+                                    //TODO: Add error handeling here
+                                    let lable = UILabel()
+                                    lable.textAlignment = .center
+                                    lable.text = "You haven’t posted any workshops yet"
+                                    lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
+                                    lable.sizeToFit()
+                                    
+                                    self.workshopTable.tableHeaderView = lable
+                                    self.workshopTable.reloadData()//reload table for blank record set (in case of deleting last object we need this)
+                                    return
+                                }
+                                
+                                for doc in ds.documents {
+                                    
+                                    let data = doc.data()
+                                    if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? String, let auth = data["uid"] as? String {
+                                        var newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime, uid: auth)
+                                        newWorkshop.documentId = doc.documentID
+                                        self.workshop.append(newWorkshop)
+                                        
+                                        DispatchQueue.main.async {
+                                            self.workshopTable.reloadData()
+                                        }
+                                    }
+                                } })
+        
+    }// end of loadWorkshops
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView === resTable {
             selectedRow = indexPath.row
-            //            let storyboard = UIStoryboard(name: "CommunityHome", bundle: nil)
-            //            if let vc = storyboard.instantiateViewController(identifier: "Community") as? Community{
             let storyboard = UIStoryboard(name: "Resources", bundle: nil)
             if let vc = storyboard.instantiateViewController(identifier: "deleteResViewController") as? deleteResViewController {
                 let  res = resources[indexPath.row]
@@ -287,8 +333,20 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 self.present(vc, animated: true, completion: nil)
             }
         }
+        if tableView === workshopTable {
+            selectedRow = indexPath.row
+          //Check this and correct it
+            let storyboard = UIStoryboard(name: "Resources", bundle: nil)
+            if let vc = storyboard.instantiateViewController(identifier: "deleteResViewController") as? deleteResViewController {
+                let  res = resources[indexPath.row]
+                vc.delegate = self
+                vc.index = indexPath
+                vc.resource = res
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
         
-    }//function to view note details
+    }
     
     func getName(completion: @escaping((String) -> ())) {
         guard let thisUserId = Auth.auth().currentUser?.uid else {
