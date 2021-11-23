@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B549D3E2741422600121D77 /* WorkShop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B549D3D2741422600121D77 /* WorkShop.storyboard */; };
 		0B549D402742468E00121D77 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D3F2742468E00121D77 /* Ticket.swift */; };
+		0B749E5F274CFE5400C441CA /* OtherUserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
 		0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */; };
@@ -65,7 +66,7 @@
 		0FC3ABEA2727FC5F00B43C26 /* ViewProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */; };
 		0FC3ABEB2727FC5F00B43C26 /* notesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */; };
 		0FC3ABEC2727FC5F00B43C26 /* ResTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */; };
-		0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */; };
+		0FC3ABEE2727FC5F00B43C26 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE52727FC5F00B43C26 /* ProfileDetailViewController.swift */; };
 		0FC3ABEF2727FC5F00B43C26 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */; };
 		0FC3ABF1272804DC00B43C26 /* VCDeleteNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */; };
 		0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3ABF227286BBD00B43C26 /* Admin.storyboard */; };
@@ -126,6 +127,7 @@
 /* Begin PBXFileReference section */
 		0B549D3D2741422600121D77 /* WorkShop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkShop.storyboard; sourceTree = "<group>"; };
 		0B549D3F2742468E00121D77 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUserProfile.storyboard; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketView.swift; sourceTree = "<group>"; };
 		0BFE8D07274283CD00A23914 /* TicketView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketView.xib; sourceTree = "<group>"; };
@@ -189,7 +191,7 @@
 		0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewProfile.storyboard; sourceTree = "<group>"; };
 		0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = notesTableViewCell.xib; sourceTree = "<group>"; };
 		0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResTableViewCell.xib; sourceTree = "<group>"; };
-		0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
+		0FC3ABE52727FC5F00B43C26 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		0FC3ABF0272804DC00B43C26 /* VCDeleteNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCDeleteNote.swift; sourceTree = "<group>"; };
 		0FC3ABF227286BBD00B43C26 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
@@ -332,12 +334,13 @@
 				0FC3ABE62727FC5F00B43C26 /* EditProfile.swift */,
 				0FC3ABE02727FC5F00B43C26 /* notesTableViewCell.swift */,
 				0FC3ABDF2727FC5F00B43C26 /* ResTableViewCell.swift */,
-				0FC3ABE52727FC5F00B43C26 /* ViewViewController.swift */,
+				0FC3ABE52727FC5F00B43C26 /* ProfileDetailViewController.swift */,
 				0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */,
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
 				0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */,
 				0BFE8D092742882D00A23914 /* TicketView.swift */,
 				0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */,
+				0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */,
 			);
 			path = Shatha;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				0FC920BC2734399D00996757 /* ReviewCell.xib in Resources */,
 				0F502A71270F772000912EF0 /* Main.storyboard in Resources */,
 				5264FC76272722150065DA81 /* Community.storyboard in Resources */,
+				0B749E5F274CFE5400C441CA /* OtherUserProfile.storyboard in Resources */,
 				0FA60E092746FAFA003180F8 /* PurchaseTicketView.xib in Resources */,
 				0FA3B47127186786005511B1 /* CommunityHome.storyboard in Resources */,
 				0B549D3E2741422600121D77 /* WorkShop.storyboard in Resources */,
@@ -797,7 +801,7 @@
 				0FBEF4292746E70300AF4D67 /* ChangePasswordVC.swift in Sources */,
 				0F7D3ED62746604700CC5453 /* WorkshopDetailsVC.swift in Sources */,
 				0FC920BE273439B000996757 /* Review.swift in Sources */,
-				0FC3ABEE2727FC5F00B43C26 /* ViewViewController.swift in Sources */,
+				0FC3ABEE2727FC5F00B43C26 /* ProfileDetailViewController.swift in Sources */,
 				0FC920C8273FE5BD00996757 /* PostReview.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,

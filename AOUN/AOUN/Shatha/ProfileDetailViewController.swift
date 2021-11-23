@@ -8,9 +8,15 @@
 import UIKit
 import Firebase
 
-class ViewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
+class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
     @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
+    @IBOutlet weak var hc_workshopTable: NSLayoutConstraint!
+    
+    @IBOutlet weak var noteToggleButton: UIButton!
+    @IBOutlet weak var resourceToggleButton: UIButton!
+    @IBOutlet weak var workshopToggleButton: UIButton!
+    
     var K_TableHeights :  CGFloat = 0.0
     var user : User!
     @IBAction func changepass(_ sender: UIButton) {
@@ -49,9 +55,8 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         getName { [self] (name) in
             self.fullName.text = name
         }
-        
-        self.hc_noteTable.constant = 0
-        self.hc_resourceTable.constant = 0
+
+        collapsAllTable(nil)
     }
     
     
@@ -125,18 +130,37 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    func collapsAllTable (_ sender:UIButton?) {
+        let state = sender?.isSelected
+        noteToggleButton.isSelected = false
+        resourceToggleButton.isSelected = false
+        workshopToggleButton.isSelected = false
+        sender?.isSelected = state ?? false
+        self.hc_noteTable.constant = 0
+        self.hc_resourceTable.constant = 0
+        self.hc_workshopTable.constant = 0
+    }
+    
     @IBAction func openNote(_ sender: UIButton) {
+        collapsAllTable(sender)
         notesTable.isHidden = false
         sender.isSelected = !sender.isSelected
         self.hc_noteTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
     
     @IBAction func openRes(_ sender: UIButton) {
+        collapsAllTable(sender)
         resTable.isHidden = false
         sender.isSelected = !sender.isSelected
         self.hc_resourceTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
     
+    @IBAction func openWorkshop(_ sender: UIButton) {
+        collapsAllTable(sender)
+        resTable.isHidden = false
+        sender.isSelected = !sender.isSelected
+        self.hc_workshopTable.constant = (sender.isSelected) ? K_TableHeights : 0
+    }
     
     let db = Firestore.firestore()
     @IBOutlet var balanceLable: UILabel!
@@ -329,7 +353,7 @@ class ViewViewController: UIViewController, UITableViewDelegate, UITableViewData
 }
 
 //MARK: - Navigation
-extension ViewViewController : VCEditProfileDelegate {
+extension ProfileDetailViewController : VCEditProfileDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? VCEditProfile {
             vc.user = self.user

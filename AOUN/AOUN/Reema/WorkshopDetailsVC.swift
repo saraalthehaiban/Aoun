@@ -173,6 +173,7 @@ extension WorkshopDetailsVC {
             bookButton.layer.masksToBounds = true
         }
         
+        
         let end = "\(Date())"
         let start = "\(workshop.dateTime)"
         if start < end {

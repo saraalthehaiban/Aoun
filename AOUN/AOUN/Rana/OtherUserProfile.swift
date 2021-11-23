@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class OtherUserProfile : ViewViewController {
+class OtherUserProfile : ProfileDetailViewController {
     
     override func viewDidLoad() {
         self.initialize()
@@ -16,7 +16,7 @@ class OtherUserProfile : ViewViewController {
     
     class func present(with user:User, on viewController : UIViewController) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if let vc = appDelegate.viewController(storyBoardname: "ViewProfile", viewControllerId: "sbi_OtherUserProfile") as? OtherUserProfile {
+        if let vc = appDelegate.viewController(storyBoardname: "OtherUserProfile", viewControllerId: "sbi_OtherUserProfile") as? OtherUserProfile {
             vc.user = user
             viewController.present(vc, animated: true, completion: nil)
         }
