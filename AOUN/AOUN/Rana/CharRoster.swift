@@ -93,5 +93,28 @@ extension VCChatRoster {
         if let s = sender as? UserCell, let vc = segue.destination as? ChatViewController, let user = s.user {
             vc.otherUser = user
         }
+        
+        
+     func viewDidLoad() {
+            super.viewDidLoad()
+
+            let n = Int(arc4random_uniform(1000))
+
+            senderId = "anonymous" + String(n)
+            senderDisplayName = senderId
+
+            inputToolbar.contentView.leftBarButtonItem = nil
+
+            incomingBubble = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+            outgoingBubble = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
+
+            collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+            collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+
+            automaticallyScrollsToMostRecentMessage = true
+
+            collectionView?.reloadData()
+            collectionView?.layoutIfNeeded()
+        }
     }
 }
