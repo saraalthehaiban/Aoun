@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
+class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate, MyWorkshopDelegate{
     @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
     @IBOutlet weak var hc_workshopTable: NSLayoutConstraint!
@@ -276,7 +276,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }// end of loadResources
     
     func loadWorkshops(user:User){
-        resources = []
+        workshop = []
         let query : Query = db.collection("Workshops").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
                                 
@@ -336,12 +336,12 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         if tableView === workshopTable {
             selectedRow = indexPath.row
           //Check this and correct it
-            let storyboard = UIStoryboard(name: "Resources", bundle: nil)
-            if let vc = storyboard.instantiateViewController(identifier: "deleteResViewController") as? deleteResViewController {
-                let  res = resources[indexPath.row]
+            let storyboard = UIStoryboard(name: "ViewProfile", bundle: nil)
+            if let vc = storyboard.instantiateViewController(identifier: "MyWorkshop") as? MyWorkshop {
+                let  res = workshop[indexPath.row]
                 vc.delegate = self
                 vc.index = indexPath
-                vc.resource = res
+                vc.workshop = res
                 self.present(vc, animated: true, completion: nil)
             }
         }

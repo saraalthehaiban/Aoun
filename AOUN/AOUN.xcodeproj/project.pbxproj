@@ -12,6 +12,7 @@
 		0B749E5F274CFE5400C441CA /* OtherUserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */; };
 		0B749E62274D0A9300C441CA /* WorkshopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */; };
 		0B749E63274D0A9300C441CA /* WorkshopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B749E61274D0A9300C441CA /* WorkshopTableViewCell.xib */; };
+		0B749E65274D163A00C441CA /* MyWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B749E64274D163A00C441CA /* MyWorkshop.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
 		0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */; };
@@ -132,6 +133,7 @@
 		0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUserProfile.storyboard; sourceTree = "<group>"; };
 		0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewCell.swift; sourceTree = "<group>"; };
 		0B749E61274D0A9300C441CA /* WorkshopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkshopTableViewCell.xib; sourceTree = "<group>"; };
+		0B749E64274D163A00C441CA /* MyWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkshop.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketView.swift; sourceTree = "<group>"; };
 		0BFE8D07274283CD00A23914 /* TicketView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketView.xib; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
 				0B549D3D2741422600121D77 /* WorkShop.storyboard */,
 				0BFE8D07274283CD00A23914 /* TicketView.xib */,
+				0B749E64274D163A00C441CA /* MyWorkshop.swift */,
 				0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */,
 				0F7D3ED227465F9400CC5453 /* Workshops.swift */,
 				0FC3ABDE2727FC5F00B43C26 /* User.swift */,
@@ -813,6 +816,7 @@
 				0FC920C8273FE5BD00996757 /* PostReview.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
+				0B749E65274D163A00C441CA /* MyWorkshop.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
 				0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */,
 				0F7D3ED327465F9400CC5453 /* Workshops.swift in Sources */,
