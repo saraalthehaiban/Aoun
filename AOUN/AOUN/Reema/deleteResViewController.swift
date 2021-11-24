@@ -48,102 +48,52 @@ class deleteResViewController: UIViewController {
     
         @IBAction func downloadButtonTouched(_ sender: Any) {
             guard let url = resource.url else {
-
                             //TODO: Show download url error message
-
                             errorMsg.text = "Download failed"
-
-
-
                             return
-
                         }
-
                         download(url:url)
-
                    }
 
-                
-
-                
-
-                
-
-                
-
-                
 
                 func download (url:URL) {
-
                         //activityIndicator.startAnimating()
-
                         DownloadManager.download(url: url) { success, data in
-
                             guard let d = data else{ return }
-
                             self.showFileSaveActivity(data: d)
-
                         }
-
                     }
-
-                    
-
 
 
                     func showFileSaveActivity (data:Data) {
-
                         let vcActivity = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-
                         vcActivity.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-
                             if !completed {
-
                                 // User canceled
-
                                 return
-
                             }
-
                             // User completed activity
-
                             self.showDownloadSuccess()
-
                         }
-
                         self.present(vcActivity, animated: true, completion: nil)
-
                     }
 
-                    
-
-
-
+       
                     func showDownloadSuccess () {
-
                         let alertVC = UIAlertController(title: "Downloaded!", message: "File \"\(self.resource.name)\" dowloaded successfully.", preferredStyle: .alert)
-
                         var imageView = UIImageView(frame: CGRect(x: 125, y: 75, width: 20, height: 20))
-
                                 imageView.image = UIImage(named: "Check")
-
                         alertVC.view.addSubview(imageView)
-
                         let action = UIAlertAction(title: "Ok", style: .cancel) { action in
-
                             self.dismiss(animated: true, completion: nil)
-
                         }
-
                         alertVC.addAction(action)
-
                         self.present(alertVC, animated: true, completion: nil)
-
                     }
 
     
     @IBAction func deleteRes(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Are you sure?", message: "This action will delete your resource and is irreversible.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure?", message: "This action will delete your resource.", preferredStyle: .alert)
         let da = UIAlertAction(title: "Delete", style: .destructive) { action in
           //  print(self.resource.documentId, "HERE!!!")
             self.delete(resource: self.resource)
@@ -155,6 +105,7 @@ class deleteResViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }//end delete
+    
     
     func delete(resource:resFile)  {
         self.db.collection("Resources").document(resource.documentId!).delete { error in
