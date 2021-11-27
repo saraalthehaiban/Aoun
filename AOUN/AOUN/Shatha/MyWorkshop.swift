@@ -36,7 +36,7 @@ class MyWorkshop: UIViewController {
     @IBOutlet weak var timeVal: UILabel!
     @IBOutlet weak var purchaseInformationLable: UILabel!
     @IBOutlet weak var bookButton: UIButton!
-    @IBOutlet weak var bookSupportTextField: UITextField!
+   
     
     var index : IndexPath!
     var delegate: MyWorkshopDelegate?

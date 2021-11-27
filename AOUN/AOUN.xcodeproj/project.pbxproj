@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0B549D3E2741422600121D77 /* WorkShop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B549D3D2741422600121D77 /* WorkShop.storyboard */; };
 		0B549D402742468E00121D77 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B549D3F2742468E00121D77 /* Ticket.swift */; };
+		0B7320A72752E2AB00F6F1B5 /* ParticipantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7320A62752E2AB00F6F1B5 /* ParticipantVC.swift */; };
+		0B7320AA2752E42B00F6F1B5 /* PTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7320A82752E42B00F6F1B5 /* PTableViewCell.swift */; };
+		0B7320AB2752E42B00F6F1B5 /* PTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B7320A92752E42B00F6F1B5 /* PTableViewCell.xib */; };
 		0B749E5F274CFE5400C441CA /* OtherUserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */; };
 		0B749E62274D0A9300C441CA /* WorkshopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */; };
 		0B749E63274D0A9300C441CA /* WorkshopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B749E61274D0A9300C441CA /* WorkshopTableViewCell.xib */; };
@@ -130,6 +133,9 @@
 /* Begin PBXFileReference section */
 		0B549D3D2741422600121D77 /* WorkShop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkShop.storyboard; sourceTree = "<group>"; };
 		0B549D3F2742468E00121D77 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		0B7320A62752E2AB00F6F1B5 /* ParticipantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantVC.swift; sourceTree = "<group>"; };
+		0B7320A82752E42B00F6F1B5 /* PTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTableViewCell.swift; sourceTree = "<group>"; };
+		0B7320A92752E42B00F6F1B5 /* PTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PTableViewCell.xib; sourceTree = "<group>"; };
 		0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUserProfile.storyboard; sourceTree = "<group>"; };
 		0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewCell.swift; sourceTree = "<group>"; };
 		0B749E61274D0A9300C441CA /* WorkshopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkshopTableViewCell.xib; sourceTree = "<group>"; };
@@ -328,11 +334,14 @@
 			isa = PBXGroup;
 			children = (
 				0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */,
+				0B7320A92752E42B00F6F1B5 /* PTableViewCell.xib */,
 				0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */,
 				0B749E61274D0A9300C441CA /* WorkshopTableViewCell.xib */,
 				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
 				0B549D3D2741422600121D77 /* WorkShop.storyboard */,
 				0BFE8D07274283CD00A23914 /* TicketView.xib */,
+				0B7320A82752E42B00F6F1B5 /* PTableViewCell.swift */,
+				0B7320A62752E2AB00F6F1B5 /* ParticipantVC.swift */,
 				0B749E64274D163A00C441CA /* MyWorkshop.swift */,
 				0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */,
 				0F7D3ED227465F9400CC5453 /* Workshops.swift */,
@@ -613,6 +622,7 @@
 				DA73ECB226FB9A680016ACA3 /* GoogleService-Info.plist in Resources */,
 				0FC3ABF327286BBD00B43C26 /* Admin.storyboard in Resources */,
 				0FC3ABEB2727FC5F00B43C26 /* notesTableViewCell.xib in Resources */,
+				0B7320AB2752E42B00F6F1B5 /* PTableViewCell.xib in Resources */,
 				0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -804,12 +814,14 @@
 				0F7D3ED72746604700CC5453 /* viewWorkshopViewController.swift in Sources */,
 				0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */,
 				523D7D7527253F79001CF33E /* CommunityyViewController.swift in Sources */,
+				0B7320A72752E2AB00F6F1B5 /* ParticipantVC.swift in Sources */,
 				0F410B83274667070059E145 /* workshopCellCollectionViewCell.swift in Sources */,
 				0FC3ABE82727FC5F00B43C26 /* ResTableViewCell.swift in Sources */,
 				0FA60E0D27484AA8003180F8 /* UIView+Utility.swift in Sources */,
 				274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */,
 				0B749E62274D0A9300C441CA /* WorkshopTableViewCell.swift in Sources */,
 				0FBEF4292746E70300AF4D67 /* ChangePasswordVC.swift in Sources */,
+				0B7320AA2752E42B00F6F1B5 /* PTableViewCell.swift in Sources */,
 				0F7D3ED62746604700CC5453 /* WorkshopDetailsVC.swift in Sources */,
 				0FC920BE273439B000996757 /* Review.swift in Sources */,
 				0FC3ABEE2727FC5F00B43C26 /* ProfileDetailViewController.swift in Sources */,
