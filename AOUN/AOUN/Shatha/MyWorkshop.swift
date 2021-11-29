@@ -21,7 +21,6 @@ protocol MyWorkshopDelegate {
 
 class MyWorkshop: UIViewController {
     
-
     @IBOutlet weak var workshopTitle: UILabel!
     @IBOutlet weak var presenterLabel: UILabel!
     @IBOutlet weak var presenterName: UILabel!
@@ -61,14 +60,6 @@ class MyWorkshop: UIViewController {
         timeVal.text = "\(newtime)"
         seatsNum.text = workshop.seat
         price.text = workshop.price + " SAR"
-      
-        
-        // self.bookSupportTextField.inputView = purchaseTicketView
-        // Do any additional setup after loading the view.
-        
-        //load
-//        loadUser()
-        
     }
     
 
@@ -87,6 +78,17 @@ class MyWorkshop: UIViewController {
      */
     
    
+    @IBAction func showParticipantButttonTouched(_ sender: Any) {
+        self.performSegue(withIdentifier: "si_myWorkshopToTickets", sender: workshop)
+    }
+}
+
+extension MyWorkshop {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ParticipantVC , let ws = sender as? Workshops {
+            vc.workshop = ws
+        }
+    }
 }
 
 

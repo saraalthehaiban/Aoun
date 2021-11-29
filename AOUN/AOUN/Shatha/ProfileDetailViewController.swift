@@ -336,8 +336,8 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         if tableView === workshopTable {
             selectedRow = indexPath.row
           //Check this and correct it
-            let storyboard = UIStoryboard(name: "ViewProfile", bundle: nil)
-            if let vc = storyboard.instantiateViewController(identifier: "MyWorkshop") as? MyWorkshop {
+            let storyboard = UIStoryboard(name: "WorkShop", bundle: nil)
+            if let vc = storyboard.instantiateViewController(identifier: "sbi_MyWorkshop") as? MyWorkshop {
                 let  res = workshop[indexPath.row]
                 vc.delegate = self
                 vc.index = indexPath

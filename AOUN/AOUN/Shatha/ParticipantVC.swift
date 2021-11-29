@@ -8,6 +8,7 @@
 import UIKit
 
 class ParticipantVC: UIViewController {
+    var workshop : Workshops!
 
     @IBOutlet weak var ParticipantTable: UITableView!
     @IBOutlet weak var workshopName: UILabel!
