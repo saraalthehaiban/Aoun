@@ -11,7 +11,9 @@ struct Chat {
         return ["users": users]
     }
     
+    var documentID:String?
     var otherUser : User?
+    var unreadCount : Int?
 }
 
 extension Chat {
@@ -38,6 +40,25 @@ extension Chat {
             }
         }
     }
+    
+    func unreadMessageCount(_ complitation:@escaping(Int)->()) {
+        guard let uid = Auth.auth().currentUser?.uid, let otherUserID = (self.users.filter { $0 != uid}).last else {
+            return
+        }
+        
+        Firestore.firestore().collection("Chats").whereField("uid", isEqualTo: otherUserID).getDocuments { querySnapshot, error in
+            if let e = error {
+                print("Error:", e.localizedDescription)
+            }else{
+                guard let user = querySnapshot?.documents.first  else {return}
+                //"users/\(user?.documentID)"
+                let fName = (user["FirstName"] as? String) ?? ""
+                let lName = (user["LastName"] as? String) ?? ""
+                let ou =  User(FirstName:fName , LastName: lName, uid: otherUserID, docID: user.documentID)
+                complitation(0)
+            }
+        }
+    }
 }
 
 //MARK: -
@@ -53,13 +74,16 @@ struct Message {
     var created: Timestamp
     var senderID: String
     var senderName: String
+    var isRead : Bool
     var dictionary: [String: Any] {
         return [
             "id": id,
             "content": content,
             "created": created,
             "senderID": senderID,
-            "senderName":senderName]
+            "senderName":senderName,
+            "isRead": isRead
+        ]
     }
 }
 
@@ -69,9 +93,10 @@ extension Message {
               let content = dictionary["content"] as? String,
               let created = dictionary["created"] as? Timestamp,
               let senderID = dictionary["senderID"] as? String,
-              let senderName = dictionary["senderName"] as? String
+              let senderName = dictionary["senderName"] as? String,
+              let isRead = dictionary["isRead"] as? Bool
         else {return nil}
-        self.init(id: id, content: content, created: created, senderID: senderID, senderName:senderName)
+        self.init(id: id, content: content, created: created, senderID: senderID, senderName:senderName, isRead  : isRead)
     }
 }
 
@@ -187,10 +212,8 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
                                     } else {
                                         self.messages.removeAll()
                                         for message in threadQuery!.documents {
-                                            
                                             let msg = Message(dictionary: message.data())
                                             self.messages.append(msg!)
-                                            print("Data: \(msg?.content ?? "No message found")")
                                         }
                                         self.messagesCollectionView.reloadData()
                                         self.messagesCollectionView.scrollToLastItem(at: .bottom, animated: true)
@@ -225,7 +248,8 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
             "created": message.created,
             "id": message.id,
             "senderID": message.senderID,
-            "senderName": message.senderName
+            "senderName": message.senderName,
+            "isRead" : false
         ]
         
         docReference?.collection("thread").addDocument(data: data, completion: { (error) in
@@ -235,16 +259,37 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
                 return
             }
             
+            
+            
             self.messagesCollectionView.scrollToLastItem(at: .bottom, animated: true)
+            self.triggerNotification(message: message)
             
         })
     }
+    
+    func triggerNotification(message:Message)  {
+        let db = Firestore.firestore()
+        
+        //
+        db.collection("users").whereField("uid", isEqualTo: otherUser.uid).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                //Display Error
+                print(error)
+            } else {
+                guard let user = querySnapshot?.documents.first, let fcmToken = user["fcmToken"] as? String else {
+                    return
+                }
+                PushNotificationSender.sendPushNotification(to: fcmToken, title: "New message", body: "\(self.otherUser.displayName) sent you a message.")
+            }
+        }
+    }
+    
     
     // MARK: - InputBarAccessoryViewDelegate
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
-        let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: currentUser.uid, senderName: currentUser.displayName ?? "User")
+        let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: currentUser.uid, senderName: currentUser.displayName ?? "User", isRead: false)
         
         //messages.append(message)
         insertNewMessage(message)
@@ -298,8 +343,6 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 24
     }
-    
-    
     
     // MARK: - MessagesDisplayDelegate
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {

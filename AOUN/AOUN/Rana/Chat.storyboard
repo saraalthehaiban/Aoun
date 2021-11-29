@@ -110,9 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="tvS-Jz-hMC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cNP-9g-iht">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="tdT-ii-5PT"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="cNP-9g-iht"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="jxs-TN-35B" id="4k6-HP-OXI"/>

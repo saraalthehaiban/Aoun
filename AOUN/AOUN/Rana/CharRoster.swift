@@ -49,11 +49,26 @@ class VCChatRoster : UIViewController {
                 
                 var cs : [Chat] = []
                 for d in sds {
-                    if let c = Chat(dictionary: d.data()) {
-                        cs.append(c)
+                    if var c = Chat(dictionary: d.data()) {
+                        c.documentID = d.documentID
+                        if let uid = Auth.auth().currentUser?.uid, let otherUserID = (c.users.filter { $0 != uid}).last {
+                            d.reference.collection("thread")
+                                .whereField("senderID", isEqualTo: otherUserID)
+                                .addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
+                                    if let error = error {
+                                        print("Error: \(error)")
+                                        return
+                                    } else {
+                                        c.unreadCount = threadQuery?.documents.count ?? 0
+                                    }
+                                    cs.append(c)
+                                    self.chats = cs
+                                })
+                        }
+                        self.chats = cs
                     }
                 }
-                self.chats = cs
+                
             }
         }
     }
@@ -70,13 +85,18 @@ extension VCChatRoster:UITableViewDelegate, UITableViewDataSource {
         if let c = tableView.dequeueReusableCell(withIdentifier: "ci_chatUser") as? UserCell {
             cell = c
         }else {
-            cell = UserCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "ci_chatUser")
+            cell = UserCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "ci_chatUser")
+            cell.detailTextLabel?.textColor = .white
+            cell.detailTextLabel?.backgroundColor = .green
             cell.accessoryType = .disclosureIndicator
         }
         let c = chats[indexPath.row]
+        cell.detailTextLabel?.text = "\(c.unreadCount ?? 0)"
         c.loadOtherUser { user in
             cell?.user = user
         }
+        cell.detailTextLabel?.layer.cornerRadius = (cell.detailTextLabel?.frame.size.width ?? 0) / 2
+        cell.detailTextLabel?.layer.masksToBounds = true
         
         return cell
     }
