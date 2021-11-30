@@ -258,6 +258,7 @@
                         <outlet property="resTable" destination="xzy-64-mc5" id="B0U-qO-0zE"/>
                         <outlet property="resourceToggleButton" destination="GuW-dG-Lrk" id="5lv-E1-eGv"/>
                         <outlet property="waves" destination="yFc-b4-8YF" id="0am-s9-48O"/>
+                        <outlet property="workshopTable" destination="22M-5l-kjT" id="9ee-hz-gAF"/>
                         <outlet property="workshopToggleButton" destination="GuW-dG-Lrk" id="8CZ-1b-VV3"/>
                         <segue destination="xgo-Dw-Z5k" kind="presentation" identifier="si_profileToEdit" id="OHC-Aj-4VM"/>
                     </connections>
@@ -495,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOn-KN-oMQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686.95652173913049" y="791.51785714285711"/>
+            <point key="canvasLocation" x="1684" y="49"/>
         </scene>
     </scenes>
     <resources>

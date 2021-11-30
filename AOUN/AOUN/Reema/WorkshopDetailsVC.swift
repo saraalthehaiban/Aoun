@@ -48,16 +48,17 @@ class WorkshopDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let newdate = workshop.dateTime
-        let tindex = newdate.index(newdate.startIndex, offsetBy: 17)
-        let time = newdate[..<tindex]
-        let newtime = time.suffix(5)
-        let date = newdate.prefix(11)
+//        let newdate = workshop.dateTime
+//        let tindex = newdate.index(newdate.startIndex, offsetBy: 17)
+//        let time = newdate[..<tindex]
+//        let newtime = time.suffix(5)
+//        let date = newdate.prefix(11)
         workshopTitle.text = workshop.Title
         presenterName.text = workshop.presenter
         desc.text = workshop.description
-        dateValue.text = " \(date)"
-        timeVal.text = "\(newtime)"
+        let date = workshop.dateTime.dateValue()
+        dateValue.text = date.dateString
+        timeVal.text = date.timeString
         seatsNum.text = workshop.seat
         price.text = workshop.price + " SAR"
         purchaseTicketView.delegate = self
@@ -173,10 +174,10 @@ extension WorkshopDetailsVC {
             bookButton.layer.masksToBounds = true
         }
         
-        
-        let end = "\(Date())"
-        let start = "\(workshop.dateTime)"
-        if start < end {
+//        
+//        let end = "\(Date())"
+//        let start = "\(workshop.dateTime)"
+        if workshop.dateTime.dateValue() < Date() {
             bookButton.setTitle("out of date", for: .normal)
             bookButton.isEnabled = false
             bookButton.setTitleColor(.red, for: .normal)

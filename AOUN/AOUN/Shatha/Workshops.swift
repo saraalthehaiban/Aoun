@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Firebase
+
 
 class PriceUtils {
     static func usd(fromSAR sar:Decimal) -> Decimal {
@@ -24,7 +26,7 @@ struct Workshops {
     let price : String
     var seat : String
     let description : String
-    let dateTime: String
+    let dateTime: Timestamp
     var documentId : String?
     let uid:String?
     //there wasn (?)
