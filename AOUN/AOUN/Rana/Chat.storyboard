@@ -57,6 +57,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ORX-8z-TTa">
+                                        <rect key="frame" x="191" y="11" width="31" height="27"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36.5" id="5U5-38-ght"/>
+                                            <constraint firstAttribute="width" constant="31" id="zO5-wu-2T6"/>
+                                        </constraints>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="waves" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-5a-YQg">
                                         <rect key="frame" x="-108" y="-107" width="775" height="444"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,20 +76,6 @@
                                             <constraint firstAttribute="height" constant="274" id="5gA-2i-Zgx"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LU-GY-dAy">
-                                        <rect key="frame" x="32" y="326" width="87" height="30"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ORX-8z-TTa">
-                                        <rect key="frame" x="191.5" y="11" width="31" height="27"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36.5" id="5U5-38-ght"/>
-                                            <constraint firstAttribute="width" constant="31" id="zO5-wu-2T6"/>
-                                        </constraints>
-                                    </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jxs-TN-35B">
                                         <rect key="frame" x="32" y="372" width="349" height="440"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -90,10 +84,23 @@
                                             <outlet property="delegate" destination="JU5-a5-iAJ" id="JFZ-UB-DDd"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LU-GY-dAy">
+                                        <rect key="frame" x="32" y="326" width="87" height="30"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGd-ai-DBi">
+                                        <rect key="frame" x="185.5" y="581.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="safeArea" id="JIM-Bu-ujD"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="HGd-ai-DBi" firstAttribute="centerY" secondItem="jxs-TN-35B" secondAttribute="centerY" id="06c-81-ei6"/>
                                     <constraint firstItem="ORX-8z-TTa" firstAttribute="centerX" secondItem="xRp-95-Q2P" secondAttribute="centerX" id="ACM-6W-FpB"/>
                                     <constraint firstItem="LtF-wX-JA9" firstAttribute="leading" secondItem="JIM-Bu-ujD" secondAttribute="leading" constant="20" id="AbG-Ml-tS2"/>
                                     <constraint firstItem="JIM-Bu-ujD" firstAttribute="trailing" secondItem="jxs-TN-35B" secondAttribute="trailing" constant="33" id="BlP-au-tRa"/>
@@ -101,6 +108,7 @@
                                     <constraint firstItem="0LU-GY-dAy" firstAttribute="leading" secondItem="JIM-Bu-ujD" secondAttribute="leading" constant="32" id="G3a-U2-TSL"/>
                                     <constraint firstItem="0LU-GY-dAy" firstAttribute="top" secondItem="ORX-8z-TTa" secondAttribute="bottom" constant="214.5" id="ecc-KI-y75"/>
                                     <constraint firstItem="ORX-8z-TTa" firstAttribute="top" secondItem="JIM-Bu-ujD" secondAttribute="top" constant="19" id="gOn-B2-IBG"/>
+                                    <constraint firstItem="HGd-ai-DBi" firstAttribute="centerX" secondItem="jxs-TN-35B" secondAttribute="centerX" id="ijc-jG-gTt"/>
                                     <constraint firstItem="jxs-TN-35B" firstAttribute="leading" secondItem="JIM-Bu-ujD" secondAttribute="leading" constant="32" id="lNu-si-I2m"/>
                                     <constraint firstItem="JIM-Bu-ujD" firstAttribute="bottom" secondItem="jxs-TN-35B" secondAttribute="bottom" constant="50" id="s0S-9G-OIz"/>
                                     <constraint firstItem="LtF-wX-JA9" firstAttribute="top" secondItem="JIM-Bu-ujD" secondAttribute="top" id="ycb-bn-OYe"/>
@@ -113,6 +121,7 @@
                     <navigationItem key="navigationItem" id="cNP-9g-iht"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="noMessageLabel" destination="HGd-ai-DBi" id="8c0-5x-EoG"/>
                         <outlet property="tableView" destination="jxs-TN-35B" id="4k6-HP-OXI"/>
                         <segue destination="Y6W-OH-hqX" kind="show" identifier="si_rosterToChat" id="kyN-7l-cBb"/>
                     </connections>
