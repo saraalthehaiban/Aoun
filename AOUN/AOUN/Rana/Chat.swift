@@ -212,8 +212,6 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
                                     } else {
                                         self.messages.removeAll()
                                         for message in threadQuery!.documents {
-                                            
-                                            
                                             var msg = Message(dictionary: message.data())
                                             msg?.isRead = true
                                             self.messages.append(msg!)
