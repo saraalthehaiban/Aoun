@@ -62,7 +62,7 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
             if let snapshotDocuments = querySnapshot?.documents{
                 for doc in snapshotDocuments{
                     let data = doc.data()
-                    if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? String, let auth = data["uid"] as? String {
+                    if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? Timestamp, let auth = data["uid"] as? String {
                         var newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime, uid: auth)
                         newWorkshop.documentId = doc.documentID
                         self.workshops.append(newWorkshop)

@@ -23,6 +23,13 @@ class Utilities {
     static func isValidEmail(_ email: String) -> Bool {
         return NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: email)
     }
+    
+    //Server Format "yyyyy-MM-dd HH:mm:ss+Z"
+    static func serverDateFormatter (format:String) -> DateFormatter {
+        let df = DateFormatter()
+        df.dateFormat = format
+        return df
+    }
 }
 
 extension Date {
@@ -33,4 +40,24 @@ extension Date {
         dateFormat.locale = Locale.current
         return dateFormat.string(from: self)
     }
+    
+    var dateString : String {
+        get {
+            let df = DateFormatter()
+            df.dateStyle = .medium
+            return df.string(from: self)
+        }
+    }
+    
+    var timeString : String {
+        get {
+            let df = DateFormatter()
+            df.timeStyle = .short
+            return df.string(from: self)
+        }
+    }
 }
+
+//2021-11-23 07:38:00 +0000
+
+
