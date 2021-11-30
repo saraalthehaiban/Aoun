@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate, MyWorkshopDelegate{
+class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyWorkshopDelegate{
     @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
     @IBOutlet weak var hc_workshopTable: NSLayoutConstraint!
@@ -65,13 +65,6 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         collapsAllTable(nil)
     }
     
-    
-    //TODO: This functions have no use as of now
-    func delAt(index : IndexPath) {
-        
-    }
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView === notesTable {
             return notes.count
@@ -110,15 +103,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if tableView === workshopTable && workshops.count == 0 {
-            return "No workshops."
-        }
-        
-        return nil
-        
-    }
-    
+
     @IBAction func logout(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Are you sure?", message: "This action will sign you out.", preferredStyle: .alert)
@@ -221,7 +206,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
     fileprivate var selectedRow: Int?
     
     
-    func loadNotes (user:User){
+    func loadNotes (user:User, noDataMessage : String = "You haven’t posted any notes yet"){
         notes = []
         let query : Query = db.collection("Notes").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
@@ -230,7 +215,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 //TODO: Add error handeling here
                 let lable = UILabel()
                 lable.textAlignment = .center
-                lable.text = "You haven’t posted any notes yet"
+                lable.text = noDataMessage
                 lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
                 lable.sizeToFit()
                 
@@ -254,7 +239,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
     }// end of load note
     
-    func loadResources(user:User){
+    func loadResources(user:User, noDataMessage:String = "You haven’t posted any resources yet"){
         resources = []
         let query : Query = db.collection("Resources").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
@@ -263,7 +248,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
                                     //TODO: Add error handeling here
                                     let lable = UILabel()
                                     lable.textAlignment = .center
-                                    lable.text = "You haven’t posted any resources yet"
+                                    lable.text = noDataMessage
                                     lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
                                     lable.sizeToFit()
                                     
@@ -288,7 +273,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
     }// end of loadResources
     
-    func loadWorkshops(user:User){
+    func loadWorkshops(user:User, noDataMessage:String = "You haven’t posted any workshops yet"){
         workshops = []
         let query : Query = db.collection("Workshops").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
@@ -297,7 +282,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 //TODO: Add error handeling here
                 let lable = UILabel()
                 lable.textAlignment = .center
-                lable.text = "You haven’t posted any workshops yet"
+                lable.text = noDataMessage
                 lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
                 lable.sizeToFit()
                 
@@ -441,3 +426,12 @@ extension ProfileDetailViewController : VCEditProfileDelegate {
 
 
 
+extension ProfileDetailViewController: deleteNoteDelegate, deleteResDelegate {
+    func delAt(index : IndexPath) {
+        self.loadNotes(user: self.user)
+    }
+    
+    func resource (_ vc:deleteResViewController, deletedAt index:IndexPath ) {
+        self.loadResources(user: self.user)
+    }
+}
