@@ -212,8 +212,15 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
                                     } else {
                                         self.messages.removeAll()
                                         for message in threadQuery!.documents {
-                                            let msg = Message(dictionary: message.data())
+                                            
+                                            
+                                            var msg = Message(dictionary: message.data())
+                                            msg?.isRead = true
                                             self.messages.append(msg!)
+                                            
+                                            if let d = msg?.dictionary {
+                                                message.reference.updateData(d)
+                                            }
                                         }
                                         self.messagesCollectionView.reloadData()
                                         self.messagesCollectionView.scrollToLastItem(at: .bottom, animated: true)
