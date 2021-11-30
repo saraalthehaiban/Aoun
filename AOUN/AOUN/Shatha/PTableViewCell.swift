@@ -27,8 +27,8 @@ class PTableViewCell: UITableViewCell {
     }
     
     func setData (ticket : Ticket) {
-        self.id.text = ticket.bookingID
-        self.seat.text = "\(ticket.seats)"
+        self.id.text =  "Ticket ID: "+ticket.bookingID
+        self.seat.text = "Number of Seats(s): \(ticket.seats)"
     }
     
 }

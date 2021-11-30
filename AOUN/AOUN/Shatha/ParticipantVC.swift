@@ -23,7 +23,7 @@ class ParticipantVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.participantTable.register(UINib(nibName: "PTablewViewCell", bundle: .main), forCellReuseIdentifier: "ci_PTableViewCell")
+        self.participantTable.register(UINib(nibName: "PTableViewCell", bundle: .main), forCellReuseIdentifier: "ci_PTableViewCell")
         self.loadTickets(workShop: self.workshop)
         
         self.workshopName.text = self.workshop.Title
@@ -31,7 +31,7 @@ class ParticipantVC: UIViewController {
     
     func loadTickets (workShop:Workshops) {
         guard let wsi = workshop.documentId else {return}
-        let query : Query = db.collection("Tickets").whereField("workshop", isEqualTo: wsi).order(by: "time", descending: true)
+        let query : Query = db.collection("Tickets").whereField("workshop", isEqualTo: wsi)
         query.getDocuments ( completion:  {(snapShot, errror) in
             
             guard let ds = snapShot, !ds.isEmpty else {
@@ -80,8 +80,9 @@ extension ParticipantVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let c = tableView.dequeueReusableCell(withIdentifier: "ci_PTablewViewCell") as! PTableViewCell
+        let c = tableView.dequeueReusableCell(withIdentifier: "ci_PTableViewCell") as! PTableViewCell
         c.ticket = tickets[indexPath.row]
         return c
     }
+    
 }

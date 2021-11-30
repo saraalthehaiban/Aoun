@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seat number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsD-p0-7TV">
-                        <rect key="frame" x="89" y="55" width="97.5" height="21"/>
+                        <rect key="frame" x="89" y="55.5" width="97.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" systemColor="secondaryLabelColor"/>
                         <nil key="highlightedColor"/>
@@ -36,27 +36,24 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemGray6Color"/>
                 <constraints>
                     <constraint firstItem="RI7-le-ykg" firstAttribute="top" secondItem="Efz-5e-uIu" secondAttribute="top" constant="6" id="01z-Fb-tIU"/>
                     <constraint firstItem="AsD-p0-7TV" firstAttribute="leading" secondItem="IYF-5w-vTw" secondAttribute="trailing" constant="2" id="1Gs-5T-3XD"/>
                     <constraint firstItem="RI7-le-ykg" firstAttribute="leading" secondItem="IYF-5w-vTw" secondAttribute="trailing" constant="2" id="8Gf-xz-cNW"/>
                     <constraint firstItem="IYF-5w-vTw" firstAttribute="top" secondItem="Efz-5e-uIu" secondAttribute="top" constant="13.5" id="Agw-GK-N9Z"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AsD-p0-7TV" secondAttribute="trailing" constant="8" id="AhO-P1-Iwb"/>
+                    <constraint firstItem="AsD-p0-7TV" firstAttribute="top" secondItem="RI7-le-ykg" secondAttribute="bottom" constant="-6.5" id="HsI-nE-Yvc"/>
                     <constraint firstAttribute="bottom" secondItem="AsD-p0-7TV" secondAttribute="bottom" constant="17" id="QLp-RC-vuY"/>
                     <constraint firstAttribute="bottom" secondItem="IYF-5w-vTw" secondAttribute="bottom" constant="13.5" id="Qde-My-Vtf"/>
                     <constraint firstAttribute="bottom" secondItem="RI7-le-ykg" secondAttribute="bottom" constant="31" id="VTc-iG-UBs"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RI7-le-ykg" secondAttribute="trailing" constant="16" id="lNn-ag-tok"/>
                     <constraint firstItem="IYF-5w-vTw" firstAttribute="leading" secondItem="Efz-5e-uIu" secondAttribute="leading" constant="6" id="mbv-ng-Vpn"/>
-                    <constraint firstItem="AsD-p0-7TV" firstAttribute="top" secondItem="Efz-5e-uIu" secondAttribute="top" constant="55" id="rl5-z9-Xhe"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="atr-En-6Rx"/>
             <connections>
-                <outlet property="body" destination="AsD-p0-7TV" id="o48-DM-0iB"/>
                 <outlet property="id" destination="RI7-le-ykg" id="7q3-qd-GBI"/>
                 <outlet property="seat" destination="AsD-p0-7TV" id="QrO-9D-J0X"/>
-                <outlet property="user" destination="RI7-le-ykg" id="fah-7a-bxT"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="26.450892857142858"/>
         </tableViewCell>
@@ -65,9 +62,6 @@
         <image name="OvalUser" width="208" height="208"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
