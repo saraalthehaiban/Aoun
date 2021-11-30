@@ -27,17 +27,17 @@ class VCChatRoster : UIViewController {
     let db = Firestore.firestore()
     var chats : [Chat] = [] {
         didSet {
-            tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadChat()
+        loadChatRoster()
     }
     
-    func loadChat () {
+    func loadChatRoster() {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -47,13 +47,33 @@ class VCChatRoster : UIViewController {
             } else {
                 guard let sds  = querySnapshot?.documents else {return}
                 
+                self.chats.removeAll()
                 var cs : [Chat] = []
+                var dataLoadCounter = 0
                 for d in sds {
-                    if let c = Chat(dictionary: d.data()) {
-                        cs.append(c)
+                    if var c = Chat(dictionary: d.data()) {
+                        c.documentID = d.documentID
+                        if let uid = Auth.auth().currentUser?.uid, let otherUserID = (c.users.filter { $0 != uid}).last {
+                            d.reference.collection("thread")
+                                .whereField("senderID", isEqualTo: otherUserID)
+                                .whereField("isRead", isEqualTo: false).getDocuments(completion: { threadQuery, error in
+                                    if let error = error {
+                                        print("Error: \(error)")
+                                    } else {
+                                        c.unreadCount = threadQuery?.documents.count ?? 0
+                                    }
+                                    cs.append(c)
+                                    dataLoadCounter += 1
+                                    
+                                    if dataLoadCounter == sds.count {
+                                        DispatchQueue.main.async {
+                                            self.chats = cs
+                                        }
+                                    }
+                                })
+                        }
                     }
                 }
-                self.chats = cs
             }
         }
     }
@@ -70,10 +90,14 @@ extension VCChatRoster:UITableViewDelegate, UITableViewDataSource {
         if let c = tableView.dequeueReusableCell(withIdentifier: "ci_chatUser") as? UserCell {
             cell = c
         }else {
-            cell = UserCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "ci_chatUser")
+            cell = UserCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "ci_chatUser")
+            cell.detailTextLabel?.textColor = .green
+            cell.detailTextLabel?.font = .boldSystemFont(ofSize: 18)
             cell.accessoryType = .disclosureIndicator
         }
         let c = chats[indexPath.row]
+        cell.chat = c
+        cell.detailTextLabel?.text = ((c.unreadCount ?? 0) != 0) ?  "\(c.unreadCount!)" : ""
         c.loadOtherUser { user in
             cell?.user = user
         }
@@ -82,16 +106,20 @@ extension VCChatRoster:UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var c = chats[indexPath.row]
+        c.unreadCount = 0
+        chats[indexPath.row] = c
         let cell  = tableView.cellForRow(at: indexPath) as! UserCell
         self.performSegue(withIdentifier: "si_rosterToChat", sender: cell)
     }
 }
 
-///navigate
+//navigate
 extension VCChatRoster {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let s = sender as? UserCell, let vc = segue.destination as? ChatViewController, let user = s.user {
             vc.otherUser = user
+            self.tableView.reloadData()
         }
     }
 }

@@ -429,9 +429,12 @@
                                     <constraint firstAttribute="height" constant="36.5" id="v7q-cR-SHt"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt0-v6-oEt">
-                                <rect key="frame" x="16" y="172" width="63.5" height="31"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="testing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nt0-v6-oEt">
+                                <rect key="frame" x="16" y="172" width="94" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="OBy-Vt-qss"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -484,8 +487,8 @@
                                     <action selector="userNameTouched:" destination="ct2-Jt-vaj" eventType="touchUpInside" id="Cum-lE-PRb"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPb-U7-pV8" userLabel="Underline">
-                                <rect key="frame" x="14.5" y="252" width="60" height="1"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPb-U7-pV8" userLabel="Underline">
+                                <rect key="frame" x="14.5" y="254" width="60" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="iX6-Eh-gRV"/>
@@ -554,7 +557,7 @@
                             <constraint firstItem="YN9-3N-3LX" firstAttribute="centerX" secondItem="wAX-9z-qTS" secondAttribute="centerX" constant="-5.5" id="OaL-lr-VGP"/>
                             <constraint firstItem="GKF-WW-YIl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I8d-eK-aez" secondAttribute="bottom" constant="8" id="SvQ-AZ-Vi4"/>
                             <constraint firstItem="CPb-U7-pV8" firstAttribute="centerX" secondItem="471-vg-ebl" secondAttribute="centerX" id="TYh-0U-WH9"/>
-                            <constraint firstItem="471-vg-ebl" firstAttribute="top" secondItem="nt0-v6-oEt" secondAttribute="bottom" constant="16" id="UPr-dL-O7s"/>
+                            <constraint firstItem="471-vg-ebl" firstAttribute="top" secondItem="nt0-v6-oEt" secondAttribute="bottom" constant="8" id="UPr-dL-O7s"/>
                             <constraint firstItem="GKF-WW-YIl" firstAttribute="top" secondItem="qTK-WU-PWk" secondAttribute="bottom" constant="12" id="Xin-XT-CnS"/>
                             <constraint firstItem="qTK-WU-PWk" firstAttribute="leading" secondItem="wAX-9z-qTS" secondAttribute="leading" constant="208" id="YWn-SM-1Eq"/>
                             <constraint firstItem="zkJ-KE-qOh" firstAttribute="trailing" secondItem="iJL-Jf-hVP" secondAttribute="trailing" id="aNz-Lp-tgG"/>
@@ -758,10 +761,10 @@
                                     <constraint firstAttribute="width" secondItem="0X7-oQ-2gi" secondAttribute="height" multiplier="842:485" constant="4.1793814432988938" id="HvC-Wo-McA"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="u0E-f8-U5c">
-                                <rect key="frame" x="20" y="274" width="275" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u0E-f8-U5c">
+                                <rect key="frame" x="20" y="274" width="275" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="Na9-Px-Zuu"/>
+                                    <constraint firstAttribute="height" constant="51" id="0nf-BJ-5yz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="31"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -943,7 +946,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ba6-Tf-Iuw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="475" y="1339"/>
+            <point key="canvasLocation" x="473.91304347826093" y="1338.6160714285713"/>
         </scene>
         <!--Post Note View Controller-->
         <scene sceneID="ps1-Dg-WaU">
