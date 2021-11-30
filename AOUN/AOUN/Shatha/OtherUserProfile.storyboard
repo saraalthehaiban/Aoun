@@ -171,7 +171,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hOd-MP-FWh">
                                 <rect key="frame" x="24" y="427" width="361" height="0.0"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="2gq-W7-CZ5"/>
                                 </constraints>
@@ -222,6 +222,7 @@
                         <outlet property="resTable" destination="0nv-8X-6Ua" id="luW-Tq-urA"/>
                         <outlet property="resourceToggleButton" destination="rJa-8n-hZz" id="WpG-IT-rCh"/>
                         <outlet property="waves" destination="GKO-BB-Vuz" id="xEi-ci-qTJ"/>
+                        <outlet property="workshopTable" destination="hOd-MP-FWh" id="3aB-un-pxM"/>
                         <outlet property="workshopToggleButton" destination="NBs-Ta-MTw" id="eim-mt-ImE"/>
                     </connections>
                 </viewController>

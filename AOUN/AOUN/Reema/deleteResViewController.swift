@@ -10,7 +10,7 @@ import Firebase
 import FirebaseStorage
 
 protocol deleteResDelegate {
-    func delAt(index : IndexPath)
+    func resource (_ vc:deleteResViewController, deletedAt index:IndexPath )
 }
 
 class deleteResViewController: UIViewController {
@@ -81,9 +81,11 @@ class deleteResViewController: UIViewController {
        
                     func showDownloadSuccess () {
                         let alertVC = UIAlertController(title: "Downloaded!", message: "File \"\(self.resource.name)\" dowloaded successfully.", preferredStyle: .alert)
+                        
                         var imageView = UIImageView(frame: CGRect(x: 125, y: 75, width: 20, height: 20))
                                 imageView.image = UIImage(named: "Check")
                         alertVC.view.addSubview(imageView)
+                        
                         let action = UIAlertAction(title: "Ok", style: .cancel) { action in
                             self.dismiss(animated: true, completion: nil)
                         }
@@ -114,7 +116,7 @@ class deleteResViewController: UIViewController {
             } else {
                 //Dismiss view controller and inform previosu view""
                 self.dismiss(animated: true, completion: nil)
-                self.delegate?.delAt(index: self.index)
+                self.delegate?.resource(self, deletedAt: self.index)
             }
         }
     }

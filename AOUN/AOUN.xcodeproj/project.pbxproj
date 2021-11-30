@@ -333,12 +333,14 @@
 		0F3DECEF270C9A0900C5F6BB /* Shatha */ = {
 			isa = PBXGroup;
 			children = (
+				0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */,
+				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
+				0B549D3D2741422600121D77 /* WorkShop.storyboard */,
+				0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */,
 				0FC3ABE22727FC5F00B43C26 /* notesTableViewCell.xib */,
 				0B7320A92752E42B00F6F1B5 /* PTableViewCell.xib */,
 				0FC3ABE32727FC5F00B43C26 /* ResTableViewCell.xib */,
 				0B749E61274D0A9300C441CA /* WorkshopTableViewCell.xib */,
-				0FC3ABE12727FC5F00B43C26 /* ViewProfile.storyboard */,
-				0B549D3D2741422600121D77 /* WorkShop.storyboard */,
 				0BFE8D07274283CD00A23914 /* TicketView.xib */,
 				0B7320A82752E42B00F6F1B5 /* PTableViewCell.swift */,
 				0B7320A62752E2AB00F6F1B5 /* ParticipantVC.swift */,
@@ -357,8 +359,6 @@
 				0FC21B7926F6610100B83B0E /* AdminDashboard.swift */,
 				0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */,
 				0BFE8D092742882D00A23914 /* TicketView.swift */,
-				0FA60E082746FAFA003180F8 /* PurchaseTicketView.xib */,
-				0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */,
 			);
 			path = Shatha;
 			sourceTree = "<group>";
