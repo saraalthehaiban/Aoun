@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, deleteNoteDelegate, deleteResDelegate {
+class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyWorkshopDelegate{
     @IBOutlet weak var hc_noteTable: NSLayoutConstraint!
     @IBOutlet weak var hc_resourceTable: NSLayoutConstraint!
     @IBOutlet weak var hc_workshopTable: NSLayoutConstraint!
@@ -61,16 +61,9 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         getName { [self] (name) in
             self.fullName.text = name
         }
-
+        
         collapsAllTable(nil)
     }
-    
-    
-    //TODO: This functions have no use as of now
-    func delAt(index : IndexPath) {
-
-    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView === notesTable {
@@ -79,7 +72,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         else if tableView === resTable {
             return resources.count
         } else if tableView === workshopTable {
-            return workshop.count
+            return workshops.count
         }else {
             fatalError("Invalid table")
         }
@@ -102,7 +95,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         } else if tableView === workshopTable {
             let cell = tableView.dequeueReusableCell(withIdentifier: "WorkshopTableViewCell", for: indexPath) as! WorkshopTableViewCell
             cell.contentView.isUserInteractionEnabled = false
-            cell.workshopName.text = workshop[indexPath.row].Title
+            cell.workshopName.text = workshops[indexPath.row].Title
             return cell
         }else {
             fatalError("Invalid table")
@@ -110,6 +103,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
     }
     
+
     @IBAction func logout(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Are you sure?", message: "This action will sign you out.", preferredStyle: .alert)
@@ -137,7 +131,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.present(alert, animated: true, completion: nil)
     }
     
-   
+    
     
     @IBAction func editButton(_ sender: UIButton) {
         performSegue(withIdentifier: "si_profileToEdit", sender: self.user)
@@ -171,7 +165,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func openWorkshop(_ sender: UIButton) {
         collapsAllTable(sender)
-        resTable.isHidden = false
+        workshopTable.isHidden = false
         sender.isSelected = !sender.isSelected
         self.hc_workshopTable.constant = (sender.isSelected) ? K_TableHeights : 0
     }
@@ -201,14 +195,18 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     var notes: [NoteFile] = []
     var resources:[resFile] = []
-    var workshop:[Workshops] = []
+    var workshops:[Workshops] = [] {
+        didSet {
+            self.workshopTable.reloadData()
+        }
+    }
     var empty =  "No notes"
     
     
     fileprivate var selectedRow: Int?
     
     
-    func loadNotes (user:User){
+    func loadNotes (user:User, noDataMessage : String = "You haven’t posted any notes yet"){
         notes = []
         let query : Query = db.collection("Notes").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
@@ -217,7 +215,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 //TODO: Add error handeling here
                 let lable = UILabel()
                 lable.textAlignment = .center
-                lable.text = "You haven’t posted any notes yet"
+                lable.text = noDataMessage
                 lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
                 lable.sizeToFit()
                 
@@ -241,7 +239,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
     }// end of load note
     
-    func loadResources(user:User){
+    func loadResources(user:User, noDataMessage:String = "You haven’t posted any resources yet"){
         resources = []
         let query : Query = db.collection("Resources").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
@@ -250,7 +248,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
                                     //TODO: Add error handeling here
                                     let lable = UILabel()
                                     lable.textAlignment = .center
-                                    lable.text = "You haven’t posted any resources yet"
+                                    lable.text = noDataMessage
                                     lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
                                     lable.sizeToFit()
                                     
@@ -275,38 +273,37 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
     }// end of loadResources
     
-    func loadWorkshops(user:User){
-        resources = []
+    func loadWorkshops(user:User, noDataMessage:String = "You haven’t posted any workshops yet"){
+        workshops = []
         let query : Query = db.collection("Workshops").whereField("uid", isEqualTo: user.uid)
         query.getDocuments ( completion:  {(snapShot, errror) in
-                                
-                                guard let ds = snapShot, !ds.isEmpty else {
-                                    //TODO: Add error handeling here
-                                    let lable = UILabel()
-                                    lable.textAlignment = .center
-                                    lable.text = "You haven’t posted any workshops yet"
-                                    lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
-                                    lable.sizeToFit()
-                                    
-                                    self.workshopTable.tableHeaderView = lable
-                                    self.workshopTable.reloadData()//reload table for blank record set (in case of deleting last object we need this)
-                                    return
-                                }
-                                
-                                for doc in ds.documents {
-                                    
-                                    let data = doc.data()
-                                    if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? String, let auth = data["uid"] as? String {
-                                        var newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime, uid: auth)
-                                        newWorkshop.documentId = doc.documentID
-                                        self.workshop.append(newWorkshop)
-                                        
-                                        DispatchQueue.main.async {
-                                            self.workshopTable.reloadData()
-                                        }
-                                    }
-                                } })
-        
+            
+            guard let ds = snapShot, !ds.isEmpty else {
+                //TODO: Add error handeling here
+                let lable = UILabel()
+                lable.textAlignment = .center
+                lable.text = noDataMessage
+                lable.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
+                lable.sizeToFit()
+                
+                self.workshopTable.tableHeaderView = lable
+                self.workshopTable.reloadData()//reload table for blank record set (in case of deleting last object we need this)
+                return
+            }
+
+            var ws : [Workshops] = []
+            for doc in ds.documents {
+                let data = doc.data()
+                if let wName = data["title"] as? String, let pName  = data["presenter"] as? String, let p = data["price"] as? String, let se = data["seat"] as? String, let desc = data["desc"] as? String, let datetime = data["dateTime"] as? Timestamp, let auth = data["uid"] as? String {
+                    var newWorkshop = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime, uid: auth)
+                    newWorkshop.documentId = doc.documentID
+                    ws.append(newWorkshop)
+                }
+            }
+            DispatchQueue.main.async {
+                self.workshops = ws
+            }
+        })
     }// end of loadWorkshops
     
     
@@ -335,13 +332,13 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         }
         if tableView === workshopTable {
             selectedRow = indexPath.row
-          //Check this and correct it
-            let storyboard = UIStoryboard(name: "Resources", bundle: nil)
-            if let vc = storyboard.instantiateViewController(identifier: "deleteResViewController") as? deleteResViewController {
-                let  res = resources[indexPath.row]
+            //Check this and correct it
+            let storyboard = UIStoryboard(name: "WorkShop", bundle: nil)
+            if let vc = storyboard.instantiateViewController(identifier: "sbi_MyWorkshop") as? MyWorkshop {
+                let  res = workshops[indexPath.row]
                 vc.delegate = self
                 vc.index = indexPath
-                vc.resource = res
+                vc.workshop = res
                 self.present(vc, animated: true, completion: nil)
             }
         }
@@ -372,6 +369,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 self.loadNotes(user: user)
                 self.loadResources(user:user)
+                self.loadWorkshops(user: user)
                 completion(fullName)
             }
         })
@@ -396,7 +394,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
             self.editButton(UIButton())
         }
         activityViewController.addAction(purchaseAction)
-
+        
         let logOutAction = UIAlertAction(title: "Sign out", style: .destructive) { action in
             self.logout(UIButton())
         }
@@ -428,3 +426,12 @@ extension ProfileDetailViewController : VCEditProfileDelegate {
 
 
 
+extension ProfileDetailViewController: deleteNoteDelegate, deleteResDelegate {
+    func delAt(index : IndexPath) {
+        self.loadNotes(user: self.user)
+    }
+    
+    func resource (_ vc:deleteResViewController, deletedAt index:IndexPath ) {
+        self.loadResources(user: self.user)
+    }
+}

@@ -34,19 +34,22 @@ class TicketView : UIView {
 
     
     func setUI() {
-        let newdate = workshop.dateTime
-        let tindex = newdate.index(newdate.startIndex, offsetBy: 17)
-        let time = newdate[..<tindex]
-        let newtime = time.suffix(5)
-        let date = newdate.prefix(11)
-        let buyDate = "\(ticket.time.dateValue())"
-        let buydate = buyDate.prefix(11)
+//        let newdate = workshop.dateTime
+//        let tindex = newdate.index(newdate.startIndex, offsetBy: 17)
+//        let time = newdate[..<tindex]
+//        let newtime = time.suffix(5)
+//        let date = newdate.prefix(11)
+//        let buyDate = "\(ticket.time.dateValue())"
+//        let buydate = buyDate.prefix(11)
+        let date = workshop.dateTime.dateValue()
+//        dateValue.text =
+//        timeVal.text =
         lblBookingID.text = ticket.bookingID
         lblBookedSeat.text = "Booked Seat(s):\(ticket.seats)"
         lblWorkShopTitle.text = ticket.workshopTitle
-        lblWorkShopDate.text = "Workshop Date:\(date) Time:\(newtime)"
+        lblWorkShopDate.text = "Workshop Date:\(date.dateString) Time:\(date.timeString)"
         lblUserName.text = ticket.buyerName
-        lblPurchaseDate.text = "Purchase Date: \(buydate)"
+        lblPurchaseDate.text = "Purchase Date: \(ticket.time.dateValue().displayString())"
         lblPrice.text = "Price: \(Int(Double(ticket.price) ?? 1 * 3.75)) SAR"
         lblBookingID.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
 

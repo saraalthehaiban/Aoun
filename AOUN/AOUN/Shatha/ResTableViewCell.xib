@@ -43,8 +43,10 @@
                         <color key="backgroundColor" red="0.63529413940000001" green="0.86666667460000002" blue="1" alpha="0.57615894040000004" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="nYy-Cz-Qv5"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="resBubble" destination="vHe-Rv-kON" id="vhY-LS-qOs"/>
                 <outlet property="resTitle" destination="hyd-KF-IAd" id="WoZ-66-cHy"/>
