@@ -119,11 +119,12 @@ extension Message: MessageType {
 }
 
 //MARK: -
-class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
+class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate {
     var currentUser = Auth.auth().currentUser!
     var otherUser : User!
     private var docReference: DocumentReference?
     var messages: [Message] = []
+    var newMessageListner : ListenerRegistration?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,8 +148,14 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         
         if let mcl = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             mcl.textMessageSizeCalculator.outgoingAvatarSize = .zero
+//            mcl.textMessageSizeCalculator.messae
             mcl.textMessageSizeCalculator.incomingAvatarSize = .zero
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.newMessageListner?.remove()
     }
     
     // MARK: - Custom messages handlers
@@ -203,7 +210,7 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
                             
                             self.docReference = doc.reference
                             //fetch it's thread collection
-                            doc.reference.collection("thread")
+                            self.newMessageListner = doc.reference.collection("thread")
                                 .order(by: "created", descending: false)
                                 .addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
                                     if let error = error {
@@ -213,17 +220,19 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
                                         self.messages.removeAll()
                                         for message in threadQuery!.documents {
                                             var msg = Message(dictionary: message.data())
-                                            msg?.isRead = true
-                                            self.messages.append(msg!)
-                                            
-                                            if let d = msg?.dictionary {
-                                                message.reference.updateData(d)
+                                            if msg?.senderID != self.currentUser.uid && msg?.isRead == false {
+                                                msg?.isRead = true
+                                                if let d = msg?.dictionary {
+                                                    message.reference.updateData(d)
+                                                }
                                             }
+                                            self.messages.append(msg!)
                                         }
                                         self.messagesCollectionView.reloadData()
                                         self.messagesCollectionView.scrollToLastItem(at: .bottom, animated: true)
                                     }
                                 })
+                            //list.remove()
                             return
                         } //end of if
                     } //end of for
@@ -247,7 +256,6 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
     }
     
     private func save(_ message: Message) {
-        
         let data: [String: Any] = [
             "content": message.content,
             "created": message.created,
@@ -258,17 +266,12 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         ]
         
         docReference?.collection("thread").addDocument(data: data, completion: { (error) in
-            
             if let error = error {
                 print("Error Sending message: \(error)")
                 return
             }
-            
-            
-            
             self.messagesCollectionView.scrollToLastItem(at: .bottom, animated: true)
             self.triggerNotification(message: message)
-            
         })
     }
     
@@ -289,9 +292,7 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         }
     }
     
-    
     // MARK: - InputBarAccessoryViewDelegate
-    
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
         let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: currentUser.uid, senderName: currentUser.displayName ?? "User", isRead: false)
@@ -304,57 +305,7 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate,
         messagesCollectionView.reloadData()
         messagesCollectionView.scrollToBottom(animated: true)
     }
-    
-    
-    // MARK: - MessagesDataSource
-    func currentSender() -> SenderType {
-        
-        return Sender(id: Auth.auth().currentUser!.uid, displayName: currentUser.displayName ?? "Name not found")
-        
-    }
-    
-    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-        
-        return messages[indexPath.section]
-        
-    }
-    
-    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-        
-        if messages.count == 0 {
-            print("No messages to display")
-            return 0
-        } else {
-            return messages.count
-        }
-    }
-    
-    
-    // MARK: - MessagesLayoutDelegate
-    
-    func avatarSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
-        return .zero
-    }
-    
-    
-    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        return NSAttributedString(string: "\(self.messages[indexPath.row].sentDate.displayString())", attributes: [.font : UIFont.preferredFont(forTextStyle: .caption1),
-                                                                                                   .foregroundColor: UIColor.lightGray])
-    }
-//    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-//      
-//    }
-//    
-    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return 24
-    }
-    
-    // MARK: - MessagesDisplayDelegate
-    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? #colorLiteral(red: 0.1039655283, green: 0.40598014, blue: 0.8277289271, alpha: 1) : #colorLiteral(red: 0.6924675703, green: 0.8397012353, blue: 0.9650663733, alpha: 1)
-    }
 }
-
 
 extension  ChatViewController:  UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -365,5 +316,76 @@ extension  ChatViewController:  UITextViewDelegate {
         if updatedText.count > 240 {return false}
         
         return true
+    }
+}
+
+// MARK: - MessagesDisplayDelegate
+extension ChatViewController : MessagesDisplayDelegate {
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ? #colorLiteral(red: 0.1039655283, green: 0.40598014, blue: 0.8277289271, alpha: 1) : #colorLiteral(red: 0.6924675703, green: 0.8397012353, blue: 0.9650663733, alpha: 1)
+    }
+    
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+        let corner : MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+        return .bubbleTail(corner, .curved)
+    }
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        avatarView.isHidden = true
+    }
+}
+
+// MARK: - MessagesLayoutDelegate
+extension ChatViewController : MessagesLayoutDelegate {
+    func avatarSize(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGSize {
+        return .zero
+    }
+    
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        return NSAttributedString(string: "\(self.messages[indexPath.section].sentDate.displayString())", attributes: [.font : UIFont.preferredFont(forTextStyle: .caption1),                         .foregroundColor: UIColor.lightGray])
+    }
+    
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 24
+    }
+    
+    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 20
+    }
+    
+    func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 24
+    }
+}
+
+// MARK: - MessagesDataSource
+extension ChatViewController : MessagesDataSource {
+    func currentSender() -> SenderType {
+        return ChatUser(senderId: currentUser.uid, displayName: currentUser.displayName ?? "Chat")
+    }
+    
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        return messages[indexPath.section]
+    }
+    
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        if messages.count == 0 {
+            print("No messages to display")
+            return 0
+        } else {
+            return messages.count
+        }
+    }
+    
+    func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        if isFromCurrentSender(message: message) {
+            let m = self.messages[indexPath.section]
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = .right
+            print("-", m.content, m.isRead)
+            return NSAttributedString(string: (m.isRead ? "Read" : "Sent" ), attributes: [.font : UIFont.preferredFont(forTextStyle: .caption1), .foregroundColor: (m.isRead ? #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1) : #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)), .paragraphStyle:paragraph
+            ])
+        }
+        return nil
     }
 }

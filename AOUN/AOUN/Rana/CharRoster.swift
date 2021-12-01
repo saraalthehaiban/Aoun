@@ -29,12 +29,21 @@ class VCChatRoster : UIViewController {
     var chats : [Chat] = [] {
         didSet {
             self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
         }
     }
     
+    //let refreshControl : UIRefreshControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadChatRoster()
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(refreshChatData(_:)), for: .valueChanged)
+        self.tableView.refreshControl = rc
+    }
+    
+    @objc private func refreshChatData(_ sender:Any) {
         loadChatRoster()
     }
     
@@ -50,6 +59,7 @@ class VCChatRoster : UIViewController {
                 guard let sds  = querySnapshot?.documents, sds.count > 0 else {
                     self.noMessageLabel.text = "No chats"
                     return
+                    
                 }
                 
                 self.chats.removeAll()
