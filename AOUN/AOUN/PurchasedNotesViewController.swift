@@ -11,6 +11,7 @@ import UIKit
 import FirebaseStorage
 import Firebase
 
-class PurchasedNotesViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+class PurchasedNotesViewController: UIViewController {
 
 }
+
