@@ -9,29 +9,45 @@ import UIKit
 import FirebaseStorage
 import Firebase
 
+enum NoteType : Int {
+    case allNote = 0
+    case myNote = 1
+}
+
 class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var topPic: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var addNoteButton: UIButton!
-    //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var post: UIButton!
     
-    var notes:[NoteFile] = []{
-        didSet {
-            self.filtered = notes
-        }
-    }
-    let db = Firestore.firestore()
+    @IBOutlet weak var noteTypeSegment: UISegmentedControl!
     
+    let db = Firestore.firestore()
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var messageLabel: UILabel!
-    //  var searchActive : Bool = false
-    var filtered:[NoteFile] = []{
+
+    var myNotes : [NoteFile] = [] {didSet {updateUpdateActiveNotes()}}
+    var notes : [NoteFile] = [] {didSet {updateUpdateActiveNotes()}}
+    private var activeNotes : [NoteFile] = [] {
         didSet {
-            self.collection.reloadData()
+            filtered = activeNotes
         }
+    }
+    private var filtered:[NoteFile] = [] {
+        didSet {
+            collection.reloadData()
+        }
+    }
+    
+    @IBAction func noteTypeValueChanged(_ sender: UISegmentedControl) {
+        updateUpdateActiveNotes()
+    }
+    
+    func updateUpdateActiveNotes () {
+        let noteType = NoteType(rawValue: self.noteTypeSegment.selectedSegmentIndex) ?? .allNote
+        activeNotes = (noteType == .allNote) ? notes : myNotes
     }
     
     @IBOutlet weak var delete: UIButton!
@@ -49,16 +65,123 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
         searchBar.delegate = self
         
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")
-        
-        loadNotes()
-        
+        loadUserReference()
     }
     
     
     
+    var purchasedNotesIds : [String] {
+        get {
+            return self.myNotes.map { $0.id }
+        }
+    }
+    
+    var user:QueryDocumentSnapshot?
+    func loadUserReference()  {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            //User is not logged in
+            return
+        }
+        let db = Firestore.firestore()
+        db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print(error)
+            } else {
+                guard let user = querySnapshot?.documents.first else {
+                    return
+                }
+                
+                self.purchasedNotes(userID: user.documentID) { notes, success in
+                    if let ns = notes {
+                        self.myNotes = ns.sorted(by: { $0.purchasedDate!.dateValue() > $1.purchasedDate!.dateValue()})
+                    }
+                    self.loadNotes()//purchased are loaded now load all notes
+                }
+//                self.purchasedNotes { notes, success in
+//                    if let ns = notes {
+//                        self.myNotes = ns
+//                    }
+//                    self.loadNotes()//purchased are loaded now load all notes
+//                }
+            }
+        }
+    }
+    
+    func purchasedNotes(userID:String, complition: @escaping ([NoteFile]?, Bool)->Void) {
+        db.collection("users")
+            .document(userID)
+            .collection("purchasedNotes")
+            .order(by: "purchaseDate", descending: true)
+            .getDocuments { querySnapshot, error in
+            if let error = error {
+                print(error)
+            } else {
+                guard let purchasedNotes = querySnapshot?.documents else{
+                    complition(nil, false)
+                    return
+                }
+                
+                var counter = 0
+                var ns : [NoteFile] = []
+                for pn in purchasedNotes {
+                    let pnData = pn.data()
+                    if let noteId = pnData["note"] as? String {
+                        self.db.collection("Notes").document(noteId).getDocument { noteSnapshot, error in
+                            counter += 1
+
+                            if let d = noteSnapshot?.data(), var note = self.note(with:d , documentID:noteId) {
+                                note.purchasedDate = pnData["purchaseDate"] as? Timestamp
+                                ns.append(note)
+                            }
+                            
+                            if counter == purchasedNotes.count {
+                                DispatchQueue.main.async {
+                                    complition(ns, true)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func  purchasedNotes(_ complition: @escaping ([NoteFile]?, Bool)->Void) {
+        guard let references = self.user?["purchasedNotes"] as? [DocumentReference] else {
+            complition(nil, false)
+            return
+        }
+        
+        var counter = 0
+        var ns : [NoteFile] = []
+        for dr in references {
+            dr.getDocument { snapshot, error in
+                counter += 1
+                if let e = error {
+                    print (e.localizedDescription)
+                } else {
+                    if let data = snapshot?.data(), let documentID  = snapshot?.documentID {
+                        if let newNote = self.note(with: data, documentID:documentID){
+                            ns.append(newNote)
+                        }
+                    }
+                }
+                
+                if counter == references.count {
+                    DispatchQueue.main.async {
+                        complition(ns, true)
+                    }
+                }
+            }
+        }
+        
+    }
+    
     func loadNotes(){
         self.set(message: "Loading..")
-        db.collection("Notes").order(by: "createDate", descending: true).getDocuments { querySnapshot, error in
+        db.collection("Notes")
+            .order(by: "createDate", descending: true)
+            .getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
             }else {
@@ -66,22 +189,27 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
                     var lnotes : [NoteFile]=[]
                     for doc in snapshotDocuments {
                         let data = doc.data()
-                        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String , let createDate = data["createDate"] as? Timestamp{
-                            let docId = doc.documentID
-                            let newNote = NoteFile(id:doc.documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: docId, createDate:createDate)
+                        if let newNote = self.note(with: data, documentID: doc.documentID) {
                             lnotes.append(newNote)
                         }
                     }
                     DispatchQueue.main.async {
-                        self.notes = lnotes
-                        self.set(message:(self.notes.count == 0) ? "No notes yet." : nil)
-                        
+                        self.notes = lnotes.filter {!self.purchasedNotesIds.contains($0.id) }
+                        self.set(message:(self.notes.count == 0) ? "No notes." : nil)
                     }
                 }
             }
         }
-        //self.activityIndicator.stopAnimating()
     }//end loadNotes
+    
+    func note(with data:[String:Any], documentID:String) -> NoteFile? {
+        if let noteName = data["noteTitle"] as? String, let autherName  = data["autherName"] as? String, let desc = data["briefDescription"] as? String, let price = data["price"] as? String, let urlName = data["url"] as? String, let auth = data["uid"] as? String , let createDate = data["createDate"] as? Timestamp{
+            
+            let newNote = NoteFile(id:documentID,  noteLable: noteName, autherName: autherName, desc: desc, price: price, urlString: urlName, userId: auth, docID: documentID, createDate:createDate)
+            return newNote
+        }
+        return nil
+    }
     
     func set(message:String? = nil) {
         self.messageLabel.text = message
@@ -103,9 +231,9 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
     
     func filter(searchText:String?) {
         if let s = searchText, s.count > 0 {
-            filtered = notes.filter { $0.noteLable.localizedCaseInsensitiveContains(s) }
+            filtered = activeNotes.filter { $0.noteLable.localizedCaseInsensitiveContains(s) }
         } else {
-            filtered = notes
+            filtered = activeNotes
         }
         
         set(message:(filtered.count == 0) ? "No results." : nil)
@@ -121,35 +249,20 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.filtered.count
-
-//        if(searchActive) {
-//               return filtered.count
-//           } else {
-//        return resources.count
-//           }
     }//end count
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NoteCellCollectionViewCell
         cell.noteLable.text = filtered[indexPath.row].noteLable
-
-//        if(searchActive) {
-//            cell.noteLable.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].noteLable : ""
-//        } else {
-//        cell.noteLable.text = notes[indexPath.row].noteLable
-//        }
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //    let destinationVC = detailedNoteViewController()
-        
-     //   self.performSegue(withIdentifier: "si_noteListToDetail", sender: indexPath)
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)
        if let vc = storyboard.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
             vc.note = filtered[indexPath.row]
+        vc.delegate = self
         vc.authID = filtered[indexPath.row].userId ?? ""
             self.present(vc, animated: true, completion: nil)
             
@@ -165,14 +278,9 @@ extension ViewNotesViewController  {
         if segue.identifier == "si_viewNoteToPost", let vc = segue.destination as? PostNoteViewController {
             vc.delegate = self
         } else if segue.identifier == "si_noteListToDetail", let vc = segue.destination as? detailedNoteViewController, let indexPath = sender as? IndexPath {
-             vc.note = filtered[indexPath.item]
-
-//            if searchActive && filtered.count != 0{
-//                vc.note = filtered[indexPath.item]
-//            } else {
-//            vc.note = notes[indexPath.row]
-//            }
-                    }
+            vc.note = filtered[indexPath.item]
+            vc.delegate = self
+        }
     }
 }
 
@@ -180,10 +288,15 @@ extension ViewNotesViewController : PostNoteViewControllerDelegate  {
     func postNote (_ vc: PostNoteViewController, note:NoteFile?, added:Bool) {
         vc.dismiss(animated: true) {
             if added {
-                //self.notes.append(n)
-                //self.collection.reloadData()
                 self.loadNotes()
             }
         }
+    }
+}
+
+
+extension ViewNotesViewController : detailedNoteViewControllerDelegate {
+    func detail(_ vc : detailedNoteViewController, notePurched:Bool) {
+        loadUserReference()
     }
 }

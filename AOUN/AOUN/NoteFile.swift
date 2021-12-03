@@ -54,4 +54,7 @@ struct NoteFile {
             return URL (string: urlString)
         }
     }
+    
+    var purchasedDate : Timestamp?
 }
+
