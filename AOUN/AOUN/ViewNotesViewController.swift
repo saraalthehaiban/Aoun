@@ -65,9 +65,10 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
         searchBar.delegate = self
         
         collection.register(nipCell, forCellWithReuseIdentifier: "cell")
-        
         loadUserReference()
     }
+    
+    
     
     var purchasedNotesIds : [String] {
         get {
@@ -86,12 +87,60 @@ class ViewNotesViewController: UIViewController, UISearchBarDelegate, UISearchDi
             if let error = error {
                 print(error)
             } else {
-                self.user = querySnapshot?.documents.first
-                self.purchasedNotes { notes, success in
+                guard let user = querySnapshot?.documents.first else {
+                    return
+                }
+                
+                self.purchasedNotes(userID: user.documentID) { notes, success in
                     if let ns = notes {
-                        self.myNotes = ns
+                        self.myNotes = ns.sorted(by: { $0.purchasedDate!.dateValue() > $1.purchasedDate!.dateValue()})
                     }
                     self.loadNotes()//purchased are loaded now load all notes
+                }
+//                self.purchasedNotes { notes, success in
+//                    if let ns = notes {
+//                        self.myNotes = ns
+//                    }
+//                    self.loadNotes()//purchased are loaded now load all notes
+//                }
+            }
+        }
+    }
+    
+    func purchasedNotes(userID:String, complition: @escaping ([NoteFile]?, Bool)->Void) {
+        db.collection("users")
+            .document(userID)
+            .collection("purchasedNotes")
+            .order(by: "purchaseDate", descending: true)
+            .getDocuments { querySnapshot, error in
+            if let error = error {
+                print(error)
+            } else {
+                guard let purchasedNotes = querySnapshot?.documents else{
+                    complition(nil, false)
+                    return
+                }
+                
+                var counter = 0
+                var ns : [NoteFile] = []
+                for pn in purchasedNotes {
+                    let pnData = pn.data()
+                    if let noteId = pnData["note"] as? String {
+                        self.db.collection("Notes").document(noteId).getDocument { noteSnapshot, error in
+                            counter += 1
+
+                            if let d = noteSnapshot?.data(), var note = self.note(with:d , documentID:noteId) {
+                                note.purchasedDate = pnData["purchaseDate"] as? Timestamp
+                                ns.append(note)
+                            }
+                            
+                            if counter == purchasedNotes.count {
+                                DispatchQueue.main.async {
+                                    complition(ns, true)
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -213,6 +262,7 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)
        if let vc = storyboard.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
             vc.note = filtered[indexPath.row]
+        vc.delegate = self
         vc.authID = filtered[indexPath.row].userId ?? ""
             self.present(vc, animated: true, completion: nil)
             
@@ -229,6 +279,7 @@ extension ViewNotesViewController  {
             vc.delegate = self
         } else if segue.identifier == "si_noteListToDetail", let vc = segue.destination as? detailedNoteViewController, let indexPath = sender as? IndexPath {
             vc.note = filtered[indexPath.item]
+            vc.delegate = self
         }
     }
 }
@@ -240,5 +291,12 @@ extension ViewNotesViewController : PostNoteViewControllerDelegate  {
                 self.loadNotes()
             }
         }
+    }
+}
+
+
+extension ViewNotesViewController : detailedNoteViewControllerDelegate {
+    func detail(_ vc : detailedNoteViewController, notePurched:Bool) {
+        loadUserReference()
     }
 }

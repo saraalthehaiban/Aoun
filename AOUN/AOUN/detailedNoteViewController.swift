@@ -17,8 +17,13 @@ enum DownloadAction : String {
     case pay = "Pay & Download"
 }
 
+protocol detailedNoteViewControllerDelegate {
+    func detail(_ vc : detailedNoteViewController, notePurched:Bool)
+}
+
 //sb-ew5ol8313965@business.example.com
 class detailedNoteViewController: UIViewController{
+    var delegate : detailedNoteViewControllerDelegate?
     let authorization = "sandbox_f252zhq7_hh4cpc39zq4rgjcg"
     var braintreeClient: BTAPIClient?
     
@@ -80,11 +85,19 @@ class detailedNoteViewController: UIViewController{
         }
         
         if note.priceDecimal != nil {
-            downloadButton.setTitle("Pay & Download", for: .normal)
             priceOfNote = note.priceDecimal ?? 0
+            self.updateDownloadButton(price: priceOfNote, purchased: false)
         }
         self.loadReviews()
         self.loadUserReference()
+    }
+    
+    func updateDownloadButton(price:Decimal = 0, purchased:Bool = false) {
+        if price > 0 && purchased == false {
+            downloadButton.setTitle("Pay & Download", for: .normal)
+        } else {
+            downloadButton.setTitle("Download", for: .normal)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,12 +115,8 @@ class detailedNoteViewController: UIViewController{
             return
         }
         
-        
-        
-        if priceOfNote > 0 {
-            //payment
+        if priceOfNote > 0 && purchased == false {
             self.triggerPurchase(url: url)
-            
         }else{
             download(url: url)
         }
@@ -128,14 +137,11 @@ class detailedNoteViewController: UIViewController{
     }
     
     func paymentAction(url:URL){
-        //        self.triggerPayPalCheckout()
-        
-        //            self.showDropIn(clientTokenOrTokenizationKey: authorization, url: url) //Metod 2
-        
         self.startCheckout(amount: "\(priceOfNote)") { message in
             self.updatePrice(price: self.note.priceDecimal ?? 0)
-            
-            //downladed URL
+            self.updateNoteDownload(note: self.note)
+            self.purchased = true
+            self.updateDownloadButton(price: self.priceOfNote, purchased: true)
             self.download(url: url)
         } failure: { error in
             CustomAlert.showAlert(
@@ -150,13 +156,9 @@ class detailedNoteViewController: UIViewController{
     
     func updatePrice(price:Decimal) {
         guard let userId = self.note.userId else {return}
-        
         let db = Firestore.firestore()
-        //let updateData = ["earned":fcmToken]
-        //db.collection("Notes").document("asdj adasjhl").collection("reviews").document("id")
         db.collection("users").whereField("uid", isEqualTo: userId).getDocuments { (querySnapshot, error) in
             if let error = error {
-                //Display Error
                 print(error)
             } else {
                 let user = querySnapshot?.documents.first
@@ -173,27 +175,55 @@ class detailedNoteViewController: UIViewController{
         }
     }
     
+    var purchased : Bool = false
     func updateReviewButton() {
         self.purchased(note: self.note) { condition in
-            self.addReview.isHidden = !condition
-          //  self.buttonLabel.isHidden = !condition
+            self.purchased = condition
+            if condition {
+                self.addReview.isHidden = false
+                self.updateDownloadButton(price: self.priceOfNote, purchased: condition)
+            }else{
+                self.addReview.isHidden = true
+            }
         }
     }
     
     func  purchased(note:NoteFile, _ complition: @escaping (Bool)->Void) {
-        guard let reference = self.user?["purchasedNotes"] as? [DocumentReference] else {
-            complition(false)
-            return
-        }
-        
-        for dr in reference {
-            if dr.documentID == note.id {
-                complition(true)
-                return;
+        guard let userId = self.user?.documentID else {return}
+        db.collection("users").document(userId).collection("purchasedNotes").whereField("note", isEqualTo: note.id).getDocuments { query, error in
+            if let e = error {
+                complition(false)
+                print (e)
+            }else{
+                if let q = query, q.documents.count > 0 {
+                    complition(true)
+                }
             }
         }
+        
+//        for dr in reference {
+//            if dr.documentID == note.id {
+//                complition(true)
+//                return;
+//            }
+//        }
         complition(false)
     }
+    
+//    func  purchased(note:NoteFile, _ complition: @escaping (Bool)->Void) {
+//        guard let reference = self.user?["purchasedNotes"] as? [DocumentReference] else {
+//            complition(false)
+//            return
+//        }
+//        
+//        for dr in reference {
+//            if dr.documentID == note.id {
+//                complition(true)
+//                return;
+//            }
+//        }
+//        complition(false)
+//    }
     
     var user:QueryDocumentSnapshot?
     func loadUserReference()  {
@@ -213,27 +243,37 @@ class detailedNoteViewController: UIViewController{
     }
     
     func updateNoteDownload (note:NoteFile) {
-        var purchasedNotes : [DocumentReference] = []
-        if  let pn = self.user?["purchasedNotes"] as? [DocumentReference] {
-            purchasedNotes = pn
+        self.delegate?.detail(self, notePurched: true)
+        
+//        var purchasedNotes : [DocumentReference] = []
+//        if  let pn = self.user?["purchasedNotes"] as? [DocumentReference] {
+//            purchasedNotes = pn
+//        }
+//        purchasedNotes.append(db.document("Notes/\(note.id)"))
+//        let updateData = ["purchasedNotes":purchasedNotes]
+//        self.user?.reference.updateData(updateData, completion: { error in
+//            if let error = error {
+//                print(error)
+//            } else {
+//            }
+//        })
+//
+        guard let userDcoumentID = self.user?.documentID else {return}
+        
+        let purchasedNote : [String : Any] = [
+            "note":note.id,
+            "purchaseDate" : Timestamp(date: Date())
+        ]
+        
+        db.collection("users").document(userDcoumentID).collection("purchasedNotes").addDocument(data: purchasedNote) { error in
+            print("Error:", error?.localizedDescription ?? "Success")
         }
-        purchasedNotes.append(db.document("Notes/\(note.id)"))
-        let updateData = ["purchasedNotes":purchasedNotes]
-        self.user?.reference.updateData(updateData, completion: { error in
-            if let error = error {
-                print(error)
-            } else {
-            }
-        })
     }
-    
-    
     
     func download (url:URL) {
         //activityIndicator.startAnimating()
         DownloadManager.download(url: url) { success, data in
             guard let d = data else{ return }
-            self.updateNoteDownload(note: self.note)
             self.showFileSaveActivity(data: d)
         }
     }
