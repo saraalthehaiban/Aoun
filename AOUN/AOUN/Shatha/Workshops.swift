@@ -65,6 +65,9 @@ struct Workshops {
             return ""
         }
     }
+    
+    //for purchased tickets
+    var purchasedDate : Timestamp?
 }
 
 

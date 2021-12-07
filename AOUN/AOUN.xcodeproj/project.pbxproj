@@ -15,7 +15,7 @@
 		0B749E5F274CFE5400C441CA /* OtherUserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */; };
 		0B749E62274D0A9300C441CA /* WorkshopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */; };
 		0B749E63274D0A9300C441CA /* WorkshopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B749E61274D0A9300C441CA /* WorkshopTableViewCell.xib */; };
-		0B749E65274D163A00C441CA /* MyWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B749E64274D163A00C441CA /* MyWorkshop.swift */; };
+		0B749E65274D163A00C441CA /* VCMyWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B749E64274D163A00C441CA /* VCMyWorkshop.swift */; };
 		0B82D8FE26FE3201000FB3EE /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC21B7E26F8D72A00B83B0E /* RequestCell.xib */; };
 		0BD1DAAD26F669340088C25A /* UserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */; };
 		0BFE8D0627426C5F00A23914 /* PurchasedTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */; };
@@ -88,6 +88,7 @@
 		0FC920BE273439B000996757 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC920BD273439B000996757 /* Review.swift */; };
 		0FC920C8273FE5BD00996757 /* PostReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC920C7273FE5BD00996757 /* PostReview.swift */; };
 		271CFDD1270AF78C00FEE698 /* resPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271CFDD0270AF78C00FEE698 /* resPostViewController.swift */; };
+		273B8EC5275FAC81006DCDDF /* VCBookedWorkshop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273B8EC4275FAC81006DCDDF /* VCBookedWorkshop.swift */; };
 		274C04C7270A1AFD00CFA191 /* RequestCommunityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */; };
 		276D9C4F27063E0F0019B8AD /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276D9C4E27063E0F0019B8AD /* DownloadManager.swift */; };
 		27712C6C2701E94E00450466 /* resourceCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */; };
@@ -141,7 +142,7 @@
 		0B749E5E274CFE5400C441CA /* OtherUserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherUserProfile.storyboard; sourceTree = "<group>"; };
 		0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkshopTableViewCell.swift; sourceTree = "<group>"; };
 		0B749E61274D0A9300C441CA /* WorkshopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkshopTableViewCell.xib; sourceTree = "<group>"; };
-		0B749E64274D163A00C441CA /* MyWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkshop.swift; sourceTree = "<group>"; };
+		0B749E64274D163A00C441CA /* VCMyWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMyWorkshop.swift; sourceTree = "<group>"; };
 		0BD1DAAC26F669340088C25A /* UserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewController.swift; sourceTree = "<group>"; };
 		0BFE8D0527426C5F00A23914 /* PurchasedTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedTicketView.swift; sourceTree = "<group>"; };
 		0BFE8D07274283CD00A23914 /* TicketView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketView.xib; sourceTree = "<group>"; };
@@ -222,6 +223,7 @@
 		0FC920C7273FE5BD00996757 /* PostReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReview.swift; sourceTree = "<group>"; };
 		103176AEF5B50E04B40C046C /* Pods_AOUN_AOUNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AOUN_AOUNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271CFDD0270AF78C00FEE698 /* resPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resPostViewController.swift; sourceTree = "<group>"; };
+		273B8EC4275FAC81006DCDDF /* VCBookedWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCBookedWorkshop.swift; sourceTree = "<group>"; };
 		274C04C6270A1AFD00CFA191 /* RequestCommunityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCommunityController.swift; sourceTree = "<group>"; };
 		276D9C4E27063E0F0019B8AD /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		27712C6A2701E94E00450466 /* resourceCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resourceCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -348,7 +350,7 @@
 				0BFE8D07274283CD00A23914 /* TicketView.xib */,
 				0B7320A82752E42B00F6F1B5 /* PTableViewCell.swift */,
 				0B7320A62752E2AB00F6F1B5 /* ParticipantVC.swift */,
-				0B749E64274D163A00C441CA /* MyWorkshop.swift */,
+				0B749E64274D163A00C441CA /* VCMyWorkshop.swift */,
 				0B749E60274D0A9300C441CA /* WorkshopTableViewCell.swift */,
 				0F7D3ED227465F9400CC5453 /* Workshops.swift */,
 				0FC3ABDE2727FC5F00B43C26 /* User.swift */,
@@ -442,6 +444,7 @@
 				0FC6356F270F8EA7004D7A2A /* NoteFile.swift */,
 				DAF630CF274D91DA00F77974 /* PurchasedNotesViewController.swift */,
 				DAF630D1274D91EF00F77974 /* PurchasedNotes.storyboard */,
+				273B8EC4275FAC81006DCDDF /* VCBookedWorkshop.swift */,
 			);
 			name = Rasha;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				27E0F2D0270A13E6008C7B97 /* CommunityDetailsViewController.swift in Sources */,
 				0FC21B7A26F6610100B83B0E /* AdminDashboard.swift in Sources */,
 				0BFE8D0A2742882D00A23914 /* TicketView.swift in Sources */,
+				273B8EC5275FAC81006DCDDF /* VCBookedWorkshop.swift in Sources */,
 				0F502A79270F77EA00912EF0 /* Utilities.swift in Sources */,
 				0F502A78270F77EA00912EF0 /* Constants.swift in Sources */,
 				0B549D402742468E00121D77 /* Ticket.swift in Sources */,
@@ -836,7 +840,7 @@
 				0FC920C8273FE5BD00996757 /* PostReview.swift in Sources */,
 				52C97411271F7B7A00EEACBD /* community.swift in Sources */,
 				0FC6356C270F8E5A004D7A2A /* detailedNoteViewController.swift in Sources */,
-				0B749E65274D163A00C441CA /* MyWorkshop.swift in Sources */,
+				0B749E65274D163A00C441CA /* VCMyWorkshop.swift in Sources */,
 				0FC63569270F8D7B004D7A2A /* ViewNotesViewController.swift in Sources */,
 				0FA3B47A2719ED6D005511B1 /* CommunityQuestion.swift in Sources */,
 				0F7D3ED327465F9400CC5453 /* Workshops.swift in Sources */,
