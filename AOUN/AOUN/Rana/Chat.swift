@@ -120,7 +120,8 @@ extension Message: MessageType {
 
 //MARK: -
 class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate {
-    var currentUser = Auth.auth().currentUser!
+    var currentUser = (UIApplication.shared.delegate as! AppDelegate).thisUser!
+    
     var otherUser : User!
     private var docReference: DocumentReference?
     var messages: [Message] = []
@@ -287,8 +288,7 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate 
                 guard let user = querySnapshot?.documents.first, let fcmToken = user["fcmToken"] as? String else {
                     return
                 }
-                let appd = UIApplication.shared.delegate as? AppDelegate
-                PushNotificationSender.sendPushNotification(to: fcmToken, title: "New message", body: "\(appd?.thisUser.displayName ?? "User") sent you a message.")
+                PushNotificationSender.sendPushNotification(to: fcmToken, title: "New message", body: "\(self.currentUser.displayName) sent you a message.")
             }
         }
     }
@@ -296,7 +296,7 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate 
     // MARK: - InputBarAccessoryViewDelegate
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
-        let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: currentUser.uid, senderName: currentUser.displayName ?? "User", isRead: false)
+        let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: currentUser.uid, senderName: currentUser.displayName, isRead: false)
         
         //messages.append(message)
         insertNewMessage(message)
