@@ -39,6 +39,12 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
         }
     }
     
+    var activeSection : WorkshopType {
+        get {
+            return WorkshopType(rawValue: self.workshopSegment.selectedSegmentIndex) ?? .all
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         post.layer.shadowColor = UIColor.black.cgColor
@@ -62,15 +68,14 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
     }
     
     func updateActive() {
-        guard let updateActive = WorkshopType(rawValue: self.workshopSegment.selectedSegmentIndex) else {return}
-        self.activeWorkshops = (updateActive == .all) ? workshops : bookedWorkshops
+        self.activeWorkshops = (activeSection == .all) ? workshops : bookedWorkshops
         if activeWorkshops.count == 0 {
             self.set(message: "No records..")
         }
     }
     
     func loadWorkshops(){
-        self.set(message: "Loading..")
+        //self.set(message: "Loading..")
         db.collection("Workshops").order(by: "dateTime", descending: true).getDocuments { querySnapshot, error in
             if let e = error {
                 print("There was an issue retreving data from fireStore. \(e)")
@@ -136,6 +141,7 @@ class viewWorkshopViewController: UIViewController, UISearchBarDelegate, UISearc
                             var nw = Workshops(Title: wName, presenter: pName, price: p, seat: se, description: desc, dateTime: datetime, uid: auth)
                             nw.documentId = document?.documentID
                             nw.purchasedDate = t.time
+                            nw.ticket = t
                             pw.append(nw)
                         }
                         
@@ -220,7 +226,8 @@ extension viewWorkshopViewController:UICollectionViewDelegateFlowLayout, UIColle
     
     //
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "si_viewWorkshopToDetails", sender: indexPath)
+        self.performSegue(withIdentifier:  (activeSection == .all) ? "si_viewWorkshopToDetails" : "si_viewWorkshopToMyTicket", sender: indexPath)
+        //
     }//end
     
 }//extention
@@ -233,7 +240,14 @@ extension viewWorkshopViewController {
         } else if segue.identifier == "si_viewWorkshopToDetails", //change
             let vc = segue.destination as? WorkshopDetailsVC, let indexPath = sender as? IndexPath {
             vc.workshop = filtered[indexPath.item]
+            
         }
+        else if segue.identifier == "si_viewWorkshopToMyTicket", //change
+            let vc = segue.destination as? BookedWorkshop, let indexPath = sender as? IndexPath {
+            let ws = filtered[indexPath.item]
+            vc.workshop = ws
+            vc.ticket = ws.ticket!
+        }////si_viewWorkshopToMyTicket
     }//path for collectionView
 }//extention
 

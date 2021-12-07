@@ -13,9 +13,6 @@ import Firebase
 
 
 import Foundation
-
-
-
 let K_MaxAllowedTicket = 3
 
 class WorkshopDetailsVC: UIViewController {
