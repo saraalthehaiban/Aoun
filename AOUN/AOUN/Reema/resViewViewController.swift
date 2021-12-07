@@ -126,16 +126,12 @@ extension resViewViewController:UICollectionViewDelegateFlowLayout, UICollection
         //        return resources.count
         //           }
     }//end count
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! resourceCellCollectionViewCell
-        cell.name.text = filtered[indexPath.row].name
-        
-        //        if(searchActive) {
-        //            cell.name.text = (filtered.count > indexPath.row) ? filtered[indexPath.row].name : ""
-        //        } else {
-        //        cell.name.text = resources[indexPath.row].name
-        //        }
+        let res = filtered[indexPath.row]
+        cell.name.text = res.name
+        cell.dateLabel.text = res.createDate.dateValue().dateString
         return cell
     }//end cell
     

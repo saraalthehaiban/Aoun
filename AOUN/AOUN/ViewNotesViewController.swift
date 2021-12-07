@@ -254,7 +254,9 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NoteCellCollectionViewCell
-        cell.noteLable.text = filtered[indexPath.row].noteLable
+        let note = filtered[indexPath.row]
+        cell.noteLable.text = note.noteLable
+        cell.dateLable.text = note.createDate.dateValue().dateString
         return cell
     }
     
