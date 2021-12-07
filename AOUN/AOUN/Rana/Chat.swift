@@ -287,7 +287,8 @@ class ChatViewController: MessagesViewController, InputBarAccessoryViewDelegate 
                 guard let user = querySnapshot?.documents.first, let fcmToken = user["fcmToken"] as? String else {
                     return
                 }
-                PushNotificationSender.sendPushNotification(to: fcmToken, title: "New message", body: "\(self.otherUser.displayName) sent you a message.")
+                let appd = UIApplication.shared.delegate as? AppDelegate
+                PushNotificationSender.sendPushNotification(to: fcmToken, title: "New message", body: "\(appd?.thisUser.displayName ?? "User") sent you a message.")
             }
         }
     }
