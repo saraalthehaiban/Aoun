@@ -61,9 +61,9 @@ class detailedNoteViewController: UIViewController{
         reviews.register(UINib(nibName: "ReviewCell", bundle: nil), forCellReuseIdentifier: "RevCell")
         reviews.delegate = self
         reviews.dataSource = self
+        
         //end table set up
         noteTitle.text = note.noteLable
-//        authorName.text = note.autherName
         autherNameButton.setTitle(note.autherName, for: .normal)
         desc.text = note.desc
         price.text = "\(note.price ?? "")"
@@ -76,7 +76,6 @@ class detailedNoteViewController: UIViewController{
         
         addReview.layer.shadowColor = UIColor.black.cgColor
         addReview.layer.shadowOpacity = 0.25
-        print ("Condition Check:", Auth.auth().currentUser?.uid,  note.userId, (Auth.auth().currentUser?.uid == note.userId))
         if (Auth.auth().currentUser?.uid == note.userId) {
             downloadButton.isHidden = true
             autherNameButton.setTitleColor(.black, for: .normal)
@@ -177,14 +176,18 @@ class detailedNoteViewController: UIViewController{
     
     var purchased : Bool = false
     func updateReviewButton() {
-        self.purchased(note: self.note) { condition in
-            self.purchased = condition
-            if condition {
-                self.addReview.isHidden = false
-                self.updateDownloadButton(price: self.priceOfNote, purchased: condition)
-            }else{
-                self.addReview.isHidden = true
+        if priceOfNote > 0 {
+            self.purchased(note: self.note) { condition in
+                self.purchased = condition
+                if condition {
+                    self.addReview.isHidden = false
+                    self.updateDownloadButton(price: self.priceOfNote, purchased: condition)
+                }else{
+                    self.addReview.isHidden = true
+                }
             }
+        } else {
+            self.addReview.isHidden = false
         }
     }
     
