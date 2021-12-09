@@ -201,11 +201,7 @@ class ProfileDetailViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     var empty =  "No notes"
-    
-    
-    fileprivate var selectedRow: Int?
-    
-    
+    var selectedRow: Int?
     func loadNotes (user:User, noDataMessage : String = "You haven’t posted any notes yet"){
         notes = []
         let query : Query = db.collection("Notes").whereField("uid", isEqualTo: user.uid)

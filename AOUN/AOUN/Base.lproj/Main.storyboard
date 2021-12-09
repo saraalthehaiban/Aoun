@@ -68,7 +68,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resouces" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axS-6B-l22">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axS-6B-l22">
                                 <rect key="frame" x="47" y="638" width="139" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="139" id="A4j-Fk-xGm"/>
@@ -1128,11 +1128,6 @@
             <point key="canvasLocation" x="-1214" y="1345"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="yAh-Ob-2JC">
-            <size key="intrinsicContentSize" width="180" height="32"/>
-        </designable>
-    </designables>
     <resources>
         <image name="26" width="2806" height="2093"/>
         <image name="8156711" width="512" height="512"/>

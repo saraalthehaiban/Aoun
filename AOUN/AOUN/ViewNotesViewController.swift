@@ -262,10 +262,10 @@ extension ViewNotesViewController:UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard =  UIStoryboard(name: "Main", bundle: nil)
-       if let vc = storyboard.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
+        if let vc = storyboard.instantiateViewController(withIdentifier: "detailedNoteViewController") as? detailedNoteViewController {
             vc.note = filtered[indexPath.row]
-        vc.delegate = self
-        vc.authID = filtered[indexPath.row].userId ?? ""
+            vc.delegate = self
+            vc.authID = filtered[indexPath.row].userId ?? ""
             self.present(vc, animated: true, completion: nil)
             
         }

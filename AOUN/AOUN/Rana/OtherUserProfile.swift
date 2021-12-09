@@ -10,6 +10,7 @@ import UIKit
 
 class OtherUserProfile : ProfileDetailViewController {
     @IBOutlet var chatButton : UIButton!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         self.initialize()
@@ -34,6 +35,31 @@ class OtherUserProfile : ProfileDetailViewController {
     override func getEmail(completion: @escaping((String) -> ())) {
         completion("_")
     }//end of getEmail
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView === self.notesTable {
+            self.selectedRow = indexPath.row
+            if let vc = appDelegate.viewController(storyBoardname: "Main", viewControllerId: "detailedNoteViewController") as? detailedNoteViewController{
+                let note = notes[indexPath.row]
+            vc.note = note
+            vc.delegate = self
+                vc.authID = note.userId ?? ""
+                self.present(vc, animated: true, completion: nil)
+            }
+            
+            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            if let vc = storyboard.instantiateViewController(identifier: "deleteNote") as? deleteNote {
+//                let note  = notes[indexPath.row]
+//                vc.delegate = self
+//                vc.index = indexPath
+//                vc.note = note
+//                self.present(vc, animated: true, completion: nil)
+//            }
+        }else{
+            super.tableView(tableView, didSelectRowAt: indexPath)
+        }
+    }
  }
 
 
@@ -45,5 +71,10 @@ extension OtherUserProfile {
             vc.user = user
             viewController.present(vc, animated: true, completion: nil)
         }
+    }
+}
+extension OtherUserProfile : detailedNoteViewControllerDelegate {
+    func detail(_ vc : detailedNoteViewController, notePurched:Bool) {
+        
     }
 }
