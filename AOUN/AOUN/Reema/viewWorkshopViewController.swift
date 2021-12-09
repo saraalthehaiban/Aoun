@@ -255,8 +255,9 @@ extension viewWorkshopViewController: postWorkshopViewControllerDelegate {
     func postWorkshop(_ vc: postWorkshopViewController, workshop: Workshops?, added: Bool){
         vc.dismiss(animated: true) {
             if added, let r = workshop {
-                self.workshops.append(r)
-                self.collection.reloadData()
+//                self.workshops.append(r)
+//                self.collection.reloadData()
+                self.loadWorkshops()
             }
         }
     }

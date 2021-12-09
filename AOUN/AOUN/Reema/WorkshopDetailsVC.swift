@@ -42,6 +42,7 @@ class WorkshopDetailsVC: UIViewController {
     var tickets : [Ticket] = []
     var myTickets : [Ticket] = []
     var user : User?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,11 @@ class WorkshopDetailsVC: UIViewController {
         
         // self.bookSupportTextField.inputView = purchaseTicketView
         // Do any additional setup after loading the view.
+        
+        if appDelegate.thisUser.uid == workshop.uid {
+            self.bookButton.isHidden = true
+            self.purchaseInformationLable.isHidden = true
+        }
         
         //load
         loadUser()
