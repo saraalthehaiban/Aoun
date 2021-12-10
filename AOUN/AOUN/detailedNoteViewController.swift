@@ -550,6 +550,7 @@ extension detailedNoteViewController : PostReviewDelegate {
         if posted {
             self.Reviews.insert(review, at: 0)
             self.reviews.reloadData()
+            self.set(message: (self.Reviews.count != 0) ? "" : nil)
             pr.dismiss(animated: true, completion: nil)
         } else{
             //Show error? IDK if it will ever show...
