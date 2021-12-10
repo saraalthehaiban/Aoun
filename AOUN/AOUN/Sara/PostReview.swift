@@ -89,7 +89,8 @@ class PostReview: UIViewController {
             nameOfUser: appDelegate.thisUser.fullName ?? "",
             review:  self.reviewNoteTextView.text!,
             point: self.rating ?? 0,
-            user:  db.document("users/\(appDelegate.thisUser.docID!)"))
+            user:  db.document("users/\(appDelegate.thisUser.docID!)"),
+            createDate: Timestamp(date: Date()))
         
 //        var data : [String :Any] = [:]
 //        data["review"] = self.reviewNoteTextView.text!
