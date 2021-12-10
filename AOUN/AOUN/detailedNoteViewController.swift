@@ -329,7 +329,8 @@ class detailedNoteViewController: UIViewController{
                     let review = data["review"] as! String
                     let point = data["point"] as! Double
                     let nameOfUser = data["nameOfUser"] as! String
-                    let newRev = Review(nameOfUser: nameOfUser, review: review, point: point, user: user)
+                    let createDate = data["createDate"] as! Timestamp
+                    let newRev = Review(nameOfUser: nameOfUser, review: review, point: point, user: user, createDate: createDate)
                     self.Reviews.append(newRev)
                     
 //                    user?.getDocument(completion: { userQuery, error in
@@ -527,6 +528,8 @@ extension detailedNoteViewController: UITableViewDataSource, UITableViewDelegate
         cell.user.text = Reviews[indexPath.row].nameOfUser
         cell.body.text = Reviews[indexPath.row].review
         cell.stars.rating = Reviews[indexPath.row].point
+        cell.date.text = Reviews[indexPath.row].createDate.dateValue().dateString
+        print(Reviews[indexPath.row].createDate.dateValue().dateString,"HERE Sara")
         return cell
     }
 }

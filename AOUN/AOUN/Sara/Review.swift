@@ -13,10 +13,12 @@ struct Review{
     let review: String //body
     let point: Double //star rating
     let user : DocumentReference
+    var createDate : Timestamp
     
     var dictionary : [String : Any] {
         return [
             "nameOfUser":nameOfUser,
+            "createDate":createDate,
             "review":review,
             "point":point,
             "user" :user
@@ -27,10 +29,11 @@ struct Review{
 extension Review {
     init?(dictionary:[String:Any]) {
         guard let review = dictionary["review"] as? String,
+              let createDate  = dictionary["createDate"] as? Timestamp,
               let point =  dictionary["point"] as? Double,
               let nameOfUser =  dictionary["nameOfUser"] as? String,
               let user = dictionary["user"] as? DocumentReference else {return nil}
-        self.init(nameOfUser: nameOfUser, review: review, point: point, user: user)
+        self.init(nameOfUser: nameOfUser, review: review, point: point, user: user, createDate: createDate)
     }
 }
 
