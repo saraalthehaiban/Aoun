@@ -528,7 +528,8 @@ extension detailedNoteViewController: UITableViewDataSource, UITableViewDelegate
         cell.user.text = Reviews[indexPath.row].nameOfUser
         cell.body.text = Reviews[indexPath.row].review
         cell.stars.rating = Reviews[indexPath.row].point
-        cell.date.text = Reviews[indexPath.row].createDate.dateValue().displayString()
+        cell.date.text = Reviews[indexPath.row].createDate.dateValue().dateString
+        print(Reviews[indexPath.row].createDate.dateValue().dateString,"HERE Sara")
         return cell
     }
 }

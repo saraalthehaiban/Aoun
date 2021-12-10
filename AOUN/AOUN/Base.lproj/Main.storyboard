@@ -287,18 +287,18 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="26" translatesAutoresizingMaskIntoConstraints="NO" id="w7H-ds-oh3">
-                                        <rect key="frame" x="20" y="70" width="199" height="155"/>
+                                        <rect key="frame" x="20" y="54" width="199" height="155"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="155" id="NMt-5W-tKk"/>
                                             <constraint firstAttribute="width" constant="199" id="bdO-FQ-qET"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XCj-mE-z4C">
-                                        <rect key="frame" x="198" y="37" width="18.5" height="10.5"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XCj-mE-z4C">
+                                        <rect key="frame" x="191.5" y="37" width="31" height="26.5"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOu-Qu-ToD">
-                                        <rect key="frame" x="42" y="233" width="88" height="30"/>
+                                        <rect key="frame" x="42" y="217" width="88" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="NNn-aE-cJC"/>
                                         </constraints>
@@ -320,7 +320,7 @@
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c25-gw-49L">
-                                        <rect key="frame" x="33" y="368" width="348" height="359"/>
+                                        <rect key="frame" x="33" y="352" width="348" height="375"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="20" id="vFa-Ee-x2x">
                                             <size key="itemSize" width="154" height="160"/>
@@ -352,11 +352,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mXZ-6L-aWh">
-                                        <rect key="frame" x="0.0" y="271" width="414" height="51"/>
+                                        <rect key="frame" x="0.0" y="255" width="414" height="51"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hjs-fK-1xW">
-                                        <rect key="frame" x="0.0" y="322" width="414" height="32"/>
+                                        <rect key="frame" x="0.0" y="306" width="414" height="32"/>
                                         <segments>
                                             <segment title="All Notes"/>
                                             <segment title="Purchased Notes"/>
@@ -380,7 +380,7 @@
                                     <constraint firstItem="hjs-fK-1xW" firstAttribute="top" secondItem="mXZ-6L-aWh" secondAttribute="bottom" id="YD6-0p-QwG"/>
                                     <constraint firstItem="hjs-fK-1xW" firstAttribute="leading" secondItem="coj-VW-dDC" secondAttribute="leading" id="gOL-uD-62c"/>
                                     <constraint firstItem="c25-gw-49L" firstAttribute="leading" secondItem="coj-VW-dDC" secondAttribute="leading" constant="33" id="juh-la-AGT"/>
-                                    <constraint firstItem="w7H-ds-oh3" firstAttribute="top" secondItem="XCj-mE-z4C" secondAttribute="bottom" constant="18" id="kRe-T2-bhl"/>
+                                    <constraint firstItem="w7H-ds-oh3" firstAttribute="top" secondItem="XCj-mE-z4C" secondAttribute="bottom" constant="2" id="kRe-T2-bhl"/>
                                     <constraint firstItem="coj-VW-dDC" firstAttribute="bottom" secondItem="6zv-zG-lev" secondAttribute="bottom" constant="53" id="ni0-EW-BYG"/>
                                     <constraint firstItem="6zv-zG-lev" firstAttribute="centerX" secondItem="om0-wF-dRI" secondAttribute="centerX" id="nlL-rI-T9G"/>
                                     <constraint firstItem="6zv-zG-lev" firstAttribute="top" secondItem="c25-gw-49L" secondAttribute="bottom" constant="8" symbolic="YES" id="p7l-pE-sj2"/>
